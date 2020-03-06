@@ -1,8 +1,8 @@
 <h1 class="IC_title">ImbaChatWidget settings</h1>
 <form class="IC_form" name="IC_setting_setup" method="POST" action="<?php echo $_SERVER['PHP_SELF']?>?page=imbachat">
     <?php
-        if(function_exists('vp_nonce_field')){
-            vp_nonce_field('IC_setting_setup');
+        if(function_exists('wp_nonce_field')){
+            wp_nonce_field('IC_setting_setup');
         }
     ?>
     <div class="IC_form__field">

@@ -13,32 +13,51 @@ add_action('imbachat', function()
         return;
     $dev_id = get_option('IC_dev_id');
     $json_data = getJsSettingsString();
-    require_once( IMBACHAT__PLUGIN_DIR . '/view/script.php' );
+    wp_enqueue_script( 'IC_script', 'https://api.imbachat.com/imbachat/v1/'.$dev_id.'/widget');
+    wp_add_inline_script( 'IC_script', "function imbachatWidget(){
+        if(!window.ImbaChat){
+            return setTimeout(imbachatWidget, 50);
+        }
+        params = ".$json_data.";
+        params['onInitSuccess'] = () =>{
+            imbaChat.openChat() 
+            imbaChat.addToRoom({
+                pipe:'c100',
+                title:'Conf 100',
+                'is_public': 1,
+                type:imbaChat.room_type.conference,
+                'users_ids':[
+                    {
+                        user_id:params.user_id
+                    }
+                ]
+            })
+        }
+        window.ImbaChat.load(params)
+    }
+    imbachatWidget();");
 });
 
 add_action('admin_menu',function ()
 {
     add_options_page('ImbaChatWidget', 'IC Widget Settings', 8, 'imbachat',function ()
     {
+        
         add_option('IC_dev_id', '');
         add_option('IC_login', '');
         add_option('IC_password', '');
         add_option('IC_secret_key', '');
-        if(isset($_POST['IC_setting_setup'])){
-            // if(function_exists['current_user_can'] && !current_user_can('manage_options'))
-            //     die ( _e('Hacker?', 'IC'));
-            // if(function_exists('check_admin_referer'))
-            //     check_admin_referer('IC_setting_setup');
-            $IC_dev_id = $_POST['IC_dev_id'];
-            $IC_login = $_POST['IC_login'];
+        if(isset($_POST['IC_setting_setup']) && check_admin_referer( 'IC_setting_setup' ) && current_user_can('administrator')){
+            
+            $IC_dev_id = sanitize_text_field($_POST['IC_dev_id']);
+            $IC_login = sanitize_text_field($_POST['IC_login']);
             $IC_password = $_POST['IC_password'];
-            $IC_secret_key = $_POST['IC_secret_key'];
+            $IC_secret_key = sanitize_text_field($_POST['IC_secret_key']);
 
             update_option('IC_dev_id', $IC_dev_id);
             update_option('IC_login', $IC_login);
             update_option('IC_password', $IC_password);
             update_option('IC_secret_key', $IC_secret_key);
-
 
         }
         require_once( IMBACHAT__PLUGIN_DIR . '/view/admin.php' );

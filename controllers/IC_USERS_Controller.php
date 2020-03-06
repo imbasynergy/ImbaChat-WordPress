@@ -1,6 +1,6 @@
 <?php
-add_action( 'rest_api_init', 'prefix_register_my_rest_routes' );
-function prefix_register_my_rest_routes() {
+add_action( 'rest_api_init', 'IC_prefix_register_my_rest_routes' );
+function IC_prefix_register_my_rest_routes() {
 	$controller = new IC_USERS_Controller();
 	$controller->register_routes();
 }
@@ -72,7 +72,7 @@ class IC_USERS_Controller extends WP_REST_Controller {
 	{
 		$this->testAuthOrDie();
 		$creds = array();
-		$creds['user_login'] = $_POST['login'];
+		$creds['user_login'] = sanitize_text_field($_POST['login']);
 		$creds['user_password'] = $_POST['password'];
 
 		$user_m = wp_signon($creds);
