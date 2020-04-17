@@ -1,11 +1,11 @@
 <?php
-add_action( 'rest_api_init', 'IC_prefix_register_my_rest_routes' );
-function IC_prefix_register_my_rest_routes() {
-	$controller = new IC_USERS_Controller();
+add_action( 'rest_api_init', 'IMCH_prefix_register_my_rest_routes' );
+function IMCH_prefix_register_my_rest_routes() {
+	$controller = new IMCH_USERS_Controller();
 	$controller->register_routes();
 }
 
-class IC_USERS_Controller extends WP_REST_Controller {
+class IMCH_USERS_Controller extends WP_REST_Controller {
 
 	function __construct(){
 		$this->namespace = 'imbachat/v1';
@@ -34,8 +34,8 @@ class IC_USERS_Controller extends WP_REST_Controller {
 
 	protected function testAuthOrDie()
     {
-        $login = get_option('IC_login');
-        $password = get_option('IC_password');
+        $login = get_option('IMCH_login');
+        $password = get_option('IMCH_password');
         if(!isset($_SERVER['PHP_AUTH_USER'])
                 || ($_SERVER['PHP_AUTH_PW']!=$password) 
                 || strtolower($_SERVER['PHP_AUTH_USER'])!=$login)

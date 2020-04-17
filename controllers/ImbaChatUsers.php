@@ -1,11 +1,11 @@
 <?php
 add_action( 'rest_api_init', 'prefix_register_my_rest_routes' );
 function prefix_register_my_rest_routes() {
-	$controller = new IC_USERS_Controller();
+	$controller = new IMCH_USERS_Controller();
 	$controller->register_routes();
 }
 
-class IC_USERS_Controller extends WP_REST_Controller {
+class IMCH_USERS_Controller extends WP_REST_Controller {
 
 	function __construct(){
 		$this->namespace = 'imbachat/v1';

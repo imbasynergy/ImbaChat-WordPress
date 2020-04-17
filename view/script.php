@@ -1,4 +1,4 @@
-<?php do_action('IC_scripts');?>
+<?php do_action('IMCH_scripts');?>
 <script>
     function imbachatWidget(){
         if(!window.ImbaChat){
