@@ -1,6 +1,6 @@
 <?php
-add_action( 'rest_api_init', 'prefix_register_my_rest_routes' );
-function prefix_register_my_rest_routes() {
+add_action( 'rest_api_init', 'IMCH_prefix_register_my_rest_routes' );
+function IMCH_prefix_register_my_rest_routes() {
 	$controller = new IMCH_USERS_Controller();
 	$controller->register_routes();
 }
