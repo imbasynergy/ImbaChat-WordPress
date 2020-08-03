@@ -1,9 +1,9 @@
-<h1 class="IMCH_title">ImbaChatWidget settings</h1>
+<h1 class="IMCH_title">ImbaChat settings</h1>
 <form class="IMCH_form" name="IMCH_setting_setup" method="POST" action="<?php echo $_SERVER['PHP_SELF']?>?page=imbachat">
     <?php
-        if(function_exists('wp_nonce_field')){
-            wp_nonce_field('IMCH_setting_setup');
-        }
+    if(function_exists('wp_nonce_field')){
+        wp_nonce_field('IMCH_setting_setup');
+    }
     ?>
     <div class="IMCH_form__field">
         <label class="IMCH_form__label">Developer id</label>
