@@ -91,9 +91,11 @@ class IMCH_USERS_Controller extends WP_REST_Controller {
 	}
 	public function search_users( WP_REST_Request $request )
 	{
+        global $wpdb;
+        $table_prefix = $wpdb->prefix;
 		$this->testAuthOrDie();
         $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME, 3306);
-        $res = $mysqli->query("SELECT * FROM imbademo_wordpress_users WHERE user_nicename LIKE '%".$mysqli->real_escape_string($request['string'])."%'");
+        $res = $mysqli->query("SELECT * FROM ".$table_prefix."users WHERE user_nicename LIKE '%".$mysqli->real_escape_string($request['string'])."%'");
         $users = array();
         while ($row = $res->fetch_assoc()) {
             $user = array();
