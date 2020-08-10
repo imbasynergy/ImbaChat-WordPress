@@ -14,7 +14,7 @@
     function closeChat() {
         if(imbaApi)
         {
-            window.imbaChat.closeChat();
+            imbaApi.closeChat();
             return false;
         }
     }
