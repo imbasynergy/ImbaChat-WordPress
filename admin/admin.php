@@ -1,7 +1,7 @@
 <?php
 
 add_action('admin_menu', function(){
-    add_menu_page( 'ImbaChat Widget', 'ImbaChat', 'manage_options', 'site-options', 'add_my_setting', '', 30 );
+    add_menu_page( 'ImbaChat Widget', 'ImbaChat', 'manage_options', 'imbachat-options', 'add_my_setting', '', 30 );
 } );
 function add_my_setting(){
     ?>
@@ -30,4 +30,4 @@ function add_my_setting(){
     </div>
     <?php
 
-}
+}?>

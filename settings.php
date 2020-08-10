@@ -2,6 +2,15 @@
 
 require_once( IMBACHAT__PLUGIN_DIR . '/controllers/IMCH_USERS_Controller.php' );
 require_once( IMBACHAT__PLUGIN_DIR . '/includes/imbachat_functions.php' );
+require_once( IMBACHAT__PLUGIN_DIR . '/widgets/ic_widgets.php' );
+
+wp_register_style( 'imbachat.css', plugins_url( 'ImbaChat/assets/css/imbachat.css' ));
+wp_enqueue_style( 'imbachat.css');
+wp_register_style( 'fontawesome', 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+wp_enqueue_style( 'fontawesome');
+
+if (get_option('IMCH_buddypress') == 1)
+    require_once( IMBACHAT__PLUGIN_DIR . '/includes/buddyPressInt.php' );
 
 if ( is_admin() ) {
     require_once IMBACHAT__PLUGIN_DIR . '/admin/admin.php';
@@ -13,13 +22,13 @@ function imbachat(){
     add_shortcode( 'ic_open_dialog', 'ic_open_dialog_with' );
 }
 
-add_action('imbachat', function()
+add_action('wp_footer', function()
 {
     if(!is_user_logged_in())
         return;
     $dev_id = get_option('IMCH_dev_id');
     $json_data = IMCH_getJsSettingsString();
-    var_dump($json_data);
+    echo '<div class="countMessages new-message"><span class="counter">0</span><i class="fa fa-envelope-o" aria-hidden="true"></i></div>';
     require_once( IMBACHAT__PLUGIN_DIR . '/view/script.php' );
     /*wp_enqueue_script( 'IMCH_script', 'https://api.imbachat.com/imbachat/v1/'.$dev_id.'/widget');
     wp_add_inline_script( 'IMCH_script', "function imbachatWidget(){
@@ -55,17 +64,20 @@ add_action('admin_menu',function ()
         add_option('IMCH_login', '');
         add_option('IMCH_password', '');
         add_option('IMCH_secret_key', '');
+        add_option('IMCH_buddypress', '');
         if(isset($_POST['IMCH_setting_setup']) && check_admin_referer( 'IMCH_setting_setup' ) && current_user_can('administrator')){
 
             $IMCH_dev_id = sanitize_text_field($_POST['IMCH_dev_id']);
             $IMCH_login = sanitize_text_field($_POST['IMCH_login']);
             $IMCH_password = $_POST['IMCH_password'];
             $IMCH_secret_key = sanitize_text_field($_POST['IMCH_secret_key']);
+            $IMCH_buddypress = $_POST['IMCH_buddypress'];
 
             update_option('IMCH_dev_id', $IMCH_dev_id);
             update_option('IMCH_login', $IMCH_login);
             update_option('IMCH_password', $IMCH_password);
             update_option('IMCH_secret_key', $IMCH_secret_key);
+            update_option('IMCH_buddypress', $IMCH_buddypress);
 
         }
         require_once( IMBACHAT__PLUGIN_DIR . '/view/admin.php' );

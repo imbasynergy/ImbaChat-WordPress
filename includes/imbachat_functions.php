@@ -17,5 +17,5 @@ function ic_open_dialog_with( $atts, $content = null, $code = '' ) {
         $id = (int) $atts['id'];
     }
     require_once( IMBACHAT__PLUGIN_DIR . '/view/ic_functions.php' );
-    return '<button onclick="open_dialog('.$id.')">click me</button>';
+    return '<button onclick="open_dialog('.$id.')">Open Dialog</button>';
 }
