@@ -12,6 +12,9 @@ wp_enqueue_style( 'fontawesome');
 if (get_option('IMCH_buddypress') == 1)
     require_once( IMBACHAT__PLUGIN_DIR . '/includes/buddyPressInt.php' );
 
+if (get_option('IMCH_market') == 1)
+    require_once( IMBACHAT__PLUGIN_DIR . '/includes/wcfm_market_int.php' );
+
 if ( is_admin() ) {
     require_once IMBACHAT__PLUGIN_DIR . '/admin/admin.php';
 }
