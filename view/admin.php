@@ -25,6 +25,10 @@
         <label class="IMCH_form__label">BuddyPress integration</label>
         <input class="IMCH_form__input" name="IMCH_buddypress" <?= get_option('IMCH_buddypress')==1 ? 'checked' : '' ?> value="1" type="checkbox">
     </div>
+    <div class="IMCH_form__field">
+        <label class="IMCH_form__label">Market integration</label>
+        <input class="IMCH_form__input" name="IMCH_market" <?= get_option('IMCH_market')==1 ? 'checked' : '' ?> value="1" type="checkbox">
+    </div>
     <button class="IMCH_form__button" name="IMCH_setting_setup" type="submit">Save</button>
 </form>
 <style>
