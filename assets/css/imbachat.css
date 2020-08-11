@@ -46,6 +46,7 @@
 .ic_bp_button{
     background-color: #2ba6cb !important;
     color: white !important;
+    font-size: 24px !important;
     border: none !important;
     cursor: pointer !important;
     margin-bottom: 10px !important;
