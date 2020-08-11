@@ -8,5 +8,5 @@ add_action('after_wcfmmp_store_header_actions', function (){
     }
     $userId = $store_user->ID;
     if ($userId != get_current_user_id())
-        echo do_shortcode('[ic_open_dialog id="'.$userId.'"]');
+        echo do_shortcode('[ic_open_dialog id="'.$userId.'" class="ic_bp_button"]');
 });

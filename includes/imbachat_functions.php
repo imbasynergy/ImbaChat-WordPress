@@ -10,14 +10,16 @@ function ic_open_dialog_with( $atts, $content = null, $code = '' ) {
         $atts = shortcode_atts(
             array(
                 'id' => 0,
+                'class' => ''
             ),
             $atts, 'ic'
         );
 
         $id = (int) $atts['id'];
+        $className = $atts['class'];
     }
     require_once( IMBACHAT__PLUGIN_DIR . '/view/ic_functions.php' );
-    return '<button onclick="open_dialog('.$id.')">Open Dialog</button>';
+    return '<button class="'.$className.'" onclick="open_dialog('.$id.')">Open Dialog</button>';
 }
 
 function ic_close_chat( $atts, $content = null, $code = '' ) {

@@ -43,3 +43,13 @@
     padding-right: 4px;
     padding-top: 3px;
 }
+.ic_bp_button{
+    background-color: #2ba6cb !important;
+    color: white !important;
+    border: none !important;
+    cursor: pointer !important;
+    margin-bottom: 10px !important;
+    text-transform: none !important;
+    /*margin: 2px 10px;*/
+    width: 60px !important;
+}
