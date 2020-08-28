@@ -6,15 +6,15 @@
     }
     ?>
     <div class="IMCH_form__field">
-        <label class="IMCH_form__label">Developer id</label>
+        <label class="IMCH_form__label">Widget id</label>
         <input class="IMCH_form__input" name="IMCH_dev_id" value="<?php echo get_option('IMCH_dev_id')?>" type="text">
     </div>
     <div class="IMCH_form__field">
-        <label class="IMCH_form__label">Developer login</label>
+        <label class="IMCH_form__label">API login</label>
         <input class="IMCH_form__input" name="IMCH_login" value="<?php echo get_option('IMCH_login')?>" type="text">
     </div>
     <div class="IMCH_form__field">
-        <label class="IMCH_form__label">Developer password</label>
+        <label class="IMCH_form__label">API password</label>
         <input class="IMCH_form__input" name="IMCH_password" value="<?php echo get_option('IMCH_password')?>" type="text">
     </div>
     <div class="IMCH_form__field">
@@ -37,6 +37,7 @@
         margin-bottom: 40px;
     }
     .IMCH_form__field {
+        padding-top: 10px;
         margin-left: 20px;
     }
     .IMCH_form__label {
