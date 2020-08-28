@@ -10,7 +10,7 @@ function add_my_setting(){
         <div class="instruction">
             <h3>Instruction after installing plugin</h3>
             <p>Firstly, you need to pass registration <a href="https://imbachat.com/register">here</a>,
-                if you are already done this before, follow the next steps</p>
+                if you are already done this before, follow the next steps.</p>
             <div style="">
                 <ul class="list">
                     <li>1. Go to <a href="https://imbachat.com/user">user dashboard</a> at our site</li>
@@ -29,15 +29,15 @@ function add_my_setting(){
                 <p>
                     Finally, go to Word-Press admin panel -> "Settings" -> "ImbaChat Settings" and fill all fields with information
                     from section "Data by security" at your widget's settings panel at ImbaChat.com.</p>
-                <p>Your "Widget ID" is here, after "Widget setting #"</p>
+                <p>Your "Widget ID" is here, after "Widget setting #".</p>
                 <div class="image-ins">
                     <img src="<?= IMBACHAT_ADMIN_DIR.'/assets/images/information.gif' ?>">
                 </div>
             </div>
         </div>
         <div class="instruction">
-            <h3>Also you can integrate our plugin with Buddypress plugin and wcfm plugin</h3>
-            <p>For that you need to fill correct checkbox at your admin panel panel->Settings->ImbaChat Settins "BuddyPress integration" or "Market integration"</p>
+            <h3>Also you can integrate our plugin with Buddypress plugin and wcfm plugin.</h3>
+            <p>For that you need to fill correct checkbox at your admin panel -> "Settings" -> "ImbaChat Settings" "BuddyPress integration" or "Market integration".</p>
         </div>
     </div>
     <style>
