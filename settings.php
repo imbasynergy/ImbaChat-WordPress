@@ -32,11 +32,11 @@ add_action('wp_footer', function()
     //echo do_shortcode('[ic_open_chat]');
     //echo do_shortcode('[ic_close_chat]');
 
-    if(!is_user_logged_in())
-        return;
+//    if(!is_user_logged_in())
+//        return;
     $dev_id = get_option('IMCH_dev_id');
     $json_data = IMCH_getJsSettingsString();
-    echo '<div class="countMessages new-message"><span class="counter">0</span><i class="fa fa-envelope-o" aria-hidden="true"></i></div>';
+    //echo '<div class="countMessages new-message"><span class="counter">0</span><i class="fa fa-envelope-o" aria-hidden="true"></i></div>';
     require_once( IMBACHAT__PLUGIN_DIR . '/view/script.php' );
     /*wp_enqueue_script( 'IMCH_script', 'https://api.imbachat.com/imbachat/v1/'.$dev_id.'/widget');
     wp_add_inline_script( 'IMCH_script', "function imbachatWidget(){
