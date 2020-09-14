@@ -29,38 +29,21 @@ function imbachat(){
 
 add_action('wp_footer', function()
 {
-    //echo do_shortcode('[ic_open_chat]');
-    //echo do_shortcode('[ic_close_chat]');
-
-//    if(!is_user_logged_in())
-//        return;
+    if (get_option('IMCH_dev_id' == ''))
+    {
+        $IMCH_dev_id = '209';
+        $IMCH_login = 'dev1322560';
+        $IMCH_password = 'cscblppfmjhjz36pbzbij';
+        $IMCH_secret_key = 'igrhel0er7py4xwnizo31';
+        update_option('IMCH_dev_id', $IMCH_dev_id);
+        update_option('IMCH_login', $IMCH_login);
+        update_option('IMCH_password', $IMCH_password);
+        update_option('IMCH_secret_key', $IMCH_secret_key);
+    }
     $dev_id = get_option('IMCH_dev_id');
     $json_data = IMCH_getJsSettingsString();
     //echo '<div class="countMessages new-message"><span class="counter">0</span><i class="fa fa-envelope-o" aria-hidden="true"></i></div>';
     require_once( IMBACHAT__PLUGIN_DIR . '/view/script.php' );
-    /*wp_enqueue_script( 'IMCH_script', 'https://api.imbachat.com/imbachat/v1/'.$dev_id.'/widget');
-    wp_add_inline_script( 'IMCH_script', "function imbachatWidget(){
-        if(!window.ImbaChat){
-            return setTimeout(imbachatWidget, 50);
-        }
-        params = ".$json_data.";
-        params['onInitSuccess'] = () =>{
-            imbaChat.openChat()
-            imbaChat.addToRoom({
-                pipe:'c100',
-                title:'Conf 100',
-                'is_public': 1,
-                type:imbaChat.room_type.conference,
-                'users_ids':[
-                    {
-                        user_id:params.user_id
-                    }
-                ]
-            })
-        }
-        window.ImbaChat.load(params)
-    }
-    imbachatWidget();");*/
 });
 
 add_action('admin_menu',function ()

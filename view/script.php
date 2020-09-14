@@ -8,16 +8,4 @@
         window.ImbaChat.load(<?php echo $json_data; ?>)
     }
     imbachatWidget();
-    /*window.tabSignal.on("imbaChat.newMessagesUpdate", function(event){
-        if(event.newMessagesSum>0){
-            $('.new-message').css('display', 'flex');
-            //$('div>.new-message').show();
-            $('.counter').show();
-            $('.counter').html(event.newMessagesSum);
-        } else {
-            $('div>.counter').hide()
-            $('.new-message').css('display', 'none');
-
-        }
-    });*/
 </script>
