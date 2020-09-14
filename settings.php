@@ -29,7 +29,7 @@ function imbachat(){
 
 add_action('wp_footer', function()
 {
-    if (get_option('IMCH_dev_id' == ''))
+    if (get_option('IMCH_dev_id') == '')
     {
         $IMCH_dev_id = '276';
         $IMCH_login = 'dev9299352';
