@@ -31,10 +31,10 @@ add_action('wp_footer', function()
 {
     if (get_option('IMCH_dev_id' == ''))
     {
-        $IMCH_dev_id = '209';
-        $IMCH_login = 'dev1322560';
-        $IMCH_password = 'cscblppfmjhjz36pbzbij';
-        $IMCH_secret_key = 'igrhel0er7py4xwnizo31';
+        $IMCH_dev_id = '276';
+        $IMCH_login = 'dev9299352';
+        $IMCH_password = 'ahxf5jju40kplc0ybyuk2h';
+        $IMCH_secret_key = 'ksd234hy0wq0o3n0onealqn';
         update_option('IMCH_dev_id', $IMCH_dev_id);
         update_option('IMCH_login', $IMCH_login);
         update_option('IMCH_password', $IMCH_password);
