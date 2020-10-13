@@ -23,6 +23,8 @@ add_action('plugins_loaded', 'imbachat');
 
 function imbachat(){
     add_shortcode( 'ic_open_dialog', 'ic_open_dialog_with' );
+    add_shortcode( 'ic_create_group', 'ic_create_group_with' );
+    add_shortcode( 'ic_join_group', 'ic_join_group' );
     add_shortcode( 'ic_open_chat', 'ic_open_chat' );
     add_shortcode( 'ic_close_chat', 'ic_close_chat' );
 }

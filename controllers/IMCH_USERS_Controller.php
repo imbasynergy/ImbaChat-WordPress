@@ -64,6 +64,11 @@ class IMCH_USERS_Controller extends WP_REST_Controller {
             $user['name'] = $user_m->user_nicename;
             $user['user_id'] =  $user_m->ID;
             $user['user_mail'] =  $user_m->user_email;
+            if ( in_array( 'administrator', (array) $user_m->roles ) ) {
+                $user['chat_role'] = 'admin';
+            } else {
+                $user['chat_role'] = 'user';
+            }
             $users[] = $user;
         }
         return $users;
