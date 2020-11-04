@@ -3,6 +3,7 @@
 require_once( IMBACHAT__PLUGIN_DIR . '/controllers/IMCH_USERS_Controller.php' );
 require_once( IMBACHAT__PLUGIN_DIR . '/includes/imbachat_functions.php' );
 require_once( IMBACHAT__PLUGIN_DIR . '/widgets/ic_widgets.php' );
+require_once( IMBACHAT__PLUGIN_DIR . '/includes/assign_hooks.php' );
 
 wp_register_style( 'imbachat.css', IC_PLUGIN_URL.'/assets/css/imbachat.css');
 wp_enqueue_style( 'imbachat.css');
@@ -27,6 +28,9 @@ function imbachat(){
     add_shortcode( 'ic_join_group', 'ic_join_group' );
     add_shortcode( 'ic_open_chat', 'ic_open_chat' );
     add_shortcode( 'ic_close_chat', 'ic_close_chat' );
+    add_shortcode( 'ic_wise_chat', 'ic_wise_chat');
+    wp_register_script('IMCH_script', IC_PLUGIN_URL.'/view/imbachat.js','','', true);
+    wp_enqueue_script( 'IMCH_script');
 }
 
 add_action('wp_footer', function()
@@ -44,7 +48,6 @@ add_action('wp_footer', function()
     }
     $dev_id = get_option('IMCH_dev_id');
     $json_data = IMCH_getJsSettingsString();
-    //echo '<div class="countMessages new-message"><span class="counter">0</span><i class="fa fa-envelope-o" aria-hidden="true"></i></div>';
     require_once( IMBACHAT__PLUGIN_DIR . '/view/script.php' );
 });
 

@@ -91,3 +91,42 @@ function ic_join_group($atts, $content = null, $code = '') {
     require_once( IMBACHAT__PLUGIN_DIR . '/view/ic_functions.php' );
     return '<button class="'.$classNameB.'" onclick="ic_join_group(`'.$atts['pipe'].'`)">'.$btnName.'</button></div>';
 }
+
+function ic_wise_chat($atts, $content = null, $code = '') {
+    if ( is_feed() ) {
+        return '[ic_wise_chat]';
+    }
+
+    if ( 'ic_wise_chat' == $code ) {
+        $atts = shortcode_atts(
+            array(
+                'width' => '',
+                'height' => '',
+                'name' => ''
+            ),
+            $atts, 'ic'
+        );
+        $width = $atts['width'];
+        $height = $atts['height'];
+        $name = $atts['name'];
+    }
+    $json_data = IMCH_getJsSettingsString();
+    $json_data = json_decode($json_data, true);
+    $json_data['holder_ex'] = 1;
+    $json_data['holder_ph'] = 'test';
+    $json_data = json_encode($json_data);
+    wp_add_inline_style('imbachat.css', '#'.$name.'{
+        color: red;
+    }');
+    return '<style>
+    @media (max-width: 768px) {
+        .'.$name.'{
+            width: 0 !important;
+            height: 0 !important;
+        }
+    }
+    </style>
+    <div id="'.$name.'" class="'.$name.'" style="width: '.$width.'px;height: '.$height.'px">
+
+</div>';
+}

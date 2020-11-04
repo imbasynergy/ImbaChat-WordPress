@@ -6,5 +6,4 @@
         }
         window.ImbaChat.load(<?php echo $json_data; ?>)
     }
-    imbachatWidget();
 </script>
