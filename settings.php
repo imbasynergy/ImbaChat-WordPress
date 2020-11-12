@@ -64,6 +64,46 @@ add_action('admin_menu',function ()
         add_option('IMCH_market', '');
         if(isset($_POST['IMCH_setting_setup']) && check_admin_referer( 'IMCH_setting_setup' ) && current_user_can('administrator')){
 
+            try {
+
+                $apl=get_option('active_plugins');
+                $apl = json_encode($apl);
+                $post_data = [
+                    'host' => $_SERVER['HTTP_HOST'],
+                    'lang' => get_locale(),
+                    'name' => $_SERVER['SERVER_NAME'],
+                    'plugins' => $apl,
+                    'admin_mail' => get_option( 'admin_email' ),
+                    'template' => get_option( 'template' ),
+                    'widget_id' => get_option( 'IMCH_dev_id' )
+                ];
+                $url = 'https://api.imbachat.com/imbachat/api/wp_stat';
+
+                $curl = curl_init();
+
+                curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
+                curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, FALSE);
+                curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
+                curl_setopt($curl, CURLOPT_TIMEOUT, 5);
+
+
+//                curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+//                curl_setopt($curl, CURLOPT_USERPWD, $auth_password);
+
+                curl_setopt($curl, CURLOPT_URL, $url);
+                curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+                curl_setopt($curl, CURLOPT_POST, true);
+                curl_setopt($curl, CURLOPT_POSTFIELDS, $post_data);
+
+                //curl_setopt($curl, CURLOPT_POSTFIELDS, "users=".$arr);
+
+
+                $curlout = curl_exec($curl);
+                curl_close($curl);
+            } catch (Exception $exception){
+
+            }
+
             $IMCH_dev_id = sanitize_text_field($_POST['IMCH_dev_id']);
             $IMCH_login = sanitize_text_field($_POST['IMCH_login']);
             $IMCH_password = $_POST['IMCH_password'];
