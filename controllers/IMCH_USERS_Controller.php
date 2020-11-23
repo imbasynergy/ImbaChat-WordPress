@@ -30,6 +30,12 @@ class IMCH_USERS_Controller extends WP_REST_Controller {
                 'callback'            => [ $this, 'search_users' ]
             ]
         ] );
+        register_rest_route( $this->namespace, "/sync", [
+            [
+                'methods'             => 'POST',
+                'callback'            => [ $this, 'sync' ]
+            ]
+        ] );
     }
 
     protected function testAuthOrDie()
@@ -115,6 +121,28 @@ class IMCH_USERS_Controller extends WP_REST_Controller {
         }
         return $users;
     }
+
+    public function sync(WP_REST_Request $request)
+    {
+        $in_password = $request['in_password'];
+        $out_password = $request['out_password'];
+        $dev_id = null;
+        if (isset($request['dev_id']))
+        {
+            $dev_id = $request['dev_id'];
+        }
+        $out_array = explode(':', $out_password);
+        if (count($out_array) == 2)
+        {
+            if ($dev_id)
+                update_option('IMCH_dev_id', $dev_id);
+
+            update_option('IMCH_login', $out_array[0]);
+            update_option('IMCH_password', $out_array[1]);
+            update_option('IMCH_secret_key', $in_password);
+        }
+    }
+
     public function getApiVersion(){
 
         // $this->testAuthOrDie();

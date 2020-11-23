@@ -4,16 +4,15 @@ require_once( IMBACHAT__PLUGIN_DIR . '/controllers/IMCH_USERS_Controller.php' );
 require_once( IMBACHAT__PLUGIN_DIR . '/includes/imbachat_functions.php' );
 require_once( IMBACHAT__PLUGIN_DIR . '/widgets/ic_widgets.php' );
 require_once( IMBACHAT__PLUGIN_DIR . '/includes/assign_hooks.php' );
+require_once (IMBACHAT__PLUGIN_DIR . '/admin/sync/sync.php');
 
 wp_register_style( 'imbachat.css', IC_PLUGIN_URL.'/assets/css/imbachat.css');
 wp_enqueue_style( 'imbachat.css');
 wp_register_style( 'fontawesome', 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 wp_enqueue_style( 'fontawesome');
 
-if (get_option('IMCH_buddypress') == 1)
     require_once( IMBACHAT__PLUGIN_DIR . '/includes/buddyPressInt.php' );
 
-if (get_option('IMCH_market') == 1)
     require_once( IMBACHAT__PLUGIN_DIR . '/includes/wcfm_market_int.php' );
 
 if ( is_admin() ) {
@@ -29,6 +28,16 @@ function imbachat(){
     add_shortcode( 'ic_open_chat', 'ic_open_chat' );
     add_shortcode( 'ic_close_chat', 'ic_close_chat' );
     add_shortcode( 'ic_wise_chat', 'ic_wise_chat');
+
+    if (get_option('IMCH_login','') == '' || get_option('IMCH_password','') == '' || get_option('IMCH_secret_key','') == '')
+    {
+        if (get_option('IMCH_dev_id', '') == '')
+            $dev_id = null;
+        else
+            $dev_id = get_option('IMCH_dev_id');
+        sync_with_imba_api($dev_id, $_SERVER['HTTP_HOST'], get_option( 'admin_email' ));
+    }
+
     wp_register_script('IMCH_script', IC_PLUGIN_URL.'/view/imbachat.js','','', true);
     wp_enqueue_script( 'IMCH_script');
 }
@@ -68,6 +77,7 @@ add_action('admin_menu',function ()
 
                 $apl=get_option('active_plugins');
                 $apl = json_encode($apl);
+
                 $post_data = [
                     'host' => $_SERVER['HTTP_HOST'],
                     'lang' => get_locale(),
@@ -75,17 +85,15 @@ add_action('admin_menu',function ()
                     'plugins' => $apl,
                     'admin_mail' => get_option( 'admin_email' ),
                     'template' => get_option( 'template' ),
-                    'widget_id' => get_option( 'IMCH_dev_id' )
+                    'widget_id' => sanitize_text_field($_POST['IMCH_dev_id'])
                 ];
                 $url = 'https://api.imbachat.com/imbachat/api/wp_stat';
-
                 $curl = curl_init();
 
                 curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
                 curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, FALSE);
                 curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
                 curl_setopt($curl, CURLOPT_TIMEOUT, 5);
-
 
 //                curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
 //                curl_setopt($curl, CURLOPT_USERPWD, $auth_password);
