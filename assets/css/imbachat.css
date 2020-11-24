@@ -1,13 +1,18 @@
+
 .ic_bp_button{
-    background-color: #2ba6cb !important;
+    background-color: #559bff !important;
     color: white !important;
     font-size: 18px !important;
     border: none !important;
     cursor: pointer !important;
     margin-bottom: 10px !important;
     text-transform: none !important;
+    padding-top: 10px !important;
+    padding-right: 20px !important;
+    padding-bottom: 10px !important;
+    padding-left: 20px !important;
     /*margin: 2px 10px;*/
-    width: 60px !important;
+    /*width: 60px !important;*/
 }
 .newsup{
     background: #1151d3;

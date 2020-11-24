@@ -1,0 +1,203 @@
+#regForm {
+    background-color: #ffffff;
+    margin: 100px auto;
+    padding: 40px;
+    width: 35%;
+    min-width: 300px;
+}
+
+/* Style the input fields */
+input {
+    padding: 10px;
+    width: 100%;
+    font-size: 17px;
+    font-family: Raleway;
+    border: 1px solid #aaaaaa;
+}
+
+/* Mark input boxes that gets an error on validation: */
+input.invalid {
+    background-color: #ffdddd;
+}
+
+/* Hide all steps by default: */
+.imba_tab {
+    display: none;
+}
+
+/* Make circles that indicate the steps of the form: */
+.step {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbbbbb;
+    border: none;
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.5;
+}
+
+/* Mark the active step: */
+.step.step_active {
+    opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+    background-color: #4CAF50;
+}
+.img_holder {
+    padding: 10px 0px 10px 0px;
+    text-align: center;
+}
+.buttons_holder{
+    text-align: center;
+}
+.tab_title{
+    text-align: center;
+}
+.imba_collapsible {
+    background: none;
+    color: black;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+}
+
+.active, .imba_collapsible:hover {
+    background: none;
+}
+
+.imba_collapsible:after {
+    content: '\002B';
+    color: black;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+
+.active:after {
+    content: "\2212";
+}
+
+.imba_collapse_content {
+    padding: 0 25px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background: none;
+    margin-bottom: 15px;
+}
+.custom-select {
+    position: relative;
+    margin: auto;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.custom-select select {
+    display: none; /*hide original SELECT element: */
+}
+
+.select-selected {
+    background-color: #7B8DFF;
+}
+
+/* Style the arrow inside the select element: */
+.select-selected:after {
+    position: absolute;
+    content: "";
+    top: 14px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-color: #fff transparent transparent transparent;
+}
+
+/* Point the arrow upwards when the select box is open (active): */
+.select-selected.select-arrow-active:after {
+    border-color: transparent transparent #fff transparent;
+    top: 7px;
+}
+
+/* style the items (options), including the selected item: */
+.select-items div,.select-selected {
+    color: #ffffff;
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+    cursor: pointer;
+}
+
+/* Style items (options): */
+.select-items {
+    position: absolute;
+    background-color: #7B8DFF;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+}
+
+/* Hide the items when the select box is closed: */
+.select-hide {
+    display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.imba_collapse_content ul {
+    padding: 0;
+    list-style-image: url(../images/price-check.svg);
+}
+.price-container ul {
+    padding: 0;
+    padding: revert;
+    list-style-image: url(../images/price-check.svg);
+}
+.imba_btn:hover {
+    color: #7B8DFF;
+    background: transparent;
+}
+.imba_btn{
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: .363636px;
+    text-transform: uppercase;
+    background: #7B8DFF;
+    border: 1px solid #7B8DFF;
+    border-radius: 4px;
+    color: #FFF;
+    width: 136px;
+    height: 46px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    transition: .4s;
+    bottom: 25px;
+    padding: 0 !important;
+}
+.imba_row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.imba_col {
+    float: left;
+    width: 50%;
+    padding: 10px;
+}
+* {
+    box-sizing: border-box;
+}
+.text_center{
+    text-align: center;
+}

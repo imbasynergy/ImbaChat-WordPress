@@ -5,7 +5,6 @@ function ic_open_dialog_with( $atts, $content = null, $code = '' ) {
     if ( is_feed() ) {
         return '[ic_open_dialog]';
     }
-
     if ( 'ic_open_dialog' == $code ) {
         $atts = shortcode_atts(
             array(
@@ -21,7 +20,9 @@ function ic_open_dialog_with( $atts, $content = null, $code = '' ) {
         $btnName = $atts['name'];
     }
     require_once( IMBACHAT__PLUGIN_DIR . '/view/ic_functions.php' );
-    return '<button class="'.$className.'" onclick="open_dialog('.$id.')">'.$btnName.'</button>';
+    return '<button class="'.$className.'" onclick="open_dialog('.$id.')"><img
+  src="'.IC_PLUGIN_URL.'/assets/images/message.svg"
+  alt="За стеклом" style="padding-right: 15px">'.$btnName.'</button>';
 }
 
 function ic_close_chat( $atts, $content = null, $code = '' ) {

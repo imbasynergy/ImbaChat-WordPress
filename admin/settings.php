@@ -1,6 +1,6 @@
 <?php
 
-    function add_my_setting(){
+function add_my_setting(){
 ?>
 <div class="wrap">
     <h1><?php echo get_admin_page_title() ?></h1>
@@ -107,13 +107,6 @@
         require_once IMBACHAT__PLUGIN_DIR . '/view/admin_menu/settings.php';
     }
 
-    function sync_with_imbachat(){
-
-        $dev_id = $_REQUEST['IMCH_dev_id'];
-        sync_with_imba_api($dev_id, $_SERVER['HTTP_HOST'], get_option( 'admin_email' ));
-        wp_redirect(admin_url( 'admin.php' ).'?page=imbachat-settings', 302);
-    }
-
     function imbachat_links()
     {
 
@@ -131,4 +124,25 @@
             die;
         }
     }
+
+    function imbachat_setup_help(){
+
+        add_option('IMCH_GET_STARTED', '');
+        require_once IMBACHAT__PLUGIN_DIR . '/view/admin_menu/get_started.php';
+    }
+
+    //post функции
+    function sync_with_imbachat(){
+
+        $dev_id = $_REQUEST['IMCH_dev_id'];
+        sync_with_imba_api($dev_id, $_SERVER['HTTP_HOST'], get_option( 'admin_email' ));
+        wp_redirect(admin_url( 'admin.php' ).'?page=imbachat-settings', 302);
+    }
+
+    function interactive_submit()
+    {
+        update_option('IMCH_GET_STARTED', 1);
+        wp_redirect(admin_url( 'admin.php' ).'?page=imbachat-options', 302);
+    }
+
     ?>

@@ -4,7 +4,7 @@
     <input hidden id="IMCH_dev_id" value="<?php echo get_option('IMCH_dev_id', '')?>">
     <input hidden id="IMCH_host" value="<?php echo $_SERVER['HTTP_HOST']?>">
     <div>
-        <h3>Create your ImbaChat account or if you have already registered write your email to link into widget setting`s page</h3>
+        <h3>Please, enter your e-mail, registered on the ImbaChat website. It will be checked and the links will be shown below.</h3>
         <div class="IMCH_form__field">
             <label class="IMCH_form__label" for="email">Your email address</label>
             <input id="email" name="im_email" class="IMCH_form__input" value="<?= get_option( 'admin_email' ) ?>">
@@ -80,11 +80,11 @@
                     let dashboard_link = data.imachat_dashboard;
                     console.log(data)
                     $("#links_block").html(
-                        '<div class="IMCH_form__field">\n' +
-                        '        <button class="IMCH_form__button" onclick="go_to(\''+imbachat_link+'\')">Visit ImbaChat.com admin panel</button>\n' +
+                        '<div class="IMCH_form__field" style="display: inline-block">\n' +
+                        '        <button class="IMCH_form__button" onclick="go_to(\''+imbachat_link+'\')">Admin panel</button>\n' +
                         '    </div>\n' +
-                        '    <div class="IMCH_form__field">\n' +
-                        '        <button class="IMCH_form__button" onclick="go_to(\''+dashboard_link+'\')">Visit ImbaChat dashboard panel</button>\n' +
+                        '    <div class="IMCH_form__field inline" style="display: inline-block">\n' +
+                        '        <button class="IMCH_form__button" onclick="go_to(\''+dashboard_link+'\')">Dashboard panel</button>\n' +
                         '    </div>'
                     )
                 }
