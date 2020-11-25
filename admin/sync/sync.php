@@ -8,8 +8,10 @@ function sync_with_imba_api($dev_id, $host, $mail)
             'cms' => 'ImbaChat-WordPress',
             'dev_id' => $dev_id,
             'email' => $mail,
+            'lang' => get_option('IMCH_LANG') ? get_option('IMCH_LANG') : 'en-US',
         ];
         $url = 'https://api.imbachat.com/developers/api/v1/sync';
+        //https://develop.im.awsweb.imbachat.com/backend/system/eventlogs
         $curl = curl_init();
 
         curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);

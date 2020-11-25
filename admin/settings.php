@@ -101,7 +101,7 @@ function add_my_setting(){
             update_option('IMCH_login', $IMCH_login);
             update_option('IMCH_password', $IMCH_password);
             update_option('IMCH_secret_key', $IMCH_secret_key);
-            sync_with_imba_api($IMCH_dev_id, $_SERVER['HTTP_HOST'], get_option( 'admin_email' ));
+            sync_with_imba_api($IMCH_dev_id, $_SERVER['HTTP_HOST']!='' ? $_SERVER['HTTP_HOST'] : preg_replace('#https?://(www.)?#','',site_url()), get_option( 'admin_email' ));
         }
 
         require_once IMBACHAT__PLUGIN_DIR . '/view/admin_menu/settings.php';
@@ -127,7 +127,12 @@ function add_my_setting(){
 
     function imbachat_setup_help(){
 
-        add_option('IMCH_GET_STARTED', '');
+        add_option('IMCH_LANG', '');
+
+        $db_link = null;
+        if (get_option('IMCH_dev_id'))
+            $db_link = 'https://dashboard.imbachat.com/#/'.get_option('IMCH_dev_id').'/auth/'.IMCH_getJWT();
+
         require_once IMBACHAT__PLUGIN_DIR . '/view/admin_menu/get_started.php';
     }
 
@@ -135,13 +140,13 @@ function add_my_setting(){
     function sync_with_imbachat(){
 
         $dev_id = $_REQUEST['IMCH_dev_id'];
-        sync_with_imba_api($dev_id, $_SERVER['HTTP_HOST'], get_option( 'admin_email' ));
+        sync_with_imba_api($dev_id, $_SERVER['HTTP_HOST']=='' ? $_SERVER['HTTP_HOST'] : preg_replace('#https?://(www.)?#','',site_url()), get_option( 'admin_email' ));
         wp_redirect(admin_url( 'admin.php' ).'?page=imbachat-settings', 302);
     }
 
     function interactive_submit()
     {
-        update_option('IMCH_GET_STARTED', 1);
+        update_option('IMCH_LANG', $_REQUEST['language']);
         wp_redirect(admin_url( 'admin.php' ).'?page=imbachat-options', 302);
     }
 

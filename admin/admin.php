@@ -31,44 +31,53 @@ add_action('admin_menu', function(){
         31 );
 } );
 
-//add_action('admin_menu', function(){
-//    add_submenu_page(
-//        'imbachat-options',
-//        'ImbaChat Links',
-//        'Chat Dashboard links',
-//        8,
-//        'imbachat-links',
-//        'imbachat_links',
-//        32 );
-//} );
+add_action( 'admin_menu' , function (){
+    global $submenu;
+    if (get_option('IMCH_secret_key')&&get_option('IMCH_dev_id'))
+    {
+        $links = [
+            'imbachat' => 'https://imbachat.com/visitor/login-user?token='.get_option('IMCH_secret_key'),
+            'imachat_dashboard' => 'https://dashboard.imbachat.com/#/'.get_option('IMCH_dev_id').'/auth/'.IMCH_getJWT()
+        ];
+        $submenu['imbachat-options'][9998] = array( __('Admin Panel'), 'manage_options', $links['imbachat'], '', 'imba-open-if-no-js menu-top', '', 'target' );
+        $submenu['imbachat-options'][9999] = array( __('Dashboard Panel'), 'manage_options', $links['imachat_dashboard'], '', 'imba-open-if-no-js menu-top', '', 'div' );
+    }
+} );
+
+add_action( 'admin_footer', 'make_maricache_blank' );
+function make_maricache_blank()
+{
+    ?>
+    <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $('.imba-open-if-no-js').children().attr('target','_blank');
+        });
+    </script>
+    <?php
+}
 
 add_action('admin_menu', function(){
-    if (get_option('IMCH_GET_STARTED', 0) != 1)
+    if ($_GET['page'] == 'imbachat-setup-help')
     {
-        if ($_GET['page'] == 'imbachat-setup-help')
-        {
-            add_action( 'admin_enqueue_scripts', function (){
-                wp_enqueue_media();
-                wp_register_script('imbachat-admin-script',IC_PLUGIN_URL . '/assets/js/mpform.js', array(), '1.0.0', true);
-                wp_enqueue_script('imbachat-admin-script');
-                wp_register_script('imbachat-admin-mp-slct-script',IC_PLUGIN_URL . '/assets/js/mpform_select.js', array(), '1.0.0', true);
-                wp_enqueue_script('imbachat-admin-mp-slct-script');
-                wp_register_style('imbachat-admin-style',IC_PLUGIN_URL . '/assets/css/mpform.css', array(), '1.0.0', 'all');
-                wp_enqueue_style('imbachat-admin-style');
-                wp_register_style('imbachat-admin-fontawesome-style',IC_PLUGIN_URL . '/assets/fontawesome/css/all.css', array(), '1.0.0', 'all');
-                wp_enqueue_style('imbachat-admin-fontawesome-style');
+        add_action( 'admin_enqueue_scripts', function (){
+            wp_enqueue_media();
+            wp_register_script('imbachat-admin-script',IC_PLUGIN_URL . '/assets/js/mpform.js', array(), '1.0.0', true);
+            wp_enqueue_script('imbachat-admin-script');
+            wp_register_script('imbachat-admin-mp-slct-script',IC_PLUGIN_URL . '/assets/js/mpform_select.js', array(), '1.0.0', true);
+            wp_enqueue_script('imbachat-admin-mp-slct-script');
+            wp_register_style('imbachat-admin-style',IC_PLUGIN_URL . '/assets/css/mpform.css', array(), '1.0.0', 'all');
+            wp_enqueue_style('imbachat-admin-style');
 
-            } );
-        }
-        add_submenu_page(
-            'imbachat-options',
-            'Get Started with Imba Chat',
-            'Get Started',
-            8,
-            'imbachat-setup-help',
-            'imbachat_setup_help',
-            0 );
+        } );
     }
+    add_submenu_page(
+        'imbachat-options',
+        'Get Started with Imba Chat',
+        'Get Started',
+        8,
+        'imbachat-setup-help',
+        'imbachat_setup_help',
+        0 );
 } );
 
 //Метод запроса

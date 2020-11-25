@@ -21,12 +21,9 @@
 <div>
     <h3>If you have some problems or extra questions about our plugin, you can create a ticket in our <a href="https://wordpress.org/support/plugin/imbachat-widget/">support forum</a></h3>
 </div>
-<h1>Chat dashboard links</h1>
-<div id="links_block" class="loader">
-</div>
 <script>
 
-    jQuery(function($){
+    /*jQuery(function($){
         async function get_links_by_mail() {
             let result;
             let user_mail = '';
@@ -52,7 +49,7 @@
             )
 
             let dev_id = $("#IMCH_dev_id").val() ? $("#IMCH_dev_id").val() : null
-            console.log(dev_id)
+
             await $.ajax({
                 url: 'https://api.imbachat.com/developers/api/v1/sync',
                 type: 'POST',
@@ -63,38 +60,10 @@
                     host: $("#IMCH_host").val()
                 },
                 success: function (data) {
-                    console.log(data)
+
                 },
                 error: function () {
                     result = false;
-                }
-            })
-            if (result)
-                get_links_to_imbachat()
-            $("#links_block").removeClass('loader')
-        }
-
-        function get_links_to_imbachat (){
-            $.ajax({
-                url: '<?php echo admin_url("admin-ajax.php")?>',
-                type: 'POST',
-                data: {
-                    action: 'get_links_to_imbachat',
-                    param: 'test'
-                },
-                success: function (response) {
-                    let data = JSON.parse(response);
-                    let imbachat_link = data.imbachat;
-                    let dashboard_link = data.imachat_dashboard;
-                    console.log(data)
-                    $("#links_block").html(
-                        '<div class="IMCH_form__field" style="display: inline-block">\n' +
-                        '        <button class="IMCH_form__button" onclick="go_to(\''+imbachat_link+'\')">Admin panel</button>\n' +
-                        '    </div>\n' +
-                        '    <div class="IMCH_form__field inline" style="display: inline-block">\n' +
-                        '        <button class="IMCH_form__button" onclick="go_to(\''+dashboard_link+'\')">Dashboard panel</button>\n' +
-                        '    </div>'
-                    )
                 }
             })
         }
@@ -103,7 +72,7 @@
     });
     function go_to(link) {
         window.open(link);
-    }
+    }*/
 </script>
 <style>
     .IMCH_title{

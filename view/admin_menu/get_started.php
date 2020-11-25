@@ -4,7 +4,7 @@
     <!-- One "tab" for each step in the form: -->
     <div class="imba_tab">
         <div class="img_holder">
-            <img width="300" src="<?= IMBACHAT_ADMIN_DIR.'/assets/images/get_started/Step_1.png' ?>">
+            <img width="200" src="<?= IMBACHAT_ADMIN_DIR.'/assets/images/get_started/Step_1.png' ?>">
         </div>
         <h3 class="tab_title">1. Welcome to the ImbaChat!</h3>
         <p class="text_center">
@@ -15,7 +15,7 @@
 
     <div class="imba_tab">
         <div class="img_holder">
-            <img width="300" src="<?= IMBACHAT_ADMIN_DIR.'/assets/images/get_started/step_2.jpg' ?>">
+            <img width="200" src="<?= IMBACHAT_ADMIN_DIR.'/assets/images/get_started/step_2.jpg' ?>">
         </div>
         <h3 class="tab_title">
             2. Users connection setting
@@ -28,20 +28,20 @@
         <button type="button" class="imba_collapsible">Short codes</button>
         <div class="imba_collapse_content">
             <ul>
-                <li>[ic_open_dialog]</li>
-                <li>[ic_create_group]</li>
-                <li>[ic_join_group]</li>
-                <li>[ic_open_chat]</li>
-                <li>[ic_close_chat]</li>
-                <li>[ic_wise_chat]</li>
+                <li>[ic_open_dialog] - Start chatting with user</li>
+                <li>[ic_create_group] - Create public group</li>
+                <li>[ic_join_group] - Join to group</li>
+                <li>[ic_open_chat] - Open chat</li>
+                <li>[ic_close_chat] - Close chat</li>
+                <li>[ic_wise_chat] - Placeholder for chat on website page</li>
             </ul>
-            <a href="#">How to install shortcodes</a>
+            <a href="https://imbachat.com/en/blog/post/wordpress-shortcodes">How to install shortcodes</a>
         </div>
     </div>
 
     <div class="imba_tab">
         <div class="img_holder">
-            <img width="300" src="<?= IMBACHAT_ADMIN_DIR.'/assets/images/get_started/step_3.jpg' ?>">
+            <img width="200" src="<?= IMBACHAT_ADMIN_DIR.'/assets/images/get_started/step_3.jpg' ?>">
         </div>
         <h3 class="tab_title">3. Language</h3>
         <div>
@@ -50,18 +50,19 @@
                 If you need to customize the interface in another language, you can change each phrase here.
             </p>
         </div>
-        <div class="custom-select" style="width: 150px">
-            <select>
-                <option value="en">English</option>
-                <option value="ru">Russian</option>
-                <option value="it">Italian</option>
+        <div class="custom-select">
+            <select name="language">
+                <option value="null">Select language:</option>
+                <option selected value="en-US">English</option>
+                <option value="ru-RUS">Russian</option>
+                <option value="it-IT">Italian</option>
             </select>
         </div>
     </div>
 
     <div class="imba_tab">
         <div class="img_holder">
-            <img width="300" src="<?= IMBACHAT_ADMIN_DIR.'/assets/images/get_started/step_4.jpg' ?>">
+            <img width="200" src="<?= IMBACHAT_ADMIN_DIR.'/assets/images/get_started/step_4.jpg' ?>">
         </div>
         <h3 class="tab_title">4. Style customization</h3>
         <p class="text_center">
@@ -71,10 +72,19 @@
 
     <div class="imba_tab">
         <div class="img_holder">
-            <img width="300" src="<?= IMBACHAT_ADMIN_DIR.'/assets/images/get_started/step_5.jpg' ?>">
+            <img width="200" src="<?= IMBACHAT_ADMIN_DIR.'/assets/images/get_started/step_5.jpg' ?>">
         </div>
         <h3 class="tab_title">5. Chat moderation</h3>
-        <p>As a chat administrator, you can moderate the chat. <a href="https://dasboard.imbachat.com/">Here is the chat moderation admin panel.</a></p>
+        <p>As a chat administrator, you can moderate the chat.
+            <?php
+            if ($db_link)
+            {
+                ?>
+                <a href="<?= $db_link ?>">Here is the chat moderation admin panel.</a>
+                <?php
+            }
+            ?>
+        </p>
 
     </div>
 

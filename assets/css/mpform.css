@@ -1,8 +1,8 @@
 #regForm {
     background-color: #ffffff;
-    margin: 100px auto;
+    margin: 50px auto;
     padding: 40px;
-    width: 35%;
+    width: 40%;
     min-width: 300px;
 }
 
@@ -96,7 +96,9 @@ input.invalid {
     position: relative;
     margin: auto;
     margin-top: 25px;
-    margin-bottom: 25px;
+    margin-bottom: 115px;
+    width: 100%;
+    text-align: center;
 }
 
 .custom-select select {
@@ -200,4 +202,16 @@ input.invalid {
 }
 .text_center{
     text-align: center;
+}
+
+@media screen and (max-width: 650px) {
+    #regForm {
+        width: 100% !important;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    #regForm {
+        width: 60%;
+    }
 }
