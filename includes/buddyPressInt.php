@@ -20,14 +20,30 @@ add_action('bp_directory_members_item', function (){
             echo do_shortcode('[ic_open_dialog id="'.$user_id.'" class="ic_bp_button" name="Message"]');
     }
 });
-
-add_action('bp_group_header_meta', function (){
+add_action('bp_group_header_actions', function (){
     $group = groups_get_group(bp_get_group_id());
     $pipe = $group->status.'_'.$group->id;
     $user_id = get_current_user_id();
 
     if (groups_is_user_member($user_id, $group->id) || $group->status == 'public')
     {
-        echo do_shortcode('[ic_join_group pipe="'.$pipe.'" buttonname="Join Group Chat" name="'.$group->name.'"]');
+        require_once( IMBACHAT__PLUGIN_DIR . '/view/ic_functions.php' );
+        $button = array(
+            'id'                => 'Join_Group_Chat',
+            'component'         => 'groups',
+            'must_be_logged_in' => true,
+            'block_self'        => false,
+            'wrapper_class'     => 'group-button ' . $group->status,
+            'wrapper_id'        => 'groupbutton-' . $group->id,
+            'parent_element'    => 'div',
+            'button_element'    => 'button',
+            'button_attr'       => [
+                'onClick' => 'ic_join_group("'.$pipe.'", "'.$group->name.'")'
+            ],
+//        'link_href'         => wp_nonce_url( trailingslashit( bp_get_group_permalink( $group ) . 'leave-group' ), 'groups_leave_group' ),
+            'link_text'         => __( 'Join Group Chat', 'buddypress' ),
+            'link_class'        => 'group-button',
+        );
+        bp_button($button);
     }
 });
