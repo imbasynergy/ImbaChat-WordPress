@@ -6,23 +6,23 @@ add_action('admin_menu', function(){
     add_menu_page( 'ImbaChat Widget',
         'ImbaChat',
         8,
-        'imbachat-options',
-        'add_my_setting',
+        'imbachat-settings',
+        'imbachat_settings',
         '',
         30 );
-    add_submenu_page(
-        'imbachat-options',
-        'ImbaChat Documentation',
-        'Documentation',
-        8,
-        'imbachat-options',
-        'add_my_setting',
-        30 );
+//    add_submenu_page(
+//        'imbachat-settings',
+//        'ImbaChat Documentation',
+//        'Documentation',
+//        8,
+//        'imbachat-settings',
+//        'add_my_setting',
+//        30 );
 } );
 
 add_action('admin_menu', function(){
     add_submenu_page(
-        'imbachat-options',
+        'imbachat-settings',
         'ImbaChat Settings',
         'ImbaChat Settings',
         8,
@@ -39,8 +39,9 @@ add_action( 'admin_menu' , function (){
             'imbachat' => 'https://imbachat.com/visitor/login-user?token='.get_option('IMCH_secret_key'),
             'imachat_dashboard' => 'https://dashboard.imbachat.com/#/'.get_option('IMCH_dev_id').'/auth/'.IMCH_getJWT()
         ];
-        $submenu['imbachat-options'][9998] = array( __('Admin Panel'), 'manage_options', $links['imbachat'], '', 'imba-open-if-no-js menu-top', '', 'target' );
-        $submenu['imbachat-options'][9999] = array( __('Dashboard Panel'), 'manage_options', $links['imachat_dashboard'], '', 'imba-open-if-no-js menu-top', '', 'div' );
+        $submenu['imbachat-settings'][9997] = array( __('Support Forum'), 'manage_options', "https://wordpress.org/support/plugin/imbachat-widget/", '', 'imba-open-if-no-js menu-top', '', 'target' );
+        $submenu['imbachat-settings'][9998] = array( __('Admin Panel'), 'manage_options', $links['imbachat'], '', 'imba-open-if-no-js menu-top', '', 'target' );
+        $submenu['imbachat-settings'][9999] = array( __('Dashboard Panel'), 'manage_options', $links['imachat_dashboard'], '', 'imba-open-if-no-js menu-top', '', 'div' );
     }
 } );
 
@@ -71,7 +72,7 @@ add_action('admin_menu', function(){
         } );
     }
     add_submenu_page(
-        'imbachat-options',
+        'imbachat-settings',
         'Get Started with Imba Chat',
         'Get Started',
         8,

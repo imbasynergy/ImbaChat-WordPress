@@ -85,6 +85,7 @@ function ic_join_group($atts, $content = null, $code = '') {
                 'buttonname' => '',
                 'pipe' => '',
                 'id' => '',
+                'name' => ''
             ),
             $atts, 'ic'
         );
@@ -92,7 +93,7 @@ function ic_join_group($atts, $content = null, $code = '') {
         $btnName = $atts['buttonname'];
     }
     require_once( IMBACHAT__PLUGIN_DIR . '/view/ic_functions.php' );
-    return '<button class="'.$classNameB.'" onclick="ic_join_group(`'.$atts['pipe'].'`)">'.$btnName.'</button></div>';
+    return '<button class="'.$classNameB.'" onclick="ic_join_group(`'.$atts['pipe'].'`, `'.$atts['name'].'`)">'.$btnName.'</button>';
 }
 
 function ic_wise_chat($atts, $content = null, $code = '') {

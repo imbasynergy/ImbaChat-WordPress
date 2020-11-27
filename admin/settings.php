@@ -140,7 +140,7 @@ function add_my_setting(){
     function sync_with_imbachat(){
 
         $dev_id = $_REQUEST['IMCH_dev_id'];
-        sync_with_imba_api($dev_id, $_SERVER['HTTP_HOST']=='' ? $_SERVER['HTTP_HOST'] : preg_replace('#https?://(www.)?#','',site_url()), get_option( 'admin_email' ));
+        sync_with_imba_api($dev_id, $_SERVER['HTTP_HOST']!='' ? $_SERVER['HTTP_HOST'] : preg_replace('#https?://(www.)?#','',site_url()), get_option( 'admin_email' ));
         wp_redirect(admin_url( 'admin.php' ).'?page=imbachat-settings', 302);
     }
 

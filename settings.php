@@ -35,7 +35,7 @@ function imbachat(){
             $dev_id = null;
         else
             $dev_id = get_option('IMCH_dev_id');
-        sync_with_imba_api($dev_id, $_SERVER['HTTP_HOST'], get_option( 'admin_email' ));
+
     }
 
     wp_register_script('IMCH_script', IC_PLUGIN_URL.'/view/imbachat.js','','', true);

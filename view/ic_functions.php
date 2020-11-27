@@ -3,22 +3,6 @@
         imbaApi.openDialog(id)
     }
 
-    function showChat() {
-        if(imbaApi)
-        {
-            imbaApi.openChat();
-            return false;
-        }
-    }
-
-    function closeChat() {
-        if(imbaApi)
-        {
-            imbaApi.closeChat();
-            return false;
-        }
-    }
-
     function ic_create_dialog(test) {
         let inputs = $("#ic_create_group_cont input");
         let data = {}
@@ -33,11 +17,28 @@
         })
     }
 
-    function ic_join_group(pipe) {
+    function ic_join_group(pipe, title = '') {
         imbaApi.addToRoom({
             pipe:pipe,
+            title:title,
             'is_public': 1,
             type:imbaApi.room_type.conference,
         })
+    }
+
+    function showChat() {
+        if(imbaApi)
+        {
+            imbaApi.openChat();
+            return false;
+        }
+    }
+
+    function closeChat() {
+        if(imbaApi)
+        {
+            imbaApi.closeChat();
+            return false;
+        }
     }
 </script>
