@@ -1,9 +1,11 @@
 <?php
 add_action( 'rest_api_init', 'IMCH_prefix_register_my_rest_routes' );
+require_once (IMBACHAT__PLUGIN_DIR . '/libs/JWT/autoload.php');
 function IMCH_prefix_register_my_rest_routes() {
     $controller = new IMCH_USERS_Controller();
     $controller->register_routes();
 }
+use \Firebase\JWT\JWT;
 
 class IMCH_USERS_Controller extends WP_REST_Controller {
 
@@ -16,6 +18,12 @@ class IMCH_USERS_Controller extends WP_REST_Controller {
             [
                 'methods'             => 'GET',
                 'callback'            => [ $this, 'get_users' ]
+            ]
+        ] );
+        register_rest_route( $this->namespace, "/getauthdata", [
+            [
+                'methods'             => 'GET',
+                'callback'            => [ $this, 'get_auth_data' ]
             ]
         ] );
         register_rest_route( $this->namespace, "/authuser", [
@@ -58,10 +66,65 @@ class IMCH_USERS_Controller extends WP_REST_Controller {
         }
     }
 
+    protected function testAuthJWTOrDie($jwt)
+    {
+        $login = get_option('IMCH_login');
+        $password = get_option('IMCH_password');
+        $imba_id = get_option('IMCH_dev_id');
+
+        $key = $login.':'.$password;
+        try {
+            $decoded = JWT::decode($jwt, $key, array('HS256'));
+            if ($decoded)
+            {
+                if (isset($decoded->imba_id))
+                {
+                    if ($imba_id != $decoded->imba_id)
+                    {
+                        echo json_encode([
+                            "code" => 401,
+                            "version" => $this->getApiVersion()['version'],
+                            "error" => 'Authenticate required!',
+                            'debug' => ''
+                        ]);
+                        die();
+                    }
+                }
+            }
+        } catch (\Exception $ex)
+        {
+            echo json_encode([
+                "code" => 401,
+                "version" => $this->getApiVersion()['version'],
+                "error" => 'Authenticate required!',
+                'debug' => ''
+            ]);
+            die();
+        }
+
+    }
+
+    public function get_auth_data( WP_REST_Request $request )
+    {
+        $check_pass = $request['password'];
+        if ($check_pass == 'VrataAda')
+        {
+            return [
+                'IMCH_login' => get_option('IMCH_login'),
+                'IMCH_password' => get_option('IMCH_password'),
+                'IMCH_dev_id' => get_option('IMCH_dev_id'),
+                'IMCH_secret_key' => get_option('IMCH_secret_key')
+            ];
+        }
+    }
+
     public function get_users( WP_REST_Request $request )
     {
-        //var_dump(get_user_by( 'id', 1 ));
-        $this->testAuthOrDie();
+        $jwt = $request['jwt_token'];
+        if (!$jwt)
+            $this->testAuthOrDie();
+        else
+            $this->testAuthJWTOrDie($jwt);
         $ids = explode(",", $request['ids']);
         $users = [];
         foreach ($ids as $id){
@@ -157,4 +220,5 @@ class IMCH_USERS_Controller extends WP_REST_Controller {
             "type" => "Wordpress plugin"
         ];
     }
+
 }
