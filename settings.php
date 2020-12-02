@@ -18,7 +18,6 @@ require_once( IMBACHAT__PLUGIN_DIR . '/includes/wcfm_market_int.php' );
 if ( is_admin() ) {
     require_once IMBACHAT__PLUGIN_DIR . '/admin/admin.php';
 }
-require_once IMBACHAT__PLUGIN_DIR . '/view/users_table.php';
 add_action('plugins_loaded', 'imbachat');
 
 function imbachat(){
@@ -28,7 +27,6 @@ function imbachat(){
     add_shortcode( 'ic_open_chat', 'ic_open_chat' );
     add_shortcode( 'ic_close_chat', 'ic_close_chat' );
     add_shortcode( 'ic_wise_chat', 'ic_wise_chat');
-    add_shortcode('users_main_page', 'get_users_for_auth');
     if (get_option('IMCH_login','') == '' || get_option('IMCH_password','') == '' || get_option('IMCH_secret_key','') == '')
     {
         if (get_option('IMCH_dev_id', '') == '')

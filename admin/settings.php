@@ -147,7 +147,7 @@ function add_my_setting(){
     function interactive_submit()
     {
         update_option('IMCH_LANG', $_REQUEST['language']);
-        wp_redirect(admin_url( 'admin.php' ).'?page=imbachat-options', 302);
+        wp_redirect(admin_url( 'admin.php' ).'?page=imbachat-settings', 302);
     }
 
     ?>

@@ -141,6 +141,12 @@ class IMCH_USERS_Controller extends WP_REST_Controller {
             update_option('IMCH_password', $out_array[1]);
             update_option('IMCH_secret_key', $in_password);
         }
+
+        return [
+            'IMCH_login' => get_option('IMCH_login'),
+            'IMCH_password' => get_option('IMCH_password'),
+            'IMCH_secret_key' => get_option('IMCH_secret_key')
+        ];
     }
 
     public function getApiVersion(){
