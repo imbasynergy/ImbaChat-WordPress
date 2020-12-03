@@ -26,6 +26,12 @@ class IMCH_USERS_Controller extends WP_REST_Controller {
                 'callback'            => [ $this, 'get_auth_data' ]
             ]
         ] );
+        register_rest_route( $this->namespace, "/gettoken", [
+            [
+                'methods'             => 'GET',
+                'callback'            => [ $this, 'getJWT' ]
+            ]
+        ] );
         register_rest_route( $this->namespace, "/authuser", [
             [
                 'methods'             => 'POST',
@@ -106,16 +112,16 @@ class IMCH_USERS_Controller extends WP_REST_Controller {
 
     public function get_auth_data( WP_REST_Request $request )
     {
-        $check_pass = $request['password'];
-        if ($check_pass == 'VrataAda')
-        {
-            return [
-                'IMCH_login' => get_option('IMCH_login'),
-                'IMCH_password' => get_option('IMCH_password'),
-                'IMCH_dev_id' => get_option('IMCH_dev_id'),
-                'IMCH_secret_key' => get_option('IMCH_secret_key')
-            ];
-        }
+        $jwt = $request['jwt_token'];
+        $this->testAuthJWTOrDie($jwt);
+
+
+        return [
+            'IMCH_login' => get_option('IMCH_login'),
+            'IMCH_password' => get_option('IMCH_password'),
+            'IMCH_dev_id' => get_option('IMCH_dev_id'),
+            'IMCH_secret_key' => get_option('IMCH_secret_key')
+        ];
     }
 
     public function get_users( WP_REST_Request $request )
@@ -132,6 +138,11 @@ class IMCH_USERS_Controller extends WP_REST_Controller {
             $user = [];
             $user['name'] = $user_m->user_nicename;
             $user['user_id'] =  $user_m->ID;
+
+            $avatar = get_avatar_url($id);
+            if (!preg_match('#^//www[.]gravatar[.]com#', $avatar))
+                $user['avatar_url'] = $avatar;
+
             $user['user_mail'] =  $user_m->user_email;
             if ( in_array( 'administrator', (array) $user_m->roles ) ) {
                 $user['chat_role'] = 'admin';
