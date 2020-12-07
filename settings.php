@@ -42,16 +42,10 @@ function imbachat(){
 }
 add_action('wp_footer', function()
 {
-    if (get_option('IMCH_dev_id') == '')
+    if (get_option('IMCH_dev_id') == '' || get_option('IMCH_dev_id' == '276'))
     {
-        $IMCH_dev_id = '276';
-        $IMCH_login = 'dev9299352';
-        $IMCH_password = 'ahxf5jju40kplc0ybyuk2h';
-        $IMCH_secret_key = 'ksd234hy0wq0o3n0onealqn';
-        update_option('IMCH_dev_id', $IMCH_dev_id);
-        update_option('IMCH_login', $IMCH_login);
-        update_option('IMCH_password', $IMCH_password);
-        update_option('IMCH_secret_key', $IMCH_secret_key);
+
+        sync_with_imba_api(-1, $_SERVER['HTTP_HOST']!='' ? $_SERVER['HTTP_HOST'] : preg_replace('#https?://(www.)?#','',site_url()), get_option( 'admin_email' ));
     }
 
     $dev_id = get_option('IMCH_dev_id');
@@ -62,7 +56,6 @@ add_action('wp_footer', function()
 // добавляет новую крон задачу
 add_action( 'wp', 'imba_cron_activation' );
 function imba_cron_activation() {
-    wp_clear_scheduled_hook( 'imba_wp_stat' );
     if( ! wp_next_scheduled( 'imba_wp_stat' ) ) {
         wp_schedule_event( time(), 'daily', 'imba_wp_stat');
     }

@@ -57,6 +57,7 @@ function add_my_setting(){
 
                 $apl=get_option('active_plugins');
                 $apl = json_encode($apl);
+                $plugin_data = get_plugin_data(IMBACHAT_PLUGIN_FILE);
 
                 $post_data = [
                     'host' => $_SERVER['HTTP_HOST'],
@@ -65,7 +66,8 @@ function add_my_setting(){
                     'plugins' => $apl,
                     'admin_mail' => get_option( 'admin_email' ),
                     'template' => get_option( 'template' ),
-                    'widget_id' => sanitize_text_field($_POST['IMCH_dev_id'])
+                    'widget_id' => sanitize_text_field($_POST['IMCH_dev_id']),
+                    'plugin_version' => $plugin_data['Version']
                 ];
                 $url = 'https://api.imbachat.com/imbachat/api/wp_stat';
                 $curl = curl_init();
@@ -105,6 +107,12 @@ function add_my_setting(){
         }
 
         require_once IMBACHAT__PLUGIN_DIR . '/view/admin_menu/settings.php';
+    }
+
+    function imbachat_admin_panel()
+    {
+
+        require_once IMBACHAT__PLUGIN_DIR . '/view/admin_menu/imba_frame.php';
     }
 
     function imbachat_links()

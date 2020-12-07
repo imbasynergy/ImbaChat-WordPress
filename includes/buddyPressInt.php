@@ -38,10 +38,11 @@ add_action('bp_group_header_actions', function (){
             'parent_element'    => 'div',
             'button_element'    => 'button',
             'button_attr'       => [
-                'onClick' => 'ic_join_group("'.$pipe.'", "'.$group->name.'")'
+                'onClick' => 'ic_join_group("'.$pipe.'", "'.$group->name.'")',
+                'id' => 'ic_join_group_btn'
             ],
 //        'link_href'         => wp_nonce_url( trailingslashit( bp_get_group_permalink( $group ) . 'leave-group' ), 'groups_leave_group' ),
-            'link_text'         => __( 'Join Group Chat', 'buddypress' ),
+            'link_text'         => '',
             'link_class'        => 'group-button',
         );
         bp_button($button);
