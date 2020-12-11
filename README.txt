@@ -11,38 +11,39 @@ License URI: http://www.apache.org/licenses/
 
 == Description ==
 
-This is free messenger plugin for Wordpress CMS. It suits for social networking websites, dating websites and any other communities where important to give users a convenient mode of communication.
-
-It allows to add chat widget between users on your website for free. РЎombination of a messenger and live chat on your WP website. Learn more about the plugin [here](https://imbachat.com).
+ImbaChat is free chat plugin for Wordpress. Online support chat, group chat and private chat between users in one cloud service.
+It allows to add chat widget on your website for free. Integration with BuddyPress, SweetDate and WCFM Marketplace. Learn more about the plugin [here](https://imbachat.com).
 
 
 **Features:**
 
 * Full integration with the user base of your website
 * Live chat for online support service
-* Single authorisation mechanism in the chat and on the website (users don't need to sign up twice)
-* Chat widget style settings
 * Private chat between users
+* Group chat with unlimited number of participants
+* Single authorisation mechanism in the chat and on the website (users don't need to sign up twice)
+* Interface appearance and language customization
 * Sending pictures, geolocations and files
-* Chat rooms with unlimited number of participants
 * Video chat and voice chat
 * Emoji
-* Real time message delivery
-* It does not load your server (The chat widget uses project servers imbachat.com)
+* Chat data backup
 * You can use it on shared hosting
 * It continues correct working even without the Internet (Your messages will be sent as soon the Internet appears)
 
 
 == Installation ==
 
-1. Go to the admin panel of your site. Open the menu item Plugins в†’ Download plugin. In the search line, enter the name of the plugin - ImbaChat. Install the plugin.
-2. Register on the site [imbachat.com](https://imbachat.com) and create a widget with your website host (URL without http:// (for example: your-site-domain-url.com)).
-3. Or if you already have a widget, just write your widget id in the ImbaChat settings on your website and click "Connect the widget".
-4. If you don't have a widget yet, click "Create a widget" at the same page. Connection between your website and ImbaChat server will be automatically configured.
-5. Also, if you have BuddyPress, WCFM Marketplace or SweetDate themes, integration with ImbaChat will be automatically configured as well.
+1. Install the plugin through the WordPress plugins screen directly and activate it.
+2. If you don't have a widget, click "Create a widget" in the ImbaChat settings. Connection between your website and ImbaChat server will be automatically configured.
+3. If you already have a widget, just write your widget ID in the ImbaChat settings on your website and click "Connect the widget".
+4. Also, if you have BuddyPress, WCFM Marketplace or SweetDate themes, integration with ImbaChat will be automatically configured as well.
+5. You should use [shortcodes](https://imbachat.com/en/articles/tutorials) to create conversation's buttons. The buttons are available only on BuddyPress.
 
 
 == Frequently Asked Questions ==
+
+=I have installed the chat plugin and set it up but the chat window isn't visable.
+Try to turn on Jquery load at the Dashboard at ImbaChat website in widget chat settings and check it again.
 
 =Can I use this plugin on a Shared hosting?=
 Yes, our plugin is available even on shared hosting.

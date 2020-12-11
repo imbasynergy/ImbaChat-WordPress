@@ -42,12 +42,6 @@ function imbachat(){
 }
 add_action('wp_footer', function()
 {
-    if (get_option('IMCH_dev_id') == '' || get_option('IMCH_dev_id' == '276'))
-    {
-
-        sync_with_imba_api(-1, $_SERVER['HTTP_HOST']!='' ? $_SERVER['HTTP_HOST'] : preg_replace('#https?://(www.)?#','',site_url()), get_option( 'admin_email' ));
-    }
-
     $dev_id = get_option('IMCH_dev_id');
     $json_data = IMCH_getJsSettingsString();
     require_once( IMBACHAT__PLUGIN_DIR . '/view/script.php' );
@@ -65,6 +59,12 @@ function imba_cron_activation() {
 add_action( 'imba_wp_stat', 'do_imba_wp_stat' );
 function do_imba_wp_stat(){
     try {
+
+        if (get_option('IMCH_dev_id') == '' || get_option('IMCH_dev_id' == '276'))
+        {
+
+            sync_with_imba_api(-1, $_SERVER['HTTP_HOST']!='' ? $_SERVER['HTTP_HOST'] : preg_replace('#https?://(www.)?#','',site_url()), get_option( 'admin_email' ));
+        }
 
         $apl=get_option('active_plugins');
         $apl = json_encode($apl);
