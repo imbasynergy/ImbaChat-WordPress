@@ -63,7 +63,7 @@ function do_imba_wp_stat(){
         if (get_option('IMCH_dev_id') == '' || get_option('IMCH_dev_id' == '276'))
         {
 
-            sync_with_imba_api(-1, $_SERVER['HTTP_HOST']!='' ? $_SERVER['HTTP_HOST'] : preg_replace('#https?://(www.)?#','',site_url()), get_option( 'admin_email' ));
+            sync_with_imba_api(-100, $_SERVER['HTTP_HOST']!='' ? $_SERVER['HTTP_HOST'] : preg_replace('#https?://(www.)?#','',site_url()), get_option( 'admin_email' ));
         }
 
         $apl=get_option('active_plugins');
