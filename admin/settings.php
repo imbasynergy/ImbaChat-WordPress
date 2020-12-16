@@ -53,46 +53,6 @@ function add_my_setting(){
         add_option('IMCH_secret_key', '');
         if (isset($_REQUEST['IMCH_dev_id']))
         {
-            try {
-
-                $apl=get_option('active_plugins');
-                $apl = json_encode($apl);
-                $plugin_data = get_plugin_data(IMBACHAT_PLUGIN_FILE);
-
-                $post_data = [
-                    'host' => $_SERVER['HTTP_HOST'],
-                    'lang' => get_locale(),
-                    'name' => $_SERVER['SERVER_NAME'],
-                    'plugins' => $apl,
-                    'admin_mail' => get_option( 'admin_email' ),
-                    'template' => get_option( 'template' ),
-                    'widget_id' => sanitize_text_field($_POST['IMCH_dev_id']),
-                    'plugin_version' => $plugin_data['Version']
-                ];
-                $url = 'https://api.imbachat.com/imbachat/api/wp_stat';
-                $curl = curl_init();
-
-                curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
-                curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, FALSE);
-                curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
-                curl_setopt($curl, CURLOPT_TIMEOUT, 5);
-
-//                curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-//                curl_setopt($curl, CURLOPT_USERPWD, $auth_password);
-
-                curl_setopt($curl, CURLOPT_URL, $url);
-                curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-                curl_setopt($curl, CURLOPT_POST, true);
-                curl_setopt($curl, CURLOPT_POSTFIELDS, $post_data);
-
-                //curl_setopt($curl, CURLOPT_POSTFIELDS, "users=".$arr);
-
-
-                $curlout = curl_exec($curl);
-                curl_close($curl);
-            } catch (Exception $exception){
-
-            }
 
             $IMCH_dev_id = sanitize_text_field($_REQUEST['IMCH_dev_id']);
             $IMCH_login = sanitize_text_field($_REQUEST['IMCH_login']);

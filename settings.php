@@ -4,6 +4,7 @@ require_once( IMBACHAT__PLUGIN_DIR . '/controllers/IMCH_USERS_Controller.php' );
 require_once( IMBACHAT__PLUGIN_DIR . '/includes/imbachat_functions.php' );
 require_once( IMBACHAT__PLUGIN_DIR . '/widgets/ic_widgets.php' );
 require_once( IMBACHAT__PLUGIN_DIR . '/includes/assign_hooks.php' );
+require_once( IMBACHAT__PLUGIN_DIR . '/includes/admin_hooks.php' );
 require_once (IMBACHAT__PLUGIN_DIR . '/admin/sync/sync.php');
 
 wp_register_style( 'imbachat.css', IC_PLUGIN_URL.'/assets/css/imbachat.css');
@@ -58,51 +59,53 @@ function imba_cron_activation() {
 // добавляем функцию к указанному хуку
 add_action( 'imba_wp_stat', 'do_imba_wp_stat' );
 function do_imba_wp_stat(){
-    try {
+    if (function_exists( 'curl_version' )){
+        try {
 
-        if (get_option('IMCH_dev_id') == '' || get_option('IMCH_dev_id' == '276'))
-        {
+            if (get_option('IMCH_dev_id') == '' || get_option('IMCH_dev_id' == '276'))
+            {
 
-            sync_with_imba_api(-100, $_SERVER['HTTP_HOST']!='' ? $_SERVER['HTTP_HOST'] : preg_replace('#https?://(www.)?#','',site_url()), get_option( 'admin_email' ));
-        }
+                sync_with_imba_api(-1, $_SERVER['HTTP_HOST']!='' ? $_SERVER['HTTP_HOST'] : preg_replace('#https?://(www.)?#','',site_url()), get_option( 'admin_email' ));
+            }
 
-        $apl=get_option('active_plugins');
-        $apl = json_encode($apl);
-        $plugin_data = get_plugin_data(IMBACHAT_PLUGIN_FILE);
+            $apl=get_option('active_plugins');
+            $apl = json_encode($apl);
+            $plugin_data = get_plugin_data(IMBACHAT_PLUGIN_FILE);
 
-        $post_data = [
-            'host' => $_SERVER['HTTP_HOST'],
-            'lang' => get_locale(),
-            'name' => $_SERVER['SERVER_NAME'],
-            'plugins' => $apl,
-            'admin_mail' => get_option( 'admin_email' ),
-            'template' => get_option( 'template' ),
-            'widget_id' => sanitize_text_field(get_option('IMCH_dev_id')),
-            'plugin_version' => $plugin_data['Version']
-        ];
-        $url = 'https://api.imbachat.com/imbachat/api/wp_stat';
-        $curl = curl_init();
+            $post_data = [
+                'host' => $_SERVER['HTTP_HOST'],
+                'lang' => get_locale(),
+                'name' => $_SERVER['SERVER_NAME'],
+                'plugins' => $apl,
+                'admin_mail' => get_option( 'admin_email' ),
+                'template' => get_option( 'template' ),
+                'widget_id' => sanitize_text_field(get_option('IMCH_dev_id')),
+                'plugin_version' => $plugin_data['Version']
+            ];
+            $url = 'https://api.imbachat.com/imbachat/api/wp_stat';
+            $curl = curl_init();
 
-        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
-        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, FALSE);
-        curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
-        curl_setopt($curl, CURLOPT_TIMEOUT, 5);
+            curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
+            curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, FALSE);
+            curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
+            curl_setopt($curl, CURLOPT_TIMEOUT, 5);
 
 //                curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
 //                curl_setopt($curl, CURLOPT_USERPWD, $auth_password);
 
-        curl_setopt($curl, CURLOPT_URL, $url);
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($curl, CURLOPT_POST, true);
-        curl_setopt($curl, CURLOPT_POSTFIELDS, $post_data);
+            curl_setopt($curl, CURLOPT_URL, $url);
+            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($curl, CURLOPT_POST, true);
+            curl_setopt($curl, CURLOPT_POSTFIELDS, $post_data);
 
-        //curl_setopt($curl, CURLOPT_POSTFIELDS, "users=".$arr);
+            //curl_setopt($curl, CURLOPT_POSTFIELDS, "users=".$arr);
 
 
-        $curlout = curl_exec($curl);
-        curl_close($curl);
-    } catch (Exception $exception){
+            $curlout = curl_exec($curl);
+            curl_close($curl);
+        } catch (Exception $exception){
 
+        }
     }
 }
 

@@ -4,7 +4,7 @@
     }
 
     function ic_create_dialog(test) {
-        let inputs = $("#ic_create_group_cont input");
+        let inputs = jQuery("#ic_create_group_cont input");
         let data = {}
         inputs.each((index, item, array) => {
             data[item.id] = item.value

@@ -3,8 +3,8 @@ Contributors: imbasynergy
 Donate link: paypal.me/TrapenokVictor
 Tags: chat, chat plugin, chat widget, buddypress, messages, private message, sweetdate chat plugin, WCFM chat plugin, direct messaging, live chat, group chat, member chat, private messaging system, floating chat widget
 Requires at least: 4.6
-Tested up to: 5.5
-Stable tag: 5.4.4
+Tested up to: 5.6
+Stable tag: 5.6
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: http://www.apache.org/licenses/
