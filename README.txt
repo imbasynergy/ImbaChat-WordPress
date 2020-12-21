@@ -22,6 +22,7 @@ It allows to add chat widget on your website for free. Integration with BuddyPre
 * Private chat between users
 * Group chat with unlimited number of participants
 * Single authorisation mechanism in the chat and on the website (users don't need to sign up twice)
+* Chat moderation
 * Interface appearance and language customization
 * Sending pictures, geolocations and files
 * Video chat and voice chat
@@ -67,16 +68,37 @@ There is no special requirements for the Saas version. But If you want to instal
 
 == Changelog ==
 
-= 2.1 =
-* Compatibility with the latest WP version
-* Widget appearance settings
-* Integration with BuddyPress, Sweet Date and WCFM Marketplace
-* Simplified installation process
+= 2.5.4 =
+* Issues with enque_scripts have solved.
+* Added new link to ImbaChat Online Support page.
+
+= 2.5.3 =
+* Conflicts with jQuery libs have solved.
+
+= 2.5.2 =
+* Synchronization of the widget with the ImbaChat server has improved.
+* Error notification with a request to install the necessary tool on the hosting.
+
+= 2.4.8 =
+* Added a new type of authorization to the API via JWT token.
+* Loading user avatars from a WordPress site.
+* Added plugin settings from ImbaChat Dashboard to your WordPress site personal account.
+
+= 2.4.5 =
+* Added Join group chat button.
+* Fixed integration with Youzer plugin.
+* Fixed the algorithm collecting server data and the presence of other plugins.
 
 = 2.3.9 =
-* Automatic chat widget configuration
+* Automatic chat widget configuration.
 * Automatic integration with BuddyPress, WCFM Marketplace and SweetDate themes.
-* Changing the button "Write to the author"
+* Changing the button "Write to the author".
+
+= 2.1 =
+* Compatibility with the latest WP version.
+* Widget appearance settings.
+* Integration with BuddyPress, Sweet Date and WCFM Marketplace.
+* Simplified installation process.
 
 == Upgrade Notice ==
 

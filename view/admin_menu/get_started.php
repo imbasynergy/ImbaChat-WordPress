@@ -88,7 +88,7 @@
 
     </div>
 
-    <div class="imba_tab">
+    <!--<div class="imba_tab">
         <h3 class="tab_title">6. Other functions</h3>
         <div class="imba_row">
             <div class="price-container imba_col">
@@ -116,13 +116,13 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
 
     <div class="imba_tab">
         <div class="img_holder">
             <img alt="За стеклом" src="<?= IC_PLUGIN_URL.'/assets/images/check-mark.svg' ?>" >
         </div>
-        <h3 class="tab_title">7. Now all done!</h3>
+        <h3 class="tab_title">6. Now all done!</h3>
         <p class="text_center">ImbaChat plugin has been all set up. Enjoy the chat!</p>
     </div>
 
@@ -135,7 +135,6 @@
 
     <!-- Circles which indicates the steps of the form: -->
     <div style="text-align:center;margin-top:40px;">
-        <span class="step"></span>
         <span class="step"></span>
         <span class="step"></span>
         <span class="step"></span>

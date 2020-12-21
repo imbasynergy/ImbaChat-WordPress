@@ -7,16 +7,16 @@
             <span id="button-dismiss" hidden>Dismiss</span>
             <svg viewBox="0 0 100 100" width="30" height="30">
                 <g
-                    stroke="currentColor"
-                    stroke-width="6"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    fill="none">
+                        stroke="currentColor"
+                        stroke-width="6"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        fill="none">
                     <!-- group to center and rotate the + sign to show an x sign instead -->
                     <g transform="translate(50 50) rotate(45)">
                         <!-- path describing two perpendicular lines -->
                         <path
-                            d="M 0 -30 v 60 z M -30 0 h 60">
+                                d="M 0 -30 v 60 z M -30 0 h 60">
                         </path>
                     </g>
                 </g>
@@ -188,14 +188,15 @@
     const messageTitle = {
         info: 'Info',
         success: 'Success',
-        warning: 'Warning',
+        warning: 'ImbaChat Warning!',
         danger: 'ImbaChat Danger!'
     }
 
     // possible values for the body of the message
     // end result of the emmet shortcut p*10>lorem10
     const messageText = {
-        curl: 'ImbaChat plugin requires php extension curl to be installed'
+        curl: 'ImbaChat plugin requires php extension curl to be installed',
+        online_sup: 'Option "Online Support" is disabled, turn it on in "Chat Settings" page for getting access to ImbaSupport!'
     };
 
     const notification = document.querySelector('.notification');
@@ -238,6 +239,6 @@
     }
 
     // immediately call the generateMessage function to kickstart the loop
-    generateMessage('danger', 'curl');
+    generateMessage('<?=$title?>', '<?=$body?>');
 
 </script>

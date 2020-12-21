@@ -48,11 +48,13 @@ add_action( 'admin_menu' , function (){
     {
         $links = [
             'imbachat' => 'https://imbachat.com/visitor/login-user?token='.get_option('IMCH_secret_key'),
-            'imachat_dashboard' => 'https://dashboard.imbachat.com/#/'.get_option('IMCH_dev_id').'/auth/'.IMCH_getJWT()
+            'imachat_dashboard' => 'https://dashboard.imbachat.com/#/'.get_option('IMCH_dev_id').'/auth/'.IMCH_getJWT(),
+            'imbachat_onlinesup' => 'https://api.imbachat.com/imbasupport/v1/'.get_option('IMCH_dev_id').'/token_auth?jwt='.IMCH_get_adminJWT(get_admin_url())
         ];
         $submenu['imbachat-settings'][9997] = array( __('Support Forum'), 'manage_options', "https://wordpress.org/support/plugin/imbachat-widget/", '', 'imba-open-if-no-js menu-top', '', 'target' );
         //$submenu['imbachat-settings'][9998] = array( __('Admin Panel'), 'manage_options', $links['imbachat'], '', 'imba-open-if-no-js menu-top', '', 'target' );
         $submenu['imbachat-settings'][9999] = array( __('Chat Moderation'), 'manage_options', $links['imachat_dashboard'], '', 'imba-open-if-no-js menu-top', '', 'div' );
+        $submenu['imbachat-settings'][9997] = array( __('Online Support'), 'manage_options', $links['imbachat_onlinesup'], '', 'imba-open-if-no-js menu-top', '', 'div' );
     }
 } );
 
@@ -69,18 +71,21 @@ function make_maricache_blank()
 }
 
 add_action('admin_menu', function(){
-    if ($_GET['page'] == 'imbachat-setup-help')
+    if (isset($_GET['page']))
     {
-        add_action( 'admin_enqueue_scripts', function (){
-            wp_enqueue_media();
-            wp_register_script('imbachat-admin-script',IC_PLUGIN_URL . '/assets/js/mpform.js', array(), '1.0.0', true);
-            wp_enqueue_script('imbachat-admin-script');
-            wp_register_script('imbachat-admin-mp-slct-script',IC_PLUGIN_URL . '/assets/js/mpform_select.js', array(), '1.0.0', true);
-            wp_enqueue_script('imbachat-admin-mp-slct-script');
-            wp_register_style('imbachat-admin-style',IC_PLUGIN_URL . '/assets/css/mpform.css', array(), '1.0.0', 'all');
-            wp_enqueue_style('imbachat-admin-style');
+        if ($_GET['page'] == 'imbachat-setup-help')
+        {
+            add_action( 'admin_enqueue_scripts', function (){
+                wp_enqueue_media();
+                wp_register_script('imbachat-admin-script',IC_PLUGIN_URL . '/assets/js/mpform.js', array(), '1.0.0', true);
+                wp_enqueue_script('imbachat-admin-script');
+                wp_register_script('imbachat-admin-mp-slct-script',IC_PLUGIN_URL . '/assets/js/mpform_select.js', array(), '1.0.0', true);
+                wp_enqueue_script('imbachat-admin-mp-slct-script');
+                wp_register_style('imbachat-admin-style',IC_PLUGIN_URL . '/assets/css/mpform.css', array(), '1.0.0', 'all');
+                wp_enqueue_style('imbachat-admin-style');
 
-        } );
+            } );
+        }
     }
     add_submenu_page(
         'imbachat-settings',

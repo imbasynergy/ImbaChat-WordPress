@@ -4,7 +4,7 @@
     <input type="hidden" name="action" value="sync_with_imbachat">
     <div class="IMCH_form__field">
         <label class="IMCH_form__label">Widget id</label>
-        <input class="IMCH_form__input" name="IMCH_dev_id" placeholder="" type="text" required>
+        <input class="IMCH_form__input" value="<?= get_option('IMCH_dev_id') ?>" name="IMCH_dev_id" placeholder="" type="text" required>
     </div>
     <div class="IMCH_form__field">
         <button class="IMCH_form__button" type="submit">Connect to the widget</button>

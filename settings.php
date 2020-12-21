@@ -19,8 +19,16 @@ require_once( IMBACHAT__PLUGIN_DIR . '/includes/wcfm_market_int.php' );
 if ( is_admin() ) {
     require_once IMBACHAT__PLUGIN_DIR . '/admin/admin.php';
 }
-add_action('plugins_loaded', 'imbachat');
 
+add_action('wp_loaded', function (){
+    wp_register_style( 'imbachat.css', IC_PLUGIN_URL.'/assets/css/imbachat.css');
+    wp_enqueue_style( 'imbachat.css');
+    wp_register_style( 'fontawesome', 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+    wp_enqueue_style( 'fontawesome');
+    wp_register_script('IMCH_script', IC_PLUGIN_URL.'/view/imbachat.js','','', true);
+    wp_enqueue_script( 'IMCH_script');
+});
+add_action('plugins_loaded', 'imbachat');
 function imbachat(){
     add_shortcode( 'ic_open_dialog', 'ic_open_dialog_with' );
     add_shortcode( 'ic_create_group', 'ic_create_group_with' );
@@ -137,6 +145,40 @@ function IMCH_getJWT(){
     $data = array();
     $data['exp'] = (int)date('U')+3600*7;
     $data['user_id'] = get_current_user_id();
+
+    if(isset($data['user_id']))
+    {
+        $data['user_id'] = (int)$data['user_id'];
+    }
+
+    // Create token payload as a JSON string
+    $payload = json_encode($data);
+
+    // Encode Header to Base64Url String
+    $base64UrlHeader = str_replace(['+', '/', '='], ['-', '_', ''], base64_encode($header));
+
+    // Encode Payload to Base64Url String
+    $base64UrlPayload = str_replace(['+', '/', '='], ['-', '_', ''], base64_encode($payload));
+
+    // Create Signature Hash
+    $signature = hash_hmac('sha256', $base64UrlHeader . "." . $base64UrlPayload, $pass, true);
+
+    // Encode Signature to Base64Url String
+    $base64UrlSignature = str_replace(['+', '/', '='], ['-', '_', ''], base64_encode($signature));
+
+    // Create JWT
+    return trim($base64UrlHeader . "." . $base64UrlPayload . "." . $base64UrlSignature);
+}
+function IMCH_get_adminJWT($url = null){
+    // Create token header as a JSON string
+    $header = json_encode(['typ' => 'JWT', 'alg' => 'HS256']);
+    $pass = get_option('IMCH_secret_key');
+    $data = array();
+    $data['exp'] = (int)date('U')+3600*7;
+    $data['user_id'] = get_current_user_id();
+    $data['user_role'] = 'admin';
+    if ($url)
+        $data['back_to'] = $url;
 
     if(isset($data['user_id']))
     {
