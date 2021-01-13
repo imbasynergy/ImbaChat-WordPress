@@ -1,7 +1,7 @@
 === ImbaChat ===
 Contributors: imbasynergy
 Donate link: paypal.me/TrapenokVictor
-Tags: chat, chat plugin, chat widget, buddypress, messages, private message, sweetdate chat plugin, WCFM chat plugin, direct messaging, live chat, group chat, member chat, private messaging system, floating chat widget
+Tags: chat, community, chat room, embed chat, chat plugin, chat widget, buddypress, messages, private message, sweetdate chat plugin, WCFM chat plugin, direct messaging, live chat, group chat, member chat, private messaging system, floating chat widget
 Requires at least: 4.6
 Tested up to: 5.6
 Stable tag: 5.6
@@ -67,6 +67,13 @@ There is no special requirements for the Saas version. But If you want to instal
 4. Chat on Wordpress
 
 == Changelog ==
+
+= 2.5.6 =
+* Search users is available now!
+* Custom user`s name display
+
+= 2.5.5 =
+* Support for http protocol with API
 
 = 2.5.4 =
 * Issues with enque_scripts have solved.

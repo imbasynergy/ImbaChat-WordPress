@@ -1,0 +1,94 @@
+.imba_container{
+    display: flex;
+    flex-direction: row;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    margin: 1rem;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+.imba_item {
+    /*order: 1;*/
+    width: 33.3%;
+    padding: 0.75rem 15px;
+}
+.imba_input_group{
+    display: flex;
+    flex-direction: column;
+}
+.imba_input_group label{
+    width: 100%;
+    margin: 5px 0;
+}
+.custom-select {
+    position: relative;
+    display: block;
+    max-width: 400px;
+    min-width: 180px;
+    margin: 0 auto;
+    /*border: 1px solid #3C1C78;*/
+    background-color: white;
+    z-index: 10;
+}
+.custom-select select {
+    border: none;
+    outline: none;
+    background: transparent;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0;
+    margin: 0;
+    display: block;
+    width: 100%;
+    padding: 12px 55px 15px 15px;
+    font-size: 14px;
+    color: black;
+}
+.custom-select:after {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50px;
+    height: 100%;
+    line-height: 50px;
+    content: "∨";
+    text-align: center;
+    color: black;
+    font-size: 24px;
+    border-left: 1px solid black;
+    z-index: -1;
+}
+.imba_btn:hover {
+    color: #7B8DFF;
+    background: transparent;
+}
+.imba_btn{
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: .363636px;
+    text-transform: uppercase;
+    background: #7B8DFF;
+    border: 1px solid #7B8DFF;
+    border-radius: 4px;
+    color: #FFF;
+    width: 136px;
+    height: 46px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    transition: .4s;
+    bottom: 25px;
+    padding: 0 !important;
+}
+@media screen and (max-width: 1240px) {
+    .imba_item{
+        width: 45%;
+    }
+}
+@media screen and (max-width: 768px) {
+    .imba_item{
+        width: 100%;
+    }
+}

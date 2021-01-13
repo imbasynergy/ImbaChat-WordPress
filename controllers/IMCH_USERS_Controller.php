@@ -136,7 +136,25 @@ class IMCH_USERS_Controller extends WP_REST_Controller {
         foreach ($ids as $id){
             $user_m = get_user_by( 'id', $id );
             $user = [];
-            $user['name'] = $user_m->user_nicename;
+            $field_user = 'user_nicename';
+            if (get_option('im_user_field'))
+            {
+                if (get_option('im_user_field') != '')
+                {
+                    $field_user = get_option('im_user_field');
+                }
+            }
+
+            if ($field_user == 'fullname' && ($user_m->first_name || $user_m->last_name))
+            {
+                $user['name'] = $user_m->first_name.' '.$user_m->last_name;
+            }
+            elseif ($user_m->$field_user)
+            {
+                $user['name'] = $user_m->$field_user;
+            }
+            else
+                $user['name'] = $user_m->user_nicename;
             $user['user_id'] =  $user_m->ID;
 
             $avatar = get_avatar_url($id);
@@ -181,16 +199,44 @@ class IMCH_USERS_Controller extends WP_REST_Controller {
     }
     public function search_users( WP_REST_Request $request )
     {
-        global $wpdb;
-        $table_prefix = $wpdb->prefix;
         $this->testAuthOrDie();
-        $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME, 3306);
-        $res = $mysqli->query("SELECT * FROM ".$table_prefix."users WHERE user_nicename LIKE '%".$mysqli->real_escape_string($request['string'])."%'");
+        $string = $request['string'];
+        $search_field = str_replace('_', ' ', $string);
+        $string = '*'.$search_field.'*';
+        if (get_option('im_user_search_type'))
+        {
+            if (get_option('im_user_search_type') == '1')
+                $string = '*'.esc_attr($search_field).'*';
+            elseif (get_option('im_user_search_type') == '2')
+                $string = esc_attr($search_field);
+            elseif (get_option('im_user_search_type') == '3')
+                $string = '*'.esc_attr($search_field).'*';
+        }
+        $users = new WP_User_Query( array(
+            'search'         => $string,
+            'search_columns' => array(
+                'user_login',
+                'user_nicename',
+                'user_email',
+                'user_url',
+                'first_name',
+                'last_name',
+                'display_name'
+            ),
+        ) );
+        $users_found = $users->get_results();
         $users = array();
-        while ($row = $res->fetch_assoc()) {
+        foreach ($users_found as $item)
+        {
             $user = array();
-            $user['name'] = $row['user_nicename'];
-            $user['user_id'] = $row['ID'];
+
+            if (strlen("$item->first_name $item->last_name") > 3)
+                $fullname = "$item->first_name $item->last_name";
+            else
+                $fullname = $item->user_nicename;
+
+            $user['name'] = $fullname;
+            $user['user_id'] = $item->ID;
             $users[] = $user;
         }
         return $users;

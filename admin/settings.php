@@ -104,18 +104,91 @@ function add_my_setting(){
         require_once IMBACHAT__PLUGIN_DIR . '/view/admin_menu/get_started.php';
     }
 
+    function imbachat_users_settings()
+    {
+
+        function filter_fields($item, $fields = [
+            'first_name',
+            'last_name',
+            'user_login',
+            'display_name',
+            'user_email',
+            'fullname' => [
+                'first_name',
+                'last_name'
+            ]
+        ])
+        {
+            $result = array();
+            foreach ($fields as $k=>$field)
+            {
+                if (gettype($field) == 'array')
+                {
+                    $result_str = '';
+                    foreach ($field as $sub_field)
+                    {
+                        $result_str .= $item->$sub_field.' ';
+                    }
+                    $result[$k] = $result_str;
+                }
+                elseif (isset($item->$field))
+                {
+                    $result[$field] = $item->$field;
+                }
+            }
+            return $result;
+        }
+        $user = new WP_User_Query( array(
+            'search'         => get_current_user_id(),
+            'search_columns' => array(
+                'ID',
+                'user_login',
+                'user_nicename',
+                'user_email',
+                'user_url',
+                'first_name',
+                'second_name',
+                'display_name'
+            ),
+        ) );
+
+        $users = array();
+        $fields = array();
+        foreach ($users_found = $user->get_results() as $item)
+        {
+            $fields = filter_fields($item);
+        }
+        $not_show_ic_flashes = 1;
+        require_once IMBACHAT__PLUGIN_DIR . '/view/admin_menu/ic_flashes.php';
+        require_once IMBACHAT__PLUGIN_DIR . '/view/admin_menu/users_settings.php';
+    }
+
     //post функции
     function sync_with_imbachat(){
 
         $dev_id = $_REQUEST['IMCH_dev_id'];
         sync_with_imba_api($dev_id, $_SERVER['HTTP_HOST']!='' ? $_SERVER['HTTP_HOST'] : preg_replace('#https?://(www.)?#','',site_url()), get_option( 'admin_email' ));
-        wp_redirect(admin_url( 'admin.php' ).'?page=imbachat-settings', 302);
+        wp_redirect(admin_url( 'admin.php' ).'?page=imbachat-settings&success=1', 302);
     }
 
     function interactive_submit()
     {
         update_option('IMCH_LANG', $_REQUEST['language']);
         wp_redirect(admin_url( 'admin.php' ).'?page=imbachat-settings', 302);
+    }
+
+    //ajax функции
+    function save_users_settings()
+    {
+        $params = $_REQUEST['param'];
+        if (isset($params['user_field']))
+        {
+            update_option('im_user_field', $params['user_field']);
+
+            update_option('im_user_search_type', $params['search_type']);
+        }
+        echo(json_encode( array('status'=>true,'request_vars'=>$_REQUEST) ));
+        wp_die();
     }
 
     ?>

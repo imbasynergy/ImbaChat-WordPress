@@ -11,6 +11,7 @@ function sync_with_imba_api($dev_id, $host, $mail)
                 'dev_id' => $dev_id,
                 'email' => $mail,
                 'lang' => get_option('IMCH_LANG') ? get_option('IMCH_LANG') : 'en-US',
+                'url' => get_site_url(),
             ];
             $url = 'https://api.imbachat.com/developers/api/v1/sync';
             $curl = curl_init();

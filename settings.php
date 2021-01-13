@@ -7,11 +7,6 @@ require_once( IMBACHAT__PLUGIN_DIR . '/includes/assign_hooks.php' );
 require_once( IMBACHAT__PLUGIN_DIR . '/includes/admin_hooks.php' );
 require_once (IMBACHAT__PLUGIN_DIR . '/admin/sync/sync.php');
 
-wp_register_style( 'imbachat.css', IC_PLUGIN_URL.'/assets/css/imbachat.css');
-wp_enqueue_style( 'imbachat.css');
-wp_register_style( 'fontawesome', 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
-wp_enqueue_style( 'fontawesome');
-
 require_once( IMBACHAT__PLUGIN_DIR . '/includes/buddyPressInt.php' );
 
 require_once( IMBACHAT__PLUGIN_DIR . '/includes/wcfm_market_int.php' );
@@ -27,6 +22,11 @@ add_action('wp_loaded', function (){
     wp_enqueue_style( 'fontawesome');
     wp_register_script('IMCH_script', IC_PLUGIN_URL.'/view/imbachat.js','','', true);
     wp_enqueue_script( 'IMCH_script');
+    if (is_admin())
+    {
+        wp_register_style( 'admin.css', IC_PLUGIN_URL.'/admin/assets/css/admin.css');
+        wp_enqueue_style( 'admin.css');
+    }
 });
 add_action('plugins_loaded', 'imbachat');
 function imbachat(){

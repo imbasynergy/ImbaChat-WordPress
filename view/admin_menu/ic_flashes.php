@@ -32,11 +32,6 @@
         padding: 0;
         margin: 0;
     }
-    body {
-        min-height: 100vh;
-        background: hsl(0, 0%, 100%);
-        font-family: "Noto Sans JP", sans-serif;
-    }
     /* display the wrapping container in the top right corner of the viewport */
     .notification {
         position: fixed;
@@ -187,7 +182,7 @@
     // possible values for the message title and modifier
     const messageTitle = {
         info: 'Info',
-        success: 'Success',
+        success: 'ImbaChat Success!',
         warning: 'ImbaChat Warning!',
         danger: 'ImbaChat Danger!'
     }
@@ -196,7 +191,9 @@
     // end result of the emmet shortcut p*10>lorem10
     const messageText = {
         curl: 'ImbaChat plugin requires php extension curl to be installed',
-        online_sup: 'Option "Online Support" is disabled, turn it on in "Chat Settings" page for getting access to ImbaSupport!'
+        online_sup: 'Option "Online Support" is disabled, turn it on in "Chat Settings" page for getting access to ImbaSupport!',
+        sunc_success: 'The widget is successfully connected!',
+        users_settings_success: 'Settings saved successfully!'
     };
 
     const notification = document.querySelector('.notification');
@@ -239,6 +236,13 @@
     }
 
     // immediately call the generateMessage function to kickstart the loop
+    <?php
+    if (!$not_show_ic_flashes)
+    {
+    ?>
     generateMessage('<?=$title?>', '<?=$body?>');
+    <?php
+    }
+    ?>
 
 </script>

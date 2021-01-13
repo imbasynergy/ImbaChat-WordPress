@@ -97,9 +97,22 @@ add_action('admin_menu', function(){
         0 );
 } );
 
+//Настройка поиска и данных пользователей
+add_action('admin_menu', function(){
+    add_submenu_page(
+        'imbachat-settings',
+        'Setting up user`s names and type of search',
+        'Users Settings',
+        8,
+        'imbachat-users-settings',
+        'imbachat_users_settings',
+        0 );
+} );
+
 //Метод запроса
 add_action( 'admin_post_sync_with_imbachat', 'sync_with_imbachat' );
 add_action( 'admin_post_interactive_submit', 'interactive_submit' );
 add_action( 'wp_ajax_get_links_to_imbachat', 'get_links_to_imbachat' );
+add_action( 'wp_ajax_save_users_settings', 'save_users_settings' );
 
 ?>
