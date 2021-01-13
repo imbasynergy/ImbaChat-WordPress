@@ -50,6 +50,12 @@ class IMCH_USERS_Controller extends WP_REST_Controller {
                 'callback'            => [ $this, 'sync' ]
             ]
         ] );
+        register_rest_route( $this->namespace, "/user/friends/(?P<user_id>[\w]+)", [
+            [
+                'methods'             => 'get',
+                'callback'            => [ $this, 'user_friends' ]
+            ]
+        ] );
     }
 
     protected function testAuthOrDie()
@@ -267,6 +273,61 @@ class IMCH_USERS_Controller extends WP_REST_Controller {
             'IMCH_password' => get_option('IMCH_password'),
             'IMCH_secret_key' => get_option('IMCH_secret_key')
         ];
+    }
+
+    public function user_friends(WP_REST_Request $request)
+    {
+        $user_id = $request['user_id'];
+        $users = [];
+
+        if (function_exists('friends_get_friend_user_ids')) {
+            $friends = friends_get_friend_user_ids($user_id);
+            foreach ($friends as $friend){
+                $user_m = get_user_by( 'id', $friend );
+                $user = [];
+                $field_user = 'user_nicename';
+                if (get_option('im_user_field'))
+                {
+                    if (get_option('im_user_field') != '')
+                    {
+                        $field_user = get_option('im_user_field');
+                    }
+                }
+
+                if ($field_user == 'fullname' && ($user_m->first_name || $user_m->last_name))
+                {
+                    $user['name'] = $user_m->first_name.' '.$user_m->last_name;
+                }
+                elseif ($user_m->$field_user)
+                {
+                    $user['name'] = $user_m->$field_user;
+                }
+                else
+                    $user['name'] = $user_m->user_nicename;
+                $user['user_id'] =  $user_m->ID;
+
+                $avatar = get_avatar_url($friend);
+                if (!preg_match('#^//www[.]gravatar[.]com#', $avatar))
+                    $user['avatar_url'] = $avatar;
+
+                $user['user_mail'] =  $user_m->user_email;
+                if ( in_array( 'administrator', (array) $user_m->roles ) ) {
+                    $user['chat_role'] = 'admin';
+                } else {
+                    $user['chat_role'] = 'user';
+                }
+                $users[] = $user;
+            }
+            return $users;
+        } else {
+            echo json_encode([
+                "code" => 422,
+                "version" => $this->getApiVersion()['version'],
+                "error" => 'Friends are not available!',
+                'debug' => ''
+            ]);
+            die();
+        }
     }
 
     public function getApiVersion(){

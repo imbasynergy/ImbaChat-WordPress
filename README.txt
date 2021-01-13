@@ -1,7 +1,7 @@
 === ImbaChat ===
 Contributors: imbasynergy
 Donate link: paypal.me/TrapenokVictor
-Tags: chat, community, chat room, embed chat, chat plugin, chat widget, buddypress, messages, private message, sweetdate chat plugin, WCFM chat plugin, direct messaging, live chat, group chat, member chat, private messaging system, floating chat widget
+Tags: chat, community, chat room, embed chat, chat plugin, chat widget, buddypress, messages, private message, sweetdate chat plugin, WCFM chat plugin, direct messaging, live chat, group chat, member chat, private messaging system, floating chat widget, video conference, video call, webcam, webinar, video chat, videochat.
 Requires at least: 4.6
 Tested up to: 5.6
 Stable tag: 5.6
@@ -55,8 +55,18 @@ At the moment there is no such function. Also this is pointless, because only au
 =Will the chat load my server?=
 The chat on Saas version is connected as a widget and therefore does not load the server. All the load and data processing takes place on our servers, they can withstand a fairly heavy load, so you don't have to worry about the load.
 
-=What are the server requirements?=
-There is no special requirements for the Saas version. But If you want to install the Pro version, your server must have at least 2 GB of RAM.
+=How much does it cost?=
+The ImbaChat is working as Freemium. The basic functions like group and private chat are free. You can learn more about ImbaChat pricing [here](https://imbachat.com/en/pricing).
+
+=Do I have to install any hardware/software on my premises to use this widget?=
+ImbaChat is a hosted, cloud based video aND text chat service. It does not require you to install any additional hardware or software. Simply configure the plugin to suit your preferences and you should be up, and running in minutes.
+
+=Does ImbaChat have an affiliate / partner program?=
+Yes, anyone can participate in ImbaChat affiliate program and earn money online. [Here](https://imbachat.com/en/referal-programm) you can learn all about this program.
+
+=Why doesn’t the videochat work? I see the buttons but I don’t get any prompts for video access.=
+Browsers require a secure connection (HTTPS) for accessing a device’s microphone and camera. When testing locally, localhost is a whitelisted URL but once you deploy to production you will need to have a secure connection for the plugin to function properly.
+
 
 
 == Screenshots ==
@@ -67,6 +77,9 @@ There is no special requirements for the Saas version. But If you want to instal
 4. Chat on Wordpress
 
 == Changelog ==
+
+= 2.5.7 =
+* List of friends in the chat window
 
 = 2.5.6 =
 * Search users is available now!
