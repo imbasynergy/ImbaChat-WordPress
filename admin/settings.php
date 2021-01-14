@@ -71,7 +71,6 @@ function add_my_setting(){
 
     function imbachat_admin_panel()
     {
-
         require_once IMBACHAT__PLUGIN_DIR . '/view/admin_menu/imba_frame.php';
     }
 

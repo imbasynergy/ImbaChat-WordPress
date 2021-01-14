@@ -79,6 +79,9 @@ Browsers require a secure connection (HTTPS) for accessing a device’s micropho
 == Changelog ==
 
 = 2.5.7 =
+* Redirect to settings page, if widget is not connected
+
+= 2.5.7 =
 * List of friends in the chat window
 
 = 2.5.6 =

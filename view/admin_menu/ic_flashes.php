@@ -193,7 +193,8 @@
         curl: 'ImbaChat plugin requires php extension curl to be installed',
         online_sup: 'Option "Online Support" is disabled, turn it on in "Chat Settings" page for getting access to ImbaSupport!',
         sunc_success: 'The widget is successfully connected!',
-        users_settings_success: 'Settings saved successfully!'
+        users_settings_success: 'Settings saved successfully!',
+        need_sync: 'Please create or connect your plugin with ImbaChat.com'
     };
 
     const notification = document.querySelector('.notification');
