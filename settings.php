@@ -56,8 +56,18 @@ add_action('wp_footer', function()
     require_once( IMBACHAT__PLUGIN_DIR . '/view/script.php' );
 });
 
+
+add_filter( 'cron_schedules', 'cron_add_five_min' );
+function cron_add_five_min( $schedules ) {
+    $schedules['five_min'] = array(
+        'interval' => 60 * 1,
+        'display' => 'Раз в 1 минут'
+    );
+    return $schedules;
+}
+
 // добавляет новую крон задачу
-add_action( 'wp', 'imba_cron_activation' );
+add_action( 'admin_head', 'imba_cron_activation' );
 function imba_cron_activation() {
     if( ! wp_next_scheduled( 'imba_wp_stat' ) ) {
         wp_schedule_event( time(), 'daily', 'imba_wp_stat');
@@ -78,7 +88,9 @@ function do_imba_wp_stat(){
 
             $apl=get_option('active_plugins');
             $apl = json_encode($apl);
-            $plugin_data = get_plugin_data(IMBACHAT_PLUGIN_FILE);
+            $plugin_data = get_file_data(IMBACHAT_PLUGIN_FILE, [
+                'Version' => 'Version',
+            ], 'plugin');
 
             $post_data = [
                 'host' => $_SERVER['HTTP_HOST'],

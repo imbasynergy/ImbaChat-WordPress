@@ -35,7 +35,7 @@ add_action('admin_menu', function(){
     add_submenu_page(
         'imbachat-settings',
         'Admin Panel',
-        'Admin Panel',
+        'Dashboard',
         8,
         'imbachat-admin-panel',
         'imbachat_admin_panel',

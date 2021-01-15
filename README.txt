@@ -78,7 +78,10 @@ Browsers require a secure connection (HTTPS) for accessing a device’s micropho
 
 == Changelog ==
 
-= 2.5.7 =
+= 2.5.9 =
+* Color themes have more things to change now!
+
+= 2.5.8 =
 * Redirect to settings page, if widget is not connected
 
 = 2.5.7 =
