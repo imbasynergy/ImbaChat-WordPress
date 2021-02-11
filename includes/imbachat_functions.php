@@ -20,7 +20,6 @@ function ic_open_dialog_with( $atts, $content = null, $code = '' ) {
         $btnName = $atts['name'];
     }
     require_once( IMBACHAT__PLUGIN_DIR . '/view/ic_functions.php' );
-    echo "<script>jQuery('.ic_bp_button').html(gettext('imbachat','wp_chat_with_user'))</script>";
     return '<button type="button" class="'.$className.'" onclick="open_dialog('.$id.')"><img
   src="'.IC_PLUGIN_URL.'/assets/images/message.svg"
   alt="За стеклом" style="padding-right: 15px">'.$btnName.'</button>';

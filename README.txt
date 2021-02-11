@@ -1,7 +1,7 @@
 === ImbaChat ===
 Contributors: imbasynergy
 Donate link: paypal.me/TrapenokVictor
-Tags: chat, community, chat room, embed chat, chat plugin, chat widget, buddypress, messages, private message, sweetdate chat plugin, WCFM chat plugin, direct messaging, live chat, group chat, member chat, private messaging system, floating chat widget, video conference, video call, webcam, webinar, video chat, videochat.
+Tags: chat, community, chat room, embed chat, chat plugin, chat widget, buddypress, messages, private message, sweetdate chat plugin, WCFM chat plugin, live chat, group chat, member chat, private messaging system, floating chat widget, video conference, video call, webcam, webinar, video chat, videochat.
 Requires at least: 4.6
 Tested up to: 5.6
 Stable tag: 5.6
@@ -12,7 +12,8 @@ License URI: http://www.apache.org/licenses/
 == Description ==
 
 ImbaChat is free chat plugin for Wordpress. Online support chat, group chat and private chat between users in one cloud service.
-It allows to add chat widget on your website for free. Integration with BuddyPress, SweetDate and WCFM Marketplace. Learn more about the plugin [here](https://imbachat.com).
+It allows to add chat widget on your website for free. Integration with BuddyPress, SweetDate and WCFM Marketplace. ImbaChat also provides private video chat and group video chat between users for the webinars.
+Learn more about the plugin [here](https://imbachat.com).
 
 
 **Features:**
@@ -74,9 +75,15 @@ Browsers require a secure connection (HTTPS) for accessing a device’s micropho
 1. Chat on the GisAuto website
 2. Style settings
 3. Chat on Buddypress
-4. Chat on Wordpress
+4. Light theme
+5. Dark theme
 
 == Changelog ==
+
+= 2.6 =
+* Color themes have more things to change now!
+* Collecting reviews after installing plugin and deactivating it
+* New block "Public Chat" in wordpress page editor
 
 = 2.5.9 =
 * Color themes have more things to change now!

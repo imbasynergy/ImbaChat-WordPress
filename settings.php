@@ -13,6 +13,12 @@ require_once( IMBACHAT__PLUGIN_DIR . '/includes/wcfm_market_int.php' );
 
 if ( is_admin() ) {
     require_once IMBACHAT__PLUGIN_DIR . '/admin/admin.php';
+    include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-ajax.php');
+    include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-admin-assets.php');
+    include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-curl.php');
+    include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-form-actions.php');
+    include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-blocks.php');
+    include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-notice.php');
 }
 
 add_action('wp_loaded', function (){
@@ -28,6 +34,13 @@ add_action('wp_loaded', function (){
         wp_enqueue_style( 'admin.css');
     }
 });
+function load_jquery() {
+    if ( ! wp_script_is( 'jquery', 'enqueued' )) {
+        wp_register_script('jquery', IC_PLUGIN_URL.'/assets/js/jquery.min.js','','', true);
+        wp_enqueue_script( 'jquery');
+    }
+}
+add_action( 'wp_enqueue_scripts', 'load_jquery', 1 );
 add_action('plugins_loaded', 'imbachat');
 function imbachat(){
     add_shortcode( 'ic_open_dialog', 'ic_open_dialog_with' );
@@ -42,12 +55,7 @@ function imbachat(){
             $dev_id = null;
         else
             $dev_id = get_option('IMCH_dev_id');
-        //sync_with_imba_api($dev_id, $_SERVER['HTTP_HOST'], get_option( 'admin_email' ));
     }
-
-    wp_register_script('IMCH_script', IC_PLUGIN_URL.'/view/imbachat.js','','', true);
-    wp_enqueue_script( 'IMCH_script');
-    //wp_enqueue_script('my-amazing-script');
 }
 add_action('wp_footer', function()
 {

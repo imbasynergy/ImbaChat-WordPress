@@ -4,6 +4,10 @@
         if(!window.ImbaChat){
             return setTimeout(imbachatWidget, 50);
         }
-        window.ImbaChat.load(<?php echo $json_data; ?>)
+        window.ImbaChat.load(<?php echo $json_data; ?>).then(() =>{
+            let img = jQuery('.ic_bp_button').find('img')[0];
+            jQuery('.ic_bp_button').text( gettext('imbachat','wp_chat_with_user'))
+            jQuery('.ic_bp_button').prepend(img)
+        })
     }
 </script>

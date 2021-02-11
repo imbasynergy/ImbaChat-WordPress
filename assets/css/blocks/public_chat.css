@@ -1,0 +1,35 @@
+/* block.css */
+div.notice-box {
+    border: 1px LightSkyBlue solid;
+    border-left-width: 5px;
+    padding: 10px 15px;
+    margin: 30px;
+}
+
+div.notice-box.notice-success {
+    border-color: MediumSpringGreen ;
+}
+
+div.notice-box.notice-danger{
+    border-color: LightCoral ;
+}
+
+div.notice-box h4 {
+    font-size: 18px;
+    margin:0 0 10px 0;
+}
+div.notice-box p {
+    font-size: 16px;
+    line-height: 24px;
+    margin:0;
+}
+.imbchat-pub-box{
+    display: flex;
+    flex-wrap: wrap;
+}
+.imbchat-pub-box label{
+    display: block;
+}
+.imbchat-pub-box div{
+    width: 45%;
+}
