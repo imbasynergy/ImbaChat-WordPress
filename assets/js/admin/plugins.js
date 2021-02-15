@@ -2,7 +2,7 @@
 jQuery(function ($) {
     $(document.body).on(
         "click",
-        'tr[data-plugin="imbachat-widget/ImbaChatWidget.php"] span.deactivate a:not(.hasNotice)',
+        'tr[data-plugin="imbachat-widget/ImbaChatWidget.php"] span.deactivate a',
         function (e) {
             e.preventDefault();
 

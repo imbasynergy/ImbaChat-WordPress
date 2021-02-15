@@ -5,18 +5,18 @@
         <div class="imba_input_group">
             <label>Choose the which field will displayed as username</label>
             <label class="custom-select" for="user_field">
-                <select id="user_field" name="options">
+                <select id="user_field" name="options" data-qa="user_field">
                     <option value="">
                         Select an option
                     </option>
                     <?php
                     foreach ($fields as $k=>$field)
                     {
-                    ?>
+                        ?>
                         <option value="<?=$k?>" <?= get_option('im_user_field') == $k ? 'selected' : '' ?>>
                             <?=$k.' = '.$field?>
                         </option>
-                    <?php
+                        <?php
                     }
                     ?>
                 </select>
@@ -27,7 +27,7 @@
         <div class="imba_input_group">
             <label>Choose the type of search</label>
             <label class="custom-select" for="search_type">
-                <select id="search_type" name="options">
+                <select id="search_type" name="options" data-qa="search_type">
                     <option value="">
                         Select an option
                     </option>
@@ -47,7 +47,7 @@
 </div>
 <div class="imba_container">
     <div class="imba_item">
-        <button type="button" class="imba_btn" onclick="save_users_settings()">Save Settings</button>
+        <button type="button" class="imba_btn" onclick="save_users_settings()" data-qa="user_settings_ajax">Save Settings</button>
     </div>
 </div>
 

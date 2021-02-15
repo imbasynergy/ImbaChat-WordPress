@@ -31,16 +31,16 @@ add_action('admin_menu', function(){
         31 );
 } );
 
-add_action('admin_menu', function(){
-    add_submenu_page(
-        'imbachat-settings',
-        'Admin Panel',
-        'Dashboard',
-        8,
-        'imbachat-admin-panel',
-        'imbachat_admin_panel',
-        31 );
-} );
+//add_action('admin_menu', function(){
+//    add_submenu_page(
+//        'imbachat-settings',
+//        'Admin Panel',
+//        'Dashboard',
+//        8,
+//        'imbachat-admin-panel',
+//        'imbachat_admin_panel',
+//        31 );
+//} );
 
 add_action( 'admin_menu' , function (){
     global $submenu;
@@ -52,7 +52,7 @@ add_action( 'admin_menu' , function (){
             'imbachat_onlinesup' => 'https://api.imbachat.com/imbasupport/v1/'.get_option('IMCH_dev_id').'/token_auth?jwt='.IMCH_get_adminJWT(get_admin_url())
         ];
         $submenu['imbachat-settings'][9997] = array( __('Support Forum'), 'manage_options', "https://wordpress.org/support/plugin/imbachat-widget/", '', 'imba-open-if-no-js menu-top', '', 'target' );
-        //$submenu['imbachat-settings'][9998] = array( __('Admin Panel'), 'manage_options', $links['imbachat'], '', 'imba-open-if-no-js menu-top', '', 'target' );
+        $submenu['imbachat-settings'][9998] = array( __('Admin Panel'), 'manage_options', $links['imbachat'], '', 'imba-open-if-no-js menu-top', '', 'target' );
         $submenu['imbachat-settings'][9999] = array( __('Chat Moderation'), 'manage_options', $links['imachat_dashboard'], '', 'imba-open-if-no-js menu-top', '', 'div' );
         $submenu['imbachat-settings'][9997] = array( __('Online Support'), 'manage_options', $links['imbachat_onlinesup'], '', 'imba-open-if-no-js menu-top', '', 'div' );
     }

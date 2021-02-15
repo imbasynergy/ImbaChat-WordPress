@@ -7,7 +7,7 @@
         <input class="IMCH_form__input" value="<?= get_option('IMCH_dev_id') ?>" name="IMCH_dev_id" placeholder="" type="text" required>
     </div>
     <div class="IMCH_form__field">
-        <button class="IMCH_form__button" type="submit">Connect to the widget</button>
+        <button class="IMCH_form__button" type="submit" data-qa="connect_widget">Connect to the widget</button>
     </div>
 </form>
 <form action="<?php echo admin_url( 'admin-post.php' ); ?>" method="post" style="padding-top: 15px;padding-bottom: 15px">
@@ -16,7 +16,7 @@
         <input class="IMCH_form__input" name="IMCH_dev_id" placeholder="" value="-1" type="hidden" required>
     </div>
     <div class="IMCH_form__field">
-        <button class="IMCH_form__button" type="submit">Create a widget</button>
+        <button class="IMCH_form__button" type="submit" data-qa="create_widget">Create a widget</button>
     </div>
 </form>
 <div>

@@ -80,6 +80,9 @@ Browsers require a secure connection (HTTPS) for accessing a device’s micropho
 
 == Changelog ==
 
+= 2.6.1 =
+* Add filter for roles to "Message" button
+
 = 2.6 =
 * Color themes have more things to change now!
 * Collecting reviews after installing plugin and deactivating it

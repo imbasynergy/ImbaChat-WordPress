@@ -1,5 +1,6 @@
 <?php
 
+use \Firebase\JWT\JWT;
 function ic_open_dialog_with( $atts, $content = null, $code = '' ) {
 
     if ( is_feed() ) {
@@ -17,10 +18,32 @@ function ic_open_dialog_with( $atts, $content = null, $code = '' ) {
 
         $id = (int) $atts['id'];
         $className = $atts['class'];
-        $btnName = $atts['name'];
+        $filter = apply_filters('imbachat_open_dialog_filter', false, get_current_user_id(), $id);
+        if (!$filter || $filter['status'] == 'default') {
+            $btnName = $atts['name'];
+            $current_user = wp_get_current_user();
+            $payload = [
+                'user_id' => $id,
+                'initiator' => $current_user->ID,
+                'status' => 0,
+                'exp' => (int)date('U')+3600*7,
+            ];
+            $jwt = JWT::encode($payload, get_option('IMCH_secret_key'));
+        } elseif ($filter['status'] == 'need_access'){
+            $btnName = 'Message';
+            $current_user = wp_get_current_user();
+            $payload = [
+                'user_id' => $id,
+                'initiator' => $current_user->ID,
+                'status' => 1,
+                'exp' => (int)date('U')+3600*7,
+            ];
+            $jwt = JWT::encode($payload, get_option('IMCH_secret_key'));
+        } else {
+            return false;
+        }
     }
-    require_once( IMBACHAT__PLUGIN_DIR . '/view/ic_functions.php' );
-    return '<button type="button" class="'.$className.'" onclick="open_dialog('.$id.')"><img
+    return '<button type="button" class="'.$className.'" onclick="open_dialog('.$id.', `'.$jwt.'`)"><img
   src="'.IC_PLUGIN_URL.'/assets/images/message.svg"
   alt="За стеклом" style="padding-right: 15px">'.$btnName.'</button>';
 }

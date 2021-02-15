@@ -1,3 +1,10 @@
+.imbachat_warning{
+    background: yellow !important;
+}
+.imbachat_danger{
+    background: red !important;
+    color: white !important;
+}
 .im-quiz-container {
     background-color: #5f8fff;
     padding: 45px 80px;

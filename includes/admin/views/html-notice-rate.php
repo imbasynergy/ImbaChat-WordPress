@@ -11,6 +11,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <div class="notice notice-info user-registration-review-notice" id="imba_rating">
     <p>Your feedback is very important to us.</p>
+    <div class="imbachat_logo_container">
+        <img src="<?= IMBACHAT_ADMIN_DIR.'/assets/images/imbachat_logo.jpg' ?>">
+    </div>
     <div>
         <p>Please rate us!</p>
         <div class="imba_flex">
@@ -35,7 +38,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 </div>
 <script>
     const sendRate = (el) => {
-        let rating = el.getAttribute('data-imba_rating') ?? 0;
+        let rating = el.getAttribute('data-imba_rating') || 0;
         let extra_block = document.querySelector('div[class~="imba_rate_extra"]');
         let reason = extra_block.querySelector('input').value;
         let data = {

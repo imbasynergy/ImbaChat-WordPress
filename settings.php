@@ -10,6 +10,8 @@ require_once (IMBACHAT__PLUGIN_DIR . '/admin/sync/sync.php');
 require_once( IMBACHAT__PLUGIN_DIR . '/includes/buddyPressInt.php' );
 
 require_once( IMBACHAT__PLUGIN_DIR . '/includes/wcfm_market_int.php' );
+include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-bp-messages-component.php');
+include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-filters.php');
 
 if ( is_admin() ) {
     require_once IMBACHAT__PLUGIN_DIR . '/admin/admin.php';
@@ -20,18 +22,22 @@ if ( is_admin() ) {
     include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-blocks.php');
     include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-notice.php');
 }
-
+if (class_exists('BP_Message_component')) {
+    BP_Message_component::instance();
+}
 add_action('wp_loaded', function (){
     wp_register_style( 'imbachat.css', IC_PLUGIN_URL.'/assets/css/imbachat.css');
     wp_enqueue_style( 'imbachat.css');
     wp_register_style( 'fontawesome', 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
     wp_enqueue_style( 'fontawesome');
-    wp_register_script('IMCH_script', IC_PLUGIN_URL.'/view/imbachat.js','','', true);
-    wp_enqueue_script( 'IMCH_script');
     if (is_admin())
     {
         wp_register_style( 'admin.css', IC_PLUGIN_URL.'/admin/assets/css/admin.css');
         wp_enqueue_style( 'admin.css');
+    } else {
+        wp_register_script('IMCH_script', IC_PLUGIN_URL.'/view/imbachat.js','','', true);
+        wp_enqueue_script( 'IMCH_script');
+
     }
 });
 function load_jquery() {

@@ -1,6 +1,6 @@
 <script>
-    function open_dialog(id){
-        imbaApi.openDialog(id)
+    function open_dialog(id, jwt = false){
+        imbaApi.openDialog(id, 0, jwt)
     }
 
     function ic_create_dialog(test) {

@@ -27,7 +27,8 @@ class IM_Blocks {
 
     public static function addBlocks(){
         $blocks = [
-            'public_chat' => true
+            'public_chat' => true,
+            'embedding_chat' => true
         ];
 
         foreach ($blocks as $k => $block) {
@@ -73,6 +74,28 @@ class IM_Blocks {
         );
     }
     public static function public_chat_frontend(){
+        wp_enqueue_style(
+            'imbachat-public-chat-block-editor',
+            IM_PLUGIN_URL . '/assets/css/blocks/public_chat.css',
+            array()
+        );
+    }
+
+    public static function embedding_chat(){
+
+        wp_enqueue_script(
+            'imbachat-embedding-chat-block-editor',
+            IM_PLUGIN_URL . '/assets/js/blocks/embedding_chat.js',
+            array( 'wp-blocks', 'wp-element' )
+        );
+
+        wp_enqueue_style(
+            'imbachat-public-chat-block-editor',
+            IM_PLUGIN_URL . '/assets/css/blocks/public_chat.css',
+            array()
+        );
+    }
+    public static function embedding_chat_frontend(){
         wp_enqueue_style(
             'imbachat-public-chat-block-editor',
             IM_PLUGIN_URL . '/assets/css/blocks/public_chat.css',

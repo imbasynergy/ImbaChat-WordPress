@@ -14,7 +14,7 @@
     white-space:nowrap;
     cursor:pointer;
     font-size:30px;
-    height: 20px;
+    height: 36px;
     color:#ccc;
 }
 .imba_rate:not(:checked) > label:before {
@@ -63,4 +63,21 @@
     opacity: 0;
     transition: opacity .25s, transform .25s;
     vertical-align: middle;
+}
+.imbachat_logo_container img{
+    max-width: 25%;
+}
+
+@media screen and (max-width: 1600px) {
+    .imbachat_logo_container img{
+        max-width: 35%;
+    }
+}
+@media screen and (max-width: 400px) {
+    .imbachat_logo_container img{
+        max-width: 100%;
+    }
+    .imba_rate{
+        width: 100%;
+    }
 }
