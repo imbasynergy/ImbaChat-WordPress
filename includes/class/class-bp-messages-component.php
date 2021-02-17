@@ -199,6 +199,7 @@ if (class_exists('BP_Component'))
             ob_start();
             require IMBACHAT__PLUGIN_DIR . 'view/html-im-chat.php';
             echo ob_get_clean();
+            ob_end_clean();
         }
 
         /**

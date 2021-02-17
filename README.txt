@@ -15,6 +15,9 @@ ImbaChat is free chat plugin for Wordpress. Online support chat, group chat and 
 It allows to add chat widget on your website for free. Integration with BuddyPress, SweetDate and WCFM Marketplace. ImbaChat also provides private video chat and group video chat between users for the webinars.
 Learn more about the plugin [here](https://imbachat.com).
 
+[youtube https://www.youtube.com/watch?v=mGbjVlagAaQ]
+
+[youtube https://www.youtube.com/watch?v=h0UIbOE77Aw&t]
 
 **Features:**
 
@@ -65,8 +68,8 @@ ImbaChat is a hosted, cloud based video aND text chat service. It does not requi
 =Does ImbaChat have an affiliate / partner program?=
 Yes, anyone can participate in ImbaChat affiliate program and earn money online. [Here](https://imbachat.com/en/referal-programm) you can learn all about this program.
 
-=Why doesn’t the videochat work? I see the buttons but I don’t get any prompts for video access.=
-Browsers require a secure connection (HTTPS) for accessing a device’s microphone and camera. When testing locally, localhost is a whitelisted URL but once you deploy to production you will need to have a secure connection for the plugin to function properly.
+=Why doesnвЂ™t the videochat work? I see the buttons but I donвЂ™t get any prompts for video access.=
+Browsers require a secure connection (HTTPS) for accessing a deviceвЂ™s microphone and camera. When testing locally, localhost is a whitelisted URL but once you deploy to production you will need to have a secure connection for the plugin to function properly.
 
 
 
@@ -79,6 +82,13 @@ Browsers require a secure connection (HTTPS) for accessing a device’s micropho
 5. Dark theme
 
 == Changelog ==
+
+= 2.6.4 =
+* Integration with "woocommerce" plugins
+* Integration with "wpforo" plugin
+
+= 2.6.3 =
+* Integration with "OneSignal" notification plugin
 
 = 2.6.1 =
 * Add filter for roles to "Message" button

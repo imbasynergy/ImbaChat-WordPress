@@ -12,6 +12,7 @@ require_once( IMBACHAT__PLUGIN_DIR . '/includes/buddyPressInt.php' );
 require_once( IMBACHAT__PLUGIN_DIR . '/includes/wcfm_market_int.php' );
 include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-bp-messages-component.php');
 include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-filters.php');
+include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-actions.php');
 
 if ( is_admin() ) {
     require_once IMBACHAT__PLUGIN_DIR . '/admin/admin.php';

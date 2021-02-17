@@ -1,5 +1,5 @@
 <script>
-    function open_dialog(id, jwt = false){
+    function open_dialog(id, jwt = ''){
         imbaApi.openDialog(id, 0, jwt)
     }
 

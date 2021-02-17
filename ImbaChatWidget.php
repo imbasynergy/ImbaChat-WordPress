@@ -3,7 +3,7 @@
  * Plugin Name: ImbaChat
  * Plugin URI: https://wordpress.org/plugins/imbachat-widget/
  * Description: This is free plugin for integration Wordpress CMS with chat service imbachat.com. It allows to add chat widget between users on your website for free.
- * Version: 2.6.1
+ * Version: 2.6.4
  * Author: Imbasynergy
  * Author URI: https://imbachat.com/en/wordpress-chat
  * License: GPLv2 or later

@@ -41,8 +41,8 @@ if (function_exists('curl_version')) :
                 curl_setopt($curl, CURLOPT_TIMEOUT, 5);
 
 
-        curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-        curl_setopt($curl, CURLOPT_USERPWD, 'calls:calls123321');
+//        curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+//        curl_setopt($curl, CURLOPT_USERPWD, 'calls:calls123321');
 
                 curl_setopt($curl, CURLOPT_URL, $url);
                 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
