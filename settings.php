@@ -6,16 +6,22 @@ require_once( IMBACHAT__PLUGIN_DIR . '/widgets/ic_widgets.php' );
 require_once( IMBACHAT__PLUGIN_DIR . '/includes/assign_hooks.php' );
 require_once( IMBACHAT__PLUGIN_DIR . '/includes/admin_hooks.php' );
 require_once (IMBACHAT__PLUGIN_DIR . '/admin/sync/sync.php');
-
 require_once( IMBACHAT__PLUGIN_DIR . '/includes/buddyPressInt.php' );
-
 require_once( IMBACHAT__PLUGIN_DIR . '/includes/wcfm_market_int.php' );
+include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-db.php');
 include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-bp-messages-component.php');
 include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-filters.php');
+include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-control-hooks.php');
 include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-actions.php');
 
 if ( is_admin() ) {
+    if ( file_exists( dirname( __FILE__ ) . '/cmb2/init.php' ) ) {
+        require_once dirname( __FILE__ ) . '/cmb2/init.php';
+    } elseif ( file_exists( dirname( __FILE__ ) . '/CMB2/init.php' ) ) {
+        require_once dirname( __FILE__ ) . '/CMB2/init.php';
+    }
     require_once IMBACHAT__PLUGIN_DIR . '/admin/admin.php';
+    include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-cmd-options.php');
     include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-ajax.php');
     include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-admin-assets.php');
     include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-curl.php');
@@ -50,6 +56,7 @@ function load_jquery() {
 add_action( 'wp_enqueue_scripts', 'load_jquery', 1 );
 add_action('plugins_loaded', 'imbachat');
 function imbachat(){
+    IM_DB::check_for_upd("1.1");
     add_shortcode( 'ic_open_dialog', 'ic_open_dialog_with' );
     add_shortcode( 'ic_create_group', 'ic_create_group_with' );
     add_shortcode( 'ic_join_group', 'ic_join_group' );

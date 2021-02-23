@@ -83,6 +83,10 @@ Browsers require a secure connection (HTTPS) for accessing a deviceвЂ™s micr
 
 == Changelog ==
 
+= 2.6.5 =
+* Reworked panel of user`s name settings
+* Added new panel to enable or disable options of integrations
+
 = 2.6.4 =
 * Integration with "woocommerce" plugins
 * Integration with "wpforo" plugin

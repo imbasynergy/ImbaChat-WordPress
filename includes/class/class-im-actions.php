@@ -22,9 +22,92 @@ class IM_Actions {
 
     public static function init(){
         self::add_actions();
+        self::add_bp_actions();
+    }
+
+    public static function add_bp_actions()
+    {
+        $imdb = new IM_DB();
+        $actions = [
+            'bp_member_header_actions' => [
+                'function' => 'bp_member_header_actions_function',
+                'description' => 'Add button "Message" to header section of profile`s page'
+            ],
+            'bp_directory_members_item' => [
+                'function' => 'bp_directory_members_item_function',
+                'description' => 'Add button "Message" to every member in member`s list'
+            ],
+            'bp_group_header_actions' => [
+                'function' => 'bp_group_header_actions_function',
+                'description' => 'Add button "Join group" to header section of group`s page'
+            ],
+        ];
+
+        foreach ($actions as $k=>$bp_action) {
+            if (!$imdb->where('imbachat_hooks', ['tag' => $k, 'function' => $bp_action['function'], 'type' => 'action'])) {
+                $imdb->insert('imbachat_hooks', [
+                        'tag' => $k,
+                        'function' => $bp_action['function'],
+                        'type' => 'action',
+                        'description' => $bp_action['description']]
+                );
+            } else {
+                $action = $imdb->where('imbachat_hooks', ['tag' => $k, 'function' => $bp_action['function'], 'type' => 'action']);
+                if ($action[0]->forbidden == 1) {
+                    continue;
+                }
+            }
+            add_action($k, array(__CLASS__, $bp_action['function']), 10, 3);
+        }
+    }
+
+    public static function bp_member_header_actions_function(){
+        if ( is_user_logged_in() ) {
+            $user_id = bp_displayed_user_id();
+            if ($user_id != get_current_user_id())
+                echo do_shortcode('[ic_open_dialog id="'.$user_id.'" class="ic_bp_button" name="Message"]');
+        }
+    }
+
+    public static function bp_directory_members_item_function(){
+        if ( is_user_logged_in() ) {
+            $user_id = bp_get_member_user_id();
+            if ($user_id != get_current_user_id())
+                echo do_shortcode('[ic_open_dialog id="'.$user_id.'" class="ic_bp_button" name="Message"]');
+        }
+    }
+
+    public static function bp_group_header_actions_function(){
+        $group = groups_get_group(bp_get_group_id());
+        $pipe = $group->status.'_'.$group->id;
+        $user_id = get_current_user_id();
+
+        if (groups_is_user_member($user_id, $group->id) || $group->status == 'public')
+        {
+            require_once( IMBACHAT__PLUGIN_DIR . '/view/ic_functions.php' );
+            $button = array(
+                'id'                => 'Join_Group_Chat',
+                'component'         => 'groups',
+                'must_be_logged_in' => true,
+                'block_self'        => false,
+                'wrapper_class'     => 'group-button ' . $group->status,
+                'wrapper_id'        => 'groupbutton-' . $group->id,
+                'parent_element'    => 'div',
+                'button_element'    => 'button',
+                'button_attr'       => [
+                    'onClick' => 'ic_join_group("'.$pipe.'", "'.$group->name.'")',
+                    'id' => 'ic_join_group_btn'
+                ],
+//        'link_href'         => wp_nonce_url( trailingslashit( bp_get_group_permalink( $group ) . 'leave-group' ), 'groups_leave_group' ),
+                'link_text'         => '',
+                'link_class'        => 'group-button',
+            );
+            bp_button($button);
+        }
     }
 
     public static function add_actions(){
+        $imdb = new IM_DB();
         $filters = [
             'wp_login' => false,
             'wp_logout' => false,
@@ -32,11 +115,27 @@ class IM_Actions {
         ];
 
         $wp_foro_actions = [
-            'wpforo_member_info_buttons' => 'wpforo_member_info_imbachat_button'
+            'wpforo_member_info_buttons' => [
+                'function' => 'wpforo_member_info_imbachat_button',
+                'description' => 'Add icon "Send message" under author`s avatar in'
+            ]
         ];
         if(in_array('wpforo/wpforo.php', apply_filters('active_plugins', get_option('active_plugins')))){
             foreach ($wp_foro_actions as $k=>$wf_filter) {
-                add_filter($k, array(__CLASS__, $wf_filter), 10, 3);
+                if (!$imdb->where('imbachat_hooks', ['tag' => $k, 'function' => $wf_filter['function'], 'type' => 'action'])) {
+                    $imdb->insert('imbachat_hooks', [
+                            'tag' => $k,
+                            'function' => $wf_filter['function'],
+                            'type' => 'action',
+                            'description' => $wf_filter['description']]
+                    );
+                } else {
+                    $action = $imdb->where('imbachat_hooks', ['tag' => $k, 'function' => $wf_filter['function'], 'type' => 'action']);
+                    if ($action[0]->forbidden == 1) {
+                        continue;
+                    }
+                }
+                add_action($k, array(__CLASS__, $wf_filter['function']), 10, 3);
             }
         }
         foreach ($filters as $k => $v) {

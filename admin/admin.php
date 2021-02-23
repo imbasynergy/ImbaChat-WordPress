@@ -10,14 +10,6 @@ add_action('admin_menu', function(){
         'imbachat_settings',
         IC_PLUGIN_URL.'/admin/assets/images/Vector.svg',
         30 );
-//    add_submenu_page(
-//        'imbachat-settings',
-//        'ImbaChat Documentation',
-//        'Documentation',
-//        8,
-//        'imbachat-settings',
-//        'add_my_setting',
-//        30 );
 } );
 
 add_action('admin_menu', function(){
@@ -30,17 +22,6 @@ add_action('admin_menu', function(){
         'imbachat_settings',
         31 );
 } );
-
-//add_action('admin_menu', function(){
-//    add_submenu_page(
-//        'imbachat-settings',
-//        'Admin Panel',
-//        'Dashboard',
-//        8,
-//        'imbachat-admin-panel',
-//        'imbachat_admin_panel',
-//        31 );
-//} );
 
 add_action( 'admin_menu' , function (){
     global $submenu;
@@ -94,18 +75,6 @@ add_action('admin_menu', function(){
         8,
         'imbachat-setup-help',
         'imbachat_setup_help',
-        0 );
-} );
-
-//Настройка поиска и данных пользователей
-add_action('admin_menu', function(){
-    add_submenu_page(
-        'imbachat-settings',
-        'Setting up user`s names and type of search',
-        'Users Settings',
-        8,
-        'imbachat-users-settings',
-        'imbachat_users_settings',
         0 );
 } );
 
