@@ -19,6 +19,33 @@ class IM_DB {
         $this->imdb = $wpdb;
     }
 
+    public static function check_for_upd($version)
+    {
+        if (get_option('imbachat_db_version') == $version) {
+            return;
+        }
+        global $wpdb;
+
+        $table_name = $wpdb->prefix . 'imbachat_hooks';
+
+        $charset_collate = $wpdb->get_charset_collate();
+        if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") != $table_name) {
+            $sql = "CREATE TABLE $table_name (
+		id bigint(20) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+		tag tinytext NOT NULL,
+		description text NOT NULL,
+		function tinytext NOT NULL,
+		type varchar(50) NOT NULL,
+		forbidden smallint NOT NULL
+	) $charset_collate;";
+
+            require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+            dbDelta( $sql );
+
+            update_option( 'imbachat_db_version', $version );
+        }
+    }
+
     public function where($table_name, $conditions)
     {
         $table_name = $this->imdb->prefix . $table_name;

@@ -26,11 +26,11 @@ class IM_CMD {
             'menu_title' => 'Users Settings',
             'parent_slug' => 'imbachat-settings',
             'capability' => 8,
-            'position' => 0,
+            'position' => 9998,
             'admin_menu_hook' => 'admin_menu',
-            'priority' => 10,
+            'priority' => 13,
             'object_types' => array( 'options-page' ),
-            'id'           => 'imbachat-users-settings',
+            'id'           => 'imbachat-users1-settings',
             'save_button' => 'Save Changes!',
             'message_cb'              => array(__CLASS__, 'imbachat_users_settings_message_callback'),
             'tab_group'               => 'imbachat_options', // Tab-group identifier, enables options page tab navigation.
@@ -43,15 +43,32 @@ class IM_CMD {
             'menu_title' => 'Integration Settings',
             'parent_slug' => 'imbachat-settings',
             'capability' => 8,
-            'position' => 0,
+            'position' => 9999,
             'admin_menu_hook' => 'admin_menu',
-            'priority' => 11,
+            'priority' => 12,
             'object_types' => array( 'options-page' ),
             'id'           => 'imbachat-hooks-settings',
             'save_button' => 'Save Changes!',
             'message_cb'              => array(__CLASS__, 'imbachat_hooks_settings_message_callback'),
             'tab_group'               => 'imbachat_options', // Tab-group identifier, enables options page tab navigation.
             'tab_title'               => 'Integration Settings', // Falls back to 'title' (above).
+        ],
+        'imbachat-settings' => [
+            'title' => 'ImbaChat Settings',
+            'option_key' => 'imbachat-settings',
+            'menu_title' => 'ImbaChat Settings',
+            'parent_slug' => 'imbachat-settings',
+            'capability' => 8,
+            'position' => 31,
+            'admin_menu_hook' => 'admin_menu',
+            'priority' => 11,
+            'object_types' => array( 'options-page' ),
+            'id'           => 'imbachat-settings',
+            'save_button' => 'Connect to the widget',
+//            'message_cb'              => array(__CLASS__, 'imbachat_hooks_settings_message_callback'),
+            'tab_group'               => 'imbachat_options', // Tab-group identifier, enables options page tab navigation.
+            'tab_title'               => 'ImbaChat Settings', // Falls back to 'title' (above).
+            'display_cb' => [__CLASS__, 'imbachat_main_settings_display']
         ]
     ];
 
@@ -63,13 +80,17 @@ class IM_CMD {
     public static function add_menus()
     {
         $menus = [
-            'imbachat-users-settings' => [
-                'function' => 'imbachat_users_settings'
+            'imbachat-settings' => [
+                'function' => 'imbachat_main_settings',
+                'fields' => ['widget_id']
             ],
             'imbachat-hooks-settings' => [
                 'function' => 'imbachat_hooks_settings',
                 'fields' => ['integrations']
-            ]
+            ],
+            'imbachat-users-settings' => [
+                'function' => 'imbachat_users_settings',
+            ],
         ];
 
         foreach ($menus as $index => $menu) {
@@ -81,6 +102,40 @@ class IM_CMD {
                 }
             }
         }
+    }
+
+    public static function imbachat_main_settings()
+    {
+        $settings = self::$menu_settings['imbachat-settings'];
+        $metabox = new_cmb2_box( $settings);
+
+        $metabox->add_field([
+            'name'    => 'Widget ID',
+            'desc'    => 'Current widget id - '.get_option('IMCH_dev_id'),
+            'id'      => 'widget_id',
+            'type'    => 'text_small',
+            'attributes' => [
+                'type' => 'number'
+            ]
+        ]);
+    }
+
+    public static function imbachat_main_settings_override_get_widget_id($data, $object_id, $args, $field)
+    {
+        return get_option('IMCH_dev_id');
+    }
+
+    public static function imbachat_main_settings_display($cmb_options)
+    {
+        $tabs = static::imbachat_options_page_tabs( $cmb_options );
+        require IMBACHAT__PLUGIN_DIR . '/includes/admin/views/cmb2/html-imbachat-settings.php';
+    }
+
+    public static function imbachat_main_settings_on_save()
+    {
+        $dev_id = $_REQUEST['widget_id'];
+        sync_with_imba_api($dev_id, $_SERVER['HTTP_HOST']!='' ? $_SERVER['HTTP_HOST'] : preg_replace('#https?://(www.)?#','',site_url()), get_option( 'admin_email' ));
+        wp_redirect(admin_url( 'admin.php' ).'?page=imbachat-settings&success=1', 302);
     }
 
     public static function imbachat_hooks_settings_override_get_integrations($data, $object_id, $args, $field)
@@ -178,7 +233,7 @@ class IM_CMD {
             'id'               => 'user_field',
             'type'             => 'select',
             'show_option_none' => true,
-            'default'          => get_option('im_user_field'),
+            'default'          => get_option('im_user_field') ?: 'display_name',
             'options'          => $options,
         ) );
         $cmb_users->add_field( array(
@@ -186,7 +241,7 @@ class IM_CMD {
             'desc'             => esc_html__( 'User`s search type', 'cmb2' ),
             'id'               => 'search_type',
             'type'             => 'select',
-            'default'          => get_option('im_user_search_type'),
+            'default'          => get_option('im_user_search_type') ?: 2,
             'show_option_none' => true,
             'options'          => array(
                 1 => 'Partial Match',
@@ -250,6 +305,21 @@ class IM_CMD {
             }
         }
         return $result;
+    }
+
+    protected static function imbachat_options_page_tabs( $cmb_options ) {
+        $tab_group = $cmb_options->cmb->prop( 'tab_group' );
+        $tabs      = array();
+
+        foreach ( CMB2_Boxes::get_all() as $cmb_id => $cmb ) {
+            if ( $tab_group === $cmb->prop( 'tab_group' ) ) {
+                $tabs[ $cmb->options_page_keys()[0] ] = $cmb->prop( 'tab_title' )
+                    ? $cmb->prop( 'tab_title' )
+                    : $cmb->prop( 'title' );
+            }
+        }
+
+        return $tabs;
     }
 
 }

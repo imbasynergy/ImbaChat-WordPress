@@ -46,11 +46,11 @@ if ( ! defined( 'ABSPATH' ) ) {
             rating: rating,
             reason: reason
         }
-        $.post('<?=admin_url( 'admin-ajax.php' )?>', data, function (response) {
+        jQuery.post('<?=admin_url( 'admin-ajax.php' )?>', data, function (response) {
             if (rating >= 4 )
                 window.open('https://wordpress.org/support/plugin/imbachat-widget/reviews/#postform')
         })
-        $("#imba_rating").remove();
+        jQuery("#imba_rating").remove();
     }
     document.addEventListener('DOMContentLoaded', () => {
         let rate_notice_block = jQuery('#imba_rating');

@@ -7,20 +7,9 @@ add_action('admin_menu', function(){
         'ImbaChat',
         8,
         'imbachat-settings',
-        'imbachat_settings',
+        '',
         IC_PLUGIN_URL.'/admin/assets/images/Vector.svg',
         30 );
-} );
-
-add_action('admin_menu', function(){
-    add_submenu_page(
-        'imbachat-settings',
-        'ImbaChat Settings',
-        'ImbaChat Settings',
-        8,
-        'imbachat-settings',
-        'imbachat_settings',
-        31 );
 } );
 
 add_action( 'admin_menu' , function (){

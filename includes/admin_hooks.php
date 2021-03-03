@@ -12,7 +12,7 @@ add_action( 'admin_footer', 'redirect_from_online_sup' );
 function redirect_from_online_sup( $data ){
     if (isset($_GET['page']))
     {
-        if ($_GET['page'] == 'imbachat-admin-panel')
+        if ($_GET['page'] == 'imbachat-settings')
         {
             if (isset($_GET['online_sup_error']))
                 if ($_GET['online_sup_error'] == 1)

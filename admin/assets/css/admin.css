@@ -3,9 +3,11 @@
     flex-direction: row;
     -ms-flex-direction: row;
     -webkit-flex-direction: row;
-    margin: 1rem;
     flex-wrap: wrap;
     justify-content: flex-start;
+}
+.imba_container>p{
+    width: 25%;
 }
 .imba_item {
     /*order: 1;*/

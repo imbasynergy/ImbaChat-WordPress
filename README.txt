@@ -82,6 +82,11 @@ Browsers require a secure connection (HTTPS) for accessing a deviceвЂ™s micr
 5. Dark theme
 
 == Changelog ==
+= 2.6.7 =
+* Reworked Imbachat Settings page
+
+= 2.6.6 =
+* HotFix: create ImbaChat table if not exist
 
 = 2.6.5 =
 * Reworked panel of user`s name settings
