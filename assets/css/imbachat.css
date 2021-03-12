@@ -11,13 +11,44 @@
     padding-right: 20px !important;
     padding-bottom: 10px !important;
     padding-left: 20px !important;
+    display: flex !important;
     /*margin: 2px 10px;*/
     /*width: 60px !important;*/
+}
+.ic_bp_button img {
+    display: inline-block !important;
 }
 .newsup{
     background: #1151d3;
     color: #fff;
 }
-.imba_margin-1{
-    margin: 0.5rem !important;
+.imba_button_load {
+    background-color: #559bff; /* Green background */
+    border: none; /* Remove borders */
+    color: white; /* White text */
+    padding: 12px 24px; /* Some padding */
+    font-size: 16px; /* Set a font-size */
+}
+
+/* Add a right margin to each icon */
+.imba_loader {
+    border: 2px solid #f3f3f3;
+    border-radius: 50% !important;
+    border-top: 2px solid red;
+    width: 20px;
+    height: 20px;
+    -webkit-animation: imba_spin 2s linear infinite;
+    animation: imba_spin 2s linear infinite;
+    margin-right: 10px;
+}
+
+/* Safari */
+@-webkit-keyframes imba_spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes imba_spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }

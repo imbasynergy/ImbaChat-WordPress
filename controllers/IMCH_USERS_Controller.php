@@ -217,6 +217,11 @@ class IMCH_USERS_Controller extends WP_REST_Controller {
             }
             else
                 $user['name'] = $user_m->user_nicename;
+
+            $filtered_name = apply_filters( "rest_imbachat_get_user_name_query", false, ['name' => $user['name'], 'id' => $id] );
+            if ($filtered_name) {
+                $user['name'] = $filtered_name;
+            }
             $user['user_id'] =  $user_m->ID;
 
             $avatar = get_avatar_url($id);
@@ -229,6 +234,12 @@ class IMCH_USERS_Controller extends WP_REST_Controller {
             } else {
                 $user['chat_role'] = 'user';
             }
+            $permissions = apply_filters( 'rest_request_before_callbacks', $user, ['imbachat_callback' => 'get_users'], $request );
+            if (isset($permissions['permissions'])) {
+                $user['permissions'] = $permissions['permissions'];
+            }
+            else
+                $user['permissions'] = false;
             $users[] = $user;
         }
         return $users;

@@ -43,9 +43,7 @@ function ic_open_dialog_with( $atts, $content = null, $code = '' ) {
             return false;
         }
     }
-    return '<button type="button" class="'.$className.'" onclick="open_dialog('.$id.', `'.$jwt.'`)"><img
-  src="'.IC_PLUGIN_URL.'/assets/images/message.svg"
-  alt="За стеклом" style="padding-right: 15px">'.$btnName.'</button>';
+    return '<button type="button" class="'.$className.'" onclick="open_dialog('.$id.', `'.$jwt.'`, this)">'.$btnName.'</button>';
 }
 
 function ic_close_chat( $atts, $content = null, $code = '' ) {
@@ -54,8 +52,7 @@ function ic_close_chat( $atts, $content = null, $code = '' ) {
         return '[ic_close_chat]';
     }
 
-    require_once( IMBACHAT__PLUGIN_DIR . '/view/ic_functions.php' );
-    return '<button type="button" onclick="closeChat()">Close imbaChat</button>';
+    return '<button type="button" onclick="closeChat()">Close ImbaChat</button>';
 }
 
 function ic_open_chat( $atts, $content = null, $code = '' ) {
@@ -64,7 +61,6 @@ function ic_open_chat( $atts, $content = null, $code = '' ) {
         return '[ic_open_chat]';
     }
 
-    require_once( IMBACHAT__PLUGIN_DIR . '/view/ic_functions.php' );
     return '<button type="button" onclick="showChat()">Open ImbaChat</button>';
 }
 
@@ -87,9 +83,8 @@ function ic_create_group_with($atts, $content = null, $code = '') {
         $classNameB = $atts['classb'];
         $btnName = $atts['buttonname'];
     }
-    require_once( IMBACHAT__PLUGIN_DIR . '/view/ic_functions.php' );
     return '<div id="ic_create_group_cont">
-            <input class="'.$classNameI.'" placeholder="Название группы" type="text" id="ic_group_title">
+            <input class="'.$classNameI.'" placeholder="Group name" type="text" id="ic_group_title">
             <input class="'.$classNameI.'" placeholder="Pipe" type="text" id="ic_group_pipe">
             <button type="button" class="'.$classNameB.'" onclick="ic_create_dialog(this)">'.$btnName.'</button>
     </div>';
@@ -115,7 +110,6 @@ function ic_join_group($atts, $content = null, $code = '') {
         $classNameB = $atts['classb'];
         $btnName = $atts['buttonname'];
     }
-    require_once( IMBACHAT__PLUGIN_DIR . '/view/ic_functions.php' );
     return '<button type="button" class="'.$classNameB.'" onclick="ic_join_group(`'.$atts['pipe'].'`, `'.$atts['name'].'`)">'.$btnName.'</button>';
 }
 

@@ -13,6 +13,7 @@ include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-bp-messages-componen
 include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-filters.php');
 include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-control-hooks.php');
 include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-actions.php');
+include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-rest-filter.php');
 
 if ( is_admin() ) {
     if ( file_exists( dirname( __FILE__ ) . '/cmb2/init.php' ) ) {

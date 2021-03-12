@@ -82,6 +82,13 @@ Browsers require a secure connection (HTTPS) for accessing a deviceвЂ™s micr
 5. Dark theme
 
 == Changelog ==
+
+= 2.6.9 =
+* New feature: New filter`s hook that allows you to change the displaying username in the chat.
+
+= 2.6.8 =
+* New feature: Control permission access to users by any sign.
+
 = 2.6.7 =
 * Reworked Imbachat Settings page
 
