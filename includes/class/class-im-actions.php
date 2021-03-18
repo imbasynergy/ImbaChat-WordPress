@@ -23,6 +23,7 @@ class IM_Actions {
     public static function init(){
         self::add_actions();
         self::add_bp_actions();
+        self::add_wcfm_actions();
     }
 
     public static function add_bp_actions()
@@ -194,6 +195,28 @@ OneSignal.push(function() {
             delete_transient('imbachat_wp_logout');
             return;
         }
+    }
+
+    public static function add_wcfm_actions()
+    {
+        $actions = [
+            'after_wcfmmp_store_header_actions' => 'imbachat_after_wcfmmp_store_header_action'
+        ];
+        foreach ($actions as $key => $action) {
+            add_action($key, $action);
+        }
+    }
+
+    public static function imbachat_after_wcfmmp_store_header_action()
+    {
+        $wcfm_store_url = wcfm_get_option( 'wcfm_store_url', 'store' );
+        $store_name = apply_filters( 'wcfmmp_store_query_var', get_query_var( $wcfm_store_url ) );
+        if ( !empty( $store_name ) ) {
+            $store_user = get_user_by( 'slug', $store_name );
+        }
+        $userId = $store_user->ID;
+        if ($userId != get_current_user_id())
+            echo do_shortcode('[ic_open_dialog id="'.$userId.'" class="ic_bp_button"]');
     }
 }
 

@@ -14,48 +14,58 @@ class IMCH_USERS_Controller extends WP_REST_Controller {
     }
     function register_routes(){
 
+        // Получение информации о пользователях перечисленных через запятую /getusers/1,2,3,4,5
+        // Здесь же применяются 2 фильтра, один для ограничения доступа к виджету rest_request_before_callbacks
+        // второ для возможности поменять отображаемое в чате имя rest_imbachat_get_user_name_query
         register_rest_route( $this->namespace, "/getusers/(?P<ids>[\w\,/]+)", [
             [
                 'methods'             => 'GET',
                 'callback'            => [ $this, 'get_users' ]
             ]
         ] );
+        // Этот роут сугубо для получения данных виджета в системе, сделал его для проверки. когда авторизация не проходит, было единажды
         register_rest_route( $this->namespace, "/getauthdata", [
             [
                 'methods'             => 'GET',
                 'callback'            => [ $this, 'get_auth_data' ]
             ]
         ] );
+        // не нужный endpoint
         register_rest_route( $this->namespace, "/gettoken", [
             [
                 'methods'             => 'GET',
                 'callback'            => [ $this, 'getJWT' ]
             ]
         ] );
+        // Роут для авторизации, используется только imbasupport проекте
         register_rest_route( $this->namespace, "/authuser", [
             [
                 'methods'             => 'POST',
                 'callback'            => [ $this, 'auth_user' ]
             ]
         ] );
+        // Поиск пользвоателей по имени
         register_rest_route( $this->namespace, "/searchusers/(?P<string>[\w]+)", [
             [
                 'methods'             => 'POST',
                 'callback'            => [ $this, 'search_users' ]
             ]
         ] );
+        // обрабатывает запрос со стороны api.imbachat чтоб обновить ид виджета в случае запроса со стороны плагина
         register_rest_route( $this->namespace, "/sync", [
             [
                 'methods'             => 'POST',
                 'callback'            => [ $this, 'sync' ]
             ]
         ] );
+        // Получение друзей пользователя, применим к плагину buddypress
         register_rest_route( $this->namespace, "/user/friends/(?P<user_id>[\w]+)", [
             [
                 'methods'             => 'get',
                 'callback'            => [ $this, 'user_friends' ]
             ]
         ] );
+        // Уведомления с OneSignal
         register_rest_route( $this->namespace, "/notifications", [
             [
                 'methods'             => 'POST',

@@ -1,34 +1,44 @@
 <?php
 
-require_once( IMBACHAT__PLUGIN_DIR . '/controllers/IMCH_USERS_Controller.php' );
-require_once( IMBACHAT__PLUGIN_DIR . '/includes/imbachat_functions.php' );
-require_once( IMBACHAT__PLUGIN_DIR . '/widgets/ic_widgets.php' );
-require_once( IMBACHAT__PLUGIN_DIR . '/includes/assign_hooks.php' );
-require_once( IMBACHAT__PLUGIN_DIR . '/includes/admin_hooks.php' );
-require_once (IMBACHAT__PLUGIN_DIR . '/admin/sync/sync.php');
-require_once( IMBACHAT__PLUGIN_DIR . '/includes/buddyPressInt.php' );
-require_once( IMBACHAT__PLUGIN_DIR . '/includes/wcfm_market_int.php' );
-include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-db.php');
-include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-bp-messages-component.php');
-include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-filters.php');
-include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-control-hooks.php');
-include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-actions.php');
-include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-rest-filter.php');
+////////////
+/// Секция ниже это подключение файлов плагина
+////////////
+require_once( IMBACHAT__PLUGIN_DIR . '/controllers/IMCH_USERS_Controller.php' ); //endpoint api плагина
+require_once( IMBACHAT__PLUGIN_DIR . '/includes/imbachat_functions.php' );// файл содержит функции обрабатывающие шорткоды
+require_once( IMBACHAT__PLUGIN_DIR . '/widgets/ic_widgets.php' );// Данный файл не несет в себе реального функционала, предназначался он для создания виджета плагина в WP
+require_once( IMBACHAT__PLUGIN_DIR . '/includes/assign_hooks.php' );// С обновлением плагина функции из этого плагина перешли в классы
+require_once( IMBACHAT__PLUGIN_DIR . '/includes/admin_hooks.php' );// Здесь делаются флеш уведомления для различных ситуаций, часть не актуальна.
+require_once (IMBACHAT__PLUGIN_DIR . '/admin/sync/sync.php');// 2 функции для curl запросов на сервер api.imbachat.com один нужен для создания виджетов, другой для сбора статистики
+require_once( IMBACHAT__PLUGIN_DIR . '/includes/buddyPressInt.php' );// аналогично файлу assign_hooks.php
+//require_once( IMBACHAT__PLUGIN_DIR . '/includes/wcfm_market_int.php' );// аналогично файлу assign_hooks.php
+include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-db.php');// Класс для работы с БД, описаны функции where, insert и update
+include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-bp-messages-component.php');//Класс для вставки Виджета как окно во вкладку messages на странице профиля BuddyPress
+include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-filters.php');// Класс обработки фильтров wordpress, buddypress, WCFM  и тд.
+include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-control-hooks.php');// Ненужный файл, замысел данного файла реализован иначе.
+include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-actions.php');// Класс обработки
+include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-rest-filter.php');// Класс для вставки фильтров в REST API плагина
 
 if ( is_admin() ) {
+    //////////
+    /// в этом if подключаются файлы для работы в виджетом imbachat в админке wp
+    //////////
+
+    //CMB2 - это доп плагин, который находится в папке CMB2
+    //Он нужен для построения форм в амдинке ворд пресса
+    // https://github.com/CMB2/CMB2 && https://cmb2.io/ это документация к нему
     if ( file_exists( dirname( __FILE__ ) . '/cmb2/init.php' ) ) {
         require_once dirname( __FILE__ ) . '/cmb2/init.php';
     } elseif ( file_exists( dirname( __FILE__ ) . '/CMB2/init.php' ) ) {
         require_once dirname( __FILE__ ) . '/CMB2/init.php';
     }
     require_once IMBACHAT__PLUGIN_DIR . '/admin/admin.php';
-    include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-cmd-options.php');
-    include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-ajax.php');
-    include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-admin-assets.php');
+    include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-cmd-options.php'); // Класс для работы с CMB2 (немного промахнулся с названием файла)
+    include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-ajax.php');// Класс для содания хуков обработки ajax запросов
+    include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-admin-assets.php');// asset файлы для админки
     include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-curl.php');
-    include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-form-actions.php');
-    include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-blocks.php');
-    include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-notice.php');
+    include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-form-actions.php'); //admin_post хуки
+    include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-blocks.php');// Блоки на странице редактирования страницы в wordpress
+    include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-notice.php');// Подписка на хуки уведомлений wordpress
 }
 if (class_exists('BP_Message_component')) {
     BP_Message_component::instance();
@@ -57,7 +67,9 @@ function load_jquery() {
 add_action( 'wp_enqueue_scripts', 'load_jquery', 1 );
 add_action('plugins_loaded', 'imbachat');
 function imbachat(){
+    // Если поменять значение внутри функции, то сработает функция и сделается какой то sql запрос, на данный момент это создание таблицы.
     IM_DB::check_for_upd("1.1");
+    /// ниже шорткоды
     add_shortcode( 'ic_open_dialog', 'ic_open_dialog_with' );
     add_shortcode( 'ic_create_group', 'ic_create_group_with' );
     add_shortcode( 'ic_join_group', 'ic_join_group' );
@@ -74,6 +86,7 @@ function imbachat(){
 }
 add_action('wp_footer', function()
 {
+    // Подключение скрипта виджета imbachat
     $dev_id = get_option('IMCH_dev_id');
     $json_data = IMCH_getJsSettingsString();
     require_once( IMBACHAT__PLUGIN_DIR . '/view/script.php' );
