@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 ## Unreleased
 
 ### Enhancements
+* Fixes compatible with WordPress Version 5.7.
+
+## 2.8.0 - 2020-03-30
+
+
+### Enhancements
 * Fixes PHP warnings on repeatable ColorPicker with an array as default. Props [@rubengc](https://github.com/rubengc) ([#1340](https://github.com/CMB2/CMB2/pull/1340)).
 
 ## [2.8.0 - 2020-01-21](https://github.com/CMB2/CMB2/releases/tag/v2.7.0)
