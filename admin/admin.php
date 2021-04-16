@@ -1,7 +1,7 @@
 <?php
 require_once(IMBACHAT__PLUGIN_DIR . '/admin/settings.php');
 
-//Пункты меню
+//Menu items
 add_action('admin_menu', function(){
     add_menu_page( 'ImbaChat Widget',
         'ImbaChat',
@@ -67,7 +67,7 @@ add_action('admin_menu', function(){
         0 );
 } );
 
-//Метод запроса
+//Request method
 add_action( 'admin_post_sync_with_imbachat', 'sync_with_imbachat' );
 add_action( 'admin_post_interactive_submit', 'interactive_submit' );
 add_action( 'wp_ajax_get_links_to_imbachat', 'get_links_to_imbachat' );

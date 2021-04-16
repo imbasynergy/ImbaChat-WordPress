@@ -79,10 +79,10 @@ class IM_CMD {
 
     /**
      * add_menus
-     * Эта функция добавляет все меню, которые прописаны в переменной $menus
-     * Ключи данной переменной должны быть сопоставимы с ключами свойства класса $menu_settings
-     * Если в массиве $menus указывается ключ fields, то к каждому полю внутри этого массива будет создаваться функция,
-     * Которая будет определять какая значение присваивать полю
+     * This function adds all the menus that are written in the variable $menus
+     * The keys of this variable must be matched with the keys of the class property $menu_settings
+     * If the fields key is specified in the $ menus array, then a function will be created for each field inside this array,
+     * Which will determine what value to assign to the field
      */
     public static function add_menus()
     {

@@ -11,8 +11,8 @@
 
 
 /////////////
-/// Определение путей как абсолютных с корневой папки сервера, как и построение URL для плагина
-/// Часть возможно даже не используется.
+/// Defining paths as absolute from the server root folder, as well as building a URL for a plugin
+/// Some may not even be used.
 /////////////
 define( 'IMBACHAT__PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 
@@ -31,8 +31,8 @@ define( 'IC_PLUGIN_URL',
 
 /**
  * imbachat_activation_func
- * Данная функция относится к хуку активации плагина
- * Предназначена она для того, чтобы через 2часа после активации в админке появлялась форма для фидбека
+ * This function refers to the plugin activation hook
+ * It is intended so that a form for feedback appears in the admin panel 2 hours after activation.
  */
 function imbachat_activation_func() {
     set_transient( 'im-feedback-modal', time() );
@@ -60,7 +60,7 @@ function imbachat_install_database() {
     }
 }
 ////////////////
-/// Закоменченно ниже так как не сработал код ниже
+/// Commented below because the code below did not work
 ////////////////
 
 //function imbachat_delete_table(){
@@ -73,10 +73,10 @@ function imbachat_install_database() {
 //
 //register_deactivation_hook(__FILE__, 'imbachat_delete_table');
 
-//Данная подписка это активация функцию про фидбек форму
+//This subscription is the activation of the function about the feedback form
 register_activation_hook( __FILE__, 'imbachat_activation_func' );
-//Эта подписка создается в бд сайта одну таблицу для всех подписок, что есть в плагине.
+//This subscription is created in the site database, one table for all subscriptions that are in the plugin
 register_activation_hook( __FILE__, 'imbachat_install_database' );
 
-//Подключение основного файла, в котором прописан весь функционал плагина
+//Connecting the main file, which contains all the functionality of the plugin
 require_once IMBACHAT__PLUGIN_DIR . '/settings.php';

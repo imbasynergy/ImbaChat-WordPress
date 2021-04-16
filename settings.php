@@ -1,44 +1,44 @@
 <?php
 
 ////////////
-/// Секция ниже это подключение файлов плагина
+/// The section below is for connecting plugin files.
 ////////////
-require_once( IMBACHAT__PLUGIN_DIR . '/controllers/IMCH_USERS_Controller.php' ); //endpoint api плагина
-require_once( IMBACHAT__PLUGIN_DIR . '/includes/imbachat_functions.php' );// файл содержит функции обрабатывающие шорткоды
-require_once( IMBACHAT__PLUGIN_DIR . '/widgets/ic_widgets.php' );// Данный файл не несет в себе реального функционала, предназначался он для создания виджета плагина в WP
-require_once( IMBACHAT__PLUGIN_DIR . '/includes/assign_hooks.php' );// С обновлением плагина функции из этого плагина перешли в классы
-require_once( IMBACHAT__PLUGIN_DIR . '/includes/admin_hooks.php' );// Здесь делаются флеш уведомления для различных ситуаций, часть не актуальна.
-require_once (IMBACHAT__PLUGIN_DIR . '/admin/sync/sync.php');// 2 функции для curl запросов на сервер api.imbachat.com один нужен для создания виджетов, другой для сбора статистики
-require_once( IMBACHAT__PLUGIN_DIR . '/includes/buddyPressInt.php' );// аналогично файлу assign_hooks.php
-//require_once( IMBACHAT__PLUGIN_DIR . '/includes/wcfm_market_int.php' );// аналогично файлу assign_hooks.php
-include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-db.php');// Класс для работы с БД, описаны функции where, insert и update
-include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-bp-messages-component.php');//Класс для вставки Виджета как окно во вкладку messages на странице профиля BuddyPress
-include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-filters.php');// Класс обработки фильтров wordpress, buddypress, WCFM  и тд.
-include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-control-hooks.php');// Ненужный файл, замысел данного файла реализован иначе.
-include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-actions.php');// Класс обработки
-include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-rest-filter.php');// Класс для вставки фильтров в REST API плагина
+require_once( IMBACHAT__PLUGIN_DIR . '/controllers/IMCH_USERS_Controller.php' ); //endpoint api plugin
+require_once( IMBACHAT__PLUGIN_DIR . '/includes/imbachat_functions.php' );// file contains functions processing shortcodes
+require_once( IMBACHAT__PLUGIN_DIR . '/widgets/ic_widgets.php' );// This file does not carry real functionality, it was intended to create a plugin widget in WP
+require_once( IMBACHAT__PLUGIN_DIR . '/includes/assign_hooks.php' );// With the update of the plugin, functions from this plugin have moved to classes
+require_once( IMBACHAT__PLUGIN_DIR . '/includes/admin_hooks.php' );// Here flash notifications are made for various situations, some are not relevant.
+require_once (IMBACHAT__PLUGIN_DIR . '/admin/sync/sync.php');// 2 functions for curl requests to the api.imbachat.com server, one is needed for creating widgets, the other for collecting statistics
+require_once( IMBACHAT__PLUGIN_DIR . '/includes/buddyPressInt.php' );// similar to assign_hooks.php file
+//require_once( IMBACHAT__PLUGIN_DIR . '/includes/wcfm_market_int.php' );// similar to assign_hooks.php file
+include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-db.php');// A class for working with a database, the where, insert and update functions are described
+include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-bp-messages-component.php');//Class for inserting a Widget as a window into the messages tab on the BuddyPress profile page
+include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-filters.php');// Filter handling class for wordpress, buddypress, WCFM, etc.
+include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-control-hooks.php');// An unnecessary file, the intent of this file is implemented differently.
+include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-actions.php');// Processing class
+include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-rest-filter.php');// Class for inserting filters into the plugin REST API
 
 if ( is_admin() ) {
     //////////
-    /// в этом if подключаются файлы для работы в виджетом imbachat в админке wp
+    /// in this if files are connected to work in the imbachat widget in the wp admin panel
     //////////
 
-    //CMB2 - это доп плагин, который находится в папке CMB2
-    //Он нужен для построения форм в амдинке ворд пресса
-    // https://github.com/CMB2/CMB2 && https://cmb2.io/ это документация к нему
+    //CMB2 - this is an additional plugin located in the CMB2 folder
+    //It is needed to build forms in the Amdink Word press
+    // https://github.com/CMB2/CMB2 && https://cmb2.io/ this is the documentation for it
     if ( file_exists( dirname( __FILE__ ) . '/cmb2/init.php' ) ) {
         require_once dirname( __FILE__ ) . '/cmb2/init.php';
     } elseif ( file_exists( dirname( __FILE__ ) . '/CMB2/init.php' ) ) {
         require_once dirname( __FILE__ ) . '/CMB2/init.php';
     }
     require_once IMBACHAT__PLUGIN_DIR . '/admin/admin.php';
-    include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-cmd-options.php'); // Класс для работы с CMB2 (немного промахнулся с названием файла)
-    include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-ajax.php');// Класс для содания хуков обработки ajax запросов
-    include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-admin-assets.php');// asset файлы для админки
+    include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-cmd-options.php'); // Class for working with CMB2 (slightly missed the file name)
+    include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-ajax.php');// Class for creating hooks for handling ajax requests
+    include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-admin-assets.php');// asset files for admin panel
     include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-curl.php');
-    include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-form-actions.php'); //admin_post хуки
-    include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-blocks.php');// Блоки на странице редактирования страницы в wordpress
-    include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-notice.php');// Подписка на хуки уведомлений wordpress
+    include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-form-actions.php'); //admin_post hooks
+    include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-blocks.php');// Blocks on page edit page in wordpress
+    include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-notice.php');// Subscribing to wordpress notification hooks
 }
 if (class_exists('BP_Message_component')) {
     BP_Message_component::instance();
@@ -67,9 +67,9 @@ function load_jquery() {
 add_action( 'wp_enqueue_scripts', 'load_jquery', 1 );
 add_action('plugins_loaded', 'imbachat');
 function imbachat(){
-    // Если поменять значение внутри функции, то сработает функция и сделается какой то sql запрос, на данный момент это создание таблицы.
+    // If you change the value inside the function, then the function will work and some kind of sql query will be made, at the moment this is the creation of a table.
     IM_DB::check_for_upd("1.1");
-    /// ниже шорткоды
+    /// below shortcodes
     add_shortcode( 'ic_open_dialog', 'ic_open_dialog_with' );
     add_shortcode( 'ic_create_group', 'ic_create_group_with' );
     add_shortcode( 'ic_join_group', 'ic_join_group' );
@@ -86,7 +86,7 @@ function imbachat(){
 }
 add_action('wp_footer', function()
 {
-    // Подключение скрипта виджета imbachat
+    // Connecting the imbachat widget script
     $dev_id = get_option('IMCH_dev_id');
     $json_data = IMCH_getJsSettingsString();
     require_once( IMBACHAT__PLUGIN_DIR . '/view/script.php' );
@@ -102,7 +102,7 @@ function cron_add_five_min( $schedules ) {
     return $schedules;
 }
 
-// добавляет новую крон задачу
+// adds a new krona task
 add_action( 'admin_head', 'imba_cron_activation' );
 function imba_cron_activation() {
     if( ! wp_next_scheduled( 'imba_wp_stat' ) ) {
@@ -110,7 +110,7 @@ function imba_cron_activation() {
     }
 }
 
-// добавляем функцию к указанному хуку
+// add a function to the specified hook
 add_action( 'imba_wp_stat', 'do_imba_wp_stat' );
 function do_imba_wp_stat(){
     if (function_exists( 'curl_version' )){
@@ -171,7 +171,7 @@ function IMCH_getJsSettingsString($opt = []) {
     $token = IMCH_getJWT();
     $extend_settings = array_merge(
         [
-            // Предустановленные значения по умолчанию
+            // Preset default values
             // "language" => self::property('language'),
             "user_id" => $user_id,
             "token" => $token,
@@ -182,7 +182,7 @@ function IMCH_getJsSettingsString($opt = []) {
             // "useFaviconBadge" => self::property('useFaviconBadge'),
             // "updateTitle" => self::property('updateTitle'),
         ]);
-    // Итоговые настройки виджета
+    // Final widget settings
     return json_encode($extend_settings);
 }
 

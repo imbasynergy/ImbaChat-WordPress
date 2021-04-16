@@ -14,58 +14,58 @@ class IMCH_USERS_Controller extends WP_REST_Controller {
     }
     function register_routes(){
 
-        // Получение информации о пользователях перечисленных через запятую /getusers/1,2,3,4,5
-        // Здесь же применяются 2 фильтра, один для ограничения доступа к виджету rest_request_before_callbacks
-        // второ для возможности поменять отображаемое в чате имя rest_imbachat_get_user_name_query
+        // Getting information about users, separated by commas /getusers/1,2,3,4,5
+        // Here 2 filters are applied, one to restrict access to the widget rest_request_before_callbacks
+        // the second for the ability to change the name displayed in the chat rest_imbachat_get_user_name_query
         register_rest_route( $this->namespace, "/getusers/(?P<ids>[\w\,/]+)", [
             [
                 'methods'             => 'GET',
                 'callback'            => [ $this, 'get_users' ]
             ]
         ] );
-        // Этот роут сугубо для получения данных виджета в системе, сделал его для проверки. когда авторизация не проходит, было единажды
+        //This route is purely for receiving widget data in the system, made it for verification. when authorization fails, it was once
         register_rest_route( $this->namespace, "/getauthdata", [
             [
                 'methods'             => 'GET',
                 'callback'            => [ $this, 'get_auth_data' ]
             ]
         ] );
-        // не нужный endpoint
+        // not needed endpoint
         register_rest_route( $this->namespace, "/gettoken", [
             [
                 'methods'             => 'GET',
                 'callback'            => [ $this, 'getJWT' ]
             ]
         ] );
-        // Роут для авторизации, используется только imbasupport проекте
+        // Route for authorization, used only by the imbasupport project
         register_rest_route( $this->namespace, "/authuser", [
             [
                 'methods'             => 'POST',
                 'callback'            => [ $this, 'auth_user' ]
             ]
         ] );
-        // Поиск пользвоателей по имени
+        // Search for users by name
         register_rest_route( $this->namespace, "/searchusers/(?P<string>[\w]+)", [
             [
                 'methods'             => 'POST',
                 'callback'            => [ $this, 'search_users' ]
             ]
         ] );
-        // обрабатывает запрос со стороны api.imbachat чтоб обновить ид виджета в случае запроса со стороны плагина
+        // processes a request from api.imbachat to update the widget id in case of a plugin request
         register_rest_route( $this->namespace, "/sync", [
             [
                 'methods'             => 'POST',
                 'callback'            => [ $this, 'sync' ]
             ]
         ] );
-        // Получение друзей пользователя, применим к плагину buddypress
+        // Getting user friends, apply to buddypress plugin
         register_rest_route( $this->namespace, "/user/friends/(?P<user_id>[\w]+)", [
             [
                 'methods'             => 'get',
                 'callback'            => [ $this, 'user_friends' ]
             ]
         ] );
-        // Уведомления с OneSignal
+        // Notifications with OneSignal
         register_rest_route( $this->namespace, "/notifications", [
             [
                 'methods'             => 'POST',
@@ -263,7 +263,7 @@ class IMCH_USERS_Controller extends WP_REST_Controller {
         $creds['user_password'] = $_POST['password'];
 
         $user_m = wp_signon($creds);
-        // авторизация не удалась
+        // authorization failed
         if ( $user_m->errors ) {
             return [
                 "code" => 403,

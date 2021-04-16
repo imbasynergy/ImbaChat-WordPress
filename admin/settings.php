@@ -45,7 +45,7 @@ function add_my_setting(){
 
     }
 
-    //Менюшка imbachat settings
+    //Menu imbachat settings
     function imbachat_settings(){
         add_option('IMCH_dev_id', '');
         add_option('IMCH_login', '');
@@ -162,7 +162,7 @@ function add_my_setting(){
         require_once IMBACHAT__PLUGIN_DIR . '/view/admin_menu/users_settings.php';
     }
 
-    //post функции
+    //post functions
     function sync_with_imbachat(){
 
         $dev_id = $_REQUEST['IMCH_dev_id'];
@@ -176,7 +176,7 @@ function add_my_setting(){
         wp_redirect(admin_url( 'admin.php' ).'?page=imbachat-settings', 302);
     }
 
-    //ajax функции
+    //ajax functions
     function save_users_settings()
     {
         $params = $_REQUEST['param'];

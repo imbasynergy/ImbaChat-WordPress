@@ -1,4 +1,4 @@
-<h1 class="IMCH_title">ImbaChat settings</h1>
+<h1 class="IMCH_title"><?php _("ImbaChat settings") ?></h1>
 <form class="IMCH_form" name="IMCH_setting_setup" method="POST" action="<?php echo $_SERVER['PHP_SELF']?>?page=imbachat">
     <?php
     if(function_exists('wp_nonce_field')){
@@ -6,30 +6,30 @@
     }
     ?>
     <div class="IMCH_form__field">
-        <label class="IMCH_form__label">Widget id</label>
+        <label class="IMCH_form__label"><?php _("Widget id") ?></label>
         <input class="IMCH_form__input" name="IMCH_dev_id" value="<?php echo get_option('IMCH_dev_id')?>" type="text">
     </div>
     <div class="IMCH_form__field">
-        <label class="IMCH_form__label">API login</label>
+        <label class="IMCH_form__label"><?php _("API login") ?></label>
         <input class="IMCH_form__input" name="IMCH_login" value="<?php echo get_option('IMCH_login')?>" type="text">
     </div>
     <div class="IMCH_form__field">
-        <label class="IMCH_form__label">API password</label>
+        <label class="IMCH_form__label"><?php _("API password") ?></label>
         <input class="IMCH_form__input" name="IMCH_password" value="<?php echo get_option('IMCH_password')?>" type="text">
     </div>
     <div class="IMCH_form__field">
-        <label class="IMCH_form__label">Secret key</label>
+        <label class="IMCH_form__label"><?php _("Secret key") ?></label>
         <input class="IMCH_form__input" name="IMCH_secret_key" value="<?php echo get_option('IMCH_secret_key')?>" type="text">
     </div>
     <div class="IMCH_form__field">
-        <label class="IMCH_form__label">BuddyPress integration</label>
+        <label class="IMCH_form__label"><?php _("BuddyPress integration") ?></label>
         <input class="IMCH_form__input" name="IMCH_buddypress" <?= get_option('IMCH_buddypress')==1 ? 'checked' : '' ?> value="1" type="checkbox">
     </div>
     <div class="IMCH_form__field">
-        <label class="IMCH_form__label">Market integration</label>
+        <label class="IMCH_form__label"><?php _("Market integration") ?></label>
         <input class="IMCH_form__input" name="IMCH_market" <?= get_option('IMCH_market')==1 ? 'checked' : '' ?> value="1" type="checkbox">
     </div>
-    <button class="IMCH_form__button" name="IMCH_setting_setup" type="submit">Save</button>
+    <button class="IMCH_form__button" name="IMCH_setting_setup" type="submit"><?php _("Save") ?></button>
 </form>
 <style>
     .IMCH_title{
