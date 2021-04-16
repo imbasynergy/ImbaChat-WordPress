@@ -1,13 +1,13 @@
-<h1 class="IMCH_title"><?php _("ImbaChat settings") ?></h1>
-<h3><?php _("Current widget id") ?>Current widget id - <?= get_option('IMCH_dev_id') ?></h3>
+<h1 class="IMCH_title"><?php _("ImbaChat settings", "imbachat") ?></h1>
+<h3><?php _("Current widget id", "imbachat") ?>Current widget id - <?= get_option('IMCH_dev_id') ?></h3>
 <form action="<?php echo admin_url( 'admin-post.php' ); ?>" method="post" style="padding-top: 15px">
     <input type="hidden" name="action" value="sync_with_imbachat">
     <div class="IMCH_form__field">
-        <label class="IMCH_form__label"><?php _("Widget id") ?></label>
+        <label class="IMCH_form__label"><?php _("Widget id", "imbachat") ?></label>
         <input class="IMCH_form__input" value="<?= get_option('IMCH_dev_id') ?>" name="IMCH_dev_id" placeholder="" type="text" required>
     </div>
     <div class="IMCH_form__field">
-        <button class="IMCH_form__button" type="submit" data-qa="connect_widget"><?php _("Connect to the widget") ?></button>
+        <button class="IMCH_form__button" type="submit" data-qa="connect_widget"><?php _("Connect to the widget", "imbachat") ?></button>
     </div>
 </form>
 <form action="<?php echo admin_url( 'admin-post.php' ); ?>" method="post" style="padding-top: 15px;padding-bottom: 15px">
@@ -16,14 +16,14 @@
         <input class="IMCH_form__input" name="IMCH_dev_id" placeholder="" value="-1" type="hidden" required>
     </div>
     <div class="IMCH_form__field">
-        <button class="IMCH_form__button" type="submit" data-qa="create_widget"><?php _("Create a widget") ?></button>
+        <button class="IMCH_form__button" type="submit" data-qa="create_widget"><?php _("Create a widget", "imbachat") ?></button>
     </div>
 </form>
 <div>
-    <h3><?php _("If our plugin helped you to make better website, please leave a review in our") ?> <a href="https://wordpress.org/plugins/imbachat-widget/"><?php _("wordpress plugin`s official page.") ?></a> <?php _("Thank you for using our chat!") ?></h3>
+    <h3><?php _("If our plugin helped you to make better website, please leave a review in our", "imbachat") ?> <a href="https://wordpress.org/plugins/imbachat-widget/"><?php _("wordpress plugin`s official page.", "imbachat") ?></a> <?php _("Thank you for using our chat!", "imbachat") ?></h3>
 </div>
 <div>
-    <h3><?php _("If you have some problems or extra questions about our plugin, you can create a ticket in our") ?> <a href="https://wordpress.org/support/plugin/imbachat-widget/"><?php _("support forum") ?></a></h3>
+    <h3><?php _("If you have some problems or extra questions about our plugin, you can create a ticket in our") ?> <a href="https://wordpress.org/support/plugin/imbachat-widget/"><?php _("support forum", "imbachat") ?></a></h3>
 </div>
 <script>
 

@@ -3,29 +3,29 @@
 function add_my_setting(){
 ?>
 <div class="wrap">
-    <h1><?php echo get_admin_page_title() ?></h1>
+    <h1><?php echo _(get_admin_page_title(), "imbachat") ?></h1>
     <div class="instruction">
         <h3>Instruction after installing plugin</h3>
         <p>There is 2 ways to configure ImbaChat widget on your website.</p>
         <ul>
             <li>
-                <p>1.	You need to pass registration <a href="https://imbachat.com/register">here</a> and create a widget in the Dashboard:</p>
-                <p>"Integrate option" choose WordPress</p>
-                <p>"Host" write your site url without http:// (for example: your-site-domain-url.com)</p>
-                <p>Write the widget id into “Widget id” field in the ImbaChat settings in the admin panel of your website. After that click “Connect to the widget”</p>
+                <p> <?php _(" 1.	You need to pass registration", "imbachat") ?> <a href="https://imbachat.com/register">here</a> <?php _(" and create a widget in the Dashboard: ", "imbachat") ?> </p>
+                <p><?php _('Integrate option" choose WordPress', "imbachat") ?></p>
+                <p><?php _('"Host" write your site url without http:// (for example: your-site-domain-url.com)', "imbachat") ?></p>
+                <p><?php _('Write the widget id into “Widget id” field in the ImbaChat settings in the admin panel of your website. After that click “Connect to the widget”', "imbachat") ?></p>
                 <div class="image-ins">
                     <img width="1024" src="<?= IMBACHAT_ADMIN_DIR.'/assets/images/way_1.png' ?>">
                 </div>
             </li>
             <li>
-                <p>2.	If you don't have a widget yet, click "Create a widget" at the same page. Connection between your website and ImbaChat server will be automatically configured.</p>
+                <p><?php _("2.	If you don't have a widget yet, click 'Create a widget' at the same page. Connection between your website and ImbaChat server will be automatically configured.", "imbachat") ?></p>
                 <div class="image-ins">
                     <img src="<?= IMBACHAT_ADMIN_DIR.'/assets/images/way_2.png' ?>">
                 </div>
             </li>
         </ul>
         <div class="instruction">
-            <h3>Also, if you have BuddyPress, WCFM Marketplace or SweetDate themes, integration with ImbaChat will be automatically configured as well.</h3>
+            <h3><?php _("Also, if you have BuddyPress, WCFM Marketplace or SweetDate themes, integration with ImbaChat will be automatically configured as well.", "imbachat") ?></h3>
         </div>
     </div>
     <style>
