@@ -24,6 +24,7 @@
             let form = e.target.closest('form');
             let input_widget_id = form.querySelector('input[name="widget_id"]');
             input_widget_id.value = -1;
+            alert('<?php _e("In case of an error, make sure that the project is not on locallhost, and the ip address of the API server is not blacklisted", "imbachat") ?>');
             form.submit();
         })
     })

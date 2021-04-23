@@ -20,9 +20,6 @@
     </div>
 </form>
 <div>
-    <h3><?php _e("In case of an error, make sure that the project is not on locallhost, and the ip address of the API server is not blacklisted", "imbachat") ?></h3>
-</div>
-<div>
     <h3><?php _e("If our plugin helped you to make better website, please leave a review in our", "imbachat") ?> <a href="https://wordpress.org/plugins/imbachat-widget/"><?php _e("wordpress plugin`s official page.", "imbachat") ?></a> <?php _e("Thank you for using our chat!", "imbachat") ?></h3>
 </div>
 <div>
