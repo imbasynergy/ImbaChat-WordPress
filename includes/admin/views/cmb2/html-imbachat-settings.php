@@ -14,6 +14,9 @@
             <?php submit_button( esc_attr( $cmb_options->cmb->prop( 'save_button' ) ), 'primary', 'submit-cmb' ); ?>
             <?php submit_button( esc_attr( 'Create a widget' ), 'primary', 'create_widget' ); ?>
         </div>
+        <div>
+            <h3><?php _e("In case of an error, make sure that the project is not on locallhost, and the ip address of the API server is not blacklisted", "imbachat") ?></h3>
+        </div>
     </form>
 </div>
 <script>
