@@ -15,7 +15,14 @@
             <?php submit_button( esc_attr( 'Create a widget' ), 'primary', 'create_widget' ); ?>
         </div>
         <div>
-            <h3><?php _e("In case of an error, make sure that the project is not on locallhost, and the ip address of the API server is not blacklisted", "imbachat") ?></h3>
+            <h4><?php _e("In case of an error, make sure that the project is not on locallhost, and the ip address of the API server is not blacklisted", "imbachat") ?></h4>
+            <h4><?php _e("If you:", "imbachat") ?></h4>
+            <h4><?php _e("— Don't understand how to install and use the plugin", "imbachat") ?></h4>
+            <h4><?php _e("— Find a bug", "imbachat") ?></h4>
+            <h4><?php _e("— Have any other questions about the plugin", "imbachat") ?></h4>
+            <h4><?php _e("Please, write to us at support@imbachat.com and we will help you. Also, you can create a ticket in our WordPress support", "imbachat") ?>
+                <a href=" https://wordpress.org/support/plugin/imbachat-widget/"><?php _e("forum", "imbachat") ?></a> <?php _e("We respond within 48 h. Please wait for an answer.", "imbachat") ?></h4>
+
         </div>
     </form>
 </div>
