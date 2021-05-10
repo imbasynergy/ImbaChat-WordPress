@@ -18,8 +18,11 @@
 </div>
 <script>
 
+debugger;
     jQuery(function($){
+            debugger;
         $("#link_imba_form").submit( async function (e) {
+            debugger;
             e.preventDefault();
             let result;
             let user_mail = '';
@@ -46,6 +49,7 @@
 
             let dev_id = $("#IMCH_dev_id").val() ? $("#IMCH_dev_id").val() : null
             console.log(dev_id)
+            debugger;
             await $.ajax({
                 url: 'https://api.imbachat.com/developers/api/v1/sync',
                 type: 'POST',
@@ -67,6 +71,7 @@
         });
 
         function get_links_to_imbachat (){
+            debugger;
             $.ajax({
                 url: '<?php echo admin_url("admin-ajax.php")?>',
                 type: 'POST',
@@ -92,6 +97,7 @@
         }
     });
     function go_to(link) {
+            debugger;
         window.open(link);
     }
 </script>

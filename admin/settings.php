@@ -46,39 +46,39 @@ function add_my_setting(){
     }
 
     //Menu imbachat settings
-    function imbachat_settings(){
-        add_option('IMCH_dev_id', '');
-        add_option('IMCH_login', '');
-        add_option('IMCH_password', '');
-        add_option('IMCH_secret_key', '');
-        if (isset($_REQUEST['IMCH_dev_id']))
-        {
+    // function imbachat_settings(){
+    //     add_option('IMCH_dev_id', '');
+    //     add_option('IMCH_login', '');
+    //     add_option('IMCH_password', '');
+    //     add_option('IMCH_secret_key', '');
+    //     if (isset($_REQUEST['IMCH_dev_id']))
+    //     {
 
-            $IMCH_dev_id = sanitize_text_field($_REQUEST['IMCH_dev_id']);
-            $IMCH_login = sanitize_text_field($_REQUEST['IMCH_login']);
-            $IMCH_password = $_REQUEST['IMCH_password'];
-            $IMCH_secret_key = sanitize_text_field($_REQUEST['IMCH_secret_key']);
+    //         $IMCH_dev_id = sanitize_text_field($_REQUEST['IMCH_dev_id']);
+    //         $IMCH_login = sanitize_text_field($_REQUEST['IMCH_login']);
+    //         $IMCH_password = $_REQUEST['IMCH_password'];
+    //         $IMCH_secret_key = sanitize_text_field($_REQUEST['IMCH_secret_key']);
 
-            update_option('IMCH_dev_id', $IMCH_dev_id);
-            update_option('IMCH_login', $IMCH_login);
-            update_option('IMCH_password', $IMCH_password);
-            update_option('IMCH_secret_key', $IMCH_secret_key);
-            sync_with_imba_api($IMCH_dev_id, $_SERVER['HTTP_HOST']!='' ? $_SERVER['HTTP_HOST'] : preg_replace('#https?://(www.)?#','',site_url()), get_option( 'admin_email' ));
-        }
+    //         update_option('IMCH_dev_id', $IMCH_dev_id);
+    //         update_option('IMCH_login', $IMCH_login);
+    //         update_option('IMCH_password', $IMCH_password);
+    //         update_option('IMCH_secret_key', $IMCH_secret_key);
+    //         sync_with_imba_api($IMCH_dev_id, $_SERVER['HTTP_HOST']!='' ? $_SERVER['HTTP_HOST'] : preg_replace('#https?://(www.)?#','',site_url()), get_option( 'admin_email' ));
+    //     }
 
-        require_once IMBACHAT__PLUGIN_DIR . '/view/admin_menu/settings.php';
-    }
+    //     require_once IMBACHAT__PLUGIN_DIR . '/view/admin_menu/settings.php';
+    // }
 
-    function imbachat_admin_panel()
-    {
-        require_once IMBACHAT__PLUGIN_DIR . '/view/admin_menu/imba_frame.php';
-    }
+    // function imbachat_admin_panel()
+    // {
+    //     require_once IMBACHAT__PLUGIN_DIR . '/view/admin_menu/imba_frame.php';
+    // }
 
-    function imbachat_links()
-    {
+    // function imbachat_links()
+    // {
 
-        require_once IMBACHAT__PLUGIN_DIR . '/view/admin_menu/links.php';
-    }
+    //     require_once IMBACHAT__PLUGIN_DIR . '/view/admin_menu/links.php';
+    // }
 
     function get_links_to_imbachat(){
         if (get_option('IMCH_secret_key'))
