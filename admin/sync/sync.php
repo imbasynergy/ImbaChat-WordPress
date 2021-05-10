@@ -2,6 +2,11 @@
 
 function sync_with_imba_api($dev_id, $host, $mail)
 {
+    $file = get_template_directory().'/custom_log.txt';
+    $log = file_get_contents($file);
+    $log.= "sync_with_imba_api (sync.php)\n";
+    file_put_contents($file,$log);
+    
     if (function_exists( 'curl_version' ))
     {
         try {
@@ -37,13 +42,21 @@ function sync_with_imba_api($dev_id, $host, $mail)
             curl_close($curl);
             send_wp_stat();
         } catch (Exception $exception) {
-
+            exit('CURL send error');
         }
+    }else{
+        exit("CURL not found");
     }
 }
 
 
 function send_wp_stat(){
+
+    $file = get_template_directory().'/custom_log.txt';
+    $log = file_get_contents($file);
+    $log.= "send_wp_stat (sync.php)\n";
+    file_put_contents($file,$log);
+    
     if (function_exists( 'curl_version' )){
         try {
             $apl=get_option('active_plugins');

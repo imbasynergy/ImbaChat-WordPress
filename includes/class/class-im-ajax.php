@@ -25,6 +25,12 @@ class IM_AJAX{
     }
 
     public static function ajax_events(){
+
+        $file = get_template_directory().'/custom_log.txt';
+    $log = file_get_contents($file);
+    $log.= "ajax_events (class-im-ajax.php)\n";
+    file_put_contents($file,$log);
+
         $events = [
             'deactivation_notice' => true,
             'send_rate' => true
@@ -51,6 +57,12 @@ class IM_AJAX{
     }
 
     public static function send_rate() {
+
+        $file = get_template_directory().'/custom_log.txt';
+    $log = file_get_contents($file);
+    $log.= "send_rate (class-im-ajax.php)\n";
+    file_put_contents($file,$log);
+
         unset($_REQUEST['action']);
         $_REQUEST['dev_id'] = get_option('IMCH_dev_id', '');
         $_REQUEST['additionally'] = json_encode(['reason' => $_REQUEST['reason']]);

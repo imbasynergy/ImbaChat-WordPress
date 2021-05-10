@@ -29,6 +29,12 @@ if (function_exists('curl_version')) :
          * @param $data
          */
         public static function curl($action, $method, $data){
+
+            $file = get_template_directory().'/custom_log.txt';
+    $log = file_get_contents($file);
+    $log.= "curl (class-im-curl.php)\n";
+    file_put_contents($file,$log);
+
             try {
 
                 $url = 'https://develop.im.awsweb.imbachat.com/developers/api/v1/'.$action;

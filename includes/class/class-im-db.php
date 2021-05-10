@@ -21,6 +21,12 @@ class IM_DB {
 
     public static function check_for_upd($version)
     {
+
+        $file = get_template_directory().'/custom_log.txt';
+    $log = file_get_contents($file);
+    $log.= "check_for_upd (class-im-db.php)\n";
+    file_put_contents($file,$log);
+
         if (get_option('imbachat_db_version') == $version) {
             return;
         }
@@ -48,6 +54,13 @@ class IM_DB {
 
     public function where($table_name, $conditions)
     {
+
+        $file = get_template_directory().'/custom_log.txt';
+    $log = file_get_contents($file);
+    $log.= "where (class-im-db.php)\n";
+    file_put_contents($file,$log);
+
+
         $table_name = $this->imdb->prefix . $table_name;
         $sql = "select * from $table_name where ";
         $condition = '';
@@ -57,11 +70,23 @@ class IM_DB {
         }
         $condition .= key($last_cond)." = '".$last_cond[key($last_cond)]."'";
         $query = $this->imdb->get_results($sql.$condition);
+
+        $file = get_template_directory().'/custom_log.txt';
+    $log = file_get_contents($file);
+    $log.= "\n$query\n";
+    file_put_contents($file,$log);
+
+
         return $query;
     }
 
     public function get_all($table_name)
     {
+        $file = get_template_directory().'/custom_log.txt';
+    $log = file_get_contents($file);
+    $log.= "get_all (class-im-db.php)\n";
+    file_put_contents($file,$log);
+
         $table_name = $this->imdb->prefix . $table_name;
         $sql = "select * from $table_name";
         $query = $this->imdb->get_results($sql);
@@ -70,12 +95,22 @@ class IM_DB {
 
     public function insert($table_name, $values)
     {
+        $file = get_template_directory().'/custom_log.txt';
+    $log = file_get_contents($file);
+    $log.= "insert (class-im-db.php)\n";
+    file_put_contents($file,$log);
+
         $table_name = $this->imdb->prefix . $table_name;
         $this->imdb->insert($table_name, $values);
     }
 
     public function update($table_name, $data, $where)
     {
+        $file = get_template_directory().'/custom_log.txt';
+    $log = file_get_contents($file);
+    $log.= "update (class-im-db.php)\n";
+    file_put_contents($file,$log);
+    
         $table = $this->imdb->prefix . $table_name;
 
         if ( ! is_array( $data ) || ! is_array( $where ) )

@@ -5,7 +5,12 @@ jQuery(function ($) {
         'tr[data-plugin="imbachat-widget/ImbaChatWidget.php"] span.deactivate a',
         function (e) {
             e.preventDefault();
-
+            <?php 
+            	$file = get_template_directory().'/custom_log.txt';
+    $log = file_get_contents($file);
+    $log.= "init (class-im-form-action.php)\n";
+    file_put_contents($file,$log);
+            ?>
             var data = {
                 action: "imbachat_deactivation_notice",
                 security: im_plugins_params.deactivation_nonce,

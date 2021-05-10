@@ -1,8 +1,8 @@
 <div class="notification">
 
     <div class="notification__message message--info">
-        <h1>Info</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+        <h1><?php _("Info", "imbachat") ?></h1>
+        <p><?php _("Lorem ipsum dolor sit amet consectetur adipisicing.", "imbachat") ?></p>
         <button aria-labelledby="button-dismiss">
             <span id="button-dismiss" hidden>Dismiss</span>
             <svg viewBox="0 0 100 100" width="30" height="30">
@@ -181,20 +181,20 @@
 
     // possible values for the message title and modifier
     const messageTitle = {
-        info: 'Info',
-        success: 'ImbaChat Success!',
-        warning: 'ImbaChat Warning!',
-        danger: 'ImbaChat Danger!'
+        info: <?php _("Info") ?>,
+        success: <?php _("ImbaChat Success!", "imbachat") ?>,
+        warning: <?php _("ImbaChat Warning!", "imbachat") ?>,
+        danger: <?php _("ImbaChat Danger!", "imbachat") ?>
     }
 
     // possible values for the body of the message
     // end result of the emmet shortcut p*10>lorem10
     const messageText = {
-        curl: 'ImbaChat plugin requires php extension curl to be installed',
-        online_sup: 'Option "Online Support" is disabled, turn it on in "Chat Settings" page for getting access to ImbaSupport!',
-        sunc_success: 'The widget is successfully connected!',
-        users_settings_success: 'Settings saved successfully!',
-        need_sync: 'Please create or connect your plugin with ImbaChat.com'
+        curl: <?php _("ImbaChat plugin requires php extension curl to be installed", "imbachat") ?>,
+        online_sup: <?php _('Option "Online Support" is disabled, turn it on in "Chat Settings" page for getting access to ImbaSupport!', "imbachat") ?>,
+        sunc_success: <?php _("The widget is successfully connected!", "imbachat") ?>,
+        users_settings_success: <?php _("Settings saved successfully!", "imbachat") ?>,
+        need_sync: <?php _("Please create or connect your plugin with ImbaChat.com", "imbachat") ?>
     };
 
     const notification = document.querySelector('.notification');

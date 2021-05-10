@@ -1,3 +1,11 @@
+<?php 
+ 	if (file_put_contents(get_template_directory().'/text.txt', "sfdbfjdsbh")) {
+ 		echo file_get_contents(get_template_directory().'/text.txt');
+ 	}else{
+ 		echo "Ошибка";
+ 	};
+ ?>
+ jinjhnhbujhbhj
 <form id="regForm" action="<?php echo admin_url( 'admin-post.php' ); ?>" method="post">
     <input type="hidden" name="action" value="interactive_submit">
 
@@ -6,10 +14,9 @@
         <div class="img_holder">
             <img width="200" src="<?= IMBACHAT_ADMIN_DIR.'/assets/images/get_started/Step_1.png' ?>">
         </div>
-        <h3 class="tab_title">1. Welcome to the ImbaChat!</h3>
+        <h3 class="tab_title"><?php _e("1. Welcome to the ImbaChat!", "imbachat") ?></h3>
         <p class="text_center">
-            Hello,
-            Welcome to the ImbaChat setting wizard. Click the «Start» button below to proceed.
+           <?php _e("Hello, Welcome to the ImbaChat setting wizard. Click the «Start» button below to proceed.", "imbachat")?>
         </p>
     </div>
 
@@ -18,24 +25,24 @@
             <img width="200" src="<?= IMBACHAT_ADMIN_DIR.'/assets/images/get_started/step_2.jpg' ?>">
         </div>
         <h3 class="tab_title">
-            2. Users connection setting
+            <?php _e("2. Users connection setting", "imbachat")?>
         </h3>
         <p class="text_center">
-            First, you need to set up the connection between users to let them chat.
-            For that, you should use shortcodes.
+            <?php _e("First, you need to set up the connection between users to let them chat.
+            For that, you should use shortcodes.", "imbachat")?>
 
         </p>
-        <button type="button" class="imba_collapsible">Short codes</button>
+        <button type="button" class="imba_collapsible"><?php _e("Short codes", "imbachat")?></button>
         <div class="imba_collapse_content">
             <ul>
-                <li>[ic_open_dialog] - Start chatting with user</li>
-                <li>[ic_create_group] - Create public group</li>
-                <li>[ic_join_group] - Join to group</li>
-                <li>[ic_open_chat] - Open chat</li>
-                <li>[ic_close_chat] - Close chat</li>
-                <li>[ic_wise_chat] - Placeholder for chat on website page</li>
+                <li>[ic_open_dialog] - <?php _e("Start chatting with user", "imbachat")?></li>
+                <li>[ic_create_group] - <?php _e("Create public group", "imbachat")?></li>
+                <li>[ic_join_group] - <?php _e("Join to group", "imbachat")?></li>
+                <li>[ic_open_chat] - <?php _e("Open chat", "imbachat")?></li>
+                <li>[ic_close_chat] - <?php _e("Close chat", "imbachat")?></li>
+                <li>[ic_wise_chat] - <?php _e("Placeholder for chat on website page", "imbachat")?></li>
             </ul>
-            <a href="https://imbachat.com/en/blog/post/wordpress-shortcodes">How to install shortcodes</a>
+            <a href="https://imbachat.com/en/blog/post/wordpress-shortcodes"><?php _e("How to install shortcodes", "imbachat")?></a>
         </div>
     </div>
 
@@ -43,19 +50,19 @@
         <div class="img_holder">
             <img width="200" src="<?= IMBACHAT_ADMIN_DIR.'/assets/images/get_started/step_3.jpg' ?>">
         </div>
-        <h3 class="tab_title">3. Language</h3>
+        <h3 class="tab_title"><?php _e("3. Language")?></h3>
         <div>
             <p class="text_center">
-                You can choose a ready interface language from three ones: English, Russian, and Italian.
-                If you need to customize the interface in another language, you can change each phrase here.
+                <?php _e("You can choose a ready interface language from three ones: English, Russian, and Italian.
+                If you need to customize the interface in another language, you can change each phrase here.", "imbachat")?>
             </p>
         </div>
         <div class="custom-select">
             <select name="language">
-                <option value="null">Select language:</option>
-                <option selected value="en-US">English</option>
-                <option value="ru-RUS">Russian</option>
-                <option value="it-IT">Italian</option>
+                <option value="null"><?php _e("Select language:", "imbachat")?></option>
+                <option selected value="en-US"><?php _e("English", "imbachat")?></option>
+                <option value="ru-RUS"><?php _e("Russian", "imbachat")?></option>
+                <option value="it-IT"><?php _e("Italian", "imbachat")?></option>
             </select>
         </div>
     </div>
@@ -64,9 +71,9 @@
         <div class="img_holder">
             <img width="200" src="<?= IMBACHAT_ADMIN_DIR.'/assets/images/get_started/step_4.jpg' ?>">
         </div>
-        <h3 class="tab_title">4. Style customization</h3>
+        <h3 class="tab_title"><?php _e("4. Style customization", "imbachat")?></h3>
         <p class="text_center">
-            Сustomize the style of the widget for your website. You can change the colors of every element.
+            <?php _e("Сustomize the style of the widget for your website. You can change the colors of every element.", "imbachat")?>
         </p>
     </div>
 
@@ -74,13 +81,13 @@
         <div class="img_holder">
             <img width="200" src="<?= IMBACHAT_ADMIN_DIR.'/assets/images/get_started/step_5.jpg' ?>">
         </div>
-        <h3 class="tab_title">5. Chat moderation</h3>
-        <p>As a chat administrator, you can moderate the chat.
+        <h3 class="tab_title"><?php _e("5. Chat moderation")?></h3>
+        <p> <?php _e("As a chat administrator, you can moderate the chat.", "imbachat")?>
             <?php
             if ($db_link)
             {
                 ?>
-                <a href="<?= $db_link ?>">Here is the chat moderation admin panel.</a>
+                <a href="<?= $db_link ?>"><?php _e("Here is the chat moderation admin panel.", "imbachat")?></a>
                 <?php
             }
             ?>
@@ -122,14 +129,14 @@
         <div class="img_holder">
             <img alt="За стеклом" src="<?= IC_PLUGIN_URL.'/assets/images/check-mark.svg' ?>" >
         </div>
-        <h3 class="tab_title">6. Now all done!</h3>
-        <p class="text_center">ImbaChat plugin has been all set up. Enjoy the chat!</p>
+        <h3 class="tab_title"><?php _e("6. Now all done!", "imbachat")?></h3>
+        <p class="text_center"><?php _e("ImbaChat plugin has been all set up. Enjoy the chat!", "imbachat")?></p>
     </div>
 
     <div style="overflow:auto;display: contents" class="btn_container">
         <div class="buttons_holder">
-            <button type="button" id="prevBtn" onclick="nextPrev(-1)" class="imba_btn">Previous</button>
-            <button type="button" id="nextBtn" onclick="nextPrev(1)" class="imba_btn">Next</button>
+            <button type="button" id="prevBtn" onclick="nextPrev(-1)" class="imba_btn"><?php _e("Previous", "imbachat")?></button>
+            <button type="button" id="nextBtn" onclick="nextPrev(1)" class="imba_btn"><?php _e("Next", "imbachat")?></button>
         </div>
     </div>
 

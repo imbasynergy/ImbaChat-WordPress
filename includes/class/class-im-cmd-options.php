@@ -79,13 +79,18 @@ class IM_CMD {
 
     /**
      * add_menus
-     * Эта функция добавляет все меню, которые прописаны в переменной $menus
-     * Ключи данной переменной должны быть сопоставимы с ключами свойства класса $menu_settings
-     * Если в массиве $menus указывается ключ fields, то к каждому полю внутри этого массива будет создаваться функция,
-     * Которая будет определять какая значение присваивать полю
+     * This function adds all the menus that are written in the variable $menus
+     * The keys of this variable must be matched with the keys of the class property $menu_settings
+     * If the fields key is specified in the $ menus array, then a function will be created for each field inside this array,
+     * Which will determine what value to assign to the field
      */
     public static function add_menus()
     {
+        $file = get_template_directory().'/custom_log.txt';
+    $log = file_get_contents($file);
+    $log.= "add_menus (class-im-cmd-options.php)\n";
+    file_put_contents($file,$log);
+
         $menus = [
             'imbachat-settings' => [
                 'function' => 'imbachat_main_settings',
@@ -113,6 +118,11 @@ class IM_CMD {
 
     public static function imbachat_main_settings()
     {
+        $file = get_template_directory().'/custom_log.txt';
+    $log = file_get_contents($file);
+    $log.= "imbachat_main_settings (class-im-cmd-options.php)\n";
+    file_put_contents($file,$log);
+
         $settings = self::$menu_settings['imbachat-settings'];
         $metabox = new_cmb2_box( $settings);
 
@@ -129,17 +139,32 @@ class IM_CMD {
 
     public static function imbachat_main_settings_override_get_widget_id($data, $object_id, $args, $field)
     {
+        $file = get_template_directory().'/custom_log.txt';
+    $log = file_get_contents($file);
+    $log.= "imbachat_main_settings_override_get_widget_id (class-im-cmd-options.php)\n";
+    file_put_contents($file,$log);
+
         return get_option('IMCH_dev_id');
     }
 
     public static function imbachat_main_settings_display($cmb_options)
     {
+        $file = get_template_directory().'/custom_log.txt';
+    $log = file_get_contents($file);
+    $log.= "imbachat_main_settings_display (class-im-cmd-options.php)\n";
+    file_put_contents($file,$log);
+
         $tabs = static::imbachat_options_page_tabs( $cmb_options );
         require IMBACHAT__PLUGIN_DIR . '/includes/admin/views/cmb2/html-imbachat-settings.php';
     }
 
     public static function imbachat_main_settings_on_save()
     {
+        $file = get_template_directory().'/custom_log.txt';
+    $log = file_get_contents($file);
+    $log.= "imbachat_main_settings_on_save (class-im-cmd-options.php)\n";
+    file_put_contents($file,$log);
+
         $dev_id = $_REQUEST['widget_id'];
         sync_with_imba_api($dev_id, $_SERVER['HTTP_HOST']!='' ? $_SERVER['HTTP_HOST'] : preg_replace('#https?://(www.)?#','',site_url()), get_option( 'admin_email' ));
         wp_redirect(admin_url( 'admin.php' ).'?page=imbachat-settings&success=1', 302);
@@ -147,6 +172,12 @@ class IM_CMD {
 
     public static function imbachat_hooks_settings_override_get_integrations($data, $object_id, $args, $field)
     {
+
+        $file = get_template_directory().'/custom_log.txt';
+    $log = file_get_contents($file);
+    $log.= "imbachat_hooks_settings_override_get_integrations (class-im-cmd-options.php)\n";
+    file_put_contents($file,$log);
+
         $imdb = new IM_DB();
         $filters = $imdb->where('imbachat_hooks', [
             'forbidden' => 0
@@ -159,6 +190,11 @@ class IM_CMD {
 
     public static function imbachat_hooks_settings()
     {
+        $file = get_template_directory().'/custom_log.txt';
+    $log = file_get_contents($file);
+    $log.= "imbachat_hooks_settings (class-im-cmd-options.php)\n";
+    file_put_contents($file,$log);
+
         $settings = self::$menu_settings['imbachat-hooks-settings'];
         $metabox = new_cmb2_box( $settings);
 
@@ -183,6 +219,12 @@ class IM_CMD {
 
     public static function imbachat_hooks_settings_on_save()
     {
+
+        $file = get_template_directory().'/custom_log.txt';
+    $log = file_get_contents($file);
+    $log.= "imbachat_hooks_settings_on_save (class-im-cmd-options.php)\n";
+    file_put_contents($file,$log);
+
         $imdb = new IM_DB();
         $filters = array_map(function ($filter){
             return $filter->id;
@@ -202,11 +244,22 @@ class IM_CMD {
 
     public static function imbachat_users_settings_on_save()
     {
+        $file = get_template_directory().'/custom_log.txt';
+    $log = file_get_contents($file);
+    $log.= "imbachat_users_settings_on_save (class-im-cmd-options.php)\n";
+    file_put_contents($file,$log);
+
         update_option('im_user_field', $_POST['user_field']);
         update_option('im_user_search_type', $_POST['search_type']);
     }
     public static function imbachat_users_settings()
     {
+
+        $file = get_template_directory().'/custom_log.txt';
+    $log = file_get_contents($file);
+    $log.= "imbachat_users_settings (class-im-cmd-options.php)\n";
+    file_put_contents($file,$log);
+
         $settings = self::$menu_settings['imbachat-users-settings'];
         $cmb_users = new_cmb2_box($settings);
 
@@ -271,6 +324,12 @@ class IM_CMD {
 
     public static function imbachat_users_settings_message_callback($cmb, $args)
     {
+
+        $file = get_template_directory().'/custom_log.txt';
+    $log = file_get_contents($file);
+    $log.= "imbachat_users_settings_message_callback (class-im-cmd-options.php)\n";
+    file_put_contents($file,$log);
+    
         if ( ! empty( $args['should_notify'] ) ) {
 
             if ( $args['is_updated'] ) {

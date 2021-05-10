@@ -83,6 +83,9 @@ Browsers require a secure connection (HTTPS) for accessing a deviceвЂ™s micr
 
 == Changelog ==
 
+= 2.7 =
+* Added plugin translation function
+
 = 2.6.9 =
 * New feature: New filter`s hook that allows you to change the displaying username in the chat.
 

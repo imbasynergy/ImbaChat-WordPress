@@ -21,6 +21,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class IM_FORMS{
 
     public static function init() {
+        $file = get_template_directory().'/custom_log.txt';
+    $log = file_get_contents($file);
+    $log.= "init (class-im-form-action.php)\n";
+    file_put_contents($file,$log);
+
         self::form_events();
     }
 

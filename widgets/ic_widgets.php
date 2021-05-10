@@ -8,7 +8,7 @@ class My_Custom_Widget extends WP_Widget {
     public function __construct() {
         parent::__construct(
             'my_custom_widget',
-            __( 'My Custom Widget', 'text_domain' ),
+            __( 'My Custom Widget', "imbachat" ),
             array(
                 'customize_selective_refresh' => true,
             )
@@ -21,7 +21,7 @@ class My_Custom_Widget extends WP_Widget {
 
         // Set widget defaults
         $defaults = array(
-            'title'    => '',
+            'title'    => 'Imbachat',
             'text'     => '',
             'textarea' => '',
             'checkbox' => '',

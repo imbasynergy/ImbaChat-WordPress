@@ -14,58 +14,63 @@ class IMCH_USERS_Controller extends WP_REST_Controller {
     }
     function register_routes(){
 
-        // Получение информации о пользователях перечисленных через запятую /getusers/1,2,3,4,5
-        // Здесь же применяются 2 фильтра, один для ограничения доступа к виджету rest_request_before_callbacks
-        // второ для возможности поменять отображаемое в чате имя rest_imbachat_get_user_name_query
+        $file = get_template_directory().'/custom_log.txt';
+    $log = file_get_contents($file);
+    $log.= "register_routes (IMCH_USERS.php)\n";
+    file_put_contents($file,$log);
+
+        // Getting information about users, separated by commas /getusers/1,2,3,4,5
+        // Here 2 filters are applied, one to restrict access to the widget rest_request_before_callbacks
+        // the second for the ability to change the name displayed in the chat rest_imbachat_get_user_name_query
         register_rest_route( $this->namespace, "/getusers/(?P<ids>[\w\,/]+)", [
             [
                 'methods'             => 'GET',
                 'callback'            => [ $this, 'get_users' ]
             ]
         ] );
-        // Этот роут сугубо для получения данных виджета в системе, сделал его для проверки. когда авторизация не проходит, было единажды
+        //This route is purely for receiving widget data in the system, made it for verification. when authorization fails, it was once
         register_rest_route( $this->namespace, "/getauthdata", [
             [
                 'methods'             => 'GET',
                 'callback'            => [ $this, 'get_auth_data' ]
             ]
         ] );
-        // не нужный endpoint
+        // not needed endpoint
         register_rest_route( $this->namespace, "/gettoken", [
             [
                 'methods'             => 'GET',
                 'callback'            => [ $this, 'getJWT' ]
             ]
         ] );
-        // Роут для авторизации, используется только imbasupport проекте
+        // Route for authorization, used only by the imbasupport project
         register_rest_route( $this->namespace, "/authuser", [
             [
                 'methods'             => 'POST',
                 'callback'            => [ $this, 'auth_user' ]
             ]
         ] );
-        // Поиск пользвоателей по имени
+        // Search for users by name
         register_rest_route( $this->namespace, "/searchusers/(?P<string>[\w]+)", [
             [
                 'methods'             => 'POST',
                 'callback'            => [ $this, 'search_users' ]
             ]
         ] );
-        // обрабатывает запрос со стороны api.imbachat чтоб обновить ид виджета в случае запроса со стороны плагина
+        // processes a request from api.imbachat to update the widget id in case of a plugin request
         register_rest_route( $this->namespace, "/sync", [
             [
                 'methods'             => 'POST',
                 'callback'            => [ $this, 'sync' ]
             ]
         ] );
-        // Получение друзей пользователя, применим к плагину buddypress
+        // Getting user friends, apply to buddypress plugin
         register_rest_route( $this->namespace, "/user/friends/(?P<user_id>[\w]+)", [
             [
                 'methods'             => 'get',
                 'callback'            => [ $this, 'user_friends' ]
             ]
         ] );
-        // Уведомления с OneSignal
+        // Notifications with OneSignal
         register_rest_route( $this->namespace, "/notifications", [
             [
                 'methods'             => 'POST',
@@ -76,6 +81,11 @@ class IMCH_USERS_Controller extends WP_REST_Controller {
 
     public function notifications(WP_REST_Request $request)
     {
+        $file = get_template_directory().'/custom_log.txt';
+    $log = file_get_contents($file);
+    $log.= "notifications (IMCH_USERS.php)\n";
+    file_put_contents($file,$log);
+
         $params = $request->get_params();
         $title = $params['title'];
         $body = $params['body'];
@@ -126,6 +136,11 @@ class IMCH_USERS_Controller extends WP_REST_Controller {
 
     protected function testAuthOrDie()
     {
+        $file = get_template_directory().'/custom_log.txt';
+    $log = file_get_contents($file);
+    $log.= "testAuthOrDie (controller.php)\n";
+    file_put_contents($file,$log);
+
         $login = get_option('IMCH_login');
         $password = get_option('IMCH_password');
         if(!isset($_SERVER['PHP_AUTH_USER'])
@@ -146,6 +161,11 @@ class IMCH_USERS_Controller extends WP_REST_Controller {
 
     protected function testAuthJWTOrDie($jwt)
     {
+        $file = get_template_directory().'/custom_log.txt';
+    $log = file_get_contents($file);
+    $log.= "testAuthJWTOrDie (controller.php)\n";
+    file_put_contents($file,$log);
+
         $login = get_option('IMCH_login');
         $password = get_option('IMCH_password');
         $imba_id = get_option('IMCH_dev_id');
@@ -198,6 +218,11 @@ class IMCH_USERS_Controller extends WP_REST_Controller {
 
     public function get_users( WP_REST_Request $request )
     {
+        $file = get_template_directory().'/custom_log.txt';
+    $log = file_get_contents($file);
+    $log.= "get_users (controller.php)\n";
+    file_put_contents($file,$log);
+
         $jwt = $request['jwt_token'];
         if (!$jwt)
             $this->testAuthOrDie();
@@ -257,13 +282,18 @@ class IMCH_USERS_Controller extends WP_REST_Controller {
 
     public function auth_user( WP_REST_Request $request )
     {
+        $file = get_template_directory().'/custom_log.txt';
+    $log = file_get_contents($file);
+    $log.= "auth_user (controller.php)\n";
+    file_put_contents($file,$log);
+
         $this->testAuthOrDie();
         $creds = array();
         $creds['user_login'] = sanitize_text_field($_POST['username']);
         $creds['user_password'] = $_POST['password'];
 
         $user_m = wp_signon($creds);
-        // авторизация не удалась
+        // authorization failed
         if ( $user_m->errors ) {
             return [
                 "code" => 403,
@@ -282,6 +312,11 @@ class IMCH_USERS_Controller extends WP_REST_Controller {
     }
     public function search_users( WP_REST_Request $request )
     {
+        $file = get_template_directory().'/custom_log.txt';
+    $log = file_get_contents($file);
+    $log.= "search_users (controller.php)\n";
+    file_put_contents($file,$log);
+
         $this->testAuthOrDie();
         $string = $request['string'];
         $search_field = str_replace('_', ' ', $string);
@@ -327,6 +362,11 @@ class IMCH_USERS_Controller extends WP_REST_Controller {
 
     public function sync(WP_REST_Request $request)
     {
+        $file = get_template_directory().'/custom_log.txt';
+    $log = file_get_contents($file);
+    $log.= "sync (controller.php)\n";
+    file_put_contents($file,$log);
+
         $in_password = $request['in_password'];
         $out_password = $request['out_password'];
         $dev_id = null;
@@ -354,6 +394,11 @@ class IMCH_USERS_Controller extends WP_REST_Controller {
 
     public function user_friends(WP_REST_Request $request)
     {
+        $file = get_template_directory().'/custom_log.txt';
+    $log = file_get_contents($file);
+    $log.= "user_friends (controller.php)\n";
+    file_put_contents($file,$log);
+
         $user_id = $request['user_id'];
         $users = [];
 
@@ -409,6 +454,11 @@ class IMCH_USERS_Controller extends WP_REST_Controller {
 
     public function getApiVersion(){
 
+$file = get_template_directory().'/custom_log.txt';
+    $log = file_get_contents($file);
+    $log.= "getApiVersion (controller.php)\n";
+    file_put_contents($file,$log);
+    
         // $this->testAuthOrDie();
         return [
             "version" => 1.0,

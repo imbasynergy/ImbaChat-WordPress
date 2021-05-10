@@ -3,11 +3,11 @@
 <div class="imba_container">
     <div class="imba_item">
         <div class="imba_input_group">
-            <label>Choose the which field will displayed as username</label>
+            <label><?php _("Choose the which field will displayed as username", "imbachat") ?></label>
             <label class="custom-select" for="user_field">
                 <select id="user_field" name="options" data-qa="user_field">
                     <option value="">
-                        Select an option
+                        <?php _("Select an option", "imbachat") ?>
                     </option>
                     <?php
                     foreach ($fields as $k=>$field)
@@ -25,20 +25,20 @@
     </div>
     <div class="imba_item">
         <div class="imba_input_group">
-            <label>Choose the type of search</label>
+            <label><?php _("Choose the type of search", "imbachat") ?></label>
             <label class="custom-select" for="search_type">
                 <select id="search_type" name="options" data-qa="search_type">
                     <option value="">
-                        Select an option
+                        <?php _("Select an option", "imbachat") ?>
                     </option>
                     <option value="1" <?= get_option('im_user_search_type') == '1' ? 'selected' : '' ?>>
-                        Partial Match
+                        <?php _("Partial Match", "imbachat") ?>
                     </option>
                     <option value="2" <?= get_option('im_user_search_type') == '2' ? 'selected' : '' ?>>
-                        Full Match
+                        <?php _("Full Match", "imbachat") ?>
                     </option>
                     <option value="3" <?= get_option('im_user_search_type') == '3' ? 'selected' : '' ?>>
-                        Partial match, but from the beginning
+                        <?php _("Partial match, but from the beginning", "imbachat") ?>
                     </option>
                 </select>
             </label>
@@ -47,7 +47,7 @@
 </div>
 <div class="imba_container">
     <div class="imba_item">
-        <button type="button" class="imba_btn" onclick="save_users_settings()" data-qa="user_settings_ajax">Save Settings</button>
+        <button type="button" class="imba_btn" onclick="save_users_settings()" data-qa="user_settings_ajax"><?php _("Save Settings", "imbachat") ?></button>
     </div>
 </div>
 

@@ -1,16 +1,16 @@
-<h1 class="IMCH_title">ImbaChat Links</h1>
+<h1 class="IMCH_title"><?php _("ImbaChat Links", "imbachat") ?></h1>
 
 <form id="link_imba_form" class="IMCH_form" method="post">
     <input hidden id="IMCH_dev_id" value="<?php echo get_option('IMCH_dev_id', '')?>">
     <input hidden id="IMCH_host" value="<?php echo $_SERVER['HTTP_HOST']?>">
     <div>
-        <h3>Please, enter your e-mail, registered on the ImbaChat website. It will be checked and the links will be shown below.</h3>
+        <h3><?php _("Please, enter your e-mail, registered on the ImbaChat website. It will be checked and the links will be shown below.", "imbachat") ?></h3>
         <div class="IMCH_form__field">
-            <label class="IMCH_form__label" for="email">Your email address</label>
+            <label class="IMCH_form__label" for="email"><?php _("Your email address", "imbachat") ?></label>
             <input id="email" name="im_email" class="IMCH_form__input" value="<?= get_option( 'admin_email' ) ?>">
         </div>
         <div class="IMCH_form__field">
-            <button class="IMCH_form__button" type="submit" id="submit_imba">Submit</button>
+            <button class="IMCH_form__button" type="submit" id="submit_imba"><?php _("Submit", "imbachat") ?></button>
         </div>
     </div>
 </form>
@@ -81,10 +81,10 @@
                     console.log(data)
                     $("#links_block").html(
                         '<div class="IMCH_form__field" style="display: inline-block">\n' +
-                        '        <button class="IMCH_form__button" onclick="go_to(\''+imbachat_link+'\')">Admin panel</button>\n' +
+                        '        <button class="IMCH_form__button" onclick="go_to(\''+imbachat_link+'\')"><?php _("Admin panel", "imbachat") ?></button>\n' +
                         '    </div>\n' +
                         '    <div class="IMCH_form__field inline" style="display: inline-block">\n' +
-                        '        <button class="IMCH_form__button" onclick="go_to(\''+dashboard_link+'\')">Dashboard panel</button>\n' +
+                        '        <button class="IMCH_form__button" onclick="go_to(\''+dashboard_link+'\')"><?php _("Dashboard panel", "imbachat") ?></button>\n' +
                         '    </div>'
                     )
                 }

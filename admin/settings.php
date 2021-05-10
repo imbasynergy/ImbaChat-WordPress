@@ -1,31 +1,35 @@
 <?php
-
 function add_my_setting(){
+
+    $file = get_template_directory().'/custom_log.txt';
+    $log = file_get_contents($file);
+    $log.= "add_my_setting (setting.php)\n";
+    file_put_contents($file,$log);
 ?>
 <div class="wrap">
-    <h1><?php echo get_admin_page_title() ?></h1>
+    <h1><?php echo _(get_admin_page_title(), "imbachat") ?></h1>
     <div class="instruction">
         <h3>Instruction after installing plugin</h3>
         <p>There is 2 ways to configure ImbaChat widget on your website.</p>
         <ul>
             <li>
-                <p>1.	You need to pass registration <a href="https://imbachat.com/register">here</a> and create a widget in the Dashboard:</p>
-                <p>"Integrate option" choose WordPress</p>
-                <p>"Host" write your site url without http:// (for example: your-site-domain-url.com)</p>
-                <p>Write the widget id into “Widget id” field in the ImbaChat settings in the admin panel of your website. After that click “Connect to the widget”</p>
+                <p> <?php _e(" 1.	You need to pass registration", "imbachat") ?> <a href="https://imbachat.com/register">here</a> <?php _e(" and create a widget in the Dashboard: ", "imbachat") ?> </p>
+                <p><?php _e('Integrate option" choose WordPress', "imbachat") ?></p>
+                <p><?php _e('"Host" write your site url without http:// (for example: your-site-domain-url.com)', "imbachat") ?></p>
+                <p><?php _e('Write the widget id into “Widget id” field in the ImbaChat settings in the admin panel of your website. After that click “Connect to the widget”', "imbachat") ?></p>
                 <div class="image-ins">
                     <img width="1024" src="<?= IMBACHAT_ADMIN_DIR.'/assets/images/way_1.png' ?>">
                 </div>
             </li>
             <li>
-                <p>2.	If you don't have a widget yet, click "Create a widget" at the same page. Connection between your website and ImbaChat server will be automatically configured.</p>
+                <p><?php _e("2.	If you don't have a widget yet, click 'Create a widget' at the same page. Connection between your website and ImbaChat server will be automatically configured.", "imbachat") ?></p>
                 <div class="image-ins">
                     <img src="<?= IMBACHAT_ADMIN_DIR.'/assets/images/way_2.png' ?>">
                 </div>
             </li>
         </ul>
         <div class="instruction">
-            <h3>Also, if you have BuddyPress, WCFM Marketplace or SweetDate themes, integration with ImbaChat will be automatically configured as well.</h3>
+            <h3><?php _e("Also, if you have BuddyPress, WCFM Marketplace or SweetDate themes, integration with ImbaChat will be automatically configured as well.", "imbachat") ?></h3>
         </div>
     </div>
     <style>
@@ -45,15 +49,20 @@ function add_my_setting(){
 
     }
 
-    //Менюшка imbachat settings
+    //Menu imbachat settings
     function imbachat_settings(){
-        add_option('IMCH_dev_id', '');
-        add_option('IMCH_login', '');
-        add_option('IMCH_password', '');
-        add_option('IMCH_secret_key', '');
+
+        $file = get_template_directory().'/custom_log.txt';
+    $log = file_get_contents($file);
+    $log.= "imbachat_settings (setting.php)\n";
+    file_put_contents($file,$log);
+
+        add_option('IMCH_dev_id', '0');
+        add_option('IMCH_login', '0');
+        add_option('IMCH_password', '0');
+        add_option('IMCH_secret_key', '0');
         if (isset($_REQUEST['IMCH_dev_id']))
         {
-
             $IMCH_dev_id = sanitize_text_field($_REQUEST['IMCH_dev_id']);
             $IMCH_login = sanitize_text_field($_REQUEST['IMCH_login']);
             $IMCH_password = $_REQUEST['IMCH_password'];
@@ -81,6 +90,11 @@ function add_my_setting(){
     }
 
     function get_links_to_imbachat(){
+        $file = get_template_directory().'/custom_log.txt';
+    $log = file_get_contents($file);
+    $log.= "get_links_to_imbachat (setting.php)\n";
+    file_put_contents($file,$log);
+
         if (get_option('IMCH_secret_key'))
         {
             $links = [
@@ -93,6 +107,10 @@ function add_my_setting(){
     }
 
     function imbachat_setup_help(){
+        $file = get_template_directory().'/custom_log.txt';
+    $log = file_get_contents($file);
+    $log.= "imbachat_setup_help (setting.php)\n";
+    file_put_contents($file,$log);
 
         add_option('IMCH_LANG', '');
 
@@ -105,6 +123,10 @@ function add_my_setting(){
 
     function imbachat_users_settings()
     {
+        $file = get_template_directory().'/custom_log.txt';
+    $log = file_get_contents($file);
+    $log.= "imbachat_users_settings (setting.php)\n";
+    file_put_contents($file,$log);
 
         function filter_fields($item, $fields = [
             'first_name',
@@ -162,8 +184,12 @@ function add_my_setting(){
         require_once IMBACHAT__PLUGIN_DIR . '/view/admin_menu/users_settings.php';
     }
 
-    //post функции
+    //post functions
     function sync_with_imbachat(){
+        $file = get_template_directory().'/custom_log.txt';
+    $log = file_get_contents($file);
+    $log.= "sync_with_imbachat (setting.php)\n";
+    file_put_contents($file,$log);
 
         $dev_id = $_REQUEST['IMCH_dev_id'];
         sync_with_imba_api($dev_id, $_SERVER['HTTP_HOST']!='' ? $_SERVER['HTTP_HOST'] : preg_replace('#https?://(www.)?#','',site_url()), get_option( 'admin_email' ));
@@ -172,13 +198,23 @@ function add_my_setting(){
 
     function interactive_submit()
     {
+        $file = get_template_directory().'/custom_log.txt';
+    $log = file_get_contents($file);
+    $log.= "interactive_submit (setting.php)\n";
+    file_put_contents($file,$log);
+
         update_option('IMCH_LANG', $_REQUEST['language']);
         wp_redirect(admin_url( 'admin.php' ).'?page=imbachat-settings', 302);
     }
 
-    //ajax функции
+    //ajax functions
     function save_users_settings()
     {
+        $file = get_template_directory().'/custom_log.txt';
+    $log = file_get_contents($file);
+    $log.= "save_users_settings (setting.php)\n";
+    file_put_contents($file,$log);
+    
         $params = $_REQUEST['param'];
         if (isset($params['user_field']))
         {

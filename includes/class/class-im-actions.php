@@ -28,6 +28,13 @@ class IM_Actions {
 
     public static function add_bp_actions()
     {
+
+        $file = get_template_directory().'/custom_log.txt';
+    $log = file_get_contents($file);
+    $log.= "add_bp_actions (class-im-actions.php)\n";
+    file_put_contents($file,$log);
+
+
         $imdb = new IM_DB();
         $actions = [
             'bp_member_header_actions' => [
@@ -108,6 +115,12 @@ class IM_Actions {
     }
 
     public static function add_actions(){
+
+        $file = get_template_directory().'/custom_log.txt';
+    $log = file_get_contents($file);
+    $log.= "add_actions (class-im-actions.php)\n";
+    file_put_contents($file,$log);
+
         $imdb = new IM_DB();
         $filters = [
             'wp_login' => false,
@@ -146,11 +159,21 @@ class IM_Actions {
 
     public static function wpforo_member_info_imbachat_button($member)
     {
+        $file = get_template_directory().'/custom_log.txt';
+    $log = file_get_contents($file);
+    $log.= "wpforo_member_info_imbachat_button (class-im-actions.php)\n";
+    file_put_contents($file,$log);
+
         echo '<a class="wpf-member-profile-button" href="#" onclick="open_dialog('.$member['ID'].')"><i class="fas fa-sms"></i></a>';
     }
 
     public static function imbachat_wp_login($username = '', $user = false)
     {
+        $file = get_template_directory().'/custom_log.txt';
+    $log = file_get_contents($file);
+    $log.= "imbachat_wp_login (class-im-actions.php)\n";
+    file_put_contents($file,$log);
+
         if (!class_exists('OneSignal_Public')) {
             return;
         }
@@ -161,6 +184,11 @@ class IM_Actions {
 
     public static function imbachat_wp_logout($username = '', $user = false)
     {
+        $file = get_template_directory().'/custom_log.txt';
+    $log = file_get_contents($file);
+    $log.= "imbachat_wp_logout (class-im-actions.php)\n";
+    file_put_contents($file,$log);
+
         if (!class_exists('OneSignal_Public')) {
             return;
         }
@@ -169,6 +197,11 @@ class IM_Actions {
 
     public static function imbachat_wp_footer()
     {
+        $file = get_template_directory().'/custom_log.txt';
+    $log = file_get_contents($file);
+    $log.= "imbachat_wp_footer (class-im-actions.php)\n";
+    file_put_contents($file,$log);
+    
         if (!class_exists('OneSignal_Public')) {
             return;
         }
