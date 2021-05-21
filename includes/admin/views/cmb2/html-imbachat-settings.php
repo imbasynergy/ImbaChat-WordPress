@@ -1,3 +1,19 @@
+<?php
+
+if (isset($_GET['error'])) {
+    function alert() {
+        ?>
+        <div class="notice notice-error is-dismissible">
+            <p><?php _e('Connection error. API Imbachat.com could not connect to your site, please check your server settings'); ?></p>
+        </div>
+        <?php
+    }
+
+    add_action( 'show_error', 'alert', 10, 3 );
+    do_action('show_error');
+}
+?>
+
 <div class="wrap cmb2-options-page option-<?php echo $cmb_options->option_key; ?>">
     <?php if ( get_admin_page_title() ) : ?>
         <h2><?php echo wp_kses_post( get_admin_page_title() ); ?></h2>

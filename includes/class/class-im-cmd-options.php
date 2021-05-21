@@ -113,6 +113,7 @@ class IM_CMD {
 
     public static function imbachat_main_settings()
     {
+
         $settings = self::$menu_settings['imbachat-settings'];
         $metabox = new_cmb2_box( $settings);
 
@@ -129,20 +130,30 @@ class IM_CMD {
 
     public static function imbachat_main_settings_override_get_widget_id($data, $object_id, $args, $field)
     {
+
         return get_option('IMCH_dev_id');
     }
 
     public static function imbachat_main_settings_display($cmb_options)
     {
+
+
         $tabs = static::imbachat_options_page_tabs( $cmb_options );
         require IMBACHAT__PLUGIN_DIR . '/includes/admin/views/cmb2/html-imbachat-settings.php';
     }
 
     public static function imbachat_main_settings_on_save()
     {
+
+
         $dev_id = $_REQUEST['widget_id'];
-        sync_with_imba_api($dev_id, $_SERVER['HTTP_HOST']!='' ? $_SERVER['HTTP_HOST'] : preg_replace('#https?://(www.)?#','',site_url()), get_option( 'admin_email' ));
-        wp_redirect(admin_url( 'admin.php' ).'?page=imbachat-settings&success=1', 302);
+        $result_synk = sync_with_imba_api($dev_id, $_SERVER['HTTP_HOST']!='' ? $_SERVER['HTTP_HOST'] : preg_replace('#https?://(www.)?#','',site_url()), get_option( 'admin_email' ));
+        if ($result_synk == 'error_connect') {
+            wp_redirect(admin_url( 'admin.php' ).'?page=imbachat-settings&error=true', 302);
+            exit();
+        }else{
+            wp_redirect(admin_url( 'admin.php' ).'?page=imbachat-settings&success=1', 302);
+        }
     }
 
     public static function imbachat_hooks_settings_override_get_integrations($data, $object_id, $args, $field)

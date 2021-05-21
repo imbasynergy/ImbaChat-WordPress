@@ -35,10 +35,29 @@ function sync_with_imba_api($dev_id, $host, $mail)
 
             $curlout = curl_exec($curl);
             curl_close($curl);
+
+
+            // Принял json и сохранил IMCH_dev_id
+
+            $dev_json=json_decode($curlout);
+            $dev_id=$dev_json->dev_id;
+
+
+
+            return 'error_connect';
+
+
+            $file = get_template_directory().'/curl_log.txt';
+            file_put_contents($file,$curlout);
+
+
+
             send_wp_stat();
         } catch (Exception $exception) {
-
+            exit('CURL send error');
         }
+    }else{
+        exit("CURL not found");
     }
 }
 
