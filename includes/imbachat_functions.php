@@ -43,7 +43,7 @@ function ic_open_dialog_with( $atts, $content = null, $code = '' ) {
             return false;
         }
     }
-    return '<button type="button" class="'.$className.'" onclick="open_dialog('.$id.', `'.$jwt.'`, this)">'._($btnName, "imbachat").'</button>';
+    return '<button type="button" class="'.$className.'" onclick="open_dialog('.$id.', `'.$jwt.'`, this)">'._e($btnName, "imbachat").'</button>';
 }
 
 function ic_close_chat( $atts, $content = null, $code = '' ) {
@@ -52,7 +52,7 @@ function ic_close_chat( $atts, $content = null, $code = '' ) {
         return '[ic_close_chat]';
     }
 
-    return '<button type="button" onclick="closeChat()">'._("Close ImbaChat", "imbachat").'</button>';
+    return '<button type="button" onclick="closeChat()">'._e("Close ImbaChat", "imbachat").'</button>';
 }
 
 function ic_open_chat( $atts, $content = null, $code = '' ) {
@@ -61,7 +61,7 @@ function ic_open_chat( $atts, $content = null, $code = '' ) {
         return '[ic_open_chat]';
     }
 
-    return '<button type="button" onclick="showChat()">'._("Open ImbaChat", "imbachat").'</button>';
+    return '<button type="button" onclick="showChat()">'._e("Open ImbaChat", "imbachat").'</button>';
 }
 
 function ic_create_group_with($atts, $content = null, $code = '') {
@@ -84,9 +84,9 @@ function ic_create_group_with($atts, $content = null, $code = '') {
         $btnName = $atts['buttonname'];
     }
     return '<div id="ic_create_group_cont">
-            <input class="'.$classNameI.'" placeholder="<?php _("Group name", "imbachat") ?>" type="text" id="ic_group_title">
-            <input class="'.$classNameI.'" placeholder="<?php _("Pipe", "imbachat") ?>" type="text" id="ic_group_pipe">
-            <button type="button" class="'.$classNameB.'" onclick="ic_create_dialog(this)">'._($btnName, "imbachat").'</button>
+            <input class="'.$classNameI.'" placeholder="<?php _e("Group name", "imbachat") ?>" type="text" id="ic_group_title">
+            <input class="'.$classNameI.'" placeholder="<?php _e("Pipe", "imbachat") ?>" type="text" id="ic_group_pipe">
+            <button type="button" class="'.$classNameB.'" onclick="ic_create_dialog(this)">'._e($btnName, "imbachat").'</button>
     </div>';
 }
 
@@ -110,7 +110,7 @@ function ic_join_group($atts, $content = null, $code = '') {
         $classNameB = $atts['classb'];
         $btnName = $atts['buttonname'];
     }
-    return '<button type="button" class="'.$classNameB.'" onclick="ic_join_group(`'.$atts['pipe'].'`, `'.$atts['name'].'`)">'._($btnName, "imbachat").'</button>';
+    return '<button type="button" class="'.$classNameB.'" onclick="ic_join_group(`'.$atts['pipe'].'`, `'.$atts['name'].'`)">'._e($btnName, "imbachat").'</button>';
 }
 
 function ic_wise_chat($atts, $content = null, $code = '') {

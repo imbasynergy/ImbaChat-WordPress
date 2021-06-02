@@ -10,28 +10,28 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 <div class="notice notice-info user-registration-review-notice" id="imba_rating">
-    <p><?php _("Your feedback is very important to us.", "imbachat") ?></p>
+    <p><?php _e("Your feedback is very important to us.", "imbachat") ?></p>
     <div class="imbachat_logo_container">
         <img src="<?= IMBACHAT_ADMIN_DIR.'/assets/images/imbachat_logo.jpg' ?>">
     </div>
     <div>
-        <p><?php _("Please rate us!", "imbachat") ?></p>
+        <p><?php _e("Please rate us!", "imbachat") ?></p>
         <div class="imba_flex">
             <div class="imba_rate">
                 <input type="radio" id="star5" name="imba_rate" value="5" />
-                <label for="star5" title="text"><?php _("5 stars", "imbachat") ?></label>
+                <label for="star5" title="text"><?php _e("5 stars", "imbachat") ?></label>
                 <input type="radio" id="star4" name="imba_rate" value="4" />
-                <label for="star4" title="text"><?php _("4 stars", "imbachat") ?></label>
+                <label for="star4" title="text"><?php _e("4 stars", "imbachat") ?></label>
                 <input type="radio" id="star3" name="imba_rate" value="3" />
-                <label for="star3" title="text"><?php _("3 stars", "imbachat") ?></label>
+                <label for="star3" title="text"><?php _e("3 stars", "imbachat") ?></label>
                 <input type="radio" id="star2" name="imba_rate" value="2" />
-                <label for="star2" title="text"><?php _("2 stars", "imbachat") ?></label>
+                <label for="star2" title="text"><?php _e("2 stars", "imbachat") ?></label>
                 <input type="radio" id="star1" name="imba_rate" value="1" />
-                <label for="star1" title="text"><?php _("1 star", "imbachat") ?></label>
+                <label for="star1" title="text"><?php _e("1 star", "imbachat") ?></label>
             </div>
             <div class="imba_rate_extra">
                 <input placeholder="what problems did you encounter with while using chat?" type="text">
-                <a class="button button-primary" href="#" data-imba_rating="0" onclick="sendRate(this)"><?php _("Rate Us", "imbachat") ?></a>
+                <a class="button button-primary" href="#" data-imba_rating="0" onclick="sendRate(this)"><?php _e("Rate Us", "imbachat") ?></a>
             </div>
         </div>
     </div>
