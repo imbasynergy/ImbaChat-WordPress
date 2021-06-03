@@ -8,7 +8,7 @@ class My_Custom_Widget extends WP_Widget {
     public function __construct() {
         parent::__construct(
             'my_custom_widget',
-            __( 'My Custom Widget', "imbachat" ),
+            _e( 'My Custom Widget', "imbachat" ),
             array(
                 'customize_selective_refresh' => true,
             )
@@ -62,10 +62,10 @@ class My_Custom_Widget extends WP_Widget {
                 <?php
                 // Your options array
                 $options = array(
-                    ''        => __( 'Select', 'text_domain' ),
-                    'option_1' => __( 'Option 1', 'text_domain' ),
-                    'option_2' => __( 'Option 2', 'text_domain' ),
-                    'option_3' => __( 'Option 3', 'text_domain' ),
+                    ''        => _e( 'Select', 'text_domain' ),
+                    'option_1' => _e( 'Option 1', 'text_domain' ),
+                    'option_2' => _e( 'Option 2', 'text_domain' ),
+                    'option_3' => _e( 'Option 3', 'text_domain' ),
                 );
 
                 // Loop through options and add each one to the select dropdown
