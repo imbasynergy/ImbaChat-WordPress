@@ -5,10 +5,19 @@
 class My_Custom_Widget extends WP_Widget {
 
     // Main constructor
+    // public function __construct() {
+    //     parent::__construct(
+    //         'my_custom_widget',
+    //         _e( 'My Custom Widget', "imbachat" ),
+    //         array(
+    //             'customize_selective_refresh' => true,
+    //         )
+    //     );
+    // }
+
     public function __construct() {
         parent::__construct(
-            'my_custom_widget',
-            _e( 'My Custom Widget', "imbachat" ),
+            'my_custom_widget','',
             array(
                 'customize_selective_refresh' => true,
             )
