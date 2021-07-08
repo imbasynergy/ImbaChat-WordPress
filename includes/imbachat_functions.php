@@ -43,7 +43,8 @@ function ic_open_dialog_with( $atts, $content = null, $code = '' ) {
             return false;
         }
     }
-    return '<button type="button" class="'.$className.'" onclick="open_dialog('.$id.', `'.$jwt.'`, this)">'._e($btnName, "imbachat").'</button>';
+    $text_btn = _e($btnName, "imbachat");
+    return '<button type="button" class="'.$className.'" onclick="open_dialog('.$id.', `'.$jwt.'`, this)">'.$text_btn.'</button>';
 }
 
 function ic_close_chat( $atts, $content = null, $code = '' ) {
@@ -52,7 +53,8 @@ function ic_close_chat( $atts, $content = null, $code = '' ) {
         return '[ic_close_chat]';
     }
 
-    return '<button type="button" onclick="closeChat()">'._e("Close ImbaChat", "imbachat").'</button>';
+    $text_btn = _e("Close ImbaChat", "imbachat");
+    return '<button type="button" onclick="closeChat()">'.$text_btn.'</button>';
 }
 
 function ic_open_chat( $atts, $content = null, $code = '' ) {
@@ -60,8 +62,8 @@ function ic_open_chat( $atts, $content = null, $code = '' ) {
     if ( is_feed() ) {
         return '[ic_open_chat]';
     }
-
-    return '<button type="button" onclick="showChat()">'._e("Open ImbaChat", "imbachat").'</button>';
+    $text_btn = _e("Open ImbaChat", "imbachat");
+    return '<button type="button" onclick="showChat()">'.$text_btn.'</button>';
 }
 
 function ic_create_group_with($atts, $content = null, $code = '') {
