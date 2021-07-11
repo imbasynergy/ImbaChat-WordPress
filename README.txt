@@ -42,7 +42,7 @@ Learn more about the plugin [here](https://imbachat.com).
 2. If you don't have a widget, click "Create a widget" in the ImbaChat settings. Connection between your website and ImbaChat server will be automatically configured.
 3. If you already have a widget, just write your widget ID in the ImbaChat settings on your website and click "Connect the widget".
 4. Also, if you have BuddyPress, WCFM Marketplace or SweetDate themes, integration with ImbaChat will be automatically configured as well.
-5. You should use [shortcodes](https://imbachat.com/en/articles/tutorials) to create conversation's buttons. The buttons are available only on BuddyPress.
+5. You should use [shortcodes](https://imbachat.com/en/articles/tutorials) to create conversation's buttons. Buttons are installed automatically only on BuddyPress.
 
 
 == Frequently Asked Questions ==
@@ -68,8 +68,8 @@ ImbaChat is a hosted, cloud based video aND text chat service. It does not requi
 =Does ImbaChat have an affiliate / partner program?=
 Yes, anyone can participate in ImbaChat affiliate program and earn money online. [Here](https://imbachat.com/en/referal-programm) you can learn all about this program.
 
-=Why doesnвЂ™t the videochat work? I see the buttons but I donвЂ™t get any prompts for video access.=
-Browsers require a secure connection (HTTPS) for accessing a deviceвЂ™s microphone and camera. When testing locally, localhost is a whitelisted URL but once you deploy to production you will need to have a secure connection for the plugin to function properly.
+=Why does not the videochat work? I see the buttons but I do not get any prompts for video access.=
+Browsers require a secure connection (HTTPS) for accessing a deviceРІР‚в„ўs microphone and camera. When testing locally, localhost is a whitelisted URL but once you deploy to production you will need to have a secure connection for the plugin to function properly.
 
 
 
@@ -178,6 +178,4 @@ Browsers require a secure connection (HTTPS) for accessing a deviceвЂ™s micr
 
 [Repository with plugin for WordPress CMS](https://github.com/imbasynergy/ImbaChat-WordPressCMS)
 
-[Open source code for demo site](https://github.com/imbasynergy/ImbaChat-WordPressCMS-demo)
-
-[Technical support](http://imbachat.com/help)
+[Open source code for demo site](https://github.com/imbasynergy/ImbaChat-WordPress)
