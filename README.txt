@@ -13,7 +13,7 @@ License URI: http://www.apache.org/licenses/
 
 ImbaChat is free chat plugin for Wordpress. Online support chat, group chat and private chat between users in one cloud service.
 It allows to add chat widget on your website for free. Integration with BuddyPress, SweetDate and WCFM Marketplace. ImbaChat also provides private video chat and group video chat between users for the webinars.
-Learn more about the plugin [here](https://imbachat.com).
+Learn more about the plugin [here](https://imbachat.com/en/wordpress-chat).
 
 [youtube https://www.youtube.com/watch?v=mGbjVlagAaQ]
 
