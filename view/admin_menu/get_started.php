@@ -6,7 +6,7 @@
         <div class="img_holder">
             <img width="200" src="<?= IMBACHAT_ADMIN_DIR.'/assets/images/get_started/Step_1.png' ?>">
         </div>
-        <h3 class="tab_title"><?php _e("1. Welcome to the ImbaChat!", "imbachat") ?></h3>
+        <h3 class="tab_title"><?php _e("Welcome to the ImbaChat!", "imbachat") ?></h3>
         <p class="text_center">
            <?php _e("Hello, Welcome to the ImbaChat setting wizard. Click the «Start» button below to proceed.", "imbachat")?>
         </p>
@@ -17,7 +17,7 @@
             <img width="200" src="<?= IMBACHAT_ADMIN_DIR.'/assets/images/get_started/step_2.jpg' ?>">
         </div>
         <h3 class="tab_title">
-            <?php _e("2. Users connection setting", "imbachat")?>
+            <?php _e("Users connection setting", "imbachat")?>
         </h3>
         <p class="text_center">
             <?php _e("First, you need to set up the connection between users to let them chat.
@@ -42,7 +42,7 @@
         <div class="img_holder">
             <img width="200" src="<?= IMBACHAT_ADMIN_DIR.'/assets/images/get_started/step_3.jpg' ?>">
         </div>
-        <h3 class="tab_title"><?php _e("3. Language")?></h3>
+        <h3 class="tab_title"><?php _e("Language")?></h3>
         <div>
             <p class="text_center">
                 <?php _e("You can choose a ready interface language from three ones: English, Russian, and Italian.
@@ -63,9 +63,9 @@
         <div class="img_holder">
             <img width="200" src="<?= IMBACHAT_ADMIN_DIR.'/assets/images/get_started/step_4.jpg' ?>">
         </div>
-        <h3 class="tab_title"><?php _e("4. Style customization", "imbachat")?></h3>
+        <h3 class="tab_title"><?php _e("Style customization", "imbachat")?></h3>
         <p class="text_center">
-            <?php _e("Сustomize the style of the widget for your website. You can change the colors of every element.", "imbachat")?>
+            <?php _e("There you can see the Widget settings. Open Style Settings and change the widget appearance as you want. How to customize widget appearance.", "imbachat")?>
         </p>
     </div>
 
@@ -73,7 +73,7 @@
         <div class="img_holder">
             <img width="200" src="<?= IMBACHAT_ADMIN_DIR.'/assets/images/get_started/step_5.jpg' ?>">
         </div>
-        <h3 class="tab_title"><?php _e("5. Chat moderation")?></h3>
+        <h3 class="tab_title"><?php _e("Chat moderation")?></h3>
         <p> <?php _e("As a chat administrator, you can moderate the chat.", "imbachat")?>
             <?php
             if ($db_link)
@@ -121,7 +121,7 @@
         <div class="img_holder">
             <img alt="За стеклом" src="<?= IC_PLUGIN_URL.'/assets/images/check-mark.svg' ?>" >
         </div>
-        <h3 class="tab_title"><?php _e("6. Now all done!", "imbachat")?></h3>
+        <h3 class="tab_title"><?php _e("Now all done!", "imbachat")?></h3>
         <p class="text_center"><?php _e("ImbaChat plugin has been all set up. Enjoy the chat!", "imbachat")?></p>
     </div>
 
