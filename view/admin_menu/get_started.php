@@ -64,8 +64,9 @@
             <img width="200" src="<?= IMBACHAT_ADMIN_DIR.'/assets/images/get_started/step_4.jpg' ?>">
         </div>
         <h3 class="tab_title"><?php _e("Style customization", "imbachat")?></h3>
+
         <p class="text_center">
-            <?php _e("There you can see the Widget settings. Open Style Settings and change the widget appearance as you want. How to customize widget appearance.", "imbachat")?>
+            <?php _e("There you can see the Widget settings. Open Style Settings and change the widget appearance as you want. <a href='https://imbachat.com/en/blog/post/how-customize-widget' target='_blank'> How to customize widget appearance</a>.", "imbachat")?>
         </p>
     </div>
 
