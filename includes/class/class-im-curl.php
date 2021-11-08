@@ -38,7 +38,7 @@ if (function_exists('curl_version')) :
                 curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
                 curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, FALSE);
                 curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
-                curl_setopt($curl, CURLOPT_TIMEOUT, 5);
+                curl_setopt($curl, CURLOPT_TIMEOUT, 10);
 
 
 //        curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);

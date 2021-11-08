@@ -189,5 +189,77 @@ function add_my_setting(){
         echo(json_encode( array('status'=>true,'request_vars'=>$_REQUEST) ));
         wp_die();
     }
+    //test api
+    function test_api(){
+        if(empty($_SERVER['HTTPS'])) $http="http://";
+            else $http="https://";
+            $url= $http . $_SERVER['SERVER_NAME'];
+        $ch = curl_init(); 
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
+        $page = curl_exec ($ch);
+        curl_close($ch); 
+        if(empty($page)) {
+            echo("error curl_exec");
+            wp_die();
+        }
+        
+        //ping to server imbachat
+        require_once(IMBACHAT__PLUGIN_DIR . '/admin/ping.php');
+        $host = 'imbachat.com';
+        $ping = new Ping($host);
+        $latency = $ping->ping();
+        
+        if ($latency) {
+        //print 'Latency is ' . $latency . ' ms';
+        }
+        else {
+            echo("error host could not be reached");
+            wp_die();
+        }
+
+        //send api
+        if (function_exists( 'curl_version' ))
+    {
+        try {
+            $post_data = [
+               'email' => get_option('admin_email'),
+            ];
+            $url = 'https://api.imbachat.com/imbachat/v1/widget/imba_get_widgets';
+            $curl = curl_init();
+
+            curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
+            curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, FALSE);
+            curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
+            curl_setopt($curl, CURLOPT_TIMEOUT, 10);
+
+
+        //curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+        //curl_setopt($curl, CURLOPT_USERPWD, '');
+
+            curl_setopt($curl, CURLOPT_URL, $url);
+            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($curl, CURLOPT_POST, true);
+            curl_setopt($curl, CURLOPT_POSTFIELDS, $post_data);
+
+            //curl_setopt($curl, CURLOPT_POSTFIELDS, "users=".$arr);
+
+            
+            $curlout = curl_exec($curl);
+            curl_close($curl);
+             echo $curlout;
+             wp_die();
+        } catch (Exception $exception) {
+            echo 'error_connect';
+        }
+    }else{
+       echo 'error_connect';
+    }
+        wp_die();
+    }
 
     ?>

@@ -110,6 +110,7 @@ function imba_cron_activation() {
     }
 }
 
+
 // add a function to the specified hook
 add_action( 'imba_wp_stat', 'do_imba_wp_stat' );
 function do_imba_wp_stat(){

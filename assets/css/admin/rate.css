@@ -67,6 +67,9 @@
 .imbachat_logo_container img{
     max-width: 25%;
 }
+.hide{
+    display: none;
+}
 
 @media screen and (max-width: 1600px) {
     .imbachat_logo_container img{

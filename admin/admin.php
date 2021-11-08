@@ -21,10 +21,10 @@ add_action( 'admin_menu' , function (){
             'imachat_dashboard' => 'https://dashboard.imbachat.com/#/'.get_option('IMCH_dev_id').'/auth/'.IMCH_getJWT(),
             'imbachat_onlinesup' => 'https://api.imbachat.com/imbasupport/v1/'.get_option('IMCH_dev_id').'/token_auth?jwt='.IMCH_get_adminJWT(get_admin_url())
         ];
-        $submenu['imbachat-settings'][9997] = array( _e('Support Forum', "imbachat"), 'manage_options', "https://wordpress.org/support/plugin/imbachat-widget/", '', 'imba-open-if-no-js menu-top', '', 'target' );
-        $submenu['imbachat-settings'][9998] = array( _e('Admin Panel', "imbachat"), 'manage_options', $links['imbachat'], '', 'imba-open-if-no-js menu-top', '', 'target' );
-        $submenu['imbachat-settings'][9999] = array( _e('Chat Moderation', "imbachat"), 'manage_options', $links['imachat_dashboard'], '', 'imba-open-if-no-js menu-top', '', 'div' );
-        $submenu['imbachat-settings'][9997] = array( _e('Online Support', "imbachat"), 'manage_options', $links['imbachat_onlinesup'], '', 'imba-open-if-no-js menu-top', '', 'div' );
+         $submenu['imbachat-settings'][9997] = array('Support Forum', 'manage_options', "https://wordpress.org/support/plugin/imbachat-widget/", '', 'imba-open-if-no-js menu-top', '', 'target' );
+        $submenu['imbachat-settings'][9998] = array('Admin Panel', 'manage_options', $links['imbachat'], '', 'imba-open-if-no-js menu-top', '', 'target' );
+        $submenu['imbachat-settings'][9999] = array( 'Chat Moderation', 'manage_options', $links['imachat_dashboard'], '', 'imba-open-if-no-js menu-top', '', 'div' );
+        $submenu['imbachat-settings'][9997] = array('Online Support', 'manage_options', $links['imbachat_onlinesup'], '', 'imba-open-if-no-js menu-top', '', 'div' );
     }
 } );
 
@@ -72,5 +72,6 @@ add_action( 'admin_post_sync_with_imbachat', 'sync_with_imbachat' );
 add_action( 'admin_post_interactive_submit', 'interactive_submit' );
 add_action( 'wp_ajax_get_links_to_imbachat', 'get_links_to_imbachat' );
 add_action( 'wp_ajax_save_users_settings', 'save_users_settings' );
+add_action( 'wp_ajax_test_api', 'test_api' );
 
 ?>

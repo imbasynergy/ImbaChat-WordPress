@@ -19,11 +19,11 @@ function sync_with_imba_api($dev_id, $host, $mail)
             curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
             curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, FALSE);
             curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
-            curl_setopt($curl, CURLOPT_TIMEOUT, 5);
+            curl_setopt($curl, CURLOPT_TIMEOUT, 10);
 
 
-//        curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-//        curl_setopt($curl, CURLOPT_USERPWD, $auth_password);
+        //curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+        //curl_setopt($curl, CURLOPT_USERPWD, '');
 
             curl_setopt($curl, CURLOPT_URL, $url);
             curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
@@ -32,32 +32,35 @@ function sync_with_imba_api($dev_id, $host, $mail)
 
             //curl_setopt($curl, CURLOPT_POSTFIELDS, "users=".$arr);
 
-
+            
             $curlout = curl_exec($curl);
             curl_close($curl);
-
+            //var_dump($curlout);
+            //die;
 
             // Принял json и сохранил IMCH_dev_id
 
             $dev_json=json_decode($curlout);
-            $dev_id=$dev_json->dev_id;
+            $dev_id_temp=$dev_json->dev_id;
 
+            if ($dev_id_temp == $dev_id) {
+                return "success";
+            }else{
+                return "error_connect";
+            }
 
-
-            return 'error_connect';
-
-
+       
             $file = get_template_directory().'/curl_log.txt';
-            file_put_contents($file,$curlout);
+            file_put_contents($file,$dev_id);
 
 
 
             send_wp_stat();
         } catch (Exception $exception) {
-            exit('CURL send error');
+            return 'error_connect';
         }
     }else{
-        exit("CURL not found");
+        return 'error_connect';
     }
 }
 
@@ -87,7 +90,7 @@ function send_wp_stat(){
             curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
             curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, FALSE);
             curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
-            curl_setopt($curl, CURLOPT_TIMEOUT, 5);
+            curl_setopt($curl, CURLOPT_TIMEOUT, 10);
 
 //                curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
 //                curl_setopt($curl, CURLOPT_USERPWD, $auth_password);
