@@ -59,7 +59,18 @@ if (isset($_GET['online_sup_error'])) {
             <div style="display: flex;align-items: center"><h4 style="display: inline-block;margin-right: 10px;"><?php _e("Check for connectivity ", "imbachat") ?> </h4><img class="wait" src="<?= IMBACHAT_ADMIN_DIR.'/assets/images/ajax-loader.gif' ?>" style="height: 32px;"><img class="error hide" src="<?= IMBACHAT_ADMIN_DIR.'/assets/images/error.png' ?>" style="height: 32px;"> <img class="done hide" src="<?= IMBACHAT_ADMIN_DIR.'/assets/images/done.png' ?>" style="height: 32px;"></div><?php echo apply_filters('admin_test_api',''); ?>
             <h4 class="widgets hide"><?php _e("Available widgets:", "imbachat") ?> <b class="widget"></b></h4>
             <h4 class="emails hide"><?php _e("Account email:", "imbachat") ?> <?php echo get_option('admin_email') ?></h4>
-            <h4><?php _e("In case of an error, make sure that the project is not on locallhost, and the ip address of the API server is not blacklisted", "imbachat") ?></h4>
+            <h4 class="curl hide" style="color:red;">
+                        <?php _e("Function curl_exec not available. To connect, you need to enable the function curl_exec. Contact your hosting administrator or enable it yourself in the settings php.ini", "imbachat") ?>
+            </h4>
+            <h4 class="host hide" style="color:red;">
+                        <?php _e("Error ping imbachat.com. Host imbachat.com could not be reached. Try to connect later", "imbachat") ?>
+            </h4>
+            <h4 class="errormessage hide" style="color:red;">
+                        <?php _e("Error answer.", "imbachat") ?> <b class="error__answer"></b> <?php _e("Try to create an account with email", "imbachat") ?> <?php echo get_option('admin_email') ?> <a target="_blank" href="https://imbachat.com/register">here</a>
+            </h4>
+            <h4 class="notanswer hide" style="color:red;">
+                        <?php _e("Error not answer api.", "imbachat") ?>  <?php _e("Check your https. Read more ", "imbachat") ?>  <a target="_blank" href="https://imbachat.com/en/blog/post/connection-error-api-imbachatcom-could-not-connect-your-site-please-check-your-server-settings">here</a>
+            </h4>
             <h4><?php _e("If you:", "imbachat") ?></h4>
             <h4><?php _e("— Don't understand how to install and use the plugin", "imbachat") ?></h4>
             <h4><?php _e("— Find a bug", "imbachat") ?></h4>

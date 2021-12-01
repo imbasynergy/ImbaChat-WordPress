@@ -83,6 +83,9 @@ Browsers require a secure connection (HTTPS) for accessing a deviceРІР‚в�
 
 == Changelog ==
 
+= 2.7.3 =
+* New feature: Updating interface imbachat settings.
+
 = 2.7.2 =
 * New feature: Updating permission access function.
 
