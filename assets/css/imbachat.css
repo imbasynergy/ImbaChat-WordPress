@@ -32,9 +32,8 @@
 
 /* Add a right margin to each icon */
 .imba_loader {
-    border: 2px solid #f3f3f3;
+    border: none;
     border-radius: 50% !important;
-    border-top: 2px solid red;
     width: 20px;
     height: 20px;
     -webkit-animation: imba_spin 2s linear infinite;
