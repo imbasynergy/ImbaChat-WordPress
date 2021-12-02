@@ -83,8 +83,14 @@ Browsers require a secure connection (HTTPS) for accessing a deviceРІР‚в�
 
 == Changelog ==
 
-= 2.7.3 =
+= 2.7.6 =
+* New feature: Updating functions.
+
+= 2.7.5 =
 * New feature: Updating interface imbachat settings.
+
+= 2.7.4 =
+* New feature: Edit get started
 
 = 2.7.2 =
 * New feature: Updating permission access function.
@@ -185,6 +191,6 @@ Browsers require a secure connection (HTTPS) for accessing a deviceРІР‚в�
 
 [Demo chat on the WCFM Marketplace website](http://market.imbachat.com/)
 
-[Repository with plugin for WordPress CMS](https://github.com/imbasynergy/ImbaChat-WordPressCMS)
+[Repository with plugin for WordPress CMS](https://github.com/imbasynergy/ImbaChat-WordPress)
 
 [Open source code for demo site](https://github.com/imbasynergy/ImbaChat-WordPress)

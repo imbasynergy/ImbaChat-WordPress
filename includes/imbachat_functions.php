@@ -84,6 +84,7 @@ function ic_create_group_with($atts, $content = null, $code = '') {
         $classNameI = $atts['classi'];
         $classNameB = $atts['classb'];
         $btnName = $atts['buttonname'];
+        if($btnName=='') $btnName='Create Group';
     }
     return '<div id="ic_create_group_cont">
             <input class="'.$classNameI.'" placeholder="<?php _e("Group name", "imbachat") ?>" type="text" id="ic_group_title">
@@ -111,6 +112,7 @@ function ic_join_group($atts, $content = null, $code = '') {
         );
         $classNameB = $atts['classb'];
         $btnName = $atts['buttonname'];
+        if($btnName=='') $btnName='Join Group';
     }
     return '<button type="button" class="'.$classNameB.'" onclick="ic_join_group(`'.$atts['pipe'].'`, `'.$atts['name'].'`)">'._e($btnName, "imbachat").'</button>';
 }
