@@ -209,15 +209,9 @@ function add_my_setting(){
         }
         
         //ping to server imbachat
-        require_once(IMBACHAT__PLUGIN_DIR . '/admin/ping.php');
-        $host = 'imbachat.com';
-        $ping = new Ping($host);
-        $latency = $ping->ping();
-        
-        if ($latency) {
-        //print 'Latency is ' . $latency . ' ms';
-        }
-        else {
+        $host = 'https://api.imbachat.com';
+        $header_wp_imba=get_headers($host);
+        if(stripos($header_wp_imba[0], '200 OK')===false) {
             echo("error host could not be reached");
             wp_die();
         }
