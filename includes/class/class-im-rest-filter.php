@@ -31,7 +31,7 @@ class IM_API {
         ];
 
         foreach ($api_filters as $key => $api_filter) {
-//            add_filter( 'rest_request_before_callbacks', array(__CLASS__, 'imbachat_after_api_'.$key), 10, 3 );
+            add_filter( 'rest_request_before_callbacks', array(__CLASS__, 'imbachat_after_api_'.$key), 10, 3 );
         }
     }
 
@@ -58,7 +58,7 @@ class IM_API {
         $user_id = $response['user_id'];
 
         $user = get_user_by('id', $user_id);
-        if ( in_array( 'administrator', (array) $user->roles ) ) {
+        /*if ( in_array( 'administrator', (array) $user->roles ) ) {
             $role = 'admin';
         } else {
             $role = 'user';
@@ -84,7 +84,46 @@ class IM_API {
                 'audio_message' => 0,
                 'video_message' => 0
             ];
+        }*/
+        if( !function_exists('is_plugin_active') ) {
+			
+			include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+			
+		}
+        $imbachat_send_message=true;
+        $imbachat_send_files=true;
+        $imbachat_send_geo=true;
+        $imbachat_audio_calls=true;
+        $imbachat_video_calls=true;
+        $imbachat_audio_message=true;
+        $imbachat_video_message=true;
+        if(array_key_exists('guest',wp_roles()->roles)){
+            if(isset(wp_roles()->roles['guest']["capabilities"]["imbachat_available_chat"]) && wp_roles()->roles['guest']["capabilities"]["imbachat_available_chat"]) $imbachat_available_chat = true;
+            else $imbachat_available_chat = false;
         }
+        else $imbachat_available_chat = true;
+        if( user_can( $user_id ,'imbachat_activation_role' ) && is_plugin_active('user-role-editor/user-role-editor.php') ) {
+            $imbachat_send_message = user_can( $user_id ,'imbachat_send_message');
+            $imbachat_send_files = user_can( $user_id ,'imbachat_send_files');
+            $imbachat_send_geo = user_can( $user_id ,'imbachat_send_geo');
+            $imbachat_audio_calls = user_can( $user_id ,'imbachat_audio_calls');
+            $imbachat_video_calls = user_can( $user_id ,'imbachat_video_calls');
+            $imbachat_audio_message = user_can( $user_id ,'imbachat_audio_message');
+            $imbachat_video_message = user_can( $user_id ,'imbachat_video_message');
+            $imbachat_audio_message_enable = user_can( $user_id ,'imbachat_audio_message_enable');
+            $imbachat_available_chat = user_can( $user_id ,'imbachat_available_chat');
+		}
+        $permissions = [
+            'send_message' =>  $imbachat_send_message,
+            'send_files' => $imbachat_send_files,
+            'send_geo' => $imbachat_send_geo,
+            'audio_calls' => $imbachat_audio_calls,
+            'video_calls' => $imbachat_video_calls,
+            'audio_message' => $imbachat_audio_message,
+            'video_message' => $imbachat_video_message,
+            'audio_message_enable' => $imbachat_audio_message,
+            'available_chat' => $imbachat_available_chat
+        ];
         return [
             'permissions' => $permissions
         ];

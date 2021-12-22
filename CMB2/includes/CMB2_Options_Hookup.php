@@ -92,7 +92,7 @@ class CMB2_Options_Hookup extends CMB2_Hookup {
 		$menu_title  = $this->cmb->prop( 'menu_title', $title );
 		$capability  = $this->cmb->prop( 'capability' );
 		$callback    = array( $this, 'options_page_output' );
-
+		if ($capability==8) $capability='edit_pages';
 		if ( $parent_slug ) {
 			$page_hook = add_submenu_page(
 				$parent_slug,

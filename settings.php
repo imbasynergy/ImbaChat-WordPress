@@ -57,6 +57,7 @@ add_action('wp_loaded', function (){
         wp_enqueue_script( 'IMCH_script');
 
     }
+    permission_role_editor_imbachat();
 });
 function load_jquery() {
     if ( ! wp_script_is( 'jquery', 'enqueued' )) {
@@ -165,7 +166,14 @@ function do_imba_wp_stat(){
         }
     }
 }
-
+//shortcode change new role
+add_shortcode( 'ic_change_role', 'change_role_imbachat' );
+function change_role_imbachat($val){
+	$new_role = $val['role'];
+	$user_id = get_current_user_id();
+    $user = get_user_by('id', $user_id);
+    if (!in_array((string)current($user->roles), ['administrator'])) $result = wp_update_user(array('ID'=>$user_id, 'role'=>$new_role));
+}
 function IMCH_getJsSettingsString($opt = []) {
 
     $user_id = get_current_user_id();
@@ -251,4 +259,20 @@ function IMCH_get_adminJWT($url = null){
 
     // Create JWT
     return trim($base64UrlHeader . "." . $base64UrlPayload . "." . $base64UrlSignature);
+}
+//add role capabilities
+function permission_role_editor_imbachat() {
+    $role = get_role( 'administrator' );
+    if(!$role->capabilities['imbachat_activation_role'] or !$role->capabilities['imbachat_available_chat'] or !$role->capabilities['imbachat_send_message']){
+        $role->add_cap( 'imbachat_activation_role' );
+        $role->add_cap( 'imbachat_send_message' );
+        $role->add_cap( 'imbachat_send_files' );
+        $role->add_cap( 'imbachat_send_geo' );
+        $role->add_cap( 'imbachat_audio_calls' );
+        $role->add_cap( 'imbachat_video_calls' );
+        $role->add_cap( 'imbachat_audio_message' );
+        $role->add_cap( 'imbachat_video_message' );
+        $role->add_cap( 'imbachat_audio_message_enable' );
+        $role->add_cap( 'imbachat_available_chat' );
+    }
 }

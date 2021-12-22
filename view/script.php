@@ -1,6 +1,6 @@
 <?php 
 $user['user_id']=get_current_user_id(); 
-$permi=apply_filters( 'rest_request_before_callbacks', $user, ['imbachat_callback' => 'get_users'], $request ); 
+$permi=apply_filters( 'rest_request_before_callbacks', $user, ['imbachat_callback' => 'get_users'], $_REQUEST ); 
 if (isset($permi["permissions"]["available_chat"]) && (int)$permi["permissions"]["available_chat"] == 0) die; 
 ?>
 <script src="https://api.imbachat.com/imbachat/v1/<?php echo $dev_id; ?>/widget"></script>

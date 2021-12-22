@@ -5,7 +5,7 @@ require_once(IMBACHAT__PLUGIN_DIR . '/admin/settings.php');
 add_action('admin_menu', function(){
     add_menu_page( 'ImbaChat Widget',
         'ImbaChat',
-        8,
+        'edit_pages',
         'imbachat-settings',
         '',
         IC_PLUGIN_URL.'/admin/assets/images/Vector.svg',
@@ -61,7 +61,7 @@ add_action('admin_menu', function(){
         'imbachat-settings',
         'Get Started with Imba Chat',
         'Get Started',
-        8,
+        'edit_pages',
         'imbachat-setup-help',
         'imbachat_setup_help',
         0 );
