@@ -83,6 +83,9 @@ Browsers require a secure connection (HTTPS) for accessing a deviceРІР‚в�
 
 == Changelog ==
 
+= 2.8.0 =
+* New feature: Updating function.
+
 = 2.7.9 =
 * New feature: Added role permissions.
 

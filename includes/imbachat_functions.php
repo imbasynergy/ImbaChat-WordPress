@@ -86,10 +86,13 @@ function ic_create_group_with($atts, $content = null, $code = '') {
         $btnName = $atts['buttonname'];
         if($btnName=='') $btnName='Create Group';
     }
+    $group_name_imbachat=(translate("Group name", "imbachat")=="")? "Group name" : translate("Group name", "imbachat");
+    $pipe_imbachat=(translate("Pipe", "imbachat")=="") ? "Pipe" : translate("Pipe", "imbachat");
+    if ($btnName=="") $btnName=(translate('Create Group', "imbachat")=="") ? 'Create Group' : translate('Create Group', "imbachat");
     return '<div id="ic_create_group_cont">
-            <input class="'.$classNameI.'" placeholder="<?php _e("Group name", "imbachat") ?>" type="text" id="ic_group_title">
-            <input class="'.$classNameI.'" placeholder="<?php _e("Pipe", "imbachat") ?>" type="text" id="ic_group_pipe">
-            <button type="button" class="'.$classNameB.'" onclick="ic_create_dialog(this)">'._e($btnName, "imbachat").'</button>
+            <input class="'.$classNameI.'" placeholder="'.$group_name_imbachat.'" type="text" id="ic_group_title">
+            <input class="'.$classNameI.'" placeholder="'.$pipe_imbachat.'" type="text" id="ic_group_pipe">
+            <button type="button" class="'.$classNameB.'" onclick="ic_create_dialog(this)">'.$btnName.'</button>
     </div>';
 }
 
