@@ -21,10 +21,11 @@ add_action( 'admin_menu' , function (){
             'imachat_dashboard' => 'https://dashboard.imbachat.com/#/'.get_option('IMCH_dev_id').'/auth/'.IMCH_getJWT(),
             'imbachat_onlinesup' => 'https://api.imbachat.com/imbasupport/v1/'.get_option('IMCH_dev_id').'/token_auth?jwt='.IMCH_get_adminJWT(get_admin_url())
         ];
-         $submenu['imbachat-settings'][9997] = array('Support Forum', 'manage_options', "https://wordpress.org/support/plugin/imbachat-widget/", '', '', '', 'target' );
-        $submenu['imbachat-settings'][9998] = array('Admin Panel', 'manage_options', $links['imbachat'], '', '', '', 'target' );
-        $submenu['imbachat-settings'][9999] = array( 'Chat Moderation', 'manage_options', $links['imachat_dashboard'], '', '', '', 'div' );
-        $submenu['imbachat-settings'][9997] = array('Online Support', 'manage_options', $links['imbachat_onlinesup'], '', '', '', 'div' );
+        $submenu['imbachat-settings'][9997] = array('Support Forum', 'manage_options', "https://wordpress.org/support/plugin/imbachat-widget/", '', '', '', 'target' );
+        $submenu['imbachat-settings'][9998] = array('Admin Panel', 'manage_options', $links['imbachat'], '', 'imba-admin-panel', '', 'target');
+        $submenu['imbachat-settings'][9999] = array('Chat Moderation', 'manage_options', $links['imachat_dashboard'], '', 'imba-chat-moderation', '', 'div' );
+        $submenu['imbachat-settings'][9997] = array('Online Support', 'manage_options', $links['imbachat_onlinesup'], '', 'imba-online-support', '', 'div' );
+
     }
 } );
 
@@ -35,6 +36,16 @@ function make_maricache_blank()
     <script type="text/javascript">
         jQuery(document).ready(function($) {
             $('.imba-open-if-no-js').children().attr('target','_blank');
+        });
+    </script>
+    <?php
+
+    ?>
+    <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $('.imba-admin-panel').attr('target','_blank');
+            $('.imba-chat-moderation').attr('target','_blank');
+            $('.imba-online-support').attr('target','_blank');
         });
     </script>
     <?php
