@@ -16,3 +16,9 @@ if (isset($permi["permissions"]["available_chat"]) && (int)$permi["permissions"]
         })
     }
 </script>
+<?php 
+wp_register_style( 'imbachat.css', IC_PLUGIN_URL.'/assets/css/imbachat.css');
+wp_enqueue_style( 'imbachat.css');
+wp_register_style( 'fontawesome', 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+wp_enqueue_style( 'fontawesome');
+?>
