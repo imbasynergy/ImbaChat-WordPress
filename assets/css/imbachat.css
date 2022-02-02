@@ -32,10 +32,12 @@
 
 /* Add a right margin to each icon */
 .imba_loader {
-    border: none;
+    border: none !important;
     border-radius: 50% !important;
-    width: 20px;
-    height: 20px;
+    width: min-content !important;
+    height: min-content !important;
+    left: 45% !important;
+    top: 39% !important;
     -webkit-animation: imba_spin 2s linear infinite;
     animation: imba_spin 2s linear infinite;
     margin-right: 10px;

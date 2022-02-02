@@ -43,7 +43,7 @@ function sync_with_imba_api($dev_id, $host, $mail)
             $dev_json=json_decode($curlout);
             $dev_id_temp=$dev_json->dev_id;
 
-            if ($dev_id_temp == $dev_id) {
+            if ($dev_id_temp == $dev_id or ($dev_id==-1 and $dev_id_temp>0)) {
                 return "success";
             }else{
                 return "error_connect";

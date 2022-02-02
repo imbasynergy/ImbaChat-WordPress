@@ -10,7 +10,7 @@ if (isset($_GET['error'])) {
     }
 
     add_action( 'show_error', 'alert', 10, 3 );
-    if ($_GET['error'] !== "curl_exec") do_action('show_error');
+    if ($_GET['error'] === "true") do_action('show_error');
 }
 if (isset($_GET['online_sup_error'])) {
     function alert_support_error() {
@@ -23,7 +23,7 @@ if (isset($_GET['online_sup_error'])) {
     }
     
     add_action( 'show_support_error', 'alert_support_error', 10, 3 );
-    if ($_GET['error'] !== "curl_exec") do_action('show_support_error');
+    if ($_GET['online_sup_error'] === "1") do_action('show_support_error');
 }
 
 ?>
