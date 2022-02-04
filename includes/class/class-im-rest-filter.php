@@ -101,16 +101,15 @@ class IM_API {
             if(isset(wp_roles()->roles['guest']["capabilities"]["imbachat_available_chat"]) && wp_roles()->roles['guest']["capabilities"]["imbachat_available_chat"]) $imbachat_available_chat = true;
             else $imbachat_available_chat = false;
         }
+        elseif(is_user_logged_in()==true) {
+            $imbachat_available_chat = true;
+        }
         elseif(is_user_logged_in()==false) {
             $wp_roles = new WP_Roles();
             if(isset($wp_roles->roles['guest']["capabilities"]["imbachat_available_chat"]) && $wp_roles->roles['guest']["capabilities"]["imbachat_available_chat"]) $imbachat_available_chat = true;
             else $imbachat_available_chat = false;
         }
-        else $imbachat_available_chat = true;
-        if ( is_plugin_active( 'user-role-editor/user-role-editor.php' )==false ) {
-            $imbachat_available_chat = true;
-        }
-        if( user_can( $user_id ,'imbachat_activation_role' ) && is_plugin_active('user-role-editor/user-role-editor.php') ) {
+        if( user_can( $user_id ,'imbachat_activation_role' ) && (is_plugin_active('user-role-editor/user-role-editor.php') || is_plugin_active('members/members.php')) ) {
             $imbachat_send_message = user_can( $user_id ,'imbachat_send_message');
             $imbachat_send_files = user_can( $user_id ,'imbachat_send_files');
             $imbachat_send_geo = user_can( $user_id ,'imbachat_send_geo');
