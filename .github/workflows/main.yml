@@ -1,8 +1,10 @@
 name: Deploy to WordPress.org
 on:
   push:
-    tags:
-    - "*"
+    push:
+      branches: [ master ]
+    pull_request:
+      branches: [ master ]
 jobs:
   tag:
     name: New tag
