@@ -57,6 +57,12 @@ if (isset($_GET['online_sup_error'])) {
         </div>
         <div>
             <div style="display: flex;align-items: center"><h4 style="display: inline-block;margin-right: 10px;"><?php _e("Check for connectivity ", "imbachat") ?> </h4><img class="wait" src="<?= IMBACHAT_ADMIN_DIR.'/assets/images/ajax-loader.gif' ?>" style="height: 32px;"><img class="error hide" src="<?= IMBACHAT_ADMIN_DIR.'/assets/images/error.png' ?>" style="height: 32px;"> <img class="done hide" src="<?= IMBACHAT_ADMIN_DIR.'/assets/images/done.png' ?>" style="height: 32px;"></div><?php echo apply_filters('admin_test_api',''); ?>
+            <?php if ( is_plugin_active('user-role-editor/user-role-editor.php') ) : ?>
+                <h4><?php _e("You have installed plugin User Role Editor. ", "imbachat") ?><?php _e("Set up the plugin according to the ", "imbachat") ?> <a target="_blank" href="https://imbachat.com/en/blog/post/how-set-user-roles-user-role-editor-plugin">instructions.</a></h4>
+            <?php endif; ?>
+            <?php if ( is_plugin_active('members/members.php') ) : ?>
+                <h4><?php _e("You have installed plugin Members. ", "imbachat") ?><?php _e("Set up the plugin according to the ", "imbachat") ?> <a target="_blank" href="https://imbachat.com/en/blog/post/how-set-user-roles-user-role-editor-plugin">instructions.</a></h4>
+            <?php endif; ?>
             <h4 class="widgets hide"><?php _e("Available widgets:", "imbachat") ?> <b class="widget"></b></h4>
             <h4 class="emails hide"><?php _e("Account email:", "imbachat") ?> <?php echo get_option('admin_email') ?></h4>
             <h4 class="curl hide" style="color:red;">
