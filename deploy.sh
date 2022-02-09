@@ -5,3 +5,14 @@ if [[ -z "$SVN_USERNAME" ]]; then
 	exit 1
 fi
 
+if [[ -z "$SVN_PASSWORD" ]]; then
+	echo "Set the SVN_PASSWORD secret"
+	exit 1
+fi
+
+# Allow some ENV variables to be customized
+if [[ -z "$SLUG" ]]; then
+	SLUG=${GITHUB_REPOSITORY#*/}
+fi
+echo "ℹ︎ SLUG is $SLUG"
+
