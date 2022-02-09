@@ -16,3 +16,10 @@ if [[ -z "$SLUG" ]]; then
 fi
 echo "ℹ︎ SLUG is $SLUG"
 
+
+if [[ -z "$VERSION" ]]; then
+	VERSION="${GITHUB_REF#refs/tags/}"
+	VERSION="${VERSION#v}"
+fi
+echo "ℹ︎ VERSION is $VERSION"
+
