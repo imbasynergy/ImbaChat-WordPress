@@ -12,7 +12,7 @@ fi
 
 # Allow some ENV variables to be customized
 if [[ -z "$SLUG" ]]; then
-	SLUG=${GITHUB_REPOSITORY#*/}
+	SLUG= "imbachat-widget"
 fi
 echo "ℹ︎ SLUG is $SLUG"
 
