@@ -12,7 +12,7 @@ fi
 
 # Allow some ENV variables to be customized
 if [[ -z "$SLUG" ]]; then
-	SLUG= "imbachat-widget"
+	SLUG="imbachat-widget"
 fi
 echo "ℹ︎ SLUG is $SLUG"
 
