@@ -17,10 +17,11 @@ fi
 echo "ℹ︎ SLUG is $SLUG"
 
 
-if [[ -z "$VERSION" ]]; then
-	VERSION="${GITHUB_REF#refs/tags/}"
-	VERSION="${VERSION#v}"
-fi
+#if [[ -z "$VERSION" ]]; then
+#	VERSION="${GITHUB_REF#refs/tags/}"
+#	VERSION="${VERSION#v}"
+#fi
+
 echo "ℹ︎ VERSION is $VERSION"
 
 if [[ -z "$ASSETS_DIR" ]]; then
@@ -105,7 +106,7 @@ svn status | grep '^\!' | sed 's/! *//' | xargs -I% svn rm %@ > /dev/null
 
 # Copy tag locally to make this a single commit
 echo "➤ Copying tag..."
-svn cp "trunk" "tags/$VERSION"
+svn cp "trunk" "tags/SVN_VERSION"
 
 # Fix screenshots getting force downloaded when clicking them
 # https://developer.wordpress.org/plugins/wordpress-org/plugin-assets/
@@ -125,7 +126,7 @@ fi
 svn status
 
 echo "➤ Committing files..."
-svn commit -m "Update to version $VERSION from GitHub" --no-auth-cache --non-interactive  --username "$SVN_USERNAME" --password "$SVN_PASSWORD"
+svn commit -m "Update to version SVN_VERSION from GitHub" --no-auth-cache --non-interactive  --username "$SVN_USERNAME" --password "$SVN_PASSWORD"
 
 if $INPUT_GENERATE_ZIP; then
   echo "Generating zip file..."
