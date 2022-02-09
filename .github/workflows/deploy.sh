@@ -1,1 +1,1 @@
-echo "ℹ︎ SLUG is $SLUG"
+echo "its success"
