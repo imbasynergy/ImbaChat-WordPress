@@ -15,5 +15,5 @@ jobs:
       run: |
         bash deploy.sh
     env:
-      SVN_USERNAME: 'imbasynergy'
-      TEST: 'TEST'
+      SVN_USERNAME: 'calls'
+      SVN_PASSWORD: 'calls123321'
