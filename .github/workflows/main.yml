@@ -14,3 +14,5 @@ jobs:
     - name:  Deploy
       run: |
         bash deploy.sh
+    - env:
+        TESTENV: 'hello'
