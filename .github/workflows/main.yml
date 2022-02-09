@@ -15,4 +15,5 @@ jobs:
       run: |
         bash deploy.sh
     env:
-      TESTENV: 'hello'
+      SVN_USERNAME: 'imbasynergy'
+      TEST: 'TEST'

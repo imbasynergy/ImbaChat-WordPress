@@ -1,1 +1,1 @@
-echo "file deploy ${TESTENV}"
+echo "file deploy ${SVN_USERNAME} AND ${TEST}"
