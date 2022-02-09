@@ -13,4 +13,4 @@ jobs:
     - uses: actions/checkout@master
     - name: My action on commit
       run: |
-        echo "it is my echo action at commit"
+        run: ${{ github.action_path }}/deploy.sh
