@@ -126,7 +126,7 @@ fi
 svn status
 
 echo "➤ Committing files..."
-svn commit -m "Update to version $SVN_VERSION from GitHub" --no-auth-cache --non-interactive  --username "$SVN_USERNAME" --password "$SVN_PASSWORD"
+svn commit -m "$SVN_TEXT_COMMIT from GitHub" --no-auth-cache --non-interactive  --username "$SVN_USERNAME" --password "$SVN_PASSWORD"
 
 if $INPUT_GENERATE_ZIP; then
   echo "Generating zip file..."
