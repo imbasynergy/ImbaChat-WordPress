@@ -28,3 +28,10 @@ if [[ -z "$ASSETS_DIR" ]]; then
 fi
 echo "ℹ︎ ASSETS_DIR is $ASSETS_DIR"
 
+SVN_URL="https://plugins.svn.wordpress.org/${SLUG}/"
+SVN_DIR="${HOME}/svn-${SLUG}"
+
+echo "ℹ︎ SVN url is $SVN_URL"
+echo "ℹ︎ SVN dir is $SVN_SVN_DIR"
+
+
