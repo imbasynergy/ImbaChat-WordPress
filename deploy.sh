@@ -106,7 +106,7 @@ svn status | grep '^\!' | sed 's/! *//' | xargs -I% svn rm %@ > /dev/null
 
 # Copy tag locally to make this a single commit
 echo "➤ Copying tag..."
-svn cp "trunk" "tags/SVN_VERSION"
+svn cp "trunk" "tags/$SVN_VERSION"
 
 # Fix screenshots getting force downloaded when clicking them
 # https://developer.wordpress.org/plugins/wordpress-org/plugin-assets/
@@ -126,7 +126,7 @@ fi
 svn status
 
 echo "➤ Committing files..."
-svn commit -m "Update to version SVN_VERSION from GitHub" --no-auth-cache --non-interactive  --username "$SVN_USERNAME" --password "$SVN_PASSWORD"
+svn commit -m "Update to version $SVN_VERSION from GitHub" --no-auth-cache --non-interactive  --username "$SVN_USERNAME" --password "$SVN_PASSWORD"
 
 if $INPUT_GENERATE_ZIP; then
   echo "Generating zip file..."
