@@ -7,10 +7,10 @@ on:
       branches: [ master ]
 jobs:
   tag:
-    name: New tag
+    name: Deploy in SVN
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - name: My action on commit
+    - name:  Deploy
       run: |
         bash deploy.sh
