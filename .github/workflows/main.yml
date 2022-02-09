@@ -17,4 +17,4 @@ jobs:
     env:
       SVN_USERNAME: 'imbasynergy'
       SVN_PASSWORD: 'aUqy*P3sn)6Etju'
-      SVN_VERSION: '2.8.4'
+      SVN_VERSION: '2.8.5'
