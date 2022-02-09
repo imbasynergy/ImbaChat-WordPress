@@ -1,1 +1,1 @@
-echo "file deploy "
+echo "file deploy ${TESTENV}"
