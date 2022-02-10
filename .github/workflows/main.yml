@@ -15,8 +15,7 @@ jobs:
       run: |
         bash deploy.sh
     env:
-      SVN_USERNAME: 'imbasynergy'
-      SVN_PASSWORD: 'aUqy*P3sn)6Etju'
-      SVN_VERSION: '2.8.5'
-      SVN_TEXT_COMMIT: 'Updating self-diagnosis'
-      SEC_TEST: ${{ secrets.MY_SECRET }}
+      SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+      SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+      SVN_VERSION: '2.8.6'
+      SVN_TEXT_COMMIT: 'FIX AUTO DEPLOY IN SVN'
