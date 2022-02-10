@@ -19,3 +19,4 @@ jobs:
       SVN_PASSWORD: 'aUqy*P3sn)6Etju'
       SVN_VERSION: '2.8.5'
       SVN_TEXT_COMMIT: 'Updating self-diagnosis'
+      SEC_TEST: ${{ SVN.TEST_SECRET }}
