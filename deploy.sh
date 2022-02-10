@@ -1,5 +1,5 @@
 set -eo
-echo "$SEC_TEST"
+echo "$SEC_TEST ghhgj"
 ## checking variable
 #if [[ -z "$SVN_USERNAME" ]]; then
 #	echo "Set the SVN_USERNAME secret"
