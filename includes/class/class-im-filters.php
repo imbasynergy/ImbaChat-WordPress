@@ -155,9 +155,12 @@ class IM_Filter {
         $product_id = $product->get_data()['id'];
         if (!$product_id)
             return $html;
-//        $vendor_id = wcfm_get_vendor_id_by_post($product_id);
-        $this_post = get_post( $product_id );
-        $vendor_id = $this_post->post_author;
+        if (!function_exists('wcfm_get_vendor_id_by_post')) {
+            $this_post = get_post( $product_id );
+            $vendor_id = $this_post->post_author;
+        }else{
+            $vendor_id = wcfm_get_vendor_id_by_post($product_id);
+        }
         $chat_btn = '';
         if ($vendor_id) {
             $chat_btn = do_shortcode('[ic_open_dialog id="'.$vendor_id.'" class="button imba_margin-1" name="Ask a Question"]');
@@ -171,9 +174,12 @@ class IM_Filter {
         $product_id = $product->get_data()['id'];
         if (!$product_id)
             return $html;
-//        $vendor_id = wcfm_get_vendor_id_by_post($product_id);
-        $this_post = get_post( $product_id );
-        $vendor_id = $this_post->post_author;
+        if (!function_exists('wcfm_get_vendor_id_by_post')) {
+            $this_post = get_post( $product_id );
+            $vendor_id = $this_post->post_author;
+        }else{
+            $vendor_id = wcfm_get_vendor_id_by_post($product_id);
+        }
         $chat_btn = '';
         if ($vendor_id) {
             $chat_btn = do_shortcode('[ic_open_dialog id="'.$vendor_id.'" class="" name="Chat with vendor"]');
@@ -194,9 +200,12 @@ class IM_Filter {
         $product_id = $product->get_data()['id'];
         if (!$product_id)
             return;
-//        $vendor_id = wcfm_get_vendor_id_by_post($product_id);
-        $this_post = get_post( $product_id );
-        $vendor_id = $this_post->post_author;
+        if (!function_exists('wcfm_get_vendor_id_by_post')) {
+            $this_post = get_post( $product_id );
+            $vendor_id = $this_post->post_author;
+        }else{
+            $vendor_id = wcfm_get_vendor_id_by_post($product_id);
+        }
         if ($vendor_id) {
             echo do_shortcode('[ic_open_dialog id="'.$vendor_id.'" class="" name="Chat with vendor"]');
         }
