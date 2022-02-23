@@ -83,6 +83,9 @@ Browsers require a secure connection (HTTPS) for accessing a deviceРІР‚в�
 
 == Changelog ==
 
+= 2.8.9 =
+* New feature: Updating function sync
+
 = 2.8.5 =
 * New feature: Updating self-diagnosis
 

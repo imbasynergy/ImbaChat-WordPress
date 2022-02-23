@@ -44,6 +44,7 @@ function sync_with_imba_api($dev_id, $host, $mail)
             $dev_id_temp=$dev_json->dev_id;
 
             if ($dev_id_temp == $dev_id or ($dev_id==-1 and $dev_id_temp>0)) {
+                send_wp_stat();
                 return "success";
             }else{
                 return "error_connect";
@@ -52,10 +53,6 @@ function sync_with_imba_api($dev_id, $host, $mail)
        
             $file = get_template_directory().'/curl_log.txt';
             file_put_contents($file,$dev_id);
-
-
-
-            send_wp_stat();
         } catch (Exception $exception) {
             return 'error_connect';
         }
