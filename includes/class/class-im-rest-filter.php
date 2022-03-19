@@ -97,6 +97,7 @@ class IM_API {
         $imbachat_video_calls=true;
         $imbachat_audio_message=true;
         $imbachat_video_message=true;
+        $imbachat_available_chat=true;
         if(array_key_exists('guest',wp_roles()->roles)){
             if(isset(wp_roles()->roles['guest']["capabilities"]["imbachat_available_chat"]) && wp_roles()->roles['guest']["capabilities"]["imbachat_available_chat"]) $imbachat_available_chat = true;
             else $imbachat_available_chat = false;
