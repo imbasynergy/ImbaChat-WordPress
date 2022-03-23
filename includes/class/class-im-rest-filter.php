@@ -91,6 +91,7 @@ class IM_API {
 			
 		}
         $imbachat_send_message=true;
+        $imbachat_send_sketchboard=true;
         $imbachat_send_files=true;
         $imbachat_send_geo=true;
         $imbachat_audio_calls=true;
@@ -112,6 +113,7 @@ class IM_API {
         }
         if( user_can( $user_id ,'imbachat_activation_role' ) && (is_plugin_active('user-role-editor/user-role-editor.php') || is_plugin_active('members/members.php')) ) {
             $imbachat_send_message = user_can( $user_id ,'imbachat_send_message');
+            $imbachat_send_sketchboard = user_can( $user_id ,'imbachat_send_sketchboard');
             $imbachat_send_files = user_can( $user_id ,'imbachat_send_files');
             $imbachat_send_geo = user_can( $user_id ,'imbachat_send_geo');
             $imbachat_audio_calls = user_can( $user_id ,'imbachat_audio_calls');
@@ -123,6 +125,7 @@ class IM_API {
 		}
         $permissions = [
             'send_message' =>  $imbachat_send_message,
+            'send_sketchboard' => $imbachat_send_sketchboard,
             'send_files' => $imbachat_send_files,
             'send_geo' => $imbachat_send_geo,
             'audio_calls' => $imbachat_audio_calls,

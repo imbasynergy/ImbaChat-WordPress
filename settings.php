@@ -262,6 +262,7 @@ function permission_role_editor_imbachat() {
     if(!$role->capabilities['imbachat_activation_role'] or !$role->capabilities['imbachat_available_chat'] or !$role->capabilities['imbachat_send_message']){
         $role->add_cap( 'imbachat_activation_role' );
         $role->add_cap( 'imbachat_send_message' );
+        $role->add_cap( 'imbachat_send_sketchboard' );
         $role->add_cap( 'imbachat_send_files' );
         $role->add_cap( 'imbachat_send_geo' );
         $role->add_cap( 'imbachat_audio_calls' );
