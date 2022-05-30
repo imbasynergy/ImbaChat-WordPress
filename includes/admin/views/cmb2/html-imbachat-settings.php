@@ -31,7 +31,7 @@ if (isset($_GET['online_sup_error'])) {
             <p><?php _e("Function curl_exec not available. To connect, you need to enable the function curl_exec. Contact your hosting administrator or enable it yourself in the settings php.ini", "imbachat") ?></p>
 </div>
 <div class="notice notice-error is-dismissible host hide">
-            <p><?php _e("Error ping imbachat.com. Host imbachat.com could not be reached. Try to connect later", "imbachat") ?></p>
+            <p><?php _e("Error request api.imbachat.com. Contact the technical support of your website hosting provider. If you can't solve the problem, then write to imbachat support. ", "imbachat") ?></p>
 </div>
 <div class="notice notice-error is-dismissible errormessage hide">
             <p><?php _e("Error answer.", "imbachat") ?> <b class="error__answer"></b> <?php _e("Try to create an account with email", "imbachat") ?> <?php echo get_option('admin_email') ?> <a target="_blank" href="https://imbachat.com/register">here</a></p>
@@ -69,7 +69,7 @@ if (isset($_GET['online_sup_error'])) {
                         <?php _e("Function curl_exec not available. To connect, you need to enable the function curl_exec. Contact your hosting administrator or enable it yourself in the settings php.ini", "imbachat") ?>
             </h4>
             <h4 class="host hide" style="color:red;">
-                        <?php _e("Error ping imbachat.com. Host imbachat.com could not be reached. Try to connect later", "imbachat") ?>
+                        <?php _e("Error request api.imbachat.com. Contact the technical support of your website hosting provider. If you can't solve the problem, then write to imbachat support.", "imbachat") ?>
             </h4>
             <h4 class="errormessage hide" style="color:red;">
                         <?php _e("Error answer.", "imbachat") ?> <b class="error__answer"></b> <?php _e("Try to create an account with email", "imbachat") ?> <?php echo get_option('admin_email') ?> <a target="_blank" href="https://imbachat.com/register">here</a>
