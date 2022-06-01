@@ -25,6 +25,15 @@ if (isset($_GET['online_sup_error'])) {
     add_action( 'show_support_error', 'alert_support_error', 10, 3 );
     if ($_GET['online_sup_error'] === "1") do_action('show_support_error');
 }
+function imbachat_request($imbachat_request,$imbachat_function){
+    _e("$imbachat_request request: ", "imbachat"); ?> <br><code>
+    <?php $host = 'https://api.imbachat.com';
+            $header_wp_imba=$imbachat_function($host);
+            print_r($header_wp_imba);
+    ?>
+    </code> <br>
+     <?php
+}
 
 ?>
 <div class="notice notice-error is-dismissible curl hide">
@@ -70,6 +79,11 @@ if (isset($_GET['online_sup_error'])) {
             </h4>
             <h4 class="host hide" style="color:red;">
                         <?php _e("Error request api.imbachat.com. Contact the technical support of your website hosting provider. If you can't solve the problem, then write to imbachat support.", "imbachat") ?>
+                        <?php imbachat_request("HEAD","get_headers"); ?>
+                        <?php imbachat_request("GET","wp_remote_get"); ?>
+                        <?php imbachat_request("POST","wp_remote_post"); ?>
+                        <?php _e("Server:", "imbachat") ?>
+                        <br><code><?php print_r($_SERVER); ?></code><br>
             </h4>
             <h4 class="errormessage hide" style="color:red;">
                         <?php _e("Error answer.", "imbachat") ?> <b class="error__answer"></b> <?php _e("Try to create an account with email", "imbachat") ?> <?php echo get_option('admin_email') ?> <a target="_blank" href="https://imbachat.com/register">here</a>
