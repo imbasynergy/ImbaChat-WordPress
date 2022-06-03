@@ -26,12 +26,14 @@ if (isset($_GET['online_sup_error'])) {
     if ($_GET['online_sup_error'] === "1") do_action('show_support_error');
 }
 function imbachat_request($imbachat_request,$imbachat_function){
-    _e("$imbachat_request request: ", "imbachat"); ?> <br><code>
+    ?><h4> <?php _e("$imbachat_request request: ", "imbachat"); ?> </h4><code>
     <?php $host = 'https://api.imbachat.com';
             $header_wp_imba=$imbachat_function($host);
-            print_r($header_wp_imba);
+            $imba_out=print_r($header_wp_imba,true);
+            echo htmlspecialchars($imba_out);
+
     ?>
-    </code> <br>
+    </code> 
      <?php
 }
 
@@ -77,14 +79,14 @@ function imbachat_request($imbachat_request,$imbachat_function){
             <h4 class="curl hide" style="color:red;">
                         <?php _e("Function curl_exec not available. To connect, you need to enable the function curl_exec. Contact your hosting administrator or enable it yourself in the settings php.ini", "imbachat") ?>
             </h4>
-            <h4 class="host hide" style="color:red;">
-                        <?php _e("Error request api.imbachat.com. Contact the technical support of your website hosting provider. If you can't solve the problem, then write to imbachat support.", "imbachat") ?>
+            <section class="host hide" style="color:red;">
+                        <h4><?php _e("Error ping imbachat.com. Host imbachat.com could not be reached. Try to connect later", "imbachat") ?></h4>
                         <?php imbachat_request("HEAD","get_headers"); ?>
                         <?php imbachat_request("GET","wp_remote_get"); ?>
                         <?php imbachat_request("POST","wp_remote_post"); ?>
-                        <?php _e("Server:", "imbachat") ?>
-                        <br><code><?php print_r($_SERVER); ?></code><br>
-            </h4>
+                        <h4><?php _e("Server:", "imbachat") ?></h4>
+                        <code><?php print_r($_SERVER); ?></code>
+            </section>
             <h4 class="errormessage hide" style="color:red;">
                         <?php _e("Error answer.", "imbachat") ?> <b class="error__answer"></b> <?php _e("Try to create an account with email", "imbachat") ?> <?php echo get_option('admin_email') ?> <a target="_blank" href="https://imbachat.com/register">here</a>
             </h4>
