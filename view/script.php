@@ -6,6 +6,8 @@ if (isset($permi["permissions"]["available_chat"]) && (int)$permi["permissions"]
 ?>
 <?php if ($exit) : ?>
 <script src="https://api.imbachat.com/imbachat/v1/<?php echo $dev_id; ?>/widget"></script>
+<?php $imbachat_json_decode =json_decode($json_data);  ?>
+<?php if ($imbachat_json_decode->user_id!=0) : ?>
 <script>
     function imbachatWidget(){
         if(!window.ImbaChat){
@@ -18,6 +20,20 @@ if (isset($permi["permissions"]["available_chat"]) && (int)$permi["permissions"]
         })
     }
 </script>
+<?php else:  ?>
+    <script>
+    function imbachatWidget(){
+        if(!window.ImbaChat){
+            return setTimeout(imbachatWidget, 50);
+        }
+        window.ImbaChat.load().then(() =>{
+            let img = jQuery('.ic_bp_button').find('img')[0];
+            jQuery('.ic_bp_button').text( gettext('imbachat','wp_chat_with_user'))
+            jQuery('.ic_bp_button').prepend(img)
+        })
+    }
+</script>
+<?php endif;  ?>
 <?php endif;  ?>
 <?php 
 if ($exit){

@@ -83,6 +83,9 @@ Browsers require a secure connection (HTTPS) for accessing a deviceРІР‚в�
 
 == Changelog ==
 
+= 2.9.5 =
+* New feature: Updating function imbachatwidget
+
 = 2.9.4 =
 * New feature: Updating self-diagnosis
 

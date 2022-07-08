@@ -17,5 +17,5 @@ jobs:
     env:
       SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
       SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
-      SVN_VERSION: '2.9.4'
-      SVN_TEXT_COMMIT: 'Updating self-diagnosis'
+      SVN_VERSION: '2.9.5'
+      SVN_TEXT_COMMIT: 'Updating function imbachatwidget'
