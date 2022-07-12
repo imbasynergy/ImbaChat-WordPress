@@ -259,17 +259,21 @@ function IMCH_get_adminJWT($url = null){
 //add role capabilities
 function permission_role_editor_imbachat() {
     $role = get_role( 'administrator' );
+    $imba_role_names = wp_roles()->get_names();
     if(!$role->capabilities['imbachat_activation_role'] or !$role->capabilities['imbachat_available_chat'] or !$role->capabilities['imbachat_send_message']){
-        $role->add_cap( 'imbachat_activation_role' );
-        $role->add_cap( 'imbachat_send_message' );
-        $role->add_cap( 'imbachat_send_sketchboard' );
-        $role->add_cap( 'imbachat_send_files' );
-        $role->add_cap( 'imbachat_send_geo' );
-        $role->add_cap( 'imbachat_audio_calls' );
-        $role->add_cap( 'imbachat_video_calls' );
-        $role->add_cap( 'imbachat_audio_message' );
-        $role->add_cap( 'imbachat_video_message' );
-        $role->add_cap( 'imbachat_audio_message_enable' );
-        $role->add_cap( 'imbachat_available_chat' );
+        foreach ($imba_role_names as $imba_role_name_key => $imba_role_name ) {
+            $role = get_role( $imba_role_name_key );
+            $role->add_cap( 'imbachat_activation_role' );
+            $role->add_cap( 'imbachat_send_message' );
+            $role->add_cap( 'imbachat_send_sketchboard' );
+            $role->add_cap( 'imbachat_send_files' );
+            $role->add_cap( 'imbachat_send_geo' );
+            $role->add_cap( 'imbachat_audio_calls' );
+            $role->add_cap( 'imbachat_video_calls' );
+            $role->add_cap( 'imbachat_audio_message' );
+            $role->add_cap( 'imbachat_video_message' );
+            $role->add_cap( 'imbachat_audio_message_enable' );
+            $role->add_cap( 'imbachat_available_chat' );
+     }
     }
 }
