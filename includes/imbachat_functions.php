@@ -17,6 +17,7 @@ function ic_open_dialog_with( $atts, $content = null, $code = '' ) {
         );
 
         $id = (int) $atts['id'];
+        if($id==0 || $id==null) $id  =  get_the_author_meta("ID");
         $className = $atts['class'];
         $filter = apply_filters('imbachat_open_dialog_filter', false, get_current_user_id(), $id);
         if (!$filter || $filter['status'] == 'default') {
