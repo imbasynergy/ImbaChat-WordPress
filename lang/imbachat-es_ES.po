@@ -1,0 +1,1488 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: imbachat\n"
+"POT-Creation-Date: 2022-08-01 13:10+0300\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: imbachat\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;"
+"_nx_noop:1,2,3c;esc_attr__;esc_attr_e;esc_html__;esc_html_e\n"
+"X-Poedit-Basepath: ..\n"
+"X-Generator: Poedit 3.1.1\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: node_modules\n"
+
+#: lang/ImbaChat-WordPress1/admin/settings.php:12
+#: lang/imbachat-widget/admin/settings.php:12
+msgid " 1.\tYou need to pass registration"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/admin/settings.php:12
+#: lang/imbachat-widget/admin/settings.php:12
+msgid " and create a widget in the Dashboard: "
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/admin/settings.php:13
+#: lang/imbachat-widget/admin/settings.php:13
+msgid "Integrate option\" choose WordPress"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/admin/settings.php:14
+#: lang/imbachat-widget/admin/settings.php:14
+msgid ""
+"\"Host\" write your site url without http:// (for example: your-site-domain-"
+"url.com)"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/admin/settings.php:15
+#: lang/imbachat-widget/admin/settings.php:15
+msgid ""
+"Write the widget id into “Widget id” field in the ImbaChat settings in the "
+"admin panel of your website. After that click “Connect to the widget”"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/admin/settings.php:21
+#: lang/imbachat-widget/admin/settings.php:21
+msgid ""
+"2.\tIf you don't have a widget yet, click 'Create a widget' at the same "
+"page. Connection between your website and ImbaChat server will be "
+"automatically configured."
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/admin/settings.php:28
+#: lang/imbachat-widget/admin/settings.php:28
+msgid ""
+"Also, if you have BuddyPress, WCFM Marketplace or SweetDate themes, "
+"integration with ImbaChat will be automatically configured as well."
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/includes/admin/views/cmb2/html-imbachat-settings.php:7
+#: lang/imbachat-widget/includes/admin/views/cmb2/html-imbachat-settings.php:7
+msgid ""
+"Connection error. API Imbachat.com could not connect to your site, please "
+"check your server settings"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/includes/admin/views/cmb2/html-imbachat-settings.php:20
+#: lang/imbachat-widget/includes/admin/views/cmb2/html-imbachat-settings.php:20
+msgid "Configure  online support function here "
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/includes/admin/views/cmb2/html-imbachat-settings.php:42
+#: lang/ImbaChat-WordPress1/includes/admin/views/cmb2/html-imbachat-settings.php:80
+#: lang/imbachat-widget/includes/admin/views/cmb2/html-imbachat-settings.php:42
+#: lang/imbachat-widget/includes/admin/views/cmb2/html-imbachat-settings.php:80
+msgid ""
+"Function curl_exec not available. To connect, you need to enable the "
+"function curl_exec. Contact your hosting administrator or enable it yourself "
+"in the settings php.ini"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/includes/admin/views/cmb2/html-imbachat-settings.php:45
+#: lang/imbachat-widget/includes/admin/views/cmb2/html-imbachat-settings.php:45
+msgid ""
+"Error request api.imbachat.com. Contact the technical support of your "
+"website hosting provider. If you can't solve the problem, then write to "
+"imbachat support. "
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/includes/admin/views/cmb2/html-imbachat-settings.php:48
+#: lang/ImbaChat-WordPress1/includes/admin/views/cmb2/html-imbachat-settings.php:91
+#: lang/imbachat-widget/includes/admin/views/cmb2/html-imbachat-settings.php:48
+#: lang/imbachat-widget/includes/admin/views/cmb2/html-imbachat-settings.php:91
+msgid "Error answer."
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/includes/admin/views/cmb2/html-imbachat-settings.php:48
+#: lang/ImbaChat-WordPress1/includes/admin/views/cmb2/html-imbachat-settings.php:91
+#: lang/imbachat-widget/includes/admin/views/cmb2/html-imbachat-settings.php:48
+#: lang/imbachat-widget/includes/admin/views/cmb2/html-imbachat-settings.php:91
+msgid "Try to create an account with email"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/includes/admin/views/cmb2/html-imbachat-settings.php:51
+#: lang/ImbaChat-WordPress1/includes/admin/views/cmb2/html-imbachat-settings.php:94
+#: lang/imbachat-widget/includes/admin/views/cmb2/html-imbachat-settings.php:51
+#: lang/imbachat-widget/includes/admin/views/cmb2/html-imbachat-settings.php:94
+msgid "Error not answer api."
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/includes/admin/views/cmb2/html-imbachat-settings.php:51
+#: lang/ImbaChat-WordPress1/includes/admin/views/cmb2/html-imbachat-settings.php:94
+#: lang/imbachat-widget/includes/admin/views/cmb2/html-imbachat-settings.php:51
+#: lang/imbachat-widget/includes/admin/views/cmb2/html-imbachat-settings.php:94
+msgid "Check your https. Read more "
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/includes/admin/views/cmb2/html-imbachat-settings.php:70
+#: lang/imbachat-widget/includes/admin/views/cmb2/html-imbachat-settings.php:70
+msgid "Check for connectivity "
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/includes/admin/views/cmb2/html-imbachat-settings.php:72
+#: lang/imbachat-widget/includes/admin/views/cmb2/html-imbachat-settings.php:72
+msgid "You have installed plugin User Role Editor. "
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/includes/admin/views/cmb2/html-imbachat-settings.php:72
+#: lang/ImbaChat-WordPress1/includes/admin/views/cmb2/html-imbachat-settings.php:75
+#: lang/imbachat-widget/includes/admin/views/cmb2/html-imbachat-settings.php:72
+#: lang/imbachat-widget/includes/admin/views/cmb2/html-imbachat-settings.php:75
+msgid "Set up the plugin according to the "
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/includes/admin/views/cmb2/html-imbachat-settings.php:75
+#: lang/imbachat-widget/includes/admin/views/cmb2/html-imbachat-settings.php:75
+msgid "You have installed plugin Members. "
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/includes/admin/views/cmb2/html-imbachat-settings.php:77
+#: lang/imbachat-widget/includes/admin/views/cmb2/html-imbachat-settings.php:77
+msgid "Available widgets:"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/includes/admin/views/cmb2/html-imbachat-settings.php:78
+#: lang/imbachat-widget/includes/admin/views/cmb2/html-imbachat-settings.php:78
+msgid "Account email:"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/includes/admin/views/cmb2/html-imbachat-settings.php:83
+#: lang/imbachat-widget/includes/admin/views/cmb2/html-imbachat-settings.php:83
+msgid ""
+"Error ping imbachat.com. Host imbachat.com could not be reached. Try to "
+"connect later"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/includes/admin/views/cmb2/html-imbachat-settings.php:87
+#: lang/imbachat-widget/includes/admin/views/cmb2/html-imbachat-settings.php:87
+msgid "Server:"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/includes/admin/views/cmb2/html-imbachat-settings.php:96
+#: lang/imbachat-widget/includes/admin/views/cmb2/html-imbachat-settings.php:96
+msgid "If you:"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/includes/admin/views/cmb2/html-imbachat-settings.php:97
+#: lang/imbachat-widget/includes/admin/views/cmb2/html-imbachat-settings.php:97
+msgid "— Don't understand how to install and use the plugin"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/includes/admin/views/cmb2/html-imbachat-settings.php:98
+#: lang/imbachat-widget/includes/admin/views/cmb2/html-imbachat-settings.php:98
+msgid "— Find a bug"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/includes/admin/views/cmb2/html-imbachat-settings.php:99
+#: lang/imbachat-widget/includes/admin/views/cmb2/html-imbachat-settings.php:99
+msgid "— Have any other questions about the plugin"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/includes/admin/views/cmb2/html-imbachat-settings.php:100
+#: lang/imbachat-widget/includes/admin/views/cmb2/html-imbachat-settings.php:100
+msgid ""
+"Please, write to us at support@imbachat.com and we will help you. Also, you "
+"can create a ticket in our WordPress support"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/includes/admin/views/cmb2/html-imbachat-settings.php:101
+#: lang/imbachat-widget/includes/admin/views/cmb2/html-imbachat-settings.php:101
+msgid "forum"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/includes/admin/views/cmb2/html-imbachat-settings.php:101
+#: lang/imbachat-widget/includes/admin/views/cmb2/html-imbachat-settings.php:101
+msgid "We respond within 48 h. Please wait for an answer."
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/includes/admin/views/cmb2/html-imbachat-settings.php:114
+#: lang/imbachat-widget/includes/admin/views/cmb2/html-imbachat-settings.php:114
+msgid ""
+"In case of an error, make sure that the project is not on locallhost, and "
+"the ip address of the API server is not blacklisted"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/includes/admin/views/html-notice-deactivation.php:19
+#: lang/imbachat-widget/includes/admin/views/html-notice-deactivation.php:19
+msgid "Why do you want deactivate our plugin?"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/includes/admin/views/html-notice-deactivation.php:23
+#: lang/imbachat-widget/includes/admin/views/html-notice-deactivation.php:23
+msgid "The plugin is not what I expected"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/includes/admin/views/html-notice-deactivation.php:26
+#: lang/imbachat-widget/includes/admin/views/html-notice-deactivation.php:26
+msgid "Chat is too slow/has a lot of bugs"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/includes/admin/views/html-notice-deactivation.php:29
+#: lang/imbachat-widget/includes/admin/views/html-notice-deactivation.php:29
+msgid "It is not clear how to use the chat"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/includes/admin/views/html-notice-deactivation.php:32
+#: lang/imbachat-widget/includes/admin/views/html-notice-deactivation.php:32
+msgid "I don't need chat anymore"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/includes/admin/views/html-notice-deactivation.php:35
+#: lang/imbachat-widget/includes/admin/views/html-notice-deactivation.php:35
+msgid "Other"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/includes/admin/views/html-notice-deactivation.php:46
+#: lang/imbachat-widget/includes/admin/views/html-notice-deactivation.php:46
+msgid "Send & Deactivate"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/includes/admin/views/html-notice-deactivation.php:48
+#: lang/imbachat-widget/includes/admin/views/html-notice-deactivation.php:48
+msgid "Deactivate"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/includes/admin/views/html-notice-deactivation.php:49
+#: lang/imbachat-widget/includes/admin/views/html-notice-deactivation.php:49
+msgid "Cancel"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/includes/admin/views/html-notice-rate.php:13
+#: lang/imbachat-widget/includes/admin/views/html-notice-rate.php:13
+msgid "Your feedback is very important to us."
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/includes/admin/views/html-notice-rate.php:18
+#: lang/imbachat-widget/includes/admin/views/html-notice-rate.php:18
+msgid "Please rate us!"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/includes/admin/views/html-notice-rate.php:22
+#: lang/imbachat-widget/includes/admin/views/html-notice-rate.php:22
+msgid "5 stars"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/includes/admin/views/html-notice-rate.php:24
+#: lang/imbachat-widget/includes/admin/views/html-notice-rate.php:24
+msgid "4 stars"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/includes/admin/views/html-notice-rate.php:26
+#: lang/imbachat-widget/includes/admin/views/html-notice-rate.php:26
+msgid "3 stars"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/includes/admin/views/html-notice-rate.php:28
+#: lang/imbachat-widget/includes/admin/views/html-notice-rate.php:28
+msgid "2 stars"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/includes/admin/views/html-notice-rate.php:30
+#: lang/imbachat-widget/includes/admin/views/html-notice-rate.php:30
+msgid "1 star"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/includes/admin/views/html-notice-rate.php:34
+#: lang/imbachat-widget/includes/admin/views/html-notice-rate.php:34
+msgid "Rate Us"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/includes/class/class-bp-messages-component.php:39
+#: lang/imbachat-widget/includes/class/class-bp-messages-component.php:39
+msgid "Messages"
+msgstr "Mensajes"
+
+#: lang/ImbaChat-WordPress1/includes/class/class-bp-messages-component.php:160
+#: lang/imbachat-widget/includes/class/class-bp-messages-component.php:160
+#, php-format
+msgctxt "Messages list sub nav"
+msgid "Messages <span class=\"%s bp-better-messages-unread\">%s</span>"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/includes/class/class-im-cmd-options.php:249
+#: lang/imbachat-widget/includes/class/class-im-cmd-options.php:249
+msgid "Username format"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/includes/class/class-im-cmd-options.php:250
+#: lang/imbachat-widget/includes/class/class-im-cmd-options.php:250
+msgid "Select how to display user name"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/includes/class/class-im-cmd-options.php:258
+#: lang/imbachat-widget/includes/class/class-im-cmd-options.php:258
+msgid "Search type"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/includes/class/class-im-cmd-options.php:259
+#: lang/imbachat-widget/includes/class/class-im-cmd-options.php:259
+msgid "User`s search type"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/includes/class/class-im-cmd-options.php:276
+#: lang/ImbaChat-WordPress1/includes/class/class-im-cmd-options.php:290
+#: lang/imbachat-widget/CMB2/example-functions.php:753
+#: lang/imbachat-widget/includes/class/class-im-cmd-options.php:276
+#: lang/imbachat-widget/includes/class/class-im-cmd-options.php:290
+#, php-format
+msgid "%s &mdash; Updated!"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/includes/imbachat_functions.php:57
+#: lang/imbachat-widget/includes/imbachat_functions.php:57
+msgid "Close ImbaChat"
+msgstr "Cerrar ImbaChat"
+
+#: lang/ImbaChat-WordPress1/includes/imbachat_functions.php:66
+#: lang/imbachat-widget/includes/imbachat_functions.php:66
+msgid "Open ImbaChat"
+msgstr "Abrir ImbaChat"
+
+#: lang/ImbaChat-WordPress1/view/admin.php:1
+#: lang/ImbaChat-WordPress1/view/admin_menu/settings.php:1
+#: lang/imbachat-widget/view/admin.php:1
+#: lang/imbachat-widget/view/admin_menu/settings.php:1
+msgid "ImbaChat settings"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/view/admin.php:9
+#: lang/ImbaChat-WordPress1/view/admin_menu/settings.php:6
+#: lang/imbachat-widget/view/admin.php:9
+#: lang/imbachat-widget/view/admin_menu/settings.php:6
+msgid "Widget id"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/view/admin.php:13
+#: lang/imbachat-widget/view/admin.php:13
+msgid "API login"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/view/admin.php:17
+#: lang/imbachat-widget/view/admin.php:17
+msgid "API password"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/view/admin.php:21
+#: lang/imbachat-widget/view/admin.php:21
+msgid "Secret key"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/view/admin.php:25
+#: lang/imbachat-widget/view/admin.php:25
+msgid "BuddyPress integration"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/view/admin.php:29
+#: lang/imbachat-widget/view/admin.php:29
+msgid "Market integration"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/view/admin.php:32
+#: lang/imbachat-widget/CMB2/includes/helper-functions.php:308
+#: lang/imbachat-widget/view/admin.php:32
+msgid "Save"
+msgstr "Ahorrar"
+
+#: lang/ImbaChat-WordPress1/view/admin_menu/get_started.php:9
+#: lang/imbachat-widget/view/admin_menu/get_started.php:9
+msgid "Welcome to the ImbaChat!"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/view/admin_menu/get_started.php:11
+#: lang/imbachat-widget/view/admin_menu/get_started.php:11
+msgid ""
+"Hello, Welcome to the ImbaChat setting wizard. Click the «Start» button "
+"below to proceed."
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/view/admin_menu/get_started.php:20
+#: lang/imbachat-widget/view/admin_menu/get_started.php:20
+msgid "Users connection setting"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/view/admin_menu/get_started.php:23
+#: lang/imbachat-widget/view/admin_menu/get_started.php:23
+msgid ""
+"First, you need to set up the connection between users to let them chat.\n"
+"            For that, you should use shortcodes."
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/view/admin_menu/get_started.php:27
+#: lang/imbachat-widget/view/admin_menu/get_started.php:27
+msgid "Short codes"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/view/admin_menu/get_started.php:30
+#: lang/imbachat-widget/view/admin_menu/get_started.php:30
+msgid "Start chatting with user"
+msgstr "Empezar a chatear con el usuario"
+
+#: lang/ImbaChat-WordPress1/view/admin_menu/get_started.php:31
+#: lang/imbachat-widget/view/admin_menu/get_started.php:31
+msgid "Create public group"
+msgstr "Crear grupo público"
+
+#: lang/ImbaChat-WordPress1/view/admin_menu/get_started.php:32
+#: lang/imbachat-widget/view/admin_menu/get_started.php:32
+msgid "Join to group"
+msgstr "Unirse al grupo"
+
+#: lang/ImbaChat-WordPress1/view/admin_menu/get_started.php:33
+#: lang/imbachat-widget/view/admin_menu/get_started.php:33
+msgid "Open chat"
+msgstr "Conversación abierta"
+
+#: lang/ImbaChat-WordPress1/view/admin_menu/get_started.php:34
+#: lang/imbachat-widget/view/admin_menu/get_started.php:34
+msgid "Close chat"
+msgstr "Cerrar chat"
+
+#: lang/ImbaChat-WordPress1/view/admin_menu/get_started.php:35
+#: lang/imbachat-widget/view/admin_menu/get_started.php:35
+msgid "Placeholder for chat on website page"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/view/admin_menu/get_started.php:37
+#: lang/imbachat-widget/view/admin_menu/get_started.php:37
+msgid "How to install shortcodes"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/view/admin_menu/get_started.php:45
+#: lang/imbachat-widget/view/admin_menu/get_started.php:45
+msgid "Language"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/view/admin_menu/get_started.php:48
+#: lang/imbachat-widget/view/admin_menu/get_started.php:48
+msgid ""
+"You can choose a ready interface language from three ones: English, Russian, "
+"and Italian.\n"
+"                If you need to customize the interface in another language, "
+"you can change each phrase here."
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/view/admin_menu/get_started.php:54
+#: lang/imbachat-widget/view/admin_menu/get_started.php:54
+msgid "Select language:"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/view/admin_menu/get_started.php:55
+#: lang/imbachat-widget/view/admin_menu/get_started.php:55
+msgid "English"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/view/admin_menu/get_started.php:56
+#: lang/imbachat-widget/view/admin_menu/get_started.php:56
+msgid "Russian"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/view/admin_menu/get_started.php:57
+#: lang/imbachat-widget/view/admin_menu/get_started.php:57
+msgid "Italian"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/view/admin_menu/get_started.php:66
+#: lang/imbachat-widget/view/admin_menu/get_started.php:66
+msgid "Style customization"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/view/admin_menu/get_started.php:78
+#: lang/imbachat-widget/view/admin_menu/get_started.php:78
+msgid "Chat moderation"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/view/admin_menu/get_started.php:79
+#: lang/imbachat-widget/view/admin_menu/get_started.php:79
+msgid "As a chat administrator, you can moderate the chat."
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/view/admin_menu/get_started.php:84
+#: lang/imbachat-widget/view/admin_menu/get_started.php:84
+msgid "Here is the chat moderation admin panel."
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/view/admin_menu/get_started.php:126
+#: lang/imbachat-widget/view/admin_menu/get_started.php:126
+msgid "6. Now all done!"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/view/admin_menu/get_started.php:127
+#: lang/imbachat-widget/view/admin_menu/get_started.php:127
+msgid "ImbaChat plugin has been all set up. Enjoy the chat!"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/view/admin_menu/get_started.php:132
+#: lang/imbachat-widget/view/admin_menu/get_started.php:132
+msgid "Previous"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/view/admin_menu/get_started.php:133
+#: lang/imbachat-widget/CMB2/includes/CMB2_JS.php:218
+#: lang/imbachat-widget/view/admin_menu/get_started.php:133
+msgid "Next"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/view/admin_menu/ic_flashes.php:4
+#: lang/ImbaChat-WordPress1/view/admin_menu/ic_flashes.php:184
+#: lang/imbachat-widget/view/admin_menu/ic_flashes.php:4
+#: lang/imbachat-widget/view/admin_menu/ic_flashes.php:184
+msgid "Info"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/view/admin_menu/ic_flashes.php:5
+#: lang/imbachat-widget/view/admin_menu/ic_flashes.php:5
+msgid "Lorem ipsum dolor sit amet consectetur adipisicing."
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/view/admin_menu/ic_flashes.php:185
+#: lang/imbachat-widget/view/admin_menu/ic_flashes.php:185
+msgid "ImbaChat Success!"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/view/admin_menu/ic_flashes.php:186
+#: lang/imbachat-widget/view/admin_menu/ic_flashes.php:186
+msgid "ImbaChat Warning!"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/view/admin_menu/ic_flashes.php:187
+#: lang/imbachat-widget/view/admin_menu/ic_flashes.php:187
+msgid "ImbaChat Danger!"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/view/admin_menu/ic_flashes.php:193
+#: lang/imbachat-widget/view/admin_menu/ic_flashes.php:193
+msgid "ImbaChat plugin requires php extension curl to be installed"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/view/admin_menu/ic_flashes.php:194
+#: lang/imbachat-widget/view/admin_menu/ic_flashes.php:194
+msgid ""
+"Option \"Online Support\" is disabled, turn it on in \"Chat Settings\" page "
+"for getting access to ImbaSupport!"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/view/admin_menu/ic_flashes.php:195
+#: lang/imbachat-widget/view/admin_menu/ic_flashes.php:195
+msgid "The widget is successfully connected!"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/view/admin_menu/ic_flashes.php:196
+#: lang/imbachat-widget/view/admin_menu/ic_flashes.php:196
+msgid "Settings saved successfully!"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/view/admin_menu/ic_flashes.php:197
+#: lang/imbachat-widget/view/admin_menu/ic_flashes.php:197
+msgid "Please create or connect your plugin with ImbaChat.com"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/view/admin_menu/links.php:1
+#: lang/imbachat-widget/view/admin_menu/links.php:1
+msgid "ImbaChat Links"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/view/admin_menu/links.php:7
+#: lang/imbachat-widget/view/admin_menu/links.php:7
+msgid ""
+"Please, enter your e-mail, registered on the ImbaChat website. It will be "
+"checked and the links will be shown below."
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/view/admin_menu/links.php:9
+#: lang/imbachat-widget/view/admin_menu/links.php:9
+msgid "Your email address"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/view/admin_menu/links.php:13
+#: lang/imbachat-widget/view/admin_menu/links.php:13
+msgid "Submit"
+msgstr "Enviar"
+
+#: lang/ImbaChat-WordPress1/view/admin_menu/links.php:84
+#: lang/imbachat-widget/view/admin_menu/links.php:84
+msgid "Admin panel"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/view/admin_menu/links.php:87
+#: lang/imbachat-widget/view/admin_menu/links.php:87
+msgid "Dashboard panel"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/view/admin_menu/settings.php:2
+#: lang/imbachat-widget/view/admin_menu/settings.php:2
+msgid "Current widget id"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/view/admin_menu/settings.php:10
+#: lang/imbachat-widget/view/admin_menu/settings.php:10
+msgid "Connect to the widget"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/view/admin_menu/settings.php:19
+#: lang/imbachat-widget/view/admin_menu/settings.php:19
+msgid "Create a widget"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/view/admin_menu/settings.php:23
+#: lang/imbachat-widget/view/admin_menu/settings.php:23
+msgid ""
+"If our plugin helped you to make better website, please leave a review in our"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/view/admin_menu/settings.php:23
+#: lang/imbachat-widget/view/admin_menu/settings.php:23
+msgid "wordpress plugin`s official page."
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/view/admin_menu/settings.php:23
+#: lang/imbachat-widget/view/admin_menu/settings.php:23
+msgid "Thank you for using our chat!"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/view/admin_menu/settings.php:26
+#: lang/imbachat-widget/view/admin_menu/settings.php:26
+msgid ""
+"If you have some problems or extra questions about our plugin, you can "
+"create a ticket in our"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/view/admin_menu/settings.php:26
+#: lang/imbachat-widget/view/admin_menu/settings.php:26
+msgid "support forum"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/view/admin_menu/users_settings.php:6
+#: lang/imbachat-widget/view/admin_menu/users_settings.php:6
+msgid "Choose the which field will displayed as username"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/view/admin_menu/users_settings.php:10
+#: lang/ImbaChat-WordPress1/view/admin_menu/users_settings.php:32
+#: lang/imbachat-widget/view/admin_menu/users_settings.php:10
+#: lang/imbachat-widget/view/admin_menu/users_settings.php:32
+msgid "Select an option"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/view/admin_menu/users_settings.php:28
+#: lang/imbachat-widget/view/admin_menu/users_settings.php:28
+msgid "Choose the type of search"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/view/admin_menu/users_settings.php:35
+#: lang/imbachat-widget/view/admin_menu/users_settings.php:35
+msgid "Partial Match"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/view/admin_menu/users_settings.php:38
+#: lang/imbachat-widget/view/admin_menu/users_settings.php:38
+msgid "Full Match"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/view/admin_menu/users_settings.php:41
+#: lang/imbachat-widget/view/admin_menu/users_settings.php:41
+msgid "Partial match, but from the beginning"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/view/admin_menu/users_settings.php:50
+#: lang/imbachat-widget/view/admin_menu/users_settings.php:50
+msgid "Save Settings"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/widgets/ic_widgets.php:45
+#: lang/imbachat-widget/widgets/ic_widgets.php:45
+msgid "Widget Title"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/widgets/ic_widgets.php:51
+#: lang/imbachat-widget/widgets/ic_widgets.php:51
+msgid "Text:"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/widgets/ic_widgets.php:57
+#: lang/imbachat-widget/widgets/ic_widgets.php:57
+msgid "Textarea:"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/widgets/ic_widgets.php:64
+#: lang/imbachat-widget/widgets/ic_widgets.php:64
+msgid "Checkbox"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/widgets/ic_widgets.php:69
+#: lang/ImbaChat-WordPress1/widgets/ic_widgets.php:74
+#: lang/imbachat-widget/widgets/ic_widgets.php:69
+#: lang/imbachat-widget/widgets/ic_widgets.php:74
+msgid "Select"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/widgets/ic_widgets.php:75
+#: lang/imbachat-widget/widgets/ic_widgets.php:75
+msgid "Option 1"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/widgets/ic_widgets.php:76
+#: lang/imbachat-widget/widgets/ic_widgets.php:76
+msgid "Option 2"
+msgstr ""
+
+#: lang/ImbaChat-WordPress1/widgets/ic_widgets.php:77
+#: lang/imbachat-widget/widgets/ic_widgets.php:77
+msgid "Option 3"
+msgstr ""
+
+#: lang/class-im-filters.php:140
+#: lang/imbachat-widget/includes/class/class-im-filters.php:140
+msgid "Chat with author"
+msgstr "Chatear con el autor"
+
+#: lang/class-im-filters.php:151
+#: lang/imbachat-widget/includes/class/class-im-filters.php:151
+msgid "Send message"
+msgstr "Enviar mensaje"
+
+#: lang/class-im-filters.php:168
+#: lang/imbachat-widget/includes/class/class-im-filters.php:168
+msgid "Ask a Question"
+msgstr "Hacer una pregunta"
+
+#: lang/class-im-filters.php:188 lang/class-im-filters.php:214
+#: lang/imbachat-widget/includes/class/class-im-filters.php:188
+#: lang/imbachat-widget/includes/class/class-im-filters.php:214
+msgid "Chat with vendor"
+msgstr "Chatea con el vendedor"
+
+#: lang/imbachat-widget/CMB2/example-functions.php:115
+msgid "Test Metabox"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:148
+#: lang/imbachat-widget/CMB2/example-functions.php:492
+msgid "Test Text"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:149
+#: lang/imbachat-widget/CMB2/example-functions.php:162
+#: lang/imbachat-widget/CMB2/example-functions.php:175
+#: lang/imbachat-widget/CMB2/example-functions.php:182
+#: lang/imbachat-widget/CMB2/example-functions.php:195
+#: lang/imbachat-widget/CMB2/example-functions.php:203
+#: lang/imbachat-widget/CMB2/example-functions.php:212
+#: lang/imbachat-widget/CMB2/example-functions.php:220
+#: lang/imbachat-widget/CMB2/example-functions.php:235
+#: lang/imbachat-widget/CMB2/example-functions.php:243
+#: lang/imbachat-widget/CMB2/example-functions.php:251
+#: lang/imbachat-widget/CMB2/example-functions.php:268
+#: lang/imbachat-widget/CMB2/example-functions.php:277
+#: lang/imbachat-widget/CMB2/example-functions.php:293
+#: lang/imbachat-widget/CMB2/example-functions.php:300
+#: lang/imbachat-widget/CMB2/example-functions.php:307
+#: lang/imbachat-widget/CMB2/example-functions.php:332
+#: lang/imbachat-widget/CMB2/example-functions.php:345
+#: lang/imbachat-widget/CMB2/example-functions.php:358
+#: lang/imbachat-widget/CMB2/example-functions.php:370
+#: lang/imbachat-widget/CMB2/example-functions.php:384
+#: lang/imbachat-widget/CMB2/example-functions.php:392
+#: lang/imbachat-widget/CMB2/example-functions.php:401
+#: lang/imbachat-widget/CMB2/example-functions.php:408
+#: lang/imbachat-widget/CMB2/example-functions.php:422
+#: lang/imbachat-widget/CMB2/example-functions.php:493
+#: lang/imbachat-widget/CMB2/example-functions.php:583
+#: lang/imbachat-widget/CMB2/example-functions.php:591
+#: lang/imbachat-widget/CMB2/example-functions.php:598
+#: lang/imbachat-widget/CMB2/example-functions.php:605
+#: lang/imbachat-widget/CMB2/example-functions.php:612
+#: lang/imbachat-widget/CMB2/example-functions.php:619
+#: lang/imbachat-widget/CMB2/example-functions.php:626
+#: lang/imbachat-widget/CMB2/example-functions.php:652
+#: lang/imbachat-widget/CMB2/example-functions.php:660
+#: lang/imbachat-widget/CMB2/example-functions.php:667
+#: lang/imbachat-widget/CMB2/example-functions.php:717
+msgid "field description (optional)"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:161
+msgid "Test Text Small"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:174
+msgid "Test Text Medium"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:181
+msgid "Read-only Disabled Field"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:185
+msgid "Hey there, I'm a read-only field"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:194
+msgid "Custom Rendered Field"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:202
+msgid "Website URL"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:211
+msgid "Test Text Email"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:219
+msgid "Test Time"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:227
+#: lang/imbachat-widget/CMB2/example-functions.php:228
+msgid "Time zone"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:234
+msgid "Test Date Picker"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:242
+msgid "Test Date Picker (UNIX timestamp)"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:250
+msgid "Test Date/Time Picker Combo (UNIX timestamp)"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:267
+msgid "Test Money"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:276
+msgid "Test Color Picker"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:292
+msgid "Test Text Area"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:299
+msgid "Test Text Area Small"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:306
+msgid "Test Text Area for Code"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:324
+msgid "Test Title Weeeee"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:325
+msgid "This is a title description"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:331
+msgid "Test Select"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:337
+#: lang/imbachat-widget/CMB2/example-functions.php:350
+#: lang/imbachat-widget/CMB2/example-functions.php:362
+msgid "Option One"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:338
+#: lang/imbachat-widget/CMB2/example-functions.php:351
+#: lang/imbachat-widget/CMB2/example-functions.php:363
+msgid "Option Two"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:339
+#: lang/imbachat-widget/CMB2/example-functions.php:352
+#: lang/imbachat-widget/CMB2/example-functions.php:364
+msgid "Option Three"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:344
+msgid "Test Radio inline"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:357
+msgid "Test Radio"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:369
+msgid "Test Taxonomy Radio"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:383
+msgid "Test Taxonomy Select"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:391
+msgid "Test Taxonomy Multi Checkbox"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:400
+msgid "Test Checkbox"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:407
+msgid "Test Multi Checkbox"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:413
+msgid "Check One"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:414
+msgid "Check Two"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:415
+msgid "Check Three"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:421
+msgid "Test wysiwyg"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:431
+msgid "Test Image"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:432
+msgid "Upload an image or enter a URL."
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:438
+msgid "Multiple Files"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:439
+msgid "Upload or add multiple images/attachments."
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:446
+msgid "oEmbed"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:449
+#, php-format
+msgid ""
+"Enter a youtube, twitter, or instagram URL. Supports services listed at %s."
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:481
+msgid "About Page Metabox"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:511
+msgid "Repeating Field Group"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:519
+msgid "Generates reusable form entries"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:521
+msgid "Entry {#}"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:522
+msgid "Add Another Entry"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:523
+msgid "Remove Entry"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:537
+msgid "Entry Title"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:544
+msgid "Description"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:545
+msgid "Write a short description for this entry"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:551
+msgid "Entry Image"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:557
+msgid "Image Caption"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:575
+msgid "User Profile Metabox"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:582
+#: lang/imbachat-widget/CMB2/example-functions.php:651
+msgid "Extra Info"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:590
+msgid "Avatar"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:597
+msgid "Facebook URL"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:604
+msgid "Twitter URL"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:611
+msgid "Google+ URL"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:618
+msgid "Linkedin URL"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:625
+msgid "User Field"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:644
+msgid "Category Metabox"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:659
+msgid "Term Image"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:666
+msgid "Arbitrary Term Field"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:685
+msgid "Theme Options"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:716
+msgid "Site Background Color"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:785
+msgid "REST Test Box"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:794
+msgid "REST Test Text"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:795
+msgid "Will show in the REST API for this box and for pages."
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:801
+msgid "REST Editable Test Text"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/example-functions.php:802
+msgid "Will show in REST API \"editable\" contexts only (`POST` requests)."
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/CMB2.php:199
+msgid "Metabox configuration is required to have an ID parameter."
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/CMB2.php:609
+msgid "Click to toggle"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/CMB2_Ajax.php:75
+msgid "Please Try Again"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/CMB2_Ajax.php:181
+msgid "Remove Embed"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/CMB2_Ajax.php:189
+#: lang/imbachat-widget/CMB2/includes/helper-functions.php:107
+#, php-format
+msgid "No oEmbed Results Found for %1$s. View more info at %2$s."
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/CMB2_Base.php:423
+#, php-format
+msgid ""
+"The \"%1$s\" field parameter has been deprecated in favor of the \"%2$s\" "
+"parameter."
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/CMB2_Base.php:427
+#, php-format
+msgid ""
+"Using the \"%1$s\" field parameter as a callback has been deprecated in "
+"favor of the \"%2$s\" parameter."
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/CMB2_Base.php:457
+#, php-format
+msgid ""
+"%1$s was called with a parameter that is <strong>deprecated</strong> since "
+"version %2$s! %3$s"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/CMB2_Base.php:459
+#, php-format
+msgid ""
+"%1$s was called with a parameter that is <strong>deprecated</strong> since "
+"version %2$s with no alternative available."
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/CMB2_Base.php:492
+#: lang/imbachat-widget/CMB2/includes/CMB2_Hookup_Base.php:102
+#: lang/imbachat-widget/CMB2/includes/CMB2_Options.php:247
+#: lang/imbachat-widget/CMB2/includes/CMB2_Options_Hookup.php:369
+#: lang/imbachat-widget/CMB2/includes/types/CMB2_Type_Base.php:173
+#, php-format
+msgid "Invalid %1$s property: %2$s"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/CMB2_Base.php:510
+#: lang/imbachat-widget/CMB2/includes/types/CMB2_Type_Base.php:157
+#, php-format
+msgid "Invalid %1$s method: %2$s"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/CMB2_Field.php:1438
+msgid "Add Group"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/CMB2_Field.php:1439
+msgid "Remove Group"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/CMB2_Field.php:1471
+#: lang/imbachat-widget/CMB2/includes/CMB2_Field.php:1475
+msgid "None"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/CMB2_Field.php:1589
+msgid "Sorry, this field does not have a cmb_id specified."
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/CMB2_Field_Display.php:453
+#: lang/imbachat-widget/CMB2/includes/CMB2_JS.php:242
+#: lang/imbachat-widget/CMB2/includes/types/CMB2_Type_File_Base.php:79
+msgid "File:"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/CMB2_Hookup.php:188
+msgid ""
+"Term Metadata is a WordPress 4.4+ feature. Please upgrade your WordPress "
+"install."
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/CMB2_Hookup.php:192
+msgid "Term metaboxes configuration requires a \"taxonomies\" parameter."
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/CMB2_Hookup.php:560
+#, php-format
+msgid "Toggle panel: %s"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/CMB2_Hookup_Base.php:44
+#, php-format
+msgid "%1$s should be implemented by the extended class."
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/CMB2_JS.php:177
+#: lang/imbachat-widget/CMB2/includes/CMB2_JS.php:222
+msgid "Clear"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/CMB2_JS.php:178
+msgid "Default"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/CMB2_JS.php:179
+msgid "Select Color"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/CMB2_JS.php:180
+msgid "Current Color"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/CMB2_JS.php:212
+msgctxt "Valid formatDate string for jquery-ui datepicker"
+msgid "mm/dd/yy"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/CMB2_JS.php:213
+msgid "Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/CMB2_JS.php:214
+msgid "Su, Mo, Tu, We, Th, Fr, Sa"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/CMB2_JS.php:215
+msgid "Sun, Mon, Tue, Wed, Thu, Fri, Sat"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/CMB2_JS.php:216
+msgid ""
+"January, February, March, April, May, June, July, August, September, "
+"October, November, December"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/CMB2_JS.php:217
+msgid "Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/CMB2_JS.php:219
+msgid "Prev"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/CMB2_JS.php:220
+msgid "Today"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/CMB2_JS.php:221
+#: lang/imbachat-widget/CMB2/includes/CMB2_JS.php:231
+msgid "Done"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/CMB2_JS.php:225
+msgid "Choose Time"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/CMB2_JS.php:226
+msgid "Time"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/CMB2_JS.php:227
+msgid "Hour"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/CMB2_JS.php:228
+msgid "Minute"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/CMB2_JS.php:229
+msgid "Second"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/CMB2_JS.php:230
+msgid "Now"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/CMB2_JS.php:232
+msgctxt ""
+"Valid formatting string, as per http://trentrichardson.com/examples/"
+"timepicker/"
+msgid "hh:mm TT"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/CMB2_JS.php:238
+msgid "Use this file"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/CMB2_JS.php:239
+msgid "Use these files"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/CMB2_JS.php:240
+#: lang/imbachat-widget/CMB2/includes/types/CMB2_Type_File_Base.php:64
+msgid "Remove Image"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/CMB2_JS.php:241
+#: lang/imbachat-widget/CMB2/includes/CMB2_Types.php:408
+#: lang/imbachat-widget/CMB2/includes/types/CMB2_Type_File_Base.php:84
+msgid "Remove"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/CMB2_JS.php:243
+#: lang/imbachat-widget/CMB2/includes/types/CMB2_Type_File_Base.php:82
+msgid "Download"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/CMB2_JS.php:244
+msgid "Enable / Disable All"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/CMB2_Options_Hookup.php:139
+msgid "Nothing to update."
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/CMB2_Options_Hookup.php:143
+msgid "Settings updated."
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/CMB2_Types.php:226
+msgid "Custom CMB2 field type classes must extend CMB2_Type_Base."
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/CMB2_Types.php:344
+msgid "Add Row"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/CMB2_Types.php:408
+msgid "Remove Row"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/rest-api/CMB2_REST_Controller.php:257
+msgid "This box does not have read permissions."
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/rest-api/CMB2_REST_Controller.php:277
+msgid "This box does not have write permissions."
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/rest-api/CMB2_REST_Controller.php:300
+msgid ""
+"No box found by that id. A box needs to be registered with the \"show_in_rest"
+"\" parameter configured."
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/rest-api/CMB2_REST_Controller.php:378
+msgid "A human-readable description of the object."
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/rest-api/CMB2_REST_Controller.php:385
+msgid "The id for the object."
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/rest-api/CMB2_REST_Controller.php:392
+msgid "The title for the object."
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/rest-api/CMB2_REST_Controller_Boxes.php:51
+msgid "Includes the registered fields for the box in the response."
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/rest-api/CMB2_REST_Controller_Boxes.php:72
+msgid ""
+"Includes the fully rendered attributes, 'form_open', 'form_close', as well "
+"as the enqueued 'js_dependencies' script handles, and 'css_dependencies' "
+"stylesheet handles."
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/rest-api/CMB2_REST_Controller_Boxes.php:122
+msgid "No boxes found."
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/rest-api/CMB2_REST_Controller_Fields.php:27
+msgid ""
+"Includes the box object which the fields are registered to in the response."
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/rest-api/CMB2_REST_Controller_Fields.php:30
+msgid ""
+"When the '_rendered' argument is passed, the renderable field attributes "
+"will be returned fully rendered. By default, the names of the callback "
+"handers for the renderable attributes will be returned."
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/rest-api/CMB2_REST_Controller_Fields.php:33
+#: lang/imbachat-widget/CMB2/includes/rest-api/CMB2_REST_Controller_Fields.php:36
+msgid ""
+"To view or modify the field's value, the 'object_id' and 'object_type' "
+"arguments are required."
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/rest-api/CMB2_REST_Controller_Fields.php:236
+msgid ""
+"CMB2 Field value cannot be updated without the value parameter specified."
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/rest-api/CMB2_REST_Controller_Fields.php:297
+msgid ""
+"CMB2 Field value cannot be modified without the object_id and object_type "
+"parameters specified."
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/rest-api/CMB2_REST_Controller_Fields.php:312
+#: lang/imbachat-widget/CMB2/includes/rest-api/CMB2_REST_Controller_Fields.php:341
+msgid "No field found by that id."
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/rest-api/CMB2_REST_Controller_Fields.php:415
+#, php-format
+msgid "Value Error for %s"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/shim/WP_REST_Controller.php:25
+#, php-format
+msgid "Method '%s' must be overridden."
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/shim/WP_REST_Controller.php:35
+#: lang/imbachat-widget/CMB2/includes/shim/WP_REST_Controller.php:47
+#: lang/imbachat-widget/CMB2/includes/shim/WP_REST_Controller.php:59
+#: lang/imbachat-widget/CMB2/includes/shim/WP_REST_Controller.php:71
+#: lang/imbachat-widget/CMB2/includes/shim/WP_REST_Controller.php:83
+#: lang/imbachat-widget/CMB2/includes/shim/WP_REST_Controller.php:95
+#: lang/imbachat-widget/CMB2/includes/shim/WP_REST_Controller.php:107
+#: lang/imbachat-widget/CMB2/includes/shim/WP_REST_Controller.php:119
+#: lang/imbachat-widget/CMB2/includes/shim/WP_REST_Controller.php:131
+#: lang/imbachat-widget/CMB2/includes/shim/WP_REST_Controller.php:143
+#: lang/imbachat-widget/CMB2/includes/shim/WP_REST_Controller.php:155
+#: lang/imbachat-widget/CMB2/includes/shim/WP_REST_Controller.php:168
+#, php-format
+msgid "Method '%s' not implemented. Must be overridden in subclass."
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/shim/WP_REST_Controller.php:273
+msgid "Current page of the collection."
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/shim/WP_REST_Controller.php:281
+msgid "Maximum number of items to be returned in result set."
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/shim/WP_REST_Controller.php:290
+msgid "Limit results to those matching a string."
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/shim/WP_REST_Controller.php:308
+msgid ""
+"Scope under which the request is made; determines fields present in response."
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/types/CMB2_Type_Counter_Base.php:50
+msgid "Words left"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/types/CMB2_Type_Counter_Base.php:51
+msgid "Words"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/types/CMB2_Type_Counter_Base.php:56
+msgid "Characters left"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/types/CMB2_Type_Counter_Base.php:57
+msgid "Characters"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/types/CMB2_Type_Counter_Base.php:62
+msgid "Your text may be truncated."
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/types/CMB2_Type_File.php:76
+msgid "Add or Upload File"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/types/CMB2_Type_File_List.php:41
+msgid "Add or Upload Files"
+msgstr ""
+
+#: lang/imbachat-widget/CMB2/includes/types/CMB2_Type_Taxonomy_Base.php:115
+msgid "No terms"
+msgstr ""

@@ -88,7 +88,11 @@ add_action('wp_footer', function()
     $json_data = IMCH_getJsSettingsString();
     require_once( IMBACHAT__PLUGIN_DIR . '/view/script.php' );
 });
-
+add_action('plugins_loaded', 'imbachat_imbachat_init_lang');
+function imbachat_imbachat_init_lang(){
+    $mo_file_path = dirname(__FILE__) . '/lang/imbachat-'. get_locale() . '.mo';
+	load_textdomain( 'imbachat', $mo_file_path );
+}
 
 add_filter( 'cron_schedules', 'cron_add_five_min' );
 function cron_add_five_min( $schedules ) {

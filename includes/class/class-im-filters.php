@@ -137,7 +137,8 @@ class IM_Filter {
             $user_id = get_the_author_meta( 'ID' );
             if ($user_id > 0)
             {
-                $content_with_button = do_shortcode('[ic_open_dialog id="'.$user_id.'" class="" name="Chat with author"]').$content;
+                $btn_name_imbachat=__("Chat with author", "imbachat");
+                $content_with_button = do_shortcode('[ic_open_dialog id="'.$user_id.'" class="" name="'.$btn_name_imbachat.'"]').$content;
                 return $content_with_button;
             } else
                 return $content;
@@ -147,7 +148,8 @@ class IM_Filter {
 
     public static function wpforo_profile_message_tab($menu, $user_id)
     {
-        $menu = '<a class="wpf-profile-menu " href="javascript:void(0)" onclick="open_dialog('.$user_id.')"><i class="fas fa-comments"></i> <span class="wpf-profile-menu-label">Send message</span></a>';
+        $btn_name_imbachat=__("Send message", "imbachat");
+        $menu = '<a class="wpf-profile-menu " href="javascript:void(0)" onclick="open_dialog('.$user_id.')"><i class="fas fa-comments"></i> <span class="wpf-profile-menu-label">'.$btn_name_imbachat.'</span></a>';
         echo $menu;
     }
 
@@ -163,7 +165,8 @@ class IM_Filter {
         }
         $chat_btn = '';
         if ($vendor_id) {
-            $chat_btn = do_shortcode('[ic_open_dialog id="'.$vendor_id.'" class="button imba_margin-1" name="Ask a Question"]');
+            $btn_name_imbachat=__("Ask a Question", "imbachat");
+            $chat_btn = do_shortcode('[ic_open_dialog id="'.$vendor_id.'" class="button imba_margin-1" name="'.$btn_name_imbachat.'"]');
         }
         $html = $html.$chat_btn;
         return $html;
@@ -182,7 +185,8 @@ class IM_Filter {
         }
         $chat_btn = '';
         if ($vendor_id) {
-            $chat_btn = do_shortcode('[ic_open_dialog id="'.$vendor_id.'" class="" name="Chat with vendor"]');
+            $btn_name_imbachat=__("Chat with vendor", "imbachat");
+            $chat_btn = do_shortcode('[ic_open_dialog id="'.$vendor_id.'" class="" name="'.$btn_name_imbachat.'"]');
         }
         $html = str_replace($data->button, $data->button.$chat_btn, $html);
 
@@ -207,7 +211,8 @@ class IM_Filter {
             $vendor_id = wcfm_get_vendor_id_by_post($product_id);
         }
         if ($vendor_id) {
-            echo do_shortcode('[ic_open_dialog id="'.$vendor_id.'" class="" name="Chat with vendor"]');
+            $btn_name_imbachat=__("Chat with vendor", "imbachat");
+            echo do_shortcode('[ic_open_dialog id="'.$vendor_id.'" class="" name="'.$btn_name_imbachat.'"]');
         }
     }
 }

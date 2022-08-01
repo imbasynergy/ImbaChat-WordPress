@@ -1,0 +1,610 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Imbachat\n"
+"POT-Creation-Date: 2022-08-01 11:47+0300\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: Imbachat\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;"
+"_nx_noop:1,2,3c;esc_attr__;esc_attr_e;esc_html__;esc_html_e\n"
+"X-Poedit-Basepath: ..\n"
+"X-Generator: Poedit 3.1.1\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: node_modules\n"
+
+#: lang/ImbaChat-WordPress/admin/settings.php:12
+msgid " 1.\tYou need to pass registration"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/admin/settings.php:12
+msgid " and create a widget in the Dashboard: "
+msgstr ""
+
+#: lang/ImbaChat-WordPress/admin/settings.php:13
+msgid "Integrate option\" choose WordPress"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/admin/settings.php:14
+msgid ""
+"\"Host\" write your site url without http:// (for example: your-site-domain-"
+"url.com)"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/admin/settings.php:15
+msgid ""
+"Write the widget id into “Widget id” field in the ImbaChat settings in the "
+"admin panel of your website. After that click “Connect to the widget”"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/admin/settings.php:21
+msgid ""
+"2.\tIf you don't have a widget yet, click 'Create a widget' at the same "
+"page. Connection between your website and ImbaChat server will be "
+"automatically configured."
+msgstr ""
+
+#: lang/ImbaChat-WordPress/admin/settings.php:28
+msgid ""
+"Also, if you have BuddyPress, WCFM Marketplace or SweetDate themes, "
+"integration with ImbaChat will be automatically configured as well."
+msgstr ""
+
+#: lang/ImbaChat-WordPress/includes/admin/views/cmb2/html-imbachat-settings.php:7
+msgid ""
+"Connection error. API Imbachat.com could not connect to your site, please "
+"check your server settings"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/includes/admin/views/cmb2/html-imbachat-settings.php:20
+msgid "Configure  online support function here "
+msgstr ""
+
+#: lang/ImbaChat-WordPress/includes/admin/views/cmb2/html-imbachat-settings.php:42
+#: lang/ImbaChat-WordPress/includes/admin/views/cmb2/html-imbachat-settings.php:80
+msgid ""
+"Function curl_exec not available. To connect, you need to enable the "
+"function curl_exec. Contact your hosting administrator or enable it yourself "
+"in the settings php.ini"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/includes/admin/views/cmb2/html-imbachat-settings.php:45
+msgid ""
+"Error request api.imbachat.com. Contact the technical support of your "
+"website hosting provider. If you can't solve the problem, then write to "
+"imbachat support. "
+msgstr ""
+
+#: lang/ImbaChat-WordPress/includes/admin/views/cmb2/html-imbachat-settings.php:48
+#: lang/ImbaChat-WordPress/includes/admin/views/cmb2/html-imbachat-settings.php:91
+msgid "Error answer."
+msgstr ""
+
+#: lang/ImbaChat-WordPress/includes/admin/views/cmb2/html-imbachat-settings.php:48
+#: lang/ImbaChat-WordPress/includes/admin/views/cmb2/html-imbachat-settings.php:91
+msgid "Try to create an account with email"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/includes/admin/views/cmb2/html-imbachat-settings.php:51
+#: lang/ImbaChat-WordPress/includes/admin/views/cmb2/html-imbachat-settings.php:94
+msgid "Error not answer api."
+msgstr ""
+
+#: lang/ImbaChat-WordPress/includes/admin/views/cmb2/html-imbachat-settings.php:51
+#: lang/ImbaChat-WordPress/includes/admin/views/cmb2/html-imbachat-settings.php:94
+msgid "Check your https. Read more "
+msgstr ""
+
+#: lang/ImbaChat-WordPress/includes/admin/views/cmb2/html-imbachat-settings.php:70
+msgid "Check for connectivity "
+msgstr ""
+
+#: lang/ImbaChat-WordPress/includes/admin/views/cmb2/html-imbachat-settings.php:72
+msgid "You have installed plugin User Role Editor. "
+msgstr ""
+
+#: lang/ImbaChat-WordPress/includes/admin/views/cmb2/html-imbachat-settings.php:72
+#: lang/ImbaChat-WordPress/includes/admin/views/cmb2/html-imbachat-settings.php:75
+msgid "Set up the plugin according to the "
+msgstr ""
+
+#: lang/ImbaChat-WordPress/includes/admin/views/cmb2/html-imbachat-settings.php:75
+msgid "You have installed plugin Members. "
+msgstr ""
+
+#: lang/ImbaChat-WordPress/includes/admin/views/cmb2/html-imbachat-settings.php:77
+msgid "Available widgets:"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/includes/admin/views/cmb2/html-imbachat-settings.php:78
+msgid "Account email:"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/includes/admin/views/cmb2/html-imbachat-settings.php:83
+msgid ""
+"Error ping imbachat.com. Host imbachat.com could not be reached. Try to "
+"connect later"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/includes/admin/views/cmb2/html-imbachat-settings.php:87
+msgid "Server:"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/includes/admin/views/cmb2/html-imbachat-settings.php:96
+msgid "If you:"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/includes/admin/views/cmb2/html-imbachat-settings.php:97
+msgid "— Don't understand how to install and use the plugin"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/includes/admin/views/cmb2/html-imbachat-settings.php:98
+msgid "— Find a bug"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/includes/admin/views/cmb2/html-imbachat-settings.php:99
+msgid "— Have any other questions about the plugin"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/includes/admin/views/cmb2/html-imbachat-settings.php:100
+msgid ""
+"Please, write to us at support@imbachat.com and we will help you. Also, you "
+"can create a ticket in our WordPress support"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/includes/admin/views/cmb2/html-imbachat-settings.php:101
+msgid "forum"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/includes/admin/views/cmb2/html-imbachat-settings.php:101
+msgid "We respond within 48 h. Please wait for an answer."
+msgstr ""
+
+#: lang/ImbaChat-WordPress/includes/admin/views/cmb2/html-imbachat-settings.php:114
+msgid ""
+"In case of an error, make sure that the project is not on locallhost, and "
+"the ip address of the API server is not blacklisted"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/includes/admin/views/html-notice-deactivation.php:19
+msgid "Why do you want deactivate our plugin?"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/includes/admin/views/html-notice-deactivation.php:23
+msgid "The plugin is not what I expected"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/includes/admin/views/html-notice-deactivation.php:26
+msgid "Chat is too slow/has a lot of bugs"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/includes/admin/views/html-notice-deactivation.php:29
+msgid "It is not clear how to use the chat"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/includes/admin/views/html-notice-deactivation.php:32
+msgid "I don't need chat anymore"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/includes/admin/views/html-notice-deactivation.php:35
+msgid "Other"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/includes/admin/views/html-notice-deactivation.php:46
+msgid "Send & Deactivate"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/includes/admin/views/html-notice-deactivation.php:48
+msgid "Deactivate"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/includes/admin/views/html-notice-deactivation.php:49
+msgid "Cancel"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/includes/admin/views/html-notice-rate.php:13
+msgid "Your feedback is very important to us."
+msgstr ""
+
+#: lang/ImbaChat-WordPress/includes/admin/views/html-notice-rate.php:18
+msgid "Please rate us!"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/includes/admin/views/html-notice-rate.php:22
+msgid "5 stars"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/includes/admin/views/html-notice-rate.php:24
+msgid "4 stars"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/includes/admin/views/html-notice-rate.php:26
+msgid "3 stars"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/includes/admin/views/html-notice-rate.php:28
+msgid "2 stars"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/includes/admin/views/html-notice-rate.php:30
+msgid "1 star"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/includes/admin/views/html-notice-rate.php:34
+msgid "Rate Us"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/includes/class/class-bp-messages-component.php:39
+msgid "Messages"
+msgstr "Сообщения"
+
+#: lang/ImbaChat-WordPress/includes/class/class-bp-messages-component.php:160
+#, php-format
+msgctxt "Messages list sub nav"
+msgid "Messages <span class=\"%s bp-better-messages-unread\">%s</span>"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/includes/class/class-im-cmd-options.php:249
+msgid "Username format"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/includes/class/class-im-cmd-options.php:250
+msgid "Select how to display user name"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/includes/class/class-im-cmd-options.php:258
+msgid "Search type"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/includes/class/class-im-cmd-options.php:259
+msgid "User`s search type"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/includes/class/class-im-cmd-options.php:276
+#: lang/ImbaChat-WordPress/includes/class/class-im-cmd-options.php:290
+#, php-format
+msgid "%s &mdash; Updated!"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/includes/class/class-im-filters.php:140
+msgid "Chat with author"
+msgstr "Чат с автором"
+
+#: lang/ImbaChat-WordPress/includes/class/class-im-filters.php:151
+msgid "Send message"
+msgstr "Отправить сообщение"
+
+#: lang/ImbaChat-WordPress/includes/class/class-im-filters.php:168
+msgid "Ask a Question"
+msgstr "Задать вопрос"
+
+#: lang/ImbaChat-WordPress/includes/class/class-im-filters.php:188
+#: lang/ImbaChat-WordPress/includes/class/class-im-filters.php:214
+msgid "Chat with vendor"
+msgstr "Общайтесь с поставщиком"
+
+#: lang/ImbaChat-WordPress/includes/imbachat_functions.php:57
+msgid "Close ImbaChat"
+msgstr "Закрыть ImbaChat"
+
+#: lang/ImbaChat-WordPress/includes/imbachat_functions.php:66
+msgid "Open ImbaChat"
+msgstr "Открыть ImbaChat"
+
+#: lang/ImbaChat-WordPress/view/admin.php:1
+#: lang/ImbaChat-WordPress/view/admin_menu/settings.php:1
+msgid "ImbaChat settings"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/view/admin.php:9
+#: lang/ImbaChat-WordPress/view/admin_menu/settings.php:6
+msgid "Widget id"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/view/admin.php:13
+msgid "API login"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/view/admin.php:17
+msgid "API password"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/view/admin.php:21
+msgid "Secret key"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/view/admin.php:25
+msgid "BuddyPress integration"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/view/admin.php:29
+msgid "Market integration"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/view/admin.php:32
+msgid "Save"
+msgstr "Сохранить"
+
+#: lang/ImbaChat-WordPress/view/admin_menu/get_started.php:9
+msgid "Welcome to the ImbaChat!"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/view/admin_menu/get_started.php:11
+msgid ""
+"Hello, Welcome to the ImbaChat setting wizard. Click the «Start» button "
+"below to proceed."
+msgstr ""
+
+#: lang/ImbaChat-WordPress/view/admin_menu/get_started.php:20
+msgid "Users connection setting"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/view/admin_menu/get_started.php:23
+msgid ""
+"First, you need to set up the connection between users to let them chat.\n"
+"            For that, you should use shortcodes."
+msgstr ""
+
+#: lang/ImbaChat-WordPress/view/admin_menu/get_started.php:27
+msgid "Short codes"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/view/admin_menu/get_started.php:30
+msgid "Start chatting with user"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/view/admin_menu/get_started.php:31
+msgid "Create public group"
+msgstr "Создать публичную группу"
+
+#: lang/ImbaChat-WordPress/view/admin_menu/get_started.php:32
+msgid "Join to group"
+msgstr "Присоединиться к группе"
+
+#: lang/ImbaChat-WordPress/view/admin_menu/get_started.php:33
+msgid "Open chat"
+msgstr "Открыть чат"
+
+#: lang/ImbaChat-WordPress/view/admin_menu/get_started.php:34
+msgid "Close chat"
+msgstr "Закрыть чат"
+
+#: lang/ImbaChat-WordPress/view/admin_menu/get_started.php:35
+msgid "Placeholder for chat on website page"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/view/admin_menu/get_started.php:37
+msgid "How to install shortcodes"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/view/admin_menu/get_started.php:45
+msgid "Language"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/view/admin_menu/get_started.php:48
+msgid ""
+"You can choose a ready interface language from three ones: English, Russian, "
+"and Italian.\n"
+"                If you need to customize the interface in another language, "
+"you can change each phrase here."
+msgstr ""
+
+#: lang/ImbaChat-WordPress/view/admin_menu/get_started.php:54
+msgid "Select language:"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/view/admin_menu/get_started.php:55
+msgid "English"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/view/admin_menu/get_started.php:56
+msgid "Russian"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/view/admin_menu/get_started.php:57
+msgid "Italian"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/view/admin_menu/get_started.php:66
+msgid "Style customization"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/view/admin_menu/get_started.php:78
+msgid "Chat moderation"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/view/admin_menu/get_started.php:79
+msgid "As a chat administrator, you can moderate the chat."
+msgstr ""
+
+#: lang/ImbaChat-WordPress/view/admin_menu/get_started.php:84
+msgid "Here is the chat moderation admin panel."
+msgstr ""
+
+#: lang/ImbaChat-WordPress/view/admin_menu/get_started.php:126
+msgid "6. Now all done!"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/view/admin_menu/get_started.php:127
+msgid "ImbaChat plugin has been all set up. Enjoy the chat!"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/view/admin_menu/get_started.php:132
+msgid "Previous"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/view/admin_menu/get_started.php:133
+msgid "Next"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/view/admin_menu/ic_flashes.php:4
+#: lang/ImbaChat-WordPress/view/admin_menu/ic_flashes.php:184
+msgid "Info"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/view/admin_menu/ic_flashes.php:5
+msgid "Lorem ipsum dolor sit amet consectetur adipisicing."
+msgstr ""
+
+#: lang/ImbaChat-WordPress/view/admin_menu/ic_flashes.php:185
+msgid "ImbaChat Success!"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/view/admin_menu/ic_flashes.php:186
+msgid "ImbaChat Warning!"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/view/admin_menu/ic_flashes.php:187
+msgid "ImbaChat Danger!"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/view/admin_menu/ic_flashes.php:193
+msgid "ImbaChat plugin requires php extension curl to be installed"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/view/admin_menu/ic_flashes.php:194
+msgid ""
+"Option \"Online Support\" is disabled, turn it on in \"Chat Settings\" page "
+"for getting access to ImbaSupport!"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/view/admin_menu/ic_flashes.php:195
+msgid "The widget is successfully connected!"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/view/admin_menu/ic_flashes.php:196
+msgid "Settings saved successfully!"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/view/admin_menu/ic_flashes.php:197
+msgid "Please create or connect your plugin with ImbaChat.com"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/view/admin_menu/links.php:1
+msgid "ImbaChat Links"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/view/admin_menu/links.php:7
+msgid ""
+"Please, enter your e-mail, registered on the ImbaChat website. It will be "
+"checked and the links will be shown below."
+msgstr ""
+
+#: lang/ImbaChat-WordPress/view/admin_menu/links.php:9
+msgid "Your email address"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/view/admin_menu/links.php:13
+msgid "Submit"
+msgstr "Отправить"
+
+#: lang/ImbaChat-WordPress/view/admin_menu/links.php:84
+msgid "Admin panel"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/view/admin_menu/links.php:87
+msgid "Dashboard panel"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/view/admin_menu/settings.php:2
+msgid "Current widget id"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/view/admin_menu/settings.php:10
+msgid "Connect to the widget"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/view/admin_menu/settings.php:19
+msgid "Create a widget"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/view/admin_menu/settings.php:23
+msgid ""
+"If our plugin helped you to make better website, please leave a review in our"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/view/admin_menu/settings.php:23
+msgid "wordpress plugin`s official page."
+msgstr ""
+
+#: lang/ImbaChat-WordPress/view/admin_menu/settings.php:23
+msgid "Thank you for using our chat!"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/view/admin_menu/settings.php:26
+msgid ""
+"If you have some problems or extra questions about our plugin, you can "
+"create a ticket in our"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/view/admin_menu/settings.php:26
+msgid "support forum"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/view/admin_menu/users_settings.php:6
+msgid "Choose the which field will displayed as username"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/view/admin_menu/users_settings.php:10
+#: lang/ImbaChat-WordPress/view/admin_menu/users_settings.php:32
+msgid "Select an option"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/view/admin_menu/users_settings.php:28
+msgid "Choose the type of search"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/view/admin_menu/users_settings.php:35
+msgid "Partial Match"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/view/admin_menu/users_settings.php:38
+msgid "Full Match"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/view/admin_menu/users_settings.php:41
+msgid "Partial match, but from the beginning"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/view/admin_menu/users_settings.php:50
+msgid "Save Settings"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/widgets/ic_widgets.php:45
+msgid "Widget Title"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/widgets/ic_widgets.php:51
+msgid "Text:"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/widgets/ic_widgets.php:57
+msgid "Textarea:"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/widgets/ic_widgets.php:64
+msgid "Checkbox"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/widgets/ic_widgets.php:69
+#: lang/ImbaChat-WordPress/widgets/ic_widgets.php:74
+msgid "Select"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/widgets/ic_widgets.php:75
+msgid "Option 1"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/widgets/ic_widgets.php:76
+msgid "Option 2"
+msgstr ""
+
+#: lang/ImbaChat-WordPress/widgets/ic_widgets.php:77
+msgid "Option 3"
+msgstr ""
