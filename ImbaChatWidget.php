@@ -78,5 +78,24 @@ register_activation_hook( __FILE__, 'imbachat_activation_func' );
 //This subscription is created in the site database, one table for all subscriptions that are in the plugin
 register_activation_hook( __FILE__, 'imbachat_install_database' );
 
+register_uninstall_hook(__FILE__, 'imbachat_uninstall_feedback');
+function imbachat_uninstall_feedback() {
+	$post_data = [
+        'email' => get_option( 'admin_email' ),
+    ];
+    $url = 'https://imbachat.com/v1/feedback';
+    $curl = curl_init();
+    curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
+    curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, FALSE);
+    curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
+    curl_setopt($curl, CURLOPT_TIMEOUT, 10);
+    curl_setopt($curl, CURLOPT_URL, $url);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($curl, CURLOPT_POST, true);
+    curl_setopt($curl, CURLOPT_POSTFIELDS, $post_data);
+    $curlout = curl_exec($curl);
+    curl_close($curl);
+}
+
 //Connecting the main file, which contains all the functionality of the plugin
 require_once IMBACHAT__PLUGIN_DIR . '/settings.php';

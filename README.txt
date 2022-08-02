@@ -83,6 +83,9 @@ Browsers require a secure connection (HTTPS) for accessing a deviceРІР‚в�
 
 == Changelog ==
 
+= 2.9.9 =
+* New feature: Add feedback
+
 = 2.9.8 =
 * New feature: Add languages
 
