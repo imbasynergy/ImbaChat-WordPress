@@ -19,12 +19,14 @@ add_action( 'admin_menu' , function (){
         $links = [
             'imbachat' => 'https://imbachat.com/visitor/login-user?token='.get_option('IMCH_secret_key'),
             'imachat_dashboard' => 'https://dashboard.imbachat.com/#/'.get_option('IMCH_dev_id').'/auth/'.IMCH_getJWT(),
-            'imbachat_onlinesup' => 'https://api.imbachat.com/imbasupport/v1/'.get_option('IMCH_dev_id').'/token_auth?jwt='.IMCH_get_adminJWT(get_admin_url())
+            'imbachat_onlinesup' => 'https://api.imbachat.com/imbasupport/v1/'.get_option('IMCH_dev_id').'/token_auth?jwt='.IMCH_get_adminJWT(get_admin_url()),
+            'imbachat_step' => 'https://imbachat.com/visitor/login-user?token='.get_option('IMCH_secret_key').'&step=1'
         ];
         $submenu['imbachat-settings'][9997] = array('Support Forum', 'manage_options', "https://wordpress.org/support/plugin/imbachat-widget/", '', '', '', 'target' );
         $submenu['imbachat-settings'][9998] = array('Admin Panel', 'manage_options', $links['imbachat'], '', 'imba-admin-panel', '', 'target');
         $submenu['imbachat-settings'][9999] = array('Chat Moderation', 'manage_options', $links['imachat_dashboard'], '', 'imba-chat-moderation', '', 'div' );
         $submenu['imbachat-settings'][9997] = array('Online Support', 'manage_options', $links['imbachat_onlinesup'], '', 'imba-online-support', '', 'div' );
+        $submenu['imbachat-settings'][9996] = array('Step by step setup', 'manage_options', $links['imbachat_step'], '', 'imba-online-step', '', 'div' );
 
     }
 } );

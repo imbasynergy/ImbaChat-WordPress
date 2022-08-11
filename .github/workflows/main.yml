@@ -17,5 +17,5 @@ jobs:
     env:
       SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
       SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
-      SVN_VERSION: '2.9.9'
-      SVN_TEXT_COMMIT: 'Add feedback'
+      SVN_VERSION: '3.0.0'
+      SVN_TEXT_COMMIT: 'Added step by step setup'
