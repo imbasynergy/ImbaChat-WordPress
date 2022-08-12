@@ -72,6 +72,25 @@ class IMCH_USERS_Controller extends WP_REST_Controller {
                 'callback'            => [ $this, 'notifications' ]
             ]
         ] );
+        register_rest_route( $this->namespace, "/setguestimbachat", [
+            [
+                'methods'             => 'POST',
+                'callback'            => [ $this, 'set_guest' ]
+            ]
+        ] );
+    }
+
+    public function set_guest(WP_REST_Request $request)
+    {
+        $params = $request->get_params();
+        $imbachat_guest = $params['guest_enable'];
+        add_option('IMCH_guest', $imbachat_guest);
+        update_option('IMCH_guest', $imbachat_guest);
+            echo json_encode([
+                "success" => true,
+                "guest" => $imbachat_guest
+            ]);
+           
     }
 
     public function notifications(WP_REST_Request $request)

@@ -109,6 +109,7 @@ class IM_API {
         elseif(is_user_logged_in()==false) {
             $wp_roles = new WP_Roles();
             if(isset($wp_roles->roles['guest']["capabilities"]["imbachat_available_chat"]) && $wp_roles->roles['guest']["capabilities"]["imbachat_available_chat"]) $imbachat_available_chat = true;
+            else if(get_option('IMCH_guest')=="1") $imbachat_available_chat = true;
             else $imbachat_available_chat = false;
         }
         if( user_can( $user_id ,'imbachat_activation_role' ) && (is_plugin_active('user-role-editor/user-role-editor.php') || is_plugin_active('members/members.php')) ) {
