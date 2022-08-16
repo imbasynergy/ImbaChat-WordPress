@@ -82,6 +82,7 @@ register_uninstall_hook(__FILE__, 'imbachat_uninstall_feedback');
 function imbachat_uninstall_feedback() {
 	$post_data = [
         'email' => get_option( 'admin_email' ),
+        'locale' => get_user_locale()
     ];
     $url = 'https://imbachat.com/v1/feedback';
     $curl = curl_init();
