@@ -4,7 +4,11 @@ if (isset($_GET['error'])) {
     function alert() {
         ?>
         <div class="notice notice-error is-dismissible">
-            <p><?php _e("Connection error. API Imbachat.com could not connect to your site, please check your server settings", "imbachat") ?></p>
+            <p><?php $imb_host=$_SERVER['HTTP_HOST']!='' ? $_SERVER['HTTP_HOST'] : preg_replace('#https?://(www.)?#','',site_url());
+                _e("Possible mistakes: <br>
+    1. Check the widget in the admin settings, the current host must be saved (Api setting > Integration Settings > Host (URL without http://) > $imb_host );<br>
+    2. Widget id does not exist or does not belong to you;<br>
+    3. Connection error. API Imbachat.com could not connect to your site, please check your server settings.", "imbachat") ?></p>
         </div>
         <?php
     }
