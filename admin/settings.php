@@ -85,7 +85,7 @@ function add_my_setting(){
         {
             $links = [
                 'imbachat' => 'https://imbachat.com/visitor/login-user?token='.get_option('IMCH_secret_key'),
-                'imachat_dashboard' => 'https://dashboard.imbachat.com/#/'.get_option('IMCH_dev_id').'/auth/'.IMCH_getJWT()
+                'imachat_dashboard' => (IMCH_get_adminJWT(get_admin_url())) ? 'https://dashboard.imbachat.com/#/'.get_option('IMCH_dev_id').'/auth/'.IMCH_get_adminJWT(get_admin_url()) : 'https://dashboard.imbachat.com/#/'.get_option('IMCH_dev_id').'/signIn'
             ];
             echo json_encode($links);
             die;
@@ -98,7 +98,7 @@ function add_my_setting(){
 
         $db_link = null;
         if (get_option('IMCH_dev_id'))
-            $db_link = 'https://dashboard.imbachat.com/#/'.get_option('IMCH_dev_id').'/auth/'.IMCH_getJWT();
+            $db_link = (IMCH_get_adminJWT(get_admin_url())) ? 'https://dashboard.imbachat.com/#/'.get_option('IMCH_dev_id').'/auth/'.IMCH_get_adminJWT(get_admin_url()) : 'https://dashboard.imbachat.com/#/'.get_option('IMCH_dev_id').'/signIn';
 
         require_once IMBACHAT__PLUGIN_DIR . '/view/admin_menu/get_started.php';
     }

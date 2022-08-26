@@ -61,6 +61,61 @@ function sync_with_imba_api($dev_id, $host, $mail)
     }
 }
 
+function get_support_immachat_user_id()
+{
+    if (function_exists( 'curl_version' ))
+    {
+        try {
+            $post_data = [
+                'secret' => get_option('IMCH_secret_key'),
+            ];
+            $url = 'https://api.imbachat.com/imbachat/v1/'.sanitize_text_field(get_option('IMCH_dev_id')).'/get_user_support';
+            $curl = curl_init();
+
+            curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
+            curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, FALSE);
+            curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
+            curl_setopt($curl, CURLOPT_TIMEOUT, 10);
+
+
+            //curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+            //curl_setopt($curl, CURLOPT_USERPWD, '');
+
+            curl_setopt($curl, CURLOPT_URL, $url);
+            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($curl, CURLOPT_POST, true);
+            curl_setopt($curl, CURLOPT_POSTFIELDS, $post_data);
+
+            //curl_setopt($curl, CURLOPT_POSTFIELDS, "users=".$arr);
+
+            
+            $curlout = curl_exec($curl);
+            curl_close($curl);
+            //var_dump($curlout);
+            //die;
+
+            // Принял json и сохранил IMCH_dev_id
+
+            $dev_json=json_decode($curlout);
+            
+
+            if ($dev_json->success == true) {
+                return $dev_json->id;
+            }else{
+                return false;
+            }
+
+       
+            $file = get_template_directory().'/curl_log.txt';
+            file_put_contents($file,$dev_json);
+        } catch (Exception $exception) {
+            return 'error_connect';
+        }
+    }else{
+        return 'error_connect';
+    }
+}
+
 
 function send_wp_stat(){
     if (function_exists( 'curl_version' )){
