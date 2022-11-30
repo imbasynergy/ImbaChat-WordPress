@@ -83,6 +83,9 @@ Browsers require a secure connection (HTTPS) for accessing a deviceРІР‚в�
 
 == Changelog ==
 
+= 3.0.5 =
+* New feature: test commit
+
 = 3.0.4 =
 * New feature: Updating function
 
