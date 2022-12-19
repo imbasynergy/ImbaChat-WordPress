@@ -17,5 +17,5 @@ jobs:
     env:
       SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
       SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
-      SVN_VERSION: '3.0.5'
-      SVN_TEXT_COMMIT: 'test commit 1'
+      SVN_VERSION: '3.0.6'
+      SVN_TEXT_COMMIT: 'updating readme'
