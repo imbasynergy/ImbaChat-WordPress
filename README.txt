@@ -4,7 +4,7 @@ Donate link: paypal.me/TrapenokVictor
 Tags: chat, community, chat room, embed chat, chat plugin, chat widget, buddypress, messages, private message, sweetdate chat plugin, WCFM chat plugin, live chat, group chat, member chat, private messaging system, floating chat widget, video conference, video call, webcam, webinar, video chat, videochat.
 Requires at least: 4.6
 Tested up to: 6.1
-Stable tag: 6.0
+Stable tag: 3.0.8
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: http://www.apache.org/licenses/
@@ -83,11 +83,17 @@ Browsers require a secure connection (HTTPS) for accessing a deviceРІР‚в�
 
 == Changelog ==
 
+= 3.0.8 =
+* New feature: Updating readme
+
+= 3.0.7 =
+* New feature: Updating readme
+
 = 3.0.6 =
-* New feature: Updating readme.
+* New feature: Updating readme
 
 = 3.0.5 =
-* New feature: test commit 1
+* New feature: test commit
 
 = 3.0.4 =
 * New feature: Updating function
