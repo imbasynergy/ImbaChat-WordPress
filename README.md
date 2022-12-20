@@ -7,9 +7,9 @@ Donate link: paypal.me/TrapenokVictor
 
 Requires at least: 4.6
 
-Tested up to: 5.8
+Tested up to: 6.1
 
-Stable tag: 5.7
+Stable tag: 6.0
 
 Requires PHP: 7.0
 
