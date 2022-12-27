@@ -4,7 +4,7 @@
  *
  * REST API
  *
- * @class    IM_API
+ * @class    IMBACHAT_IM_API
  * @version  1.0.0
  * @category Admin
  * @author   SprayDev
@@ -15,10 +15,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * IM_API Class
+ * IMBACHAT_IM_API Class
  */
 
-class IM_API {
+class IMBACHAT_IM_API {
 
     public static function init(){
        static::init_after_callbacks();
@@ -143,4 +143,4 @@ class IM_API {
 
 }
 
-IM_API::init();
+IMBACHAT_IM_API::init();

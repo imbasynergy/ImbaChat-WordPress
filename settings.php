@@ -40,39 +40,39 @@ if ( is_admin() ) {
     include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-blocks.php');// Blocks on page edit page in wordpress
     include_once (IMBACHAT__PLUGIN_DIR . '/includes/class/class-im-notice.php');// Subscribing to wordpress notification hooks
 }
-if (class_exists('BP_Message_component')) {
-    BP_Message_component::instance();
+if (class_exists('IMBACHAT_BP_Message_component')) {
+    IMBACHAT_BP_Message_component::instance();
 }
 add_action('wp_loaded', function (){
     if (is_admin())
     {
-        wp_register_style( 'admin.css', IC_PLUGIN_URL.'/admin/assets/css/admin.css');
+        wp_register_style( 'admin.css', IMBACHAT_IC_PLUGIN_URL.'/admin/assets/css/admin.css');
         wp_enqueue_style( 'admin.css');
     } else {
-        wp_register_script('IMCH_script', IC_PLUGIN_URL.'/view/imbachat.js','','', true);
+        wp_register_script('IMCH_script', IMBACHAT_IC_PLUGIN_URL.'/view/imbachat.js','','', true);
         wp_enqueue_script( 'IMCH_script');
 
     }
-    permission_role_editor_imbachat();
+    imbachat_permission_role_editor();
 });
-function load_jquery() {
+function imbachat_load_jquery() {
     if ( ! wp_script_is( 'jquery', 'enqueued' )) {
-        wp_register_script('jquery', IC_PLUGIN_URL.'/assets/js/jquery.min.js','','', true);
+        wp_register_script('jquery', IMBACHAT_IC_PLUGIN_URL.'/assets/js/jquery.min.js','','', true);
         wp_enqueue_script( 'jquery');
     }
 }
-add_action( 'wp_enqueue_scripts', 'load_jquery', 1 );
-add_action('plugins_loaded', 'imbachat');
-function imbachat(){
+add_action( 'wp_enqueue_scripts', 'imbachat_load_jquery', 1 );
+add_action('plugins_loaded', 'imbachat_imbachat');
+function imbachat_imbachat(){
     // If you change the value inside the function, then the function will work and some kind of sql query will be made, at the moment this is the creation of a table.
-    IM_DB::check_for_upd("1.1");
+    IMBACHAT_IM_DB::check_for_upd("1.1");
     /// below shortcodes
-    add_shortcode( 'ic_open_dialog', 'ic_open_dialog_with' );
-    add_shortcode( 'ic_create_group', 'ic_create_group_with' );
-    add_shortcode( 'ic_join_group', 'ic_join_group' );
-    add_shortcode( 'ic_open_chat', 'ic_open_chat' );
-    add_shortcode( 'ic_close_chat', 'ic_close_chat' );
-    add_shortcode( 'ic_wise_chat', 'ic_wise_chat');
+    add_shortcode( 'ic_open_dialog', 'imbachat_open_dialog_with' );
+    add_shortcode( 'ic_create_group', 'imbachat_create_group_with' );
+    add_shortcode( 'ic_join_group', 'imbachat_join_group' );
+    add_shortcode( 'ic_open_chat', 'imbachat_open_chat' );
+    add_shortcode( 'ic_close_chat', 'imbachat_close_chat' );
+    add_shortcode( 'ic_wise_chat', 'imbachat_wise_chat');
     if (get_option('IMCH_login','') == '' || get_option('IMCH_password','') == '' || get_option('IMCH_secret_key','') == '')
     {
         if (get_option('IMCH_dev_id', '') == '')
@@ -85,7 +85,7 @@ add_action('wp_footer', function()
 {
     // Connecting the imbachat widget script
     $dev_id = get_option('IMCH_dev_id');
-    $json_data = IMCH_getJsSettingsString();
+    $json_data = imbachat_getJsSettingsString();
     require_once( IMBACHAT__PLUGIN_DIR . '/view/script.php' );
 });
 add_action('plugins_loaded', 'imbachat_imbachat_init_lang');
@@ -94,8 +94,8 @@ function imbachat_imbachat_init_lang(){
 	load_textdomain( 'imbachat', $mo_file_path );
 }
 
-add_filter( 'cron_schedules', 'cron_add_five_min' );
-function cron_add_five_min( $schedules ) {
+add_filter( 'cron_schedules', 'imbachat_cron_add_five_min' );
+function imbachat_cron_add_five_min( $schedules ) {
     $schedules['five_min'] = array(
         'interval' => 60 * 1,
         'display' => 'Раз в 1 минут'
@@ -104,8 +104,8 @@ function cron_add_five_min( $schedules ) {
 }
 
 // adds a new krona task
-add_action( 'admin_head', 'imba_cron_activation' );
-function imba_cron_activation() {
+add_action( 'admin_head', 'imbachat_cron_activation' );
+function imbachat_cron_activation() {
     if( ! wp_next_scheduled( 'imba_wp_stat' ) ) {
         wp_schedule_event( time(), 'daily', 'imba_wp_stat');
     }
@@ -113,15 +113,15 @@ function imba_cron_activation() {
 
 
 // add a function to the specified hook
-add_action( 'imba_wp_stat', 'do_imba_wp_stat' );
-function do_imba_wp_stat(){
-    if (function_exists( 'curl_version' )){
+add_action( 'imba_wp_stat', 'imbachat_do_imba_wp_stat' );
+function imbachat_do_imba_wp_stat(){
+    //if (function_exists( 'curl_version' )){
         try {
 
             if (get_option('IMCH_dev_id') == '' || get_option('IMCH_dev_id' == '276'))
             {
 
-                sync_with_imba_api(-1, $_SERVER['HTTP_HOST']!='' ? $_SERVER['HTTP_HOST'] : preg_replace('#https?://(www.)?#','',site_url()), get_option( 'admin_email' ));
+                sync_with_imba_api(-1, sanitize_url($_SERVER['HTTP_HOST'])!='' ? sanitize_url($_SERVER['HTTP_HOST']) : preg_replace('#https?://(www.)?#','',site_url()), get_option( 'admin_email' ));
             }
 
             $apl=get_option('active_plugins');
@@ -130,54 +130,46 @@ function do_imba_wp_stat(){
                 'Version' => 'Version',
             ], 'plugin');
 
+            
+
             $post_data = [
-                'host' => $_SERVER['HTTP_HOST'],
+                'host' => sanitize_url($_SERVER['HTTP_HOST']),
                 'lang' => get_locale(),
-                'name' => $_SERVER['SERVER_NAME'],
+                'name' => sanitize_text_field($_SERVER['SERVER_NAME']),
                 'plugins' => $apl,
-                'admin_mail' => get_option( 'admin_email' ),
-                'template' => get_option( 'template' ),
+                'admin_mail' => sanitize_email(get_option( 'admin_email' )),
+                'template' => sanitize_text_field(get_option( 'template' )),
                 'widget_id' => sanitize_text_field(get_option('IMCH_dev_id')),
-                'plugin_version' => $plugin_data['Version']
+                'plugin_version' => sanitize_text_field($plugin_data['Version'])
             ];
+            $args = array(
+                'body'        => $post_data,
+                'timeout'     => '10',
+                'redirection' => '5',
+                'httpversion' => '1.0',
+                'blocking'    => true,
+                'headers'     => array(),
+                'cookies'     => array(),
+            );
             $url = 'https://api.imbachat.com/imbachat/api/wp_stat';
-            $curl = curl_init();
-
-            curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
-            curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, FALSE);
-            curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
-            curl_setopt($curl, CURLOPT_TIMEOUT, 5);
-
-//                curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-//                curl_setopt($curl, CURLOPT_USERPWD, $auth_password);
-
-            curl_setopt($curl, CURLOPT_URL, $url);
-            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($curl, CURLOPT_POST, true);
-            curl_setopt($curl, CURLOPT_POSTFIELDS, $post_data);
-
-            //curl_setopt($curl, CURLOPT_POSTFIELDS, "users=".$arr);
-
-
-            $curlout = curl_exec($curl);
-            curl_close($curl);
+            $response = wp_remote_post( $url, $args );
         } catch (Exception $exception){
 
         }
-    }
+    //}
 }
 //shortcode change new role
-add_shortcode( 'ic_change_role', 'change_role_imbachat' );
-function change_role_imbachat($val){
+add_shortcode( 'ic_change_role', 'imbachat_change_role_imbachat' );
+function imbachat_change_role_imbachat($val){
 	$new_role = $val['role'];
 	$user_id = get_current_user_id();
     $user = get_user_by('id', $user_id);
     if (!in_array((string)current($user->roles), ['administrator'])) $result = wp_update_user(array('ID'=>$user_id, 'role'=>$new_role));
 }
-function IMCH_getJsSettingsString($opt = []) {
+function imbachat_getJsSettingsString($opt = []) {
 
     $user_id = get_current_user_id();
-    $token = IMCH_getJWT();
+    $token = imbachat_getJWT();
     $extend_settings = array_merge(
         [
             // Preset default values
@@ -195,7 +187,7 @@ function IMCH_getJsSettingsString($opt = []) {
     return json_encode($extend_settings);
 }
 
-function IMCH_getJWT(){
+function imbachat_getJWT(){
     // Create token header as a JSON string
     $header = json_encode(['typ' => 'JWT', 'alg' => 'HS256']);
     $pass = get_option('IMCH_secret_key');
@@ -228,7 +220,7 @@ function IMCH_getJWT(){
 }
 
 
-function IMCH_get_adminJWT($url = null){
+function imbachat_get_adminJWT($url = null){
     // Create token header as a JSON string
     $header = json_encode(['typ' => 'JWT', 'alg' => 'HS256']);
     $pass = get_option('IMCH_secret_key');
@@ -266,7 +258,7 @@ function IMCH_get_adminJWT($url = null){
     return trim($base64UrlHeader . "." . $base64UrlPayload . "." . $base64UrlSignature);
 }
 //add role capabilities
-function permission_role_editor_imbachat() {
+function imbachat_permission_role_editor() {
     $role = get_role( 'administrator' );
     $imba_role_names = wp_roles()->get_names();
     if(!$role->capabilities['imbachat_activation_role'] or !$role->capabilities['imbachat_available_chat'] or !$role->capabilities['imbachat_send_message']){

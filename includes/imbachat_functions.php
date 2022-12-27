@@ -1,7 +1,7 @@
 <?php
 
 use \Firebase\JWT\JWT;
-function ic_open_dialog_with( $atts, $content = null, $code = '' ) {
+function imbachat_open_dialog_with( $atts, $content = null, $code = '' ) {
 
     if ( is_feed() ) {
         return '[ic_open_dialog]';
@@ -48,7 +48,7 @@ function ic_open_dialog_with( $atts, $content = null, $code = '' ) {
     return '<button type="button" class="'.$className.'" onclick="open_dialog('.$id.', `'.$jwt.'`, this)">'.$text_btn.'</button>';
 }
 
-function ic_close_chat( $atts, $content = null, $code = '' ) {
+function imbachat_close_chat( $atts, $content = null, $code = '' ) {
 
     if ( is_feed() ) {
         return '[ic_close_chat]';
@@ -58,7 +58,7 @@ function ic_close_chat( $atts, $content = null, $code = '' ) {
     return '<button type="button" onclick="closeChat()">'.$text_btn.'</button>';
 }
 
-function ic_open_chat( $atts, $content = null, $code = '' ) {
+function imbachat_open_chat( $atts, $content = null, $code = '' ) {
 
     if ( is_feed() ) {
         return '[ic_open_chat]';
@@ -67,7 +67,7 @@ function ic_open_chat( $atts, $content = null, $code = '' ) {
     return '<button type="button" onclick="showChat()">'.$text_btn.'</button>';
 }
 
-function ic_create_group_with($atts, $content = null, $code = '') {
+function imbachat_create_group_with($atts, $content = null, $code = '') {
     if ( is_feed() ) {
         return '[ic_create_group]';
     }
@@ -97,7 +97,7 @@ function ic_create_group_with($atts, $content = null, $code = '') {
     </div>';
 }
 
-function ic_join_group($atts, $content = null, $code = '') {
+function imbachat_join_group($atts, $content = null, $code = '') {
     if ( is_feed() ) {
         return '[ic_join_group]';
     }
@@ -121,7 +121,7 @@ function ic_join_group($atts, $content = null, $code = '') {
     return '<button type="button" class="'.$classNameB.'" onclick="ic_join_group(`'.$atts['pipe'].'`, `'.$atts['name'].'`)">'._e($btnName, "imbachat").'</button>';
 }
 
-function ic_wise_chat($atts, $content = null, $code = '') {
+function imbachat_wise_chat($atts, $content = null, $code = '') {
     if ( is_feed() ) {
         return '[ic_wise_chat]';
     }
@@ -139,7 +139,7 @@ function ic_wise_chat($atts, $content = null, $code = '') {
         $height = $atts['height'];
         $name = $atts['name'];
     }
-    $json_data = IMCH_getJsSettingsString();
+    $json_data = imbachat_getJsSettingsString();
     $json_data = json_decode($json_data, true);
     $json_data['holder_ex'] = 1;
     $json_data['holder_ph'] = 'test';

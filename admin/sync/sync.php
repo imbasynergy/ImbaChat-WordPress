@@ -2,163 +2,96 @@
 
 function sync_with_imba_api($dev_id, $host, $mail)
 {
-    if (function_exists( 'curl_version' ))
-    {
-        try {
-            $post_data = [
-                'host' => $host,
-                'cms' => 'ImbaChat-WordPress',
-                'dev_id' => $dev_id,
-                'email' => $mail,
-                'lang' => get_option('IMCH_LANG') ? get_option('IMCH_LANG') : 'en-US',
-                'url' => get_site_url(),
-            ];
-            $url = 'https://api.imbachat.com/developers/api/v1/sync';
-            $curl = curl_init();
-
-            curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
-            curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, FALSE);
-            curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
-            curl_setopt($curl, CURLOPT_TIMEOUT, 10);
-
-
-        //curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-        //curl_setopt($curl, CURLOPT_USERPWD, '');
-
-            curl_setopt($curl, CURLOPT_URL, $url);
-            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($curl, CURLOPT_POST, true);
-            curl_setopt($curl, CURLOPT_POSTFIELDS, $post_data);
-
-            //curl_setopt($curl, CURLOPT_POSTFIELDS, "users=".$arr);
-
-            
-            $curlout = curl_exec($curl);
-            curl_close($curl);
-            //var_dump($curlout);
-            //die;
-
-            // Принял json и сохранил IMCH_dev_id
-
-            $dev_json=json_decode($curlout);
-            $dev_id_temp=$dev_json->dev_id;
-
-            if ($dev_id_temp == $dev_id or ($dev_id==-1 and $dev_id_temp>0)) {
-                send_wp_stat();
-                return "success";
-            }else{
-                return "error_connect";
-            }
-
-       
-            $file = get_template_directory().'/curl_log.txt';
-            file_put_contents($file,$dev_id);
-        } catch (Exception $exception) {
-            return 'error_connect';
-        }
+    $post_data = [
+        'host' => $host,
+        'cms' => 'ImbaChat-WordPress',
+        'dev_id' => sanitize_text_field($dev_id),
+        'email' => sanitize_email($mail),
+        'lang' => get_option('IMCH_LANG') ? get_option('IMCH_LANG') : 'en-US',
+        'url' => get_site_url(),
+    ];
+    $args = array(
+        'body'        => $post_data,
+        'timeout'     => '10',
+        'redirection' => '5',
+        'httpversion' => '1.0',
+        'blocking'    => true,
+        'headers'     => array(),
+        'cookies'     => array(),
+    );
+    $url = 'https://api.imbachat.com/developers/api/v1/sync';
+    $response = wp_remote_post( $url, $args );
+    if ( is_wp_error( $response ) ) {
+        $error_message = $response->get_error_message();
+        echo "error_connect";
+     } 
+     $dev_json=json_decode(wp_remote_retrieve_body($response));
+     $dev_id_temp=$dev_json->dev_id;
+     if ($dev_id_temp == $dev_id or ($dev_id==-1 and $dev_id_temp>0)) {
+        imbachat_send_wp_stat();
+        return "success";
     }else{
-        return 'error_connect';
+        return "error_connect";
     }
 }
 
 function get_support_immachat_user_id()
 {
-    if (function_exists( 'curl_version' ))
-    {
-        try {
-            $post_data = [
-                'secret' => get_option('IMCH_secret_key'),
-            ];
-            $url = 'https://api.imbachat.com/imbachat/v1/'.sanitize_text_field(get_option('IMCH_dev_id')).'/get_user_support';
-            $curl = curl_init();
 
-            curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
-            curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, FALSE);
-            curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
-            curl_setopt($curl, CURLOPT_TIMEOUT, 10);
-
-
-            //curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-            //curl_setopt($curl, CURLOPT_USERPWD, '');
-
-            curl_setopt($curl, CURLOPT_URL, $url);
-            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($curl, CURLOPT_POST, true);
-            curl_setopt($curl, CURLOPT_POSTFIELDS, $post_data);
-
-            //curl_setopt($curl, CURLOPT_POSTFIELDS, "users=".$arr);
-
-            
-            $curlout = curl_exec($curl);
-            curl_close($curl);
-            //var_dump($curlout);
-            //die;
-
-            // Принял json и сохранил IMCH_dev_id
-
-            $dev_json=json_decode($curlout);
-            
-
-            if ($dev_json->success == true) {
-                return $dev_json->id;
-            }else{
-                return false;
-            }
-
-       
-            $file = get_template_directory().'/curl_log.txt';
-            file_put_contents($file,$dev_json);
-        } catch (Exception $exception) {
-            return 'error_connect';
-        }
+    $post_data = [
+        'secret' => get_option('IMCH_secret_key'),
+    ];
+    $args = array(
+        'body'        => $post_data,
+        'timeout'     => '10',
+        'redirection' => '5',
+        'httpversion' => '1.0',
+        'blocking'    => true,
+        'headers'     => array(),
+        'cookies'     => array(),
+    );
+    $url = 'https://api.imbachat.com/imbachat/v1/'.sanitize_text_field(get_option('IMCH_dev_id')).'/get_user_support';
+    $response = wp_remote_post( $url, $args );
+    if ( is_wp_error( $response ) ) {
+        $error_message = $response->get_error_message();
+        echo "error_connect";
+     } 
+     $dev_json=json_decode(wp_remote_retrieve_body($response));
+     if ($dev_json->success == true) {
+        return $dev_json->id;
     }else{
-        return 'error_connect';
+        return false;
     }
 }
 
 
-function send_wp_stat(){
-    if (function_exists( 'curl_version' )){
-        try {
-            $apl=get_option('active_plugins');
-            $apl = json_encode($apl);
-            $plugin_data = get_file_data(IMBACHAT_PLUGIN_FILE, [
-                'Version' => 'Version',
-            ], 'plugin');
+function imbachat_send_wp_stat(){
 
-            $post_data = [
-                'host' => $_SERVER['HTTP_HOST'],
-                'lang' => get_locale(),
-                'name' => $_SERVER['SERVER_NAME'],
-                'plugins' => $apl,
-                'admin_mail' => get_option( 'admin_email' ),
-                'template' => get_option( 'template' ),
-                'widget_id' => sanitize_text_field(get_option('IMCH_dev_id')),
-                'plugin_version' => $plugin_data['Version']
-            ];
-            $url = 'https://api.imbachat.com/imbachat/api/wp_stat';
-            $curl = curl_init();
+    $apl=sanitize_text_field(get_option('active_plugins'));
+    $apl = json_encode($apl);
+    $plugin_data = get_file_data(IMBACHAT_PLUGIN_FILE, [
+         'Version' => 'Version',
+    ], 'plugin');
 
-            curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
-            curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, FALSE);
-            curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
-            curl_setopt($curl, CURLOPT_TIMEOUT, 10);
-
-//                curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-//                curl_setopt($curl, CURLOPT_USERPWD, $auth_password);
-
-            curl_setopt($curl, CURLOPT_URL, $url);
-            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($curl, CURLOPT_POST, true);
-            curl_setopt($curl, CURLOPT_POSTFIELDS, $post_data);
-
-            //curl_setopt($curl, CURLOPT_POSTFIELDS, "users=".$arr);
-
-
-            $curlout = curl_exec($curl);
-            curl_close($curl);
-        } catch (Exception $exception){
-
-        }
-    }
+    $post_data = [
+        'host' => sanitize_url($_SERVER['HTTP_HOST']),
+        'lang' => get_locale(),
+        'name' => sanitize_text_field($_SERVER['SERVER_NAME']),
+        'plugins' => $apl,
+        'admin_mail' => sanitize_email(get_option( 'admin_email' )),
+        'template' => sanitize_text_field(get_option( 'template' )),
+        'widget_id' => sanitize_text_field(get_option('IMCH_dev_id')),
+        'plugin_version' => sanitize_text_field($plugin_data['Version'])
+    ];
+    $args = array(
+        'body'        => $post_data,
+        'timeout'     => '10',
+        'redirection' => '5',
+        'httpversion' => '1.0',
+        'blocking'    => true,
+        'headers'     => array(),
+        'cookies'     => array(),
+    );
+    $url = 'https://api.imbachat.com/imbachat/api/wp_stat';
+    $response = wp_remote_post( $url, $args );
 }

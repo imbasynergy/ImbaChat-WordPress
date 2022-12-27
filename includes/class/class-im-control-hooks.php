@@ -4,7 +4,7 @@
  *
  *
  *
- * @class    IM_CTRL_HOOKS
+ * @class    IMBACHAT_IM_CTRL_HOOKS
  * @version  1.0.0
  * @category Admin
  * @author   SprayDev
@@ -15,10 +15,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * IM_CTRL_HOOKS Class
+ * IMBACHAT_IM_CTRL_HOOKS Class
  */
 
-class IM_CTRL_HOOKS {
+class IMBACHAT_IM_CTRL_HOOKS {
 
     public static function init(){
         self::control_filters();
@@ -35,4 +35,4 @@ class IM_CTRL_HOOKS {
 
 }
 
-IM_CTRL_HOOKS::init();
+IMBACHAT_IM_CTRL_HOOKS::init();

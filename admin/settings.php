@@ -1,6 +1,6 @@
 <?php
 
-function add_my_setting(){
+function imbachat_add_my_setting(){
 ?>
 <div class="wrap">
     <h1><?php echo _e(get_admin_page_title(), "imbachat") ?></h1>
@@ -14,13 +14,13 @@ function add_my_setting(){
                 <p><?php _e('"Host" write your site url without http:// (for example: your-site-domain-url.com)', "imbachat") ?></p>
                 <p><?php _e('Write the widget id into “Widget id” field in the ImbaChat settings in the admin panel of your website. After that click “Connect to the widget”', "imbachat") ?></p>
                 <div class="image-ins">
-                    <img width="1024" src="<?= IMBACHAT_ADMIN_DIR.'/assets/images/way_1.png' ?>">
+                    <img width="1024" src="<?php echo IMBACHAT_ADMIN_DIR.'/assets/images/way_1.png' ?>">
                 </div>
             </li>
             <li>
                 <p><?php _e("2.	If you don't have a widget yet, click 'Create a widget' at the same page. Connection between your website and ImbaChat server will be automatically configured.", "imbachat") ?></p>
                 <div class="image-ins">
-                    <img src="<?= IMBACHAT_ADMIN_DIR.'/assets/images/way_2.png' ?>">
+                    <img src="<?php echo IMBACHAT_ADMIN_DIR.'/assets/images/way_2.png' ?>">
                 </div>
             </li>
         </ul>
@@ -28,7 +28,10 @@ function add_my_setting(){
             <h3><?php _e("Also, if you have BuddyPress, WCFM Marketplace or SweetDate themes, integration with ImbaChat will be automatically configured as well.", "imbachat") ?></h3>
         </div>
     </div>
-    <style>
+    <?php
+        wp_register_style( 'admin-settings-inline-style', '',);
+        wp_enqueue_style( 'admin-settings-inline-style' );
+        wp_add_inline_style( 'admin-settings-inline-style', "
         .instruction p{
             font-size: 20px;
             padding: 10px 0px 10px 0px;
@@ -40,7 +43,8 @@ function add_my_setting(){
         .image-ins{
             padding: 10px 0px 10px 0px;
         }
-    </style>
+        ");
+    ?>
     <?php
 
     }
@@ -63,7 +67,7 @@ function add_my_setting(){
             update_option('IMCH_login', $IMCH_login);
             update_option('IMCH_password', $IMCH_password);
             update_option('IMCH_secret_key', $IMCH_secret_key);
-            sync_with_imba_api($IMCH_dev_id, $_SERVER['HTTP_HOST']!='' ? $_SERVER['HTTP_HOST'] : preg_replace('#https?://(www.)?#','',site_url()), get_option( 'admin_email' ));
+            sync_with_imba_api($IMCH_dev_id, sanitize_url($_SERVER['HTTP_HOST'])!='' ? sanitize_url($_SERVER['HTTP_HOST']) : preg_replace('#https?://(www.)?#','',site_url()), sanitize_email(get_option( 'admin_email' )));
         }
 
         require_once IMBACHAT__PLUGIN_DIR . '/view/admin_menu/settings.php';
@@ -85,7 +89,7 @@ function add_my_setting(){
         {
             $links = [
                 'imbachat' => 'https://imbachat.com/visitor/login-user?token='.get_option('IMCH_secret_key'),
-                'imachat_dashboard' => (IMCH_get_adminJWT(get_admin_url())) ? 'https://dashboard.imbachat.com/#/'.get_option('IMCH_dev_id').'/auth/'.IMCH_get_adminJWT(get_admin_url()) : 'https://dashboard.imbachat.com/#/'.get_option('IMCH_dev_id').'/signIn'
+                'imachat_dashboard' => (imbachat_get_adminJWT(get_admin_url())) ? 'https://dashboard.imbachat.com/#/'.get_option('IMCH_dev_id').'/auth/'.imbachat_get_adminJWT(get_admin_url()) : 'https://dashboard.imbachat.com/#/'.get_option('IMCH_dev_id').'/signIn'
             ];
             echo json_encode($links);
             die;
@@ -98,7 +102,7 @@ function add_my_setting(){
 
         $db_link = null;
         if (get_option('IMCH_dev_id'))
-            $db_link = (IMCH_get_adminJWT(get_admin_url())) ? 'https://dashboard.imbachat.com/#/'.get_option('IMCH_dev_id').'/auth/'.IMCH_get_adminJWT(get_admin_url()) : 'https://dashboard.imbachat.com/#/'.get_option('IMCH_dev_id').'/signIn';
+            $db_link = (imbachat_get_adminJWT(get_admin_url())) ? 'https://dashboard.imbachat.com/#/'.get_option('IMCH_dev_id').'/auth/'.imbachat_get_adminJWT(get_admin_url()) : 'https://dashboard.imbachat.com/#/'.get_option('IMCH_dev_id').'/signIn';
 
         require_once IMBACHAT__PLUGIN_DIR . '/view/admin_menu/get_started.php';
     }
@@ -165,48 +169,32 @@ function add_my_setting(){
     //post functions
     function sync_with_imbachat(){
 
-        $dev_id = $_REQUEST['IMCH_dev_id'];
-        sync_with_imba_api($dev_id, $_SERVER['HTTP_HOST']!='' ? $_SERVER['HTTP_HOST'] : preg_replace('#https?://(www.)?#','',site_url()), get_option( 'admin_email' ));
+        $dev_id = sanitize_text_field($_REQUEST['IMCH_dev_id']);
+        sync_with_imba_api($dev_id, sanitize_url($_SERVER['HTTP_HOST'])!='' ? sanitize_url($_SERVER['HTTP_HOST']) : preg_replace('#https?://(www.)?#','',site_url()), sanitize_email(get_option( 'admin_email' )));
         wp_redirect(admin_url( 'admin.php' ).'?page=imbachat-settings&success=1', 302);
     }
 
-    function interactive_submit()
+    function imbachat_interactive_submit()
     {
-        update_option('IMCH_LANG', $_REQUEST['language']);
+        update_option('IMCH_LANG', sanitize_text_field($_REQUEST['language']));
         wp_redirect(admin_url( 'admin.php' ).'?page=imbachat-settings', 302);
     }
 
     //ajax functions
-    function save_users_settings()
+    function imbachat_save_users_settings()
     {
         $params = $_REQUEST['param'];
         if (isset($params['user_field']))
         {
-            update_option('im_user_field', $params['user_field']);
+            update_option('im_user_field', sanitize_text_field($params['user_field']));
 
-            update_option('im_user_search_type', $params['search_type']);
+            update_option('im_user_search_type', sanitize_text_field($params['search_type']));
         }
         echo(json_encode( array('status'=>true,'request_vars'=>$_REQUEST) ));
         wp_die();
     }
     //test api
-    function test_api(){
-        if(empty($_SERVER['HTTPS'])) $http="http://";
-            else $http="https://";
-            $url= $http . $_SERVER['SERVER_NAME'];
-        $ch = curl_init(); 
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_HEADER, 0);
-        curl_setopt($ch, CURLOPT_TIMEOUT, 10);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
-        $page = curl_exec ($ch);
-        curl_close($ch); 
-        if(empty($page)) {
-            echo("error curl_exec");
-            wp_die();
-        }
+    function imbachat_test_api(){
         
         //ping to server imbachat
         $host = 'https://api.imbachat.com';
@@ -217,42 +205,33 @@ function add_my_setting(){
         }
 
         //send api
-        if (function_exists( 'curl_version' ))
-    {
+
         try {
-            $post_data = [
-               'email' => get_option('admin_email'),
-            ];
             $url = 'https://api.imbachat.com/imbachat/v1/widget/imba_get_widgets';
-            $curl = curl_init();
-
-            curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
-            curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, FALSE);
-            curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
-            curl_setopt($curl, CURLOPT_TIMEOUT, 10);
-
-
-        //curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-        //curl_setopt($curl, CURLOPT_USERPWD, '');
-
-            curl_setopt($curl, CURLOPT_URL, $url);
-            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($curl, CURLOPT_POST, true);
-            curl_setopt($curl, CURLOPT_POSTFIELDS, $post_data);
-
-            //curl_setopt($curl, CURLOPT_POSTFIELDS, "users=".$arr);
-
-            
-            $curlout = curl_exec($curl);
-            curl_close($curl);
-             echo $curlout;
+            $body = array(
+                'email' => get_option('admin_email')
+            );
+            $args = array(
+                'body'        => $body,
+                'timeout'     => '10',
+                'redirection' => '5',
+                'httpversion' => '1.0',
+                'blocking'    => true,
+                'headers'     => array(),
+                'cookies'     => array(),
+            );
+            $response = wp_remote_post( $url, $args );
+            if ( is_wp_error( $response ) ) {
+                $error_message = $response->get_error_message();
+                echo "error host could not be reached: $error_message";
+             } 
+            $curlout =  wp_remote_retrieve_body($response);
+            echo $curlout;
              wp_die();
         } catch (Exception $exception) {
             echo 'error_connect';
         }
-    }else{
-       echo 'error_connect';
-    }
+    
         wp_die();
     }
 

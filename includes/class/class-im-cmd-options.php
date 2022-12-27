@@ -4,7 +4,7 @@
  *
  * Create options page
  *
- * @class    IM_CMD
+ * @class    IMBACHAT_IM_CMD
  * @version  1.0.0
  * @category Admin
  * @author   SprayDev
@@ -15,9 +15,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * IM_Curl Class
+ * IMBACHAT_IM_Curl Class
  */
-class IM_CMD {
+class IMBACHAT_IM_CMD {
 
     protected static $menu_settings = [
         'imbachat-users-settings' => [
@@ -158,7 +158,7 @@ class IM_CMD {
 
     public static function imbachat_hooks_settings_override_get_integrations($data, $object_id, $args, $field)
     {
-        $imdb = new IM_DB();
+        $imdb = new IMBACHAT_IM_DB();
         $filters = $imdb->where('imbachat_hooks', [
             'forbidden' => 0
         ]);
@@ -173,7 +173,7 @@ class IM_CMD {
         $settings = self::$menu_settings['imbachat-hooks-settings'];
         $metabox = new_cmb2_box( $settings);
 
-        $imdb = new IM_DB();
+        $imdb = new IMBACHAT_IM_DB();
         $filters = $imdb->get_all('imbachat_hooks');
 
         $options = [];
@@ -194,7 +194,7 @@ class IM_CMD {
 
     public static function imbachat_hooks_settings_on_save()
     {
-        $imdb = new IM_DB();
+        $imdb = new IMBACHAT_IM_DB();
         $filters = array_map(function ($filter){
             return $filter->id;
         }, $imdb->get_all('imbachat_hooks'));
@@ -342,4 +342,4 @@ class IM_CMD {
 
 }
 
-IM_CMD::init();
+IMBACHAT_IM_CMD::init();

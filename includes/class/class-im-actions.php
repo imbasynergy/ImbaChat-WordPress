@@ -4,7 +4,7 @@
  *
  * Load Admin Assets.
  *
- * @class    IM_Curl
+ * @class    IMBACHAT_IM_Curl
  * @version  1.0.0
  * @category Admin
  * @author   SprayDev
@@ -15,10 +15,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * IM_Actions Class
+ * IMBACHAT_IM_Actions Class
  */
 
-class IM_Actions {
+class IMBACHAT_IM_Actions {
 
     public static function init(){
         self::add_actions();
@@ -28,7 +28,7 @@ class IM_Actions {
 
     public static function add_bp_actions()
     {
-        $imdb = new IM_DB();
+        $imdb = new IMBACHAT_IM_DB();
         $actions = [
             'bp_member_header_actions' => [
                 'function' => 'bp_member_header_actions_function',
@@ -66,7 +66,7 @@ class IM_Actions {
         if ( is_user_logged_in() ) {
             $user_id = bp_displayed_user_id();
             if ($user_id != get_current_user_id())
-                echo do_shortcode('[ic_open_dialog id="'.$user_id.'" class="ic_bp_button" name="Message"]');
+                echo do_shortcode('[ic_open_dialog id="'. esc_attr($user_id) .'" class="ic_bp_button" name="Message"]');
         }
     }
 
@@ -74,7 +74,7 @@ class IM_Actions {
         if ( is_user_logged_in() ) {
             $user_id = bp_get_member_user_id();
             if ($user_id != get_current_user_id())
-                echo do_shortcode('[ic_open_dialog id="'.$user_id.'" class="ic_bp_button" name="Message"]');
+                echo do_shortcode('[ic_open_dialog id="'. esc_attr($user_id) .'" class="ic_bp_button" name="Message"]');
         }
     }
 
@@ -108,7 +108,7 @@ class IM_Actions {
     }
 
     public static function add_actions(){
-        $imdb = new IM_DB();
+        $imdb = new IMBACHAT_IM_DB();
         $filters = [
             'wp_login' => false,
             'wp_logout' => false,
@@ -146,7 +146,7 @@ class IM_Actions {
 
     public static function wpforo_member_info_imbachat_button($member)
     {
-        echo '<a class="wpf-member-profile-button" href="#" onclick="open_dialog('.$member['ID'].')"><i class="fas fa-sms"></i></a>';
+        echo '<a class="wpf-member-profile-button" href="#" onclick="open_dialog('.esc_js($member['ID']).')"><i class="fas fa-sms"></i></a>';
     }
 
     public static function imbachat_wp_login($username = '', $user = false)
@@ -216,8 +216,8 @@ OneSignal.push(function() {
         }
         $userId = $store_user->ID;
         if ($userId != get_current_user_id())
-            echo do_shortcode('[ic_open_dialog id="'.$userId.'" class="ic_bp_button"]');
+            echo do_shortcode('[ic_open_dialog id="'.esc_attr($userId).'" class="ic_bp_button"]');
     }
 }
 
-IM_Actions::init();
+IMBACHAT_IM_Actions::init();

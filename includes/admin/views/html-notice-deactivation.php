@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 $reason_deactivation_url = 'https://wpeverest.com/deactivation/user-registration/';
 global $status, $page, $s;
 
-$deactivate_url = wp_nonce_url( 'plugins.php?action=deactivate&amp;plugin=' . IC_PLUGIN_BASENAME . '&amp;plugin_status=' . $status . '&amp;paged=' . $page . '&amp;s=' . $s, 'deactivate-plugin_' . IC_PLUGIN_BASENAME );
+$deactivate_url = wp_nonce_url( 'plugins.php?action=deactivate&amp;plugin=' . IMBACHAT_PLUGIN_BASENAME . '&amp;plugin_status=' . $status . '&amp;paged=' . $page . '&amp;s=' . $s, 'deactivate-plugin_' . IMBACHAT_PLUGIN_BASENAME );
 ?>
 
 <div class="im-modal" id="im-deactivate-modal">
@@ -45,7 +45,7 @@ $deactivate_url = wp_nonce_url( 'plugins.php?action=deactivate&amp;plugin=' . IC
                     <input type="hidden" name="IM_deactivation_reason" value="deactivation_reason">
                     <button type="submit" data-qa="send_and_deactivate" class="imbachat_warning"><?php _e("Send & Deactivate", "imbachat") ?></button>
                 </form>
-                <a href="<?=$deactivate_url?>" data-qa="deactivate_button"><?php _e("Deactivate", "imbachat") ?></a>
+                <a href="<?php echo esc_url($deactivate_url); ?>" data-qa="deactivate_button"><?php _e("Deactivate", "imbachat") ?></a>
                 <a href="#" onclick="document.getElementById('im-deactivate-modal').style.display = 'none'" data-qa="deactivation_cancel" class="imbachat_danger"><?php _e("Cancel", "imbachat") ?></a>
             </div>
         </div>

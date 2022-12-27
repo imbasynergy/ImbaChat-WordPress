@@ -1,5 +1,5 @@
 <h1 class="IMCH_title"><?php _e("ImbaChat settings", "imbachat") ?></h1>
-<form class="IMCH_form" name="IMCH_setting_setup" method="POST" action="<?php echo $_SERVER['PHP_SELF']?>?page=imbachat">
+<form class="IMCH_form" name="IMCH_setting_setup" method="POST" action="<?php echo esc_attr($_SERVER['PHP_SELF'])?>?page=imbachat">
     <?php
     if(function_exists('wp_nonce_field')){
         wp_nonce_field('IMCH_setting_setup');
@@ -7,27 +7,27 @@
     ?>
     <div class="IMCH_form__field">
         <label class="IMCH_form__label"><?php _e("Widget id", "imbachat") ?></label>
-        <input class="IMCH_form__input" name="IMCH_dev_id" value="<?php echo get_option('IMCH_dev_id')?>" type="text">
+        <input class="IMCH_form__input" name="IMCH_dev_id" value="<?php echo esc_attr(get_option('IMCH_dev_id'))?>" type="text">
     </div>
     <div class="IMCH_form__field">
         <label class="IMCH_form__label"><?php _e("API login", "imbachat") ?></label>
-        <input class="IMCH_form__input" name="IMCH_login" value="<?php echo get_option('IMCH_login')?>" type="text">
+        <input class="IMCH_form__input" name="IMCH_login" value="<?php echo esc_attr(get_option('IMCH_login'))?>" type="text">
     </div>
     <div class="IMCH_form__field">
         <label class="IMCH_form__label"><?php _e("API password", "imbachat") ?></label>
-        <input class="IMCH_form__input" name="IMCH_password" value="<?php echo get_option('IMCH_password')?>" type="text">
+        <input class="IMCH_form__input" name="IMCH_password" value="<?php echo esc_attr(get_option('IMCH_password'))?>" type="text">
     </div>
     <div class="IMCH_form__field">
         <label class="IMCH_form__label"><?php _e("Secret key", "imbachat") ?></label>
-        <input class="IMCH_form__input" name="IMCH_secret_key" value="<?php echo get_option('IMCH_secret_key')?>" type="text">
+        <input class="IMCH_form__input" name="IMCH_secret_key" value="<?php echo esc_attr(get_option('IMCH_secret_key'))?>" type="text">
     </div>
     <div class="IMCH_form__field">
         <label class="IMCH_form__label"><?php _e("BuddyPress integration", "imbachat") ?></label>
-        <input class="IMCH_form__input" name="IMCH_buddypress" <?= get_option('IMCH_buddypress')==1 ? 'checked' : '' ?> value="1" type="checkbox">
+        <input class="IMCH_form__input" name="IMCH_buddypress" <?php echo esc_attr(get_option('IMCH_buddypress'))==1 ? 'checked' : '' ?> value="1" type="checkbox">
     </div>
     <div class="IMCH_form__field">
         <label class="IMCH_form__label"><?php _e("Market integration", "imbachat") ?></label>
-        <input class="IMCH_form__input" name="IMCH_market" <?= get_option('IMCH_market')==1 ? 'checked' : '' ?> value="1" type="checkbox">
+        <input class="IMCH_form__input" name="IMCH_market" <?php echo esc_attr(get_option('IMCH_market'))==1 ? 'checked' : '' ?> value="1" type="checkbox">
     </div>
     <button class="IMCH_form__button" name="IMCH_setting_setup" type="submit"><?php _e("Save") ?></button>
 </form>

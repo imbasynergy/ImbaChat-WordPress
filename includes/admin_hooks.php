@@ -1,6 +1,6 @@
 <?php
-add_action( 'admin_footer', 'curl_not_exists_flash' );
-function curl_not_exists_flash( $data ){
+add_action( 'admin_footer', 'imbachat_curl_not_exists_flash' );
+function imbachat_curl_not_exists_flash( $data ){
     if (!function_exists( 'curl_version' )){
         $title = 'danger';
         $body = 'curl';
@@ -8,8 +8,8 @@ function curl_not_exists_flash( $data ){
     }
 }
 
-add_action( 'admin_footer', 'redirect_from_online_sup' );
-function redirect_from_online_sup( $data ){
+add_action( 'admin_footer', 'imbachat_redirect_from_online_sup' );
+function imbachat_redirect_from_online_sup( $data ){
     if (isset($_GET['page']))
     {
         if ($_GET['page'] == 'imbachat-settings')
@@ -24,8 +24,8 @@ function redirect_from_online_sup( $data ){
         }
     }
 }
-add_action( 'admin_footer', 'success_sync_with_imba' );
-function success_sync_with_imba( $data ){
+add_action( 'admin_footer', 'imbachat_success_sync_with_imba' );
+function imbachat_success_sync_with_imba( $data ){
     if (isset($_GET['page']))
     {
         if ($_GET['page'] == 'imbachat-settings')
@@ -52,8 +52,8 @@ function success_sync_with_imba( $data ){
     }
 }
 
-add_action( 'wp_loaded', 'admin_panel_need_connect' );
-function admin_panel_need_connect( $data ){
+add_action( 'wp_loaded', 'imbachat_admin_panel_need_connect' );
+function imbachat_admin_panel_need_connect( $data ){
     if (isset($_GET['page']))
     {
         if ($_GET['page'] == 'imbachat-admin-panel')

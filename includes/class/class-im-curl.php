@@ -4,7 +4,7 @@
  *
  * Load Admin Assets.
  *
- * @class    IM_Curl
+ * @class    IMBACHAT_IM_Curl
  * @version  1.0.0
  * @category Admin
  * @author   SprayDev
@@ -15,11 +15,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * IM_Curl Class
+ * IMBACHAT_IM_Curl Class
  */
 if (function_exists('curl_version')) :
 
-    class IM_Curl {
+    class IMBACHAT_IM_Curl {
         public function __construct(){
         }
 
@@ -30,36 +30,23 @@ if (function_exists('curl_version')) :
          */
         public static function curl($action, $method, $data){
             try {
-
-                $url = 'https://develop.im.awsweb.imbachat.com/developers/api/v1/'.$action;
-
-                $curl = curl_init();
-
-                curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
-                curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, FALSE);
-                curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
-                curl_setopt($curl, CURLOPT_TIMEOUT, 10);
-
-
-//        curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-//        curl_setopt($curl, CURLOPT_USERPWD, 'calls:calls123321');
-
-                curl_setopt($curl, CURLOPT_URL, $url);
-                curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-                if ($method == 'POST') {
-                    curl_setopt($curl, CURLOPT_POST, true);
-                }
-                curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
-
-
-
-                $curlout = curl_exec($curl);
-                curl_close($curl);
+                $args = array(
+                    'body'        => $data,
+                    'timeout'     => '10',
+                    'redirection' => '5',
+                    'httpversion' => '1.0',
+                    'blocking'    => true,
+                    'headers'     => array(),
+                    'cookies'     => array(),
+                );
+                $url = 'https://api.imbachat.com/developers/api/v1/'.$action;;
+                $response = wp_remote_post( $url, $args );
+                return json_decode(wp_remote_retrieve_body($response));
             } catch (Exception $exception) {
-
+                return false;
             }
         }
     }
 
-new IM_Curl();
+new IMBACHAT_IM_Curl();
 endif;

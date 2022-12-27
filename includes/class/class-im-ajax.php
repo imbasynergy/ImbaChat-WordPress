@@ -4,7 +4,7 @@
  *
  * AJAX Event Handler
  *
- * @class    IM_AJAX
+ * @class    IMBACHAT_IM_AJAX
  * @version  1.0.0
  * @category Class
  * @author   SprayDev
@@ -15,10 +15,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * IM_AJAX class
+ * IMBACHAT_IM_AJAX class
  */
 
-class IM_AJAX{
+class IMBACHAT_IM_AJAX{
 
     public static function init() {
         self::ajax_events();
@@ -53,12 +53,12 @@ class IM_AJAX{
     public static function send_rate() {
         unset($_REQUEST['action']);
         $_REQUEST['dev_id'] = get_option('IMCH_dev_id', '');
-        $_REQUEST['additionally'] = json_encode(['reason' => $_REQUEST['reason']]);
+        $_REQUEST['additionally'] = json_encode(['reason' => sanitize_text_field($_REQUEST['reason'])]);
         unset($_REQUEST['reason']);
-        IM_Curl::curl('plugin_rate', 'POST', $_REQUEST);
+        IMBACHAT_IM_Curl::curl('plugin_rate', 'POST', $_REQUEST);
         delete_transient( 'im-feedback-modal' );
         wp_send_json(array('status'=>true,'request_vars'=>$_REQUEST), 200);
     }
 }
 
-IM_AJAX::init();
+IMBACHAT_IM_AJAX::init();

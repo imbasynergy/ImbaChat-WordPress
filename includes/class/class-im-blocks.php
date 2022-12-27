@@ -4,7 +4,7 @@
  *
  * Custom blocks.
  *
- * @class    IM_Blocks
+ * @class    IMBACHAT_IM_Blocks
  * @version  1.0.0
  * @category Admin
  * @author   SprayDev
@@ -15,10 +15,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * IM_Blocks Class
+ * IMBACHAT_IM_Blocks Class
  */
 
-class IM_Blocks {
+class IMBACHAT_IM_Blocks {
 
     public static function init(){
         self::addBlocks();
@@ -63,20 +63,20 @@ class IM_Blocks {
 
         wp_enqueue_script(
             'imbachat-public-chat-block-editor',
-            IM_PLUGIN_URL . '/assets/js/blocks/public_chat.js',
+            IMBACHAT_PLUGIN_URL . '/assets/js/blocks/public_chat.js',
             array( 'wp-blocks', 'wp-element' )
         );
 
         wp_enqueue_style(
             'imbachat-public-chat-block-editor',
-            IM_PLUGIN_URL . '/assets/css/blocks/public_chat.css',
+            IMBACHAT_PLUGIN_URL . '/assets/css/blocks/public_chat.css',
             array()
         );
     }
     public static function public_chat_frontend(){
         wp_enqueue_style(
             'imbachat-public-chat-block-editor',
-            IM_PLUGIN_URL . '/assets/css/blocks/public_chat.css',
+            IMBACHAT_PLUGIN_URL . '/assets/css/blocks/public_chat.css',
             array()
         );
     }
@@ -85,23 +85,23 @@ class IM_Blocks {
 
         wp_enqueue_script(
             'imbachat-embedding-chat-block-editor',
-            IM_PLUGIN_URL . '/assets/js/blocks/embedding_chat.js',
+            IMBACHAT_PLUGIN_URL . '/assets/js/blocks/embedding_chat.js',
             array( 'wp-blocks', 'wp-element' )
         );
 
         wp_enqueue_style(
             'imbachat-public-chat-block-editor',
-            IM_PLUGIN_URL . '/assets/css/blocks/public_chat.css',
+            IMBACHAT_PLUGIN_URL . '/assets/css/blocks/public_chat.css',
             array()
         );
     }
     public static function embedding_chat_frontend(){
         wp_enqueue_style(
             'imbachat-public-chat-block-editor',
-            IM_PLUGIN_URL . '/assets/css/blocks/public_chat.css',
+            IMBACHAT_PLUGIN_URL . '/assets/css/blocks/public_chat.css',
             array()
         );
     }
 }
 
-IM_Blocks::init();
+IMBACHAT_IM_Blocks::init();

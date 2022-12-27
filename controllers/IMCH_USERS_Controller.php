@@ -123,19 +123,22 @@ class IMCH_USERS_Controller extends WP_REST_Controller {
         print("\nJSON sent:\n");
         print($fields);
 
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, "https://onesignal.com/api/v1/notifications");
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json; charset=utf-8', 'Authorization: Basic '.$rest_key));
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-        curl_setopt($ch, CURLOPT_HEADER, FALSE);
-        curl_setopt($ch, CURLOPT_POST, TRUE);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $fields);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+        $args = array(
+            'body'        => $fields,
+            'timeout'     => '10',
+            'redirection' => '5',
+            'httpversion' => '1.0',
+            'blocking'    => true,
+            'headers'     => array('Content-Type: application/json; charset=utf-8', 'Authorization: Basic '.$rest_key),
+            'cookies'     => array(),
+        );
+        $url = 'https://onesignal.com/api/v1/notifications';
+        $response = wp_remote_post( $url, $args );
 
-        $response = curl_exec($ch);
-        curl_close($ch);
 
-        $return["allresponses"] = $response;
+
+        //$return["allresponses"] = $response;
+        $return["allresponses"] = json_decode(wp_remote_retrieve_body($response));
         $return = json_encode( $return);
 
         print("\n\nJSON received:\n");

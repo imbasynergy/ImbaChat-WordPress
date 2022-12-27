@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <div class="notice notice-info user-registration-review-notice" id="imba_rating">
     <p><?php _e("Your feedback is very important to us.", "imbachat") ?></p>
     <div class="imbachat_logo_container">
-        <img src="<?= IMBACHAT_ADMIN_DIR.'/assets/images/imbachat_logo.jpg' ?>">
+        <img src="<?php echo IMBACHAT_ADMIN_DIR.'/assets/images/imbachat_logo.jpg'; ?>">
     </div>
     <div>
         <p><?php _e("Please rate us!", "imbachat") ?></p>
@@ -46,7 +46,7 @@ if ( ! defined( 'ABSPATH' ) ) {
             rating: rating,
             reason: reason
         }
-        jQuery.post('<?=admin_url( 'admin-ajax.php' )?>', data, function (response) {
+        jQuery.post('<?php echo admin_url( 'admin-ajax.php' ); ?>', data, function (response) {
             if (rating >= 4 )
                 window.open('https://wordpress.org/support/plugin/imbachat-widget/reviews/#postform')
         })

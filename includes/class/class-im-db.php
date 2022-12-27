@@ -3,13 +3,13 @@
  * ImbaChat DataBase Class
  *
  *
- * @class    IM_Curl
+ * @class    IMBACHAT_IM_Curl
  * @version  1.0.0
  * @category Admin
  * @author   SprayDev
  */
 
-class IM_DB {
+class IMBACHAT_IM_DB {
 
     protected $imdb;
 

@@ -4,7 +4,7 @@
  *
  * Form actions handler
  *
- * @class    IM_FORMS
+ * @class    IMBACHAT_IM_FORMS
  * @version  1.0.0
  * @category Class
  * @author   SprayDev
@@ -15,10 +15,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * IM_AJAX class
+ * IMBACHAT_IM_AJAX class
  */
 
-class IM_FORMS{
+class IMBACHAT_IM_FORMS{
 
     public static function init() {
         self::form_events();
@@ -43,9 +43,9 @@ class IM_FORMS{
             'dev_id' => get_option('IMCH_dev_id', ''),
             'reason' => $_REQUEST['IM_deactivation_reason']
         ];
-        IM_Curl::curl('deactivation_stat', 'POST', $data);
+        IMBACHAT_IM_Curl::curl('deactivation_stat', 'POST', $data);
         return wp_redirect($_REQUEST['deactivation_url'], 302);
     }
 }
 
-IM_FORMS::init();
+IMBACHAT_IM_FORMS::init();

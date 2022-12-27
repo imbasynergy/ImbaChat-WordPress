@@ -9,7 +9,7 @@ defined( 'ABSPATH' ) || exit;
  */
 if (class_exists('BP_Component'))
 {
-    class BP_Message_component extends BP_Component
+    class IMBACHAT_BP_Message_component extends BP_Component
     {
 
         public static function instance()
@@ -20,7 +20,7 @@ if (class_exists('BP_Component'))
 
             // Only run these methods if they haven't been run previously
             if ( null === $instance ) {
-                $instance = new BP_Message_component;
+                $instance = new IMBACHAT_BP_Message_component;
             }
 
             // Always return the instance
@@ -216,9 +216,9 @@ if (class_exists('BP_Component'))
         }
     }
 
-    function BP_Message_component()
+    function IMBACHAT_BP_Message_component()
     {
-        return BP_Message_component::instance();
+        return IMBACHAT_BP_Message_component::instance();
     }
 
 }

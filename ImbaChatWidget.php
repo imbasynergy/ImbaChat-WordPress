@@ -18,20 +18,20 @@ define( 'IMBACHAT__PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 
 define('IMBACHAT_ADMIN_DIR', plugin_dir_url(__FILE__ ).'admin');
 
-define('IM_PLUGIN_URL', untrailingslashit( plugins_url( '/', __FILE__ ) ));
+define('IMBACHAT_PLUGIN_URL', untrailingslashit( plugins_url( '/', __FILE__ ) ));
 
-define( 'IC_PLUGIN', __FILE__ );
+define( 'IMBACHAT_PLUGIN', __FILE__ );
 
 define('IMBACHAT_PLUGIN_FILE', __FILE__);
 
-define( 'IC_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
+define( 'IMBACHAT_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
 
-define( 'IC_PLUGIN_URL',
-    untrailingslashit( plugins_url( '', IC_PLUGIN ) ) );
+define( 'IMBACHAT_IC_PLUGIN_URL',
+    untrailingslashit( plugins_url( '', IMBACHAT_PLUGIN ) ) );
 
 /**
  * imbachat_activation_func
- * This function refers to the plugin activation hook -
+ * This function refers to the plugin activation hook
  * It is intended so that a form for feedback appears in the admin panel 2 hours after activation.
  */
 function imbachat_activation_func() {
@@ -80,22 +80,20 @@ register_activation_hook( __FILE__, 'imbachat_install_database' );
 
 register_uninstall_hook(__FILE__, 'imbachat_uninstall_feedback');
 function imbachat_uninstall_feedback() {
-	$post_data = [
-        'email' => get_option( 'admin_email' ),
-        'locale' => get_user_locale()
-    ];
-    $url = 'https://imbachat.com/v1/feedback';
-    $curl = curl_init();
-    curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
-    curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, FALSE);
-    curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
-    curl_setopt($curl, CURLOPT_TIMEOUT, 10);
-    curl_setopt($curl, CURLOPT_URL, $url);
-    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($curl, CURLOPT_POST, true);
-    curl_setopt($curl, CURLOPT_POSTFIELDS, $post_data);
-    $curlout = curl_exec($curl);
-    curl_close($curl);
+    $body = array(
+        'email'        => get_option( 'admin_email' ),
+        'locale'     => get_user_locale()
+    );
+    $args = array(
+        'body'        => $body,
+        'timeout'     => '10',
+        'redirection' => '5',
+        'httpversion' => '1.0',
+        'blocking'    => true,
+        'headers'     => array(),
+        'cookies'     => array(),
+    );
+    $response = wp_remote_post( 'https://imbachat.com/v1/feedback', $args );
 }
 
 //Connecting the main file, which contains all the functionality of the plugin

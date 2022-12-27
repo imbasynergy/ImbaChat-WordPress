@@ -4,7 +4,7 @@
  *
  * Custom blocks.
  *
- * @class    IM_Notice
+ * @class    IMBACHAT_IM_Notice
  * @version  1.0.0
  * @category Admin
  * @author   SprayDev
@@ -15,10 +15,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * IM_Notice Class
+ * IMBACHAT_IM_Notice Class
  */
 
-class IM_Notice{
+class IMBACHAT_IM_Notice{
 
     public static function init(){
         self::show_notices();
@@ -35,4 +35,4 @@ class IM_Notice{
         }
     }
 }
-IM_Notice::init();
+IMBACHAT_IM_Notice::init();

@@ -4,7 +4,7 @@
  *
  * Filters
  *
- * @class    IM_Filter
+ * @class    IMBACHAT_IM_Filter
  * @version  1.0.0
  * @category Admin
  * @author   SprayDev
@@ -15,10 +15,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * IM_Filter Class
+ * IMBACHAT_IM_Filter Class
  */
 
-class IM_Filter {
+class IMBACHAT_IM_Filter {
 
     public static function init(){
         self::add_filters();
@@ -28,7 +28,7 @@ class IM_Filter {
     }
 
     public static function add_wp_filters(){
-        $imdb = new IM_DB();
+        $imdb = new IMBACHAT_IM_DB();
         $wp_filters = [
             'the_content' => [
                 'function' => 'imbachat_the_content_filter',
@@ -56,7 +56,7 @@ class IM_Filter {
 
     public static function add_wc_filters()
     {
-        $imdb = new IM_DB();
+        $imdb = new IMBACHAT_IM_DB();
         $wc_filters = [
             'wcfm_after_product_catalog_enquiry_button' => [
                 'function' => 'single_product_write_vendor',
@@ -93,7 +93,7 @@ class IM_Filter {
 
     public static function add_wf_filters()
     {
-        $imdb = new IM_DB();
+        $imdb = new IMBACHAT_IM_DB();
         $wf_filters = [
             'wpforo_member_menu_filter' => [
                 'function' => 'wpforo_profile_message_tab',
@@ -149,8 +149,8 @@ class IM_Filter {
     public static function wpforo_profile_message_tab($menu, $user_id)
     {
         $btn_name_imbachat=__("Send message", "imbachat");
-        $menu = '<a class="wpf-profile-menu " href="javascript:void(0)" onclick="open_dialog('.$user_id.')"><i class="fas fa-comments"></i> <span class="wpf-profile-menu-label">'.$btn_name_imbachat.'</span></a>';
-        echo $menu;
+        //$menu = '<a class="wpf-profile-menu " href="javascript:void(0)" onclick="open_dialog('.$user_id.')"><i class="fas fa-comments"></i> <span class="wpf-profile-menu-label">'.$btn_name_imbachat.'</span></a>';
+        echo '<a class="wpf-profile-menu " href="javascript:void(0)" onclick="open_dialog('.esc_js($user_id).')"><i class="fas fa-comments"></i> <span class="wpf-profile-menu-label">'.esc_html($btn_name_imbachat).'</span></a>';
     }
 
     public static function loop_products_write_vendor($html, $product, $args) {
@@ -217,4 +217,4 @@ class IM_Filter {
     }
 }
 
-IM_Filter::init();
+IMBACHAT_IM_Filter::init();

@@ -1,10 +1,10 @@
 <form id="regForm" action="<?php echo admin_url( 'admin-post.php' ); ?>" method="post">
-    <input type="hidden" name="action" value="interactive_submit">
+    <input type="hidden" name="action" value="imbachat_interactive_submit">
 
     <!-- One "tab" for each step in the form: -->
     <div class="imba_tab">
         <div class="img_holder">
-            <img width="200" src="<?= IMBACHAT_ADMIN_DIR.'/assets/images/get_started/Step_1.png' ?>">
+            <img width="200" src="<?php echo IMBACHAT_ADMIN_DIR.'/assets/images/get_started/Step_1.png' ?>">
         </div>
         <h3 class="tab_title"><?php _e("Welcome to the ImbaChat!", "imbachat") ?></h3>
         <p class="text_center">
@@ -14,7 +14,7 @@
 
     <div class="imba_tab">
         <div class="img_holder">
-            <img width="200" src="<?= IMBACHAT_ADMIN_DIR.'/assets/images/get_started/step_2.jpg' ?>">
+            <img width="200" src="<?php echo IMBACHAT_ADMIN_DIR.'/assets/images/get_started/step_2.jpg' ?>">
         </div>
         <h3 class="tab_title">
             <?php _e("Users connection setting", "imbachat")?>
@@ -40,7 +40,7 @@
 
     <div class="imba_tab">
         <div class="img_holder">
-            <img width="200" src="<?= IMBACHAT_ADMIN_DIR.'/assets/images/get_started/step_3.jpg' ?>">
+            <img width="200" src="<?php echo IMBACHAT_ADMIN_DIR.'/assets/images/get_started/step_3.jpg' ?>">
         </div>
         <h3 class="tab_title"><?php _e("Language")?></h3>
         <div>
@@ -61,11 +61,11 @@
 
     <div class="imba_tab">
         <div class="img_holder">
-            <img width="200" src="<?= IMBACHAT_ADMIN_DIR.'/assets/images/get_started/step_4.jpg' ?>">
+            <img width="200" src="<?php echo IMBACHAT_ADMIN_DIR.'/assets/images/get_started/step_4.jpg' ?>">
         </div>
         <h3 class="tab_title"><?php _e("Style customization", "imbachat")?></h3>
         <p>
-            Open <a href="https://imbachat.com/visitor/login-user?token=<?php echo get_option('IMCH_secret_key') ?>">Admin Panel</a>
+            Open <a href="https://imbachat.com/visitor/login-user?token=<?php echo esc_attr(get_option('IMCH_secret_key')) ?>">Admin Panel</a>
             There you can see the Widget settings. Open Style Settings and change the widget appearance as you want.
             <a href="https://imbachat.com/en/blog/post/how-customize-widget">How to customize widget appearance.</a>
         </p>
@@ -73,7 +73,7 @@
 
     <div class="imba_tab">
         <div class="img_holder">
-            <img width="200" src="<?= IMBACHAT_ADMIN_DIR.'/assets/images/get_started/step_5.jpg' ?>">
+            <img width="200" src="<?php echo IMBACHAT_ADMIN_DIR.'/assets/images/get_started/step_5.jpg' ?>">
         </div>
         <h3 class="tab_title"><?php _e("Chat moderation")?></h3>
         <p> <?php _e("As a chat administrator, you can moderate the chat.", "imbachat")?>
@@ -81,7 +81,7 @@
             if ($db_link)
             {
                 ?>
-                <a href="<?= $db_link ?>"><?php _e("Here is the chat moderation admin panel.", "imbachat")?></a>
+                <a href="<?php echo esc_url( $db_link ); ?>"><?php _e("Here is the chat moderation admin panel.", "imbachat")?></a>
                 <?php
             }
             ?>
@@ -121,7 +121,7 @@
 
     <div class="imba_tab">
         <div class="img_holder">
-            <img alt="За стеклом" src="<?= IC_PLUGIN_URL.'/assets/images/check-mark.svg' ?>" >
+            <img alt="За стеклом" src="<?php echo IMBACHAT_IC_PLUGIN_URL.'/assets/images/check-mark.svg' ?>" >
         </div>
         <h3 class="tab_title"><?php _e("6. Now all done!", "imbachat")?></h3>
         <p class="text_center"><?php _e("ImbaChat plugin has been all set up. Enjoy the chat!", "imbachat")?></p>

@@ -2,7 +2,7 @@
 
 
 // The widget class
-class My_Custom_Widget extends WP_Widget {
+class IMBACHAT_My_Custom_Widget extends WP_Widget {
 
     // Main constructor
     // public function __construct() {
@@ -149,7 +149,7 @@ class My_Custom_Widget extends WP_Widget {
 }
 
 // Register the widget
-function my_register_custom_widget() {
-    register_widget( 'My_Custom_Widget' );
+function imbachat_my_register_custom_widget() {
+    register_widget( 'IMBACHAT_My_Custom_Widget' );
 }
-add_action( 'widgets_init', 'my_register_custom_widget' );
+add_action( 'widgets_init', 'imbachat_my_register_custom_widget' );
