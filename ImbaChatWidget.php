@@ -31,7 +31,7 @@ define( 'IC_PLUGIN_URL',
 
 /**
  * imbachat_activation_func
- * This function refers to the plugin activation hook
+ * This function refers to the plugin activation hook -
  * It is intended so that a form for feedback appears in the admin panel 2 hours after activation.
  */
 function imbachat_activation_func() {
