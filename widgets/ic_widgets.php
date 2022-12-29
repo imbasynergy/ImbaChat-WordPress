@@ -110,29 +110,29 @@ class IMBACHAT_My_Custom_Widget extends WP_Widget {
         $checkbox = ! empty( $instance['checkbox'] ) ? $instance['checkbox'] : false;
 
         // WordPress core before_widget hook (always include )
-        echo $before_widget;
+        echo wp_kses($before_widget);
 
         // Display the widget
         echo '<div class="widget-text wp_widget_plugin_box">';
 
         // Display widget title if defined
         if ( $title ) {
-            echo $before_title . $title . $after_title;
+            echo wp_kses($before_title) . esc_html($title) . wp_kses($after_title);
         }
 
         // Display text field
         if ( $text ) {
-            echo '<p>' . $text . '</p>';
+            echo '<p>' . esc_html($text) . '</p>';
         }
 
         // Display textarea field
         if ( $textarea ) {
-            echo '<p>' . $textarea . '</p>';
+            echo '<p>' . esc_textarea($textarea) . '</p>';
         }
 
         // Display select field
         if ( $select ) {
-            echo '<p>' . $select . '</p>';
+            echo '<p>' . esc_html($select) . '</p>';
         }
 
         // Display something if checkbox is true
@@ -143,7 +143,7 @@ class IMBACHAT_My_Custom_Widget extends WP_Widget {
         echo '</div>';
 
         // WordPress core after_widget hook (always include )
-        echo $after_widget;
+        echo wp_kses($after_widget);
     }
 
 }

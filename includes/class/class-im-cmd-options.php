@@ -146,8 +146,9 @@ class IMBACHAT_IM_CMD {
     {
 
 
-        $dev_id = $_REQUEST['widget_id'];
-        $result_synk = sync_with_imba_api($dev_id, $_SERVER['HTTP_HOST']!='' ? $_SERVER['HTTP_HOST'] : preg_replace('#https?://(www.)?#','',site_url()), get_option( 'admin_email' ));
+        $dev_id = sanitize_text_field($_REQUEST['widget_id']);
+
+        $result_synk = sync_with_imba_api($dev_id, sanitize_text_field($_SERVER['HTTP_HOST'])!='' ? sanitize_text_field($_SERVER['HTTP_HOST']) : preg_replace('#https?://(www.)?#','',site_url()), get_option( 'admin_email' ));
         if ($result_synk == 'error_connect') {
             wp_redirect(admin_url( 'admin.php' ).'?page=imbachat-settings&error=true', 302);
             exit();
@@ -198,7 +199,13 @@ class IMBACHAT_IM_CMD {
         $filters = array_map(function ($filter){
             return $filter->id;
         }, $imdb->get_all('imbachat_hooks'));
-        $params = isset($_POST['integrations']) ? $_POST['integrations'] : [];
+        $imbachat_array_sanitiz=[];
+        if(($_POST['integrations'])){
+            foreach ($_POST['integrations'] as $key => $value){
+                $imbachat_array_sanitiz[$key] = sanitize_text_field($value);
+            }
+        }
+        $params = isset($_POST['integrations']) ? $imbachat_array_sanitiz  : [];
         $disable_filters = array_filter($filters, function ($filter) use ($params){
             return !in_array($filter, $params);
         });
@@ -213,8 +220,8 @@ class IMBACHAT_IM_CMD {
 
     public static function imbachat_users_settings_on_save()
     {
-        update_option('im_user_field', $_POST['user_field']);
-        update_option('im_user_search_type', $_POST['search_type']);
+        update_option('im_user_field', sanitize_text_field($_POST['user_field']));
+        update_option('im_user_search_type', sanitize_text_field($_POST['search_type']));
     }
     public static function imbachat_users_settings()
     {

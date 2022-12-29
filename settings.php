@@ -57,7 +57,6 @@ add_action('wp_loaded', function (){
 });
 function imbachat_load_jquery() {
     if ( ! wp_script_is( 'jquery', 'enqueued' )) {
-        wp_register_script('jquery', IMBACHAT_IC_PLUGIN_URL.'/assets/js/jquery.min.js','','', true);
         wp_enqueue_script( 'jquery');
     }
 }
@@ -121,7 +120,7 @@ function imbachat_do_imba_wp_stat(){
             if (get_option('IMCH_dev_id') == '' || get_option('IMCH_dev_id' == '276'))
             {
 
-                sync_with_imba_api(-1, sanitize_url($_SERVER['HTTP_HOST'])!='' ? sanitize_url($_SERVER['HTTP_HOST']) : preg_replace('#https?://(www.)?#','',site_url()), get_option( 'admin_email' ));
+                sync_with_imba_api(-1, sanitize_text_field($_SERVER['HTTP_HOST'])!='' ? sanitize_text_field($_SERVER['HTTP_HOST']) : preg_replace('#https?://(www.)?#','',site_url()), get_option( 'admin_email' ));
             }
 
             $apl=get_option('active_plugins');
@@ -133,7 +132,7 @@ function imbachat_do_imba_wp_stat(){
             
 
             $post_data = [
-                'host' => sanitize_url($_SERVER['HTTP_HOST']),
+                'host' => sanitize_text_field($_SERVER['HTTP_HOST']),
                 'lang' => get_locale(),
                 'name' => sanitize_text_field($_SERVER['SERVER_NAME']),
                 'plugins' => $apl,

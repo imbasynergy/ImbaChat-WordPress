@@ -74,7 +74,7 @@ function imbachat_send_wp_stat(){
     ], 'plugin');
 
     $post_data = [
-        'host' => sanitize_url($_SERVER['HTTP_HOST']),
+        'host' => sanitize_text_field($_SERVER['HTTP_HOST']),
         'lang' => get_locale(),
         'name' => sanitize_text_field($_SERVER['SERVER_NAME']),
         'plugins' => $apl,

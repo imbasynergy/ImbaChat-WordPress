@@ -67,7 +67,7 @@ function imbachat_add_my_setting(){
             update_option('IMCH_login', $IMCH_login);
             update_option('IMCH_password', $IMCH_password);
             update_option('IMCH_secret_key', $IMCH_secret_key);
-            sync_with_imba_api($IMCH_dev_id, sanitize_url($_SERVER['HTTP_HOST'])!='' ? sanitize_url($_SERVER['HTTP_HOST']) : preg_replace('#https?://(www.)?#','',site_url()), sanitize_email(get_option( 'admin_email' )));
+            sync_with_imba_api($IMCH_dev_id, sanitize_text_field($_SERVER['HTTP_HOST'])!='' ? sanitize_text_field($_SERVER['HTTP_HOST']) : preg_replace('#https?://(www.)?#','',site_url()), sanitize_email(get_option( 'admin_email' )));
         }
 
         require_once IMBACHAT__PLUGIN_DIR . '/view/admin_menu/settings.php';
@@ -170,7 +170,7 @@ function imbachat_add_my_setting(){
     function sync_with_imbachat(){
 
         $dev_id = sanitize_text_field($_REQUEST['IMCH_dev_id']);
-        sync_with_imba_api($dev_id, sanitize_url($_SERVER['HTTP_HOST'])!='' ? sanitize_url($_SERVER['HTTP_HOST']) : preg_replace('#https?://(www.)?#','',site_url()), sanitize_email(get_option( 'admin_email' )));
+        sync_with_imba_api($dev_id, sanitize_text_field($_SERVER['HTTP_HOST'])!='' ? sanitize_text_field($_SERVER['HTTP_HOST']) : preg_replace('#https?://(www.)?#','',site_url()), sanitize_email(get_option( 'admin_email' )));
         wp_redirect(admin_url( 'admin.php' ).'?page=imbachat-settings&success=1', 302);
     }
 
@@ -183,12 +183,12 @@ function imbachat_add_my_setting(){
     //ajax functions
     function imbachat_save_users_settings()
     {
-        $params = $_REQUEST['param'];
-        if (isset($params['user_field']))
+        //$params = $_REQUEST['param'];
+        if (isset($_REQUEST['param']['user_field']))
         {
-            update_option('im_user_field', sanitize_text_field($params['user_field']));
+            update_option('im_user_field', sanitize_text_field($_REQUEST['param']['user_field']));
 
-            update_option('im_user_search_type', sanitize_text_field($params['search_type']));
+            update_option('im_user_search_type', sanitize_text_field($_REQUEST['param']['search_type']));
         }
         echo(json_encode( array('status'=>true,'request_vars'=>$_REQUEST) ));
         wp_die();
@@ -223,10 +223,10 @@ function imbachat_add_my_setting(){
             $response = wp_remote_post( $url, $args );
             if ( is_wp_error( $response ) ) {
                 $error_message = $response->get_error_message();
-                echo "error host could not be reached: $error_message";
+                echo "error host could not be reached:". wp_kses($error_message);
              } 
             $curlout =  wp_remote_retrieve_body($response);
-            echo $curlout;
+            echo wp_kses_data($curlout);
              wp_die();
         } catch (Exception $exception) {
             echo 'error_connect';
