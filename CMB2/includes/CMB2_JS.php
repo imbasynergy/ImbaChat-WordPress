@@ -241,7 +241,7 @@ class CMB2_JS {
 				'remove_file'  => esc_html__( 'Remove', 'cmb2' ),
 				'file'         => esc_html__( 'File:', 'cmb2' ),
 				'download'     => esc_html__( 'Download', 'cmb2' ),
-				'check_toggle' => esc_html__( 'Enable / Disable All', 'cmb2' ),
+				'check_toggle' => esc_html__( 'Select / Deselect All', 'cmb2' ),
 			),
 		);
 

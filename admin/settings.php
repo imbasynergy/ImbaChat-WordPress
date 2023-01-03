@@ -73,10 +73,6 @@ function imbachat_add_my_setting(){
         require_once IMBACHAT__PLUGIN_DIR . '/view/admin_menu/settings.php';
     }
 
-    function imbachat_admin_panel()
-    {
-        require_once IMBACHAT__PLUGIN_DIR . '/view/admin_menu/imba_frame.php';
-    }
 
     function imbachat_links()
     {

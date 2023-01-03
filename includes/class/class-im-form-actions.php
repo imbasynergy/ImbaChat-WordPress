@@ -41,10 +41,10 @@ class IMBACHAT_IM_FORMS{
     public static function deactivation_reason() {
         $data = [
             'dev_id' => get_option('IMCH_dev_id', ''),
-            'reason' => $_REQUEST['IM_deactivation_reason']
+            'reason' => sanitize_text_field($_REQUEST['IM_deactivation_reason'])
         ];
         IMBACHAT_IM_Curl::curl('deactivation_stat', 'POST', $data);
-        return wp_redirect($_REQUEST['deactivation_url'], 302);
+        return wp_redirect(sanitize_text_field($_REQUEST['deactivation_url']), 302);
     }
 }
 
