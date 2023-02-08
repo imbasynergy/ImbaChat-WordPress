@@ -17,5 +17,5 @@ jobs:
     env:
       SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
       SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
-      SVN_VERSION: '3.0.8'
-      SVN_TEXT_COMMIT: 'updating readme'
+      SVN_VERSION: '3.0.9'
+      SVN_TEXT_COMMIT: 'admin menu function update'
