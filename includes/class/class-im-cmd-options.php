@@ -178,8 +178,8 @@ class IMBACHAT_IM_CMD {
         $filters = $imdb->get_all('imbachat_hooks');
 
         $options = [];
-        foreach ($filters as $filter) {
-            $options[$filter->id] = $filter->description;
+        for ($i=0; $i < 4 ; $i++) { 
+            $options[$filters[$i]->id] = $filters[$i]->description;
         }
 
 
