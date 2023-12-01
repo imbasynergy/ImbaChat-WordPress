@@ -33,6 +33,7 @@ class IMBACHAT_IM_API {
         foreach ($api_filters as $key => $api_filter) {
             add_filter( 'rest_request_before_callbacks', array(__CLASS__, 'imbachat_after_api_'.$key), 10, 3 );
         }
+        add_filter( 'imbachat_permissions', array(__CLASS__, 'imbachat_after_api_get_users'), 10, 3 );
     }
 
     public static function imbachat_after_api_get_users($response, $handler, $request)
