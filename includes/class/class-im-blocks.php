@@ -43,7 +43,7 @@ class IMBACHAT_IM_Blocks {
         ];
 
         foreach ($categories as $k => $category){
-            add_filter( 'block_categories',array( 'IM_Blocks', 'imbachat_chats_block_category' ), 10, 2);
+            add_filter( 'block_categories_imbachat',array( 'IM_Blocks', 'imbachat_chats_block_category' ), 10, 2);
         }
     }
 

@@ -83,6 +83,9 @@ Browsers require a secure connection (HTTPS) for accessing a deviceРІР‚в�
 
 == Changelog ==
 
+= 3.1.3 =
+* New feature: Updating function 
+
 = 3.1.2 =
 * New feature: Updating function 
 
