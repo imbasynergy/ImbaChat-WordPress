@@ -1,6 +1,5 @@
 === ImbaChat ===
 Contributors: imbasynergy
-Donate link: paypal.me/TrapenokVictor
 Tags: chat, community, chat room, embed chat, chat plugin, chat widget, buddypress, messages, private message, sweetdate chat plugin, WCFM chat plugin, live chat, group chat, member chat, private messaging system, floating chat widget, video conference, video call, webcam, webinar, video chat, videochat.
 Requires at least: 4.6
 Tested up to: 6.2
