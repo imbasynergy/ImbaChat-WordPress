@@ -3,8 +3,6 @@
 
 Contributors: imbasynergy
 
-Donate link: paypal.me/TrapenokVictor
-
 Requires at least: 4.6
 
 Tested up to: 6.1
